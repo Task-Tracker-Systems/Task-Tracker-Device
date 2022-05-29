@@ -1,3 +1,9 @@
 [submodule "time-tracker-src/libraries/Adafruit_SSD1306"]
 	path = time-tracker-src/libraries/Adafruit_SSD1306
 	url = https://github.com/adafruit/Adafruit_SSD1306.git
+[submodule "time-tracker-src/libraries/Adafruit-GFX-Library"]
+	path = time-tracker-src/libraries/Adafruit-GFX-Library
+	url = https://github.com/adafruit/Adafruit-GFX-Library.git
+[submodule "time-tracker-src/libraries/Adafruit_BusIO"]
+	path = time-tracker-src/libraries/Adafruit_BusIO
+	url = https://github.com/adafruit/Adafruit_BusIO.git
