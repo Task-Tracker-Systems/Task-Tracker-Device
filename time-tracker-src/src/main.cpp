@@ -1,4 +1,6 @@
+#include "main.hpp"
 #include "display.h"
+#include <Arduino.h>
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -39,7 +41,8 @@ namespace OutputShiftRegister
 
 }
 
-void setup()
+namespace main{
+void setup(char const *)
 {
   // put your setup code here, to run once:
   Serial.begin(115200);
@@ -50,7 +53,6 @@ void setup()
   setup_display();
   OutputShiftRegister::setup();
 }
-
 void loop()
 {
   // Step 1: Sample
@@ -79,4 +81,5 @@ void loop()
   else output <<= 1;
 
   testanimate(); // Animate bitmaps
+}
 }
