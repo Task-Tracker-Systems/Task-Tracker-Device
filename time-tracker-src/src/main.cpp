@@ -1,6 +1,10 @@
 #include "main.hpp"
 #include "display.h"
+#include "pitches.hpp"
+//#include <ESP32Tone.h>
 #include <Arduino.h>
+#include <cstdint>
+#include <cmath>
 
 namespace OutputShiftRegister
 {
@@ -47,19 +51,52 @@ namespace InputShiftRegister
   }
 }
 
+/**
+ *
+ * @return 1-8 or 0 in case of no event
+ */
+static std::uint8_t getEvent()
+{
+  static InputShiftRegister::RegisterType oldValue = 0;
+  const InputShiftRegister::RegisterType newValue = InputShiftRegister::getRegister();
+  std::uint8_t result = 0;
+  if(newValue != 0 && oldValue == 0)
+  {
+    result = std::log2(newValue<<1);
+  }
+  oldValue = newValue;
+  return result;
+}
+
+constexpr int pin_buzzer = 4;
+
 namespace main{
-void setup(char const *)
+void setup(char const * programIdentificationString)
 {
   // put your setup code here, to run once:
-  Serial.begin(115200);
-  Serial.println("Hello, ESP32!");
-  setup_display();
+  pinMode(pin_buzzer, OUTPUT);
   OutputShiftRegister::setup();
   InputShiftRegister::setup();
+  setup_display();
+  Serial.begin(115200);
+  delay(100);
+  Serial.flush();
+  delay(100);
+  Serial.printf("\n begin program '%s'\n", programIdentificationString);
 }
 void loop()
 {
-  OutputShiftRegister::setRegister(InputShiftRegister::getRegister());
+  const auto event = getEvent();
+  if (event)
+  {
+    constexpr std::uint16_t notes[] = { note::C4, note::G3, note::A3, note::B3, note::D1, note::E1, note::F1, note::G1 };
+    OutputShiftRegister::setRegister(1 << (event - 1));
+    tone(pin_buzzer, notes[event-1], 250);
+  }
+  else
+  {
+    OutputShiftRegister::setRegister(0);
+  }
   delay(100);
   testanimate(); // Animate bitmaps
 }
