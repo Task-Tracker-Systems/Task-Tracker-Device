@@ -25,18 +25,9 @@ namespace OutputShiftRegister
 
   void setRegister(const uint8_t data)
   {
-    // Step 1: Sample
     digitalWrite(pin_latch, LOW);
-    delayMicroseconds(1);
+    shiftOut(pin_data, pin_clock, LSBFIRST, data);
     digitalWrite(pin_latch, HIGH);
-
-    // Step 2: Shift
-    for (int i = 0; i < numBits; i++) {
-      digitalWrite(pin_data, (data & (1u << i)) ? HIGH : LOW);
-      digitalWrite(pin_clock, HIGH); // Shift out the next bit
-      delayMicroseconds(1); // at least 200ns
-      digitalWrite(pin_clock, LOW);
-    }
   }
 
 }
