@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2022 David Hebbeker
+Copyright (c) 2022 David Hebbeker & Marcel Walter
 and [contributors](https://github.com/dhebbeker/task-tracker/graphs/contributors "list of all contributors")
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
