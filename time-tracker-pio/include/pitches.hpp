@@ -93,4 +93,4 @@ constexpr std::uint16_t C8 = 4186;
 constexpr std::uint16_t CS8 = 4435;
 constexpr std::uint16_t D8 = 4699;
 constexpr std::uint16_t DS8 = 4978;
-}
+} // namespace note
