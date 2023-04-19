@@ -1,0 +1,5 @@
+# Style configuration for code formatter Clang-Format (part of LLVM)
+BasedOnStyle: Microsoft
+ReflowComments: false
+ColumnLimit: 0
+

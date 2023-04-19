@@ -4,10 +4,10 @@ const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " _
 
 void setup()
 {
-  main::setup(programIdentificationString);
+    main::setup(programIdentificationString);
 }
 
 void loop()
 {
-  main::loop();
+    main::loop();
 }
