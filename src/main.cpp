@@ -1,4 +1,5 @@
 #include "main.hpp"
+#include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
 //#include <ESP32Tone.h>
@@ -8,46 +9,42 @@
 
 namespace OutputShiftRegister
 {
-constexpr int pin_data = 14;
-constexpr int pin_latch = 13;
-constexpr int pin_clock = 5;
+using namespace board::osr;
 
 void setup()
 {
-    pinMode(pin_data, OUTPUT);
-    pinMode(pin_latch, OUTPUT);
-    pinMode(pin_clock, OUTPUT);
+    pinMode(pin::data, OUTPUT);
+    pinMode(pin::latch, OUTPUT);
+    pinMode(pin::clock, OUTPUT);
 }
 
 void setRegister(const uint8_t data)
 {
-    digitalWrite(pin_latch, LOW);
-    shiftOut(pin_data, pin_clock, LSBFIRST, data);
-    digitalWrite(pin_latch, HIGH);
+    digitalWrite(pin::latch, LOW);
+    shiftOut(pin::data, pin::clock, LSBFIRST, data);
+    digitalWrite(pin::latch, HIGH);
 }
 } // namespace OutputShiftRegister
 
 namespace InputShiftRegister
 {
-constexpr int pin_data = 34;
-constexpr int pin_latch = 12;
-constexpr int pin_clock = 23;
+using namespace board::isr;
 
 void setup()
 {
-    pinMode(pin_data, INPUT);
-    pinMode(pin_latch, OUTPUT);
-    pinMode(pin_clock, OUTPUT);
+    pinMode(pin::data, INPUT);
+    pinMode(pin::latch, OUTPUT);
+    pinMode(pin::clock, OUTPUT);
 }
 
 typedef decltype(shiftIn(0, 0, LSBFIRST)) RegisterType;
 
 RegisterType getRegister()
 {
-    digitalWrite(pin_latch, LOW);
+    digitalWrite(pin::latch, LOW);
     delayMicroseconds(1); // at least 200ns
-    digitalWrite(pin_latch, HIGH);
-    return shiftIn(pin_data, pin_clock, LSBFIRST);
+    digitalWrite(pin::latch, HIGH);
+    return shiftIn(pin::data, pin::clock, LSBFIRST);
 }
 } // namespace InputShiftRegister
 
@@ -68,14 +65,12 @@ static std::uint8_t getEvent()
     return result;
 }
 
-constexpr int pin_buzzer = 4;
-
 namespace main
 {
 void setup(char const *programIdentificationString)
 {
     // put your setup code here, to run once:
-    pinMode(pin_buzzer, OUTPUT);
+    pinMode(board::buzzer::pin::on_off, OUTPUT);
     OutputShiftRegister::setup();
     InputShiftRegister::setup();
     setup_display();
@@ -92,7 +87,7 @@ void loop()
     {
         constexpr std::uint16_t notes[] = {note::c4, note::g3, note::a3, note::b3, note::d1, note::e1, note::f1, note::g1};
         OutputShiftRegister::setRegister(1 << (event - 1));
-        tone(pin_buzzer, notes[event - 1], 250);
+        tone(board::buzzer::pin::on_off, notes[event - 1], 250);
     }
     else
     {
