@@ -58,9 +58,9 @@ constexpr PinType latch = 12;
 /**
  * Serial clock for shift register.
  * 
- * Label on board: D23
+ * Label on board: D5
  */
-constexpr PinType clock = 23;
+constexpr PinType clock = 5;
 } // namespace isr::pin
 
 /**
