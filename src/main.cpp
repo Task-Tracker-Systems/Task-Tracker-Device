@@ -4,27 +4,14 @@
 #include "pitches.hpp"
 //#include <ESP32Tone.h>
 #include <Arduino.h>
+#include <ShiftRegister74HC595.h>
 #include <cmath>
 #include <cstdint>
 
-namespace OutputShiftRegister
-{
-using namespace board::osr;
-
-void setup()
-{
-    pinMode(pin::data, OUTPUT);
-    pinMode(pin::latch, OUTPUT);
-    pinMode(pin::clock, OUTPUT);
-}
-
-void setRegister(const uint8_t data)
-{
-    digitalWrite(pin::latch, LOW);
-    shiftOut(pin::data, pin::clock, LSBFIRST, data);
-    digitalWrite(pin::latch, HIGH);
-}
-} // namespace OutputShiftRegister
+/**
+ * Output shift registers with most significant bit first.
+ */
+ShiftRegister74HC595<1U> outputShiftRegister(board::osr::pin::data, board::osr::pin::clock, board::osr::pin::latch);
 
 namespace InputShiftRegister
 {
@@ -71,7 +58,6 @@ void setup(char const *programIdentificationString)
 {
     // put your setup code here, to run once:
     pinMode(board::buzzer::pin::on_off, OUTPUT);
-    OutputShiftRegister::setup();
     InputShiftRegister::setup();
     setup_display();
     Serial.begin(115200);
@@ -86,12 +72,13 @@ void loop()
     if (event)
     {
         constexpr std::uint16_t notes[] = {note::c4, note::g3, note::a3, note::b3, note::d1, note::e1, note::f1, note::g1};
-        OutputShiftRegister::setRegister(1 << (event - 1));
+        const std::uint8_t newRegisterValue = 1 << (8 - event);
+        outputShiftRegister.setAll(&newRegisterValue);
         tone(board::buzzer::pin::on_off, notes[event - 1], 250);
     }
     else
     {
-        OutputShiftRegister::setRegister(0);
+        outputShiftRegister.setAllLow();
     }
     delay(100);
     testanimate(); // Animate bitmaps
