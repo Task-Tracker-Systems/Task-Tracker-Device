@@ -8,16 +8,10 @@
 #include <cmath>
 #include <cstdint>
 
-namespace OutputShiftRegister
-{
-using namespace board::osr;
-
 /**
  * Output shift registers with most significant bit first.
  */
-ShiftRegister74HC595<1U> outputShiftRegister(pin::data, pin::clock, pin::latch);
-
-} // namespace OutputShiftRegister
+ShiftRegister74HC595<1U> outputShiftRegister(board::osr::pin::data, board::osr::pin::clock, board::osr::pin::latch);
 
 namespace InputShiftRegister
 {
@@ -79,12 +73,12 @@ void loop()
     {
         constexpr std::uint16_t notes[] = {note::c4, note::g3, note::a3, note::b3, note::d1, note::e1, note::f1, note::g1};
         const std::uint8_t newRegisterValue = 1 << (8 - event);
-        OutputShiftRegister::outputShiftRegister.setAll(&newRegisterValue);
+        outputShiftRegister.setAll(&newRegisterValue);
         tone(board::buzzer::pin::on_off, notes[event - 1], 250);
     }
     else
     {
-        OutputShiftRegister::outputShiftRegister.setAllLow();
+        outputShiftRegister.setAllLow();
     }
     delay(100);
     testanimate(); // Animate bitmaps
