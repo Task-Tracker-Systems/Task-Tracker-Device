@@ -4,6 +4,7 @@
 #include "pitches.hpp"
 //#include <ESP32Tone.h>
 #include <Arduino.h>
+#include <RoxMux.h>
 #include <ShiftRegister74HC595.h>
 #include <cmath>
 #include <cstdint>
@@ -13,27 +14,7 @@
  */
 ShiftRegister74HC595<1U> outputShiftRegister(board::osr::pin::data, board::osr::pin::clock, board::osr::pin::latch);
 
-namespace InputShiftRegister
-{
-using namespace board::isr;
-
-void setup()
-{
-    pinMode(pin::data, INPUT);
-    pinMode(pin::latch, OUTPUT);
-    pinMode(pin::clock, OUTPUT);
-}
-
-typedef decltype(shiftIn(0, 0, LSBFIRST)) RegisterType;
-
-RegisterType getRegister()
-{
-    digitalWrite(pin::latch, LOW);
-    delayMicroseconds(1); // at least 200ns
-    digitalWrite(pin::latch, HIGH);
-    return shiftIn(pin::data, pin::clock, LSBFIRST);
-}
-} // namespace InputShiftRegister
+Rox74HC165<1U> inputShiftRegister;
 
 /**
  *
@@ -41,12 +22,24 @@ RegisterType getRegister()
  */
 static std::uint8_t getEvent()
 {
-    static InputShiftRegister::RegisterType oldValue = 0;
-    const InputShiftRegister::RegisterType newValue = InputShiftRegister::getRegister();
+    static std::uint8_t oldValue = 0U;
+    std::uint8_t newValue = 0U;
+
+    inputShiftRegister.update();
+    const auto numberOfPins = inputShiftRegister.getLength();
+    for (std::uint8_t newValueCand = numberOfPins; newValueCand > 0; newValueCand--)
+    {
+        if (inputShiftRegister.readPin(numberOfPins - newValueCand))
+        {
+            newValue = newValueCand;
+            break;
+        }
+    }
+
     std::uint8_t result = 0;
     if (newValue != 0 && oldValue == 0)
     {
-        result = std::log2(newValue << 1);
+        result = newValue;
     }
     oldValue = newValue;
     return result;
@@ -58,7 +51,7 @@ void setup(char const *programIdentificationString)
 {
     // put your setup code here, to run once:
     pinMode(board::buzzer::pin::on_off, OUTPUT);
-    InputShiftRegister::setup();
+    inputShiftRegister.begin(board::isr::pin::data, board::isr::pin::latch, board::isr::pin::clock);
     setup_display();
     Serial.begin(115200);
     delay(100);
