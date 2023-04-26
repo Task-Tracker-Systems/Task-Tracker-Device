@@ -15,24 +15,17 @@ namespace osr::pin
 
 /**
  * Serial data input to shift register.
- * 
- * Label on board: D14
  */
-constexpr PinType data = 14;
-
+constexpr PinType data = 13;
 /**
  * Storage (latch) pin.
- * 
- * Label on board: D13
  */
-constexpr PinType latch = 13;
+constexpr PinType latch = 12;
 
 /**
  * Serial clock for shift register.
- * 
- * Label on board: D5
  */
-constexpr PinType clock = 5;
+constexpr PinType clock = 11;
 } // namespace osr::pin
 
 /**
@@ -43,24 +36,18 @@ namespace isr::pin
 
 /**
  * Serial data output from shift register.
- * 
- * Label on board: D34
  */
-constexpr PinType data = 34;
+constexpr PinType data = 10;
 
 /**
  * Parallel load (latch) pin.
- * 
- * Label on board: D12
  */
-constexpr PinType latch = 12;
+constexpr PinType latch = 9;
 
 /**
  * Serial clock for shift register.
- * 
- * Label on board: D5
  */
-constexpr PinType clock = 5;
+constexpr PinType clock = 11;
 } // namespace isr::pin
 
 /**
@@ -70,10 +57,24 @@ namespace buzzer::pin
 {
 /**
  * Powers pin of the buzzer.
- * 
- * Label on board: D4
  */
-constexpr PinType on_off = 4;
+constexpr PinType on_off = 14;
 } // namespace buzzer::pin
+
+/**
+ * Pins for I2C controller 1.
+ */
+namespace i2c_1::pin
+{
+/**
+ * Serial data.
+ */
+constexpr PinType sda = 42;
+
+/**
+ * Serial clock.
+ */
+constexpr PinType scl = 41;
+} // namespace i2c_1::pin
 
 } // namespace board
