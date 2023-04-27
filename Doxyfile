@@ -1,0 +1,17 @@
+PROJECT_NAME           = Task Tracker
+OUTPUT_DIRECTORY       = doc
+EXTENSION_MAPPING      = ino=C++
+EXTRACT_ALL            = YES
+INPUT                 += .
+FILE_PATTERNS         += *.ino
+RECURSIVE              = YES
+USE_MDFILE_AS_MAINPAGE = ./README.md
+UML_LOOK               = YES
+DIR_GRAPH_MAX_DEPTH    = 2
+DIRECTORY_GRAPH = YES
+DOT_IMAGE_FORMAT       = svg
+USE_MATHJAX            = YES
+HTML_TIMESTAMP         = YES
+JAVADOC_AUTOBRIEF      = YES
+HTML_FILE_EXTENSION    = .xhtml
+IMAGE_PATH            += doc/
