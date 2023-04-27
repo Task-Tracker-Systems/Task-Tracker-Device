@@ -2,11 +2,9 @@
 #include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
-//#include <ESP32Tone.h>
 #include <Arduino.h>
 #include <RoxMux.h>
 #include <ShiftRegister74HC595.h>
-#include <cmath>
 #include <cstdint>
 
 /**
@@ -14,11 +12,13 @@
  */
 ShiftRegister74HC595<1U> outputShiftRegister(board::osr::pin::data, board::osr::pin::clock, board::osr::pin::latch);
 
+/**
+ * Input shift register.
+ */
 Rox74HC165<1U> inputShiftRegister;
 
 /**
- *
- * @return 1-8 or 0 in case of no event
+ * @returns 1-8 or 0 in case of no event
  */
 static std::uint8_t getEvent()
 {
@@ -49,7 +49,6 @@ namespace main
 {
 void setup(char const *programIdentificationString)
 {
-    // put your setup code here, to run once:
     pinMode(board::buzzer::pin::on_off, OUTPUT);
     inputShiftRegister.begin(board::isr::pin::data, board::isr::pin::latch, board::isr::pin::clock);
     setup_display();
