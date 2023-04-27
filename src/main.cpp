@@ -64,6 +64,7 @@ void loop()
     const auto event = getEvent();
     if (event)
     {
+        Serial.printf("Process event '%u'.\n", event);
         constexpr std::uint16_t notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
         const std::uint8_t newRegisterValue = 1 << (8 - event);
         outputShiftRegister.setAll(&newRegisterValue);
