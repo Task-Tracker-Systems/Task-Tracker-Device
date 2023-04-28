@@ -38,6 +38,7 @@ class Task
     const String &getLabel() const;
     void setLabel(const String &label);
     Duration getRecordedDuration() const;
+    bool isIsRunning() const;
 
   private:
     Duration recordedDuration;
