@@ -6,7 +6,7 @@ template <class ShiftRegister>
 class ShiftRegisterStatusIndicator : public StatusIndicator
 {
   public:
-    ShiftRegisterStatusIndicator(const ShiftRegister &outputShiftRegister, const std::uint8_t pin);
+    ShiftRegisterStatusIndicator(ShiftRegister &outputShiftRegister, const std::uint8_t pin);
     virtual void off() override;
     virtual void on() override;
 
@@ -16,7 +16,7 @@ class ShiftRegisterStatusIndicator : public StatusIndicator
 };
 
 template <class ShiftRegister>
-ShiftRegisterStatusIndicator<ShiftRegister> createShiftRegisterStatusIndicator(const ShiftRegister &outputShiftRegister, const std::uint8_t pin)
+ShiftRegisterStatusIndicator<ShiftRegister> createShiftRegisterStatusIndicator(ShiftRegister &outputShiftRegister, const std::uint8_t pin)
 {
     return ShiftRegisterStatusIndicator<ShiftRegister>(outputShiftRegister, pin);
 }

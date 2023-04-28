@@ -9,9 +9,9 @@ class Task;
 class Controller
 {
   public:
-    constexpr std::size_t numberOfStatusIndicators = 4;
+    static constexpr std::size_t numberOfStatusIndicators = 4;
     typedef std::array<StatusIndicator *const, numberOfStatusIndicators> StatusIndicators;
-    typedef std::vector<Task &> Tasks;
+    typedef std::vector<Task *> Tasks;
     enum Event
     {
         NONE,

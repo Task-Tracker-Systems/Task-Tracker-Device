@@ -34,14 +34,14 @@ void Controller::processEvent(const Event event)
 
 void Controller::processTask(const std::size_t taskIndex)
 {
-    if (!tasks[taskIndex].isIsRunning())
+    if (!tasks[taskIndex]->isIsRunning())
     {
-        tasks[taskIndex].start();
+        tasks[taskIndex]->start();
         statusIndicators[getStatusIndicatorIndexForTask(taskIndex)]->on();
     }
     else
     {
-        tasks[taskIndex].stop();
+        tasks[taskIndex]->stop();
         statusIndicators[getStatusIndicatorIndexForTask(taskIndex)]->off();
     }
 }

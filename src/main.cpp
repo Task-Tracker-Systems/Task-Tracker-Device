@@ -57,7 +57,7 @@ static auto led2 = createShiftRegisterStatusIndicator(outputShiftRegister, 1);
 static auto led3 = createShiftRegisterStatusIndicator(outputShiftRegister, 2);
 static auto led4 = createShiftRegisterStatusIndicator(outputShiftRegister, 3);
 static const Controller::StatusIndicators statusIndicators{&led1, &led2, &led3, &led4};
-static const Controller::Tasks tasks{task1, task2, task3, task4};
+static const Controller::Tasks tasks{&task1, &task2, &task3, &task4};
 static Controller controller(statusIndicators, tasks);
 
 namespace main

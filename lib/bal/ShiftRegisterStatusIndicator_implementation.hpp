@@ -9,7 +9,7 @@ void ShiftRegisterStatusIndicator<ShiftRegister>::off()
 }
 
 template <class ShiftRegister>
-ShiftRegisterStatusIndicator<ShiftRegister>::ShiftRegisterStatusIndicator(const ShiftRegister &outputShiftRegister, const std::uint8_t pinToUse)
+ShiftRegisterStatusIndicator<ShiftRegister>::ShiftRegisterStatusIndicator(ShiftRegister &outputShiftRegister, const std::uint8_t pinToUse)
     : shiftRegister(outputShiftRegister), pin(pinToUse)
 {
 }
