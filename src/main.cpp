@@ -2,6 +2,9 @@
 #include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
+#include "Controller.hpp"
+#include "ShiftRegisterStatusIndicator.hpp"
+#include "Task.hpp"
 #include <Arduino.h>
 #include <RoxMux.h>
 #include <ShiftRegister74HC595.h>
@@ -45,6 +48,18 @@ static std::uint8_t getEvent()
     return result;
 }
 
+static Task task1(L"first");
+static Task task2(L"second");
+static Task task3(L"third");
+static Task task4(L"forth");
+static auto led1 = createShiftRegisterStatusIndicator(outputShiftRegister, 0);
+static auto led2 = createShiftRegisterStatusIndicator(outputShiftRegister, 1);
+static auto led3 = createShiftRegisterStatusIndicator(outputShiftRegister, 2);
+static auto led4 = createShiftRegisterStatusIndicator(outputShiftRegister, 3);
+static const Controller::StatusIndicators statusIndicators{&led1, &led2, &led3, &led4};
+static const Controller::Tasks tasks{task1, task2, task3, task4};
+static Controller controller(statusIndicators, tasks);
+
 namespace main
 {
 void setup(char const *programIdentificationString)
@@ -65,14 +80,13 @@ void loop()
     {
         Serial.printf("Process event '%u'.\n", event);
         constexpr std::uint16_t notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
-        const std::uint8_t newRegisterValue = 1 << (8 - event);
-        outputShiftRegister.setAll(&newRegisterValue);
         tone(board::buzzer::pin::on_off, notes[event - 1], 250);
     }
     else
     {
         outputShiftRegister.setAllLow();
     }
+    controller.processEvent(static_cast<Controller::Event>(event));
     delay(100);
     testanimate(); // Animate bitmaps
 }

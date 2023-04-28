@@ -12,6 +12,8 @@ void Controller::processEvent(const Event event)
 {
     switch (event)
     {
+    case NONE:
+        break;
     case TASK_1:
         processTask(0);
         break;

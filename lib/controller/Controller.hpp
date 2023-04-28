@@ -14,6 +14,7 @@ class Controller
     typedef std::vector<Task &> Tasks;
     enum Event
     {
+        NONE,
         TASK_1,
         TASK_2,
         TASK_3,
