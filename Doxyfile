@@ -1,4 +1,4 @@
-# Difference with default Doxyfile 1.9.3 (c9646a001d528fd3b1557a119748679a5955b72b)
+# Difference with default Doxyfile 1.9.6 (4586b5cfaa3d46d51f6a51882951d15644c49edf)
 PROJECT_NAME           = "Task Tracker"
 OUTPUT_DIRECTORY       = doc
 JAVADOC_AUTOBRIEF      = YES
@@ -58,6 +58,7 @@ USE_MDFILE_AS_MAINPAGE = ./README.md
 HTML_FILE_EXTENSION    = .xhtml
 HTML_TIMESTAMP         = YES
 USE_MATHJAX            = YES
+HAVE_DOT               = YES
 UML_LOOK               = YES
 DIR_GRAPH_MAX_DEPTH    = 2
 DOT_IMAGE_FORMAT       = svg
