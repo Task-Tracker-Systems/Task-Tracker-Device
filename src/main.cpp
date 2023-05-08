@@ -64,7 +64,7 @@ void loop()
     const auto event = getEvent();
     if (event)
     {
-        constexpr std::uint16_t notes[] = {note::c4, note::g3, note::a3, note::b3, note::d1, note::e1, note::f1, note::g1};
+        constexpr std::uint16_t notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
         const std::uint8_t newRegisterValue = 1 << (8 - event);
         outputShiftRegister.setAll(&newRegisterValue);
         tone(board::buzzer::pin::on_off, notes[event - 1], 250);

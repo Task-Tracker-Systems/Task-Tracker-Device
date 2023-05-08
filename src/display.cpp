@@ -1,4 +1,5 @@
 
+#include "board_pins.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include <Wire.h>
@@ -69,7 +70,7 @@ void testanimate()
 
 void setup_display()
 {
-
+    Wire.begin(board::i2c_1::pin::sda, board::i2c_1::pin::scl);
     // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
     if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
     {
