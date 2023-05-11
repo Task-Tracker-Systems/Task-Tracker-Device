@@ -2,6 +2,8 @@ name: generate and deploy documentation
 on:
   push:
     branches: [ develop ]
+permissions:
+  contents: write
 
 jobs:
   build:
