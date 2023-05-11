@@ -1,0 +1,6 @@
+<map id="src/framework_config.hpp" name="src/framework_config.hpp">
+<area shape="rect" id="node1" title="Provides defintions which are specific for the used framework." alt="" coords="37,5,206,31"/>
+<area shape="rect" id="node2" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="57,79,187,105"/>
+<area shape="rect" id="node3" href="$display_8cpp.xhtml" title=" " alt="" coords="5,153,113,178"/>
+<area shape="rect" id="node4" href="$main_8cpp.xhtml" title=" " alt="" coords="137,153,232,178"/>
+</map>
