@@ -4,6 +4,8 @@ OUTPUT_DIRECTORY       = doc
 JAVADOC_AUTOBRIEF      = YES
 EXTENSION_MAPPING      = ino=C++
 EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
 INPUT                  = .
 FILE_PATTERNS          = *.c \
                          *.cc \
