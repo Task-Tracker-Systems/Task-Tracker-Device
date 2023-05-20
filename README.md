@@ -16,3 +16,42 @@ In particular the objectives of the device are:
  - quick interaction with an easy human-machine interface
  - permanent feedback on which task is active at the moment
  - provide digital interface to recorded times (TBD: through WiFi, Bluetooth, wired serial interface, ...)
+
+## Generate the documentation
+
+Documentation may be generated with Doxygen. Simply call in the root directory of this repository:
+
+    doxygen
+
+The HTML documentation will be written to [here](doc/html/index.xhtml).
+
+## Build
+
+The build configuration for the device's software is generated with PlatformIO. Please refer to the [documentation](https://docs.platformio.org/) for build instructions.
+
+## Simulate
+
+[`wokwi.toml`](wokwi_files/wokwi.toml) is a project configuration for the Visual Studio Code extension [Wokwi Simulator](https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode).
+
+## Contribute
+
+### Document you code
+
+Please document your code in Doxygen compatible syntax.
+
+### C/C++ source code
+
+Please format your changes using ClangFormat.
+A style configuration file is given: [`.clang-format`](.clang-format)
+
+### Doxygen configuration
+
+If you change [`Doxyfile`](Doxyfile), please do a ['cleanup'](https://stackoverflow.com/questions/71157463/what-part-of-the-doxygen-configuration-doxyfile-is-recommended-for-version-con#comment125783393_71157463) by using the output of `doxygen -x`.
+For example
+
+    doxygen -x > Doxyfile.tmp && mv Doxyfile.tmp Doxyfile
+
+### PlatformIO configuration
+
+If you change [`platformio.ini`](platformio.ini), preferably use [PlatformIO Home](https://docs.platformio.org/en/latest/home/index.html#platformio-home).
+This helps to keep a common style in that file.
