@@ -63,5 +63,7 @@ USE_MATHJAX            = YES
 HIDE_UNDOC_RELATIONS   = NO
 HAVE_DOT               = YES
 UML_LOOK               = YES
+TEMPLATE_RELATIONS     = YES
 DIR_GRAPH_MAX_DEPTH    = 2
 DOT_IMAGE_FORMAT       = svg
+DOT_CLEANUP            = NO
