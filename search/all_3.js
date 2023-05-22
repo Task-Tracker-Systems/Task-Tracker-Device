@@ -8,7 +8,7 @@ var searchData=
   ['d6_5',['d6',['../namespacenote.xhtml#a1edeaaa7e732e79aeb4d61fcb9159f77',1,'note']]],
   ['d7_6',['d7',['../namespacenote.xhtml#a3f70430f59a825a08bd42ee552378f5b',1,'note']]],
   ['d8_7',['d8',['../namespacenote.xhtml#a7698c4f1a6bd9fe81ce8c6a783987756',1,'note']]],
-  ['data_8',['data',['../namespaceboard_1_1osr_1_1pin.xhtml#a1a07e2ba456e50046129df8615fe6c3a',1,'board::osr::pin::data()'],['../namespaceboard_1_1isr_1_1pin.xhtml#a3b0023743b1b6d0cea41055f5b1339f5',1,'board::isr::pin::data()']]],
+  ['data_8',['data',['../namespaceboard_1_1osr_1_1pin.xhtml#a1a07e2ba456e50046129df8615fe6c3a',1,'board::osr::pin::data'],['../namespaceboard_1_1isr_1_1pin.xhtml#a3b0023743b1b6d0cea41055f5b1339f5',1,'board::isr::pin::data']]],
   ['deltay_9',['DELTAY',['../display_8cpp.xhtml#a242f273ef9c6483550561ac19a34ab5b',1,'display.cpp']]],
   ['display_10',['display',['../display_8cpp.xhtml#ae780a76d06cb56e14435ebfe3db3f6d3',1,'display.cpp']]],
   ['display_2ecpp_11',['display.cpp',['../display_8cpp.xhtml',1,'']]],

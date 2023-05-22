@@ -1,6 +1,9 @@
 <map id="src/board_pins.hpp" name="src/board_pins.hpp">
-<area shape="rect" id="node1" title="Provides named objects for the pins provided by the board." alt="" coords="23,5,154,31"/>
-<area shape="rect" id="node2" href="$framework__config_8hpp.xhtml" title="Provides defintions which are specific for the used framework." alt="" coords="15,79,162,105"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,153,81,178"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,153,165,178"/>
+<area shape="rect" id="Node000001" title="Provides named objects for the pins provided by the board." alt="" coords="23,5,154,31"/>
+<area shape="rect" id="Node000002" href="$framework__config_8hpp.xhtml" title="Provides defintions which are specific for the used framework." alt="" coords="15,79,162,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,31,91,64,86,64,86,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,81,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,106,61,141,56,139,79,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,153,165,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="98,103,121,138,117,141,94,106"/>
 </map>
