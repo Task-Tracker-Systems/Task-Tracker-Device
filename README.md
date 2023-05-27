@@ -53,5 +53,7 @@ For example
 
 ### PlatformIO configuration
 
-If you change [`platformio.ini`](platformio.ini), preferably use [PlatformIO Home](https://docs.platformio.org/en/latest/home/index.html#platformio-home).
-This helps to keep a common style in that file.
+If you change [`platformio.ini`](platformio.ini), please note that [PlatformIO Home](https://docs.platformio.org/en/latest/home/index.html#platformio-home) [may delete comments unsolicitedly](https://github.com/platformio/platformio-core/issues/3862).
+In general we want to preserve useful comments in the project configuration file.
+Please revert unwanted deletions before committing them.
+
