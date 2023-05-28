@@ -1,4 +1,5 @@
 #include "Controller.hpp"
+#include "keypad_factory_interface.hpp"
 #include <unity.h>
 
 void setUp()
@@ -11,7 +12,8 @@ void tearDown()
 
 void test_Controller()
 {
-    Controller controller;
+    const auto fakeKeypad = board::getKeypad();
+    Controller controller(fakeKeypad);
 
     // First no key is pressed
     const auto event_cand = controller.checkHmiInput();
