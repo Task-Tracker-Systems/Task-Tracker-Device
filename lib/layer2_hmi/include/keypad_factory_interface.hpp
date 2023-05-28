@@ -2,6 +2,7 @@
 
 #include "IKeypad.hpp"
 
-namespace board {
-    
+namespace board
+{
+
 }
