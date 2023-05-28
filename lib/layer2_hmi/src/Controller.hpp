@@ -6,6 +6,9 @@
 
 class Controller
 {
+  public:
+    Controller(const IKeypad &);
+
     /**
      * Checks if the state of the HMI has changed and generates an event.
      * 
@@ -14,5 +17,5 @@ class Controller
     std::optional<KeyId> checkHmiInput() const;
 
   private:
-    IKeypad &keypad;
+    const IKeypad &keypad;
 };

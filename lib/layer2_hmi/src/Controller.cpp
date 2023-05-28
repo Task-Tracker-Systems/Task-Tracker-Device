@@ -1,6 +1,6 @@
 #include "Controller.hpp"
 
-KeyId Controller::checkHmiInput() const
+std::optional<KeyId> Controller::checkHmiInput() const
 {
     static KeyId lastPressedKey = KeyId::NONE;
     const KeyId currentlyPressedKey = keypad.getCurrentlyPressedKey();
@@ -10,5 +10,17 @@ KeyId Controller::checkHmiInput() const
         identifiedEvent = currentlyPressedKey;
     }
     lastPressedKey = currentlyPressedKey;
-    return identifiedEvent;
+    if (identifiedEvent != KeyId::NONE)
+    {
+        return identifiedEvent;
+    }
+    else
+    {
+        return std::optional::nullopt;
+    }
+}
+
+Controller::Controller(const IKeypad &keypadToBeUsed)
+    : keypad(keypadToBeUsed)
+{
 }
