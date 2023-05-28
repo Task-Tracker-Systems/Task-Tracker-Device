@@ -16,7 +16,7 @@ std::optional<KeyId> Controller::checkHmiInput() const
     }
     else
     {
-        return std::optional::nullopt;
+        return std::nullopt;
     }
 }
 

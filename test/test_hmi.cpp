@@ -12,7 +12,7 @@ void tearDown()
 
 void test_Controller()
 {
-    const auto fakeKeypad = board::getKeypad();
+    const auto &fakeKeypad = board::getKeypad();
     Controller controller(fakeKeypad);
 
     // First no key is pressed
