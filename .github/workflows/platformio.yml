@@ -24,4 +24,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install --upgrade platformio
     - name: Run tests on the native platform
-      run: platformio test --environment test_native_hmi
+      run: platformio test --verbose --environment test_native_hmi
