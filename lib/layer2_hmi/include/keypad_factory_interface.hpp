@@ -4,5 +4,5 @@
 
 namespace board
 {
-
+const IKeypad &getKeypad();
 }
