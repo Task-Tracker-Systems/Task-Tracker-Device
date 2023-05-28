@@ -7,7 +7,7 @@ std::optional<KeyId> Controller::checkHmiInput() const
     KeyId identifiedEvent = KeyId::NONE;
     if (currentlyPressedKey != lastPressedKey && currentlyPressedKey == KeyId::NONE)
     {
-        identifiedEvent = currentlyPressedKey;
+        identifiedEvent = lastPressedKey;
     }
     lastPressedKey = currentlyPressedKey;
     if (identifiedEvent != KeyId::NONE)
