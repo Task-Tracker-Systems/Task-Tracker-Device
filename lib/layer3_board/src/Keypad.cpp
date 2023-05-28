@@ -13,8 +13,8 @@ KeyId Keypad::getCurrentlyPressedKey() const
     }
 }
 
-Keypad::Keypad(const InputShiftRegister &inputShiftRegisterToUse, const InputMapping &inputMappingToUse)
-    : inputShiftRegister(inputShiftRegisterToUse), inputMapping(inputMappingToUse)
+Keypad::Keypad(const InputShiftRegister &inputShiftRegisterToUse, const InputMapping &inputPinToKeyId)
+    : inputShiftRegister(inputShiftRegisterToUse), inputMapping(inputPinToKeyId)
 {
 }
 
