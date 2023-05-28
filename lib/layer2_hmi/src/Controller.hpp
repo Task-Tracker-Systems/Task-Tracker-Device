@@ -2,10 +2,16 @@
 
 #include "IKeypad.hpp"
 #include "KeyIds.hpp"
+#include <optional>
 
 class Controller
 {
-    KeyId checkHmiInput() const;
+    /**
+     * Checks if the state of the HMI has changed and generates an event.
+     * 
+     * @return KeyId 
+     */
+    std::optional<KeyId> checkHmiInput() const;
 
   private:
     IKeypad &keypad;
