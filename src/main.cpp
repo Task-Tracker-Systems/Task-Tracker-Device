@@ -1,10 +1,10 @@
 #include "main.hpp"
-#include "board_pins.hpp"
-#include "display.h"
-#include "pitches.hpp"
 #include "Controller.hpp"
 #include "ShiftRegisterStatusIndicator.hpp"
 #include "Task.hpp"
+#include "board_pins.hpp"
+#include "display.h"
+#include "pitches.hpp"
 #include <Arduino.h>
 #include <RoxMux.h>
 #include <ShiftRegister74HC595.h>
