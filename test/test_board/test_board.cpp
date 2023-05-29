@@ -18,9 +18,13 @@ void test_Keypad()
     constexpr Keypad::InputMapping inputPinToKeyId{KeyId::BACK, KeyId::ENTER, KeyId::LEFT, KeyId::RIGHT, KeyId::TASK1, KeyId::TASK2, KeyId::TASK3, KeyId::TASK4};
     Keypad keypad(isr.get(), inputPinToKeyId);
 
-    // First no key is pressed
+    // no key is pressed
     When(Method(isr, readRegister)).Return({0});
     TEST_ASSERT_EQUAL(KeyId::NONE, keypad.getCurrentlyPressedKey());
+
+    // second key is pressed
+    When(Method(isr, readRegister)).Return({0, 1});
+    TEST_ASSERT_EQUAL(KeyId::ENTER, keypad.getCurrentlyPressedKey());
 }
 
 int main(int argc, char **argv)
