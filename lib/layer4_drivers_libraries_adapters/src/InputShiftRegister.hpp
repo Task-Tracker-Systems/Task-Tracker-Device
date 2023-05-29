@@ -8,11 +8,12 @@ template <std::size_t numberOfBytes>
 class InputShiftRegister : public IInputShiftRegister<numberOfBytes * 8>
 {
   public:
-    InputShiftRegister(const std::uint8_t pinNr_data, const std::uint8_t pinNr_load, const std::uint8_t pinNr_clock)
-        : isrBackend()
+    typedef Rox74HC165<numberOfBytes> Backend;
+    InputShiftRegister(Backend &isrImplementation)
+        : isrBackend(isrImplementation)
     {
-        isrBackend.begin(pinNr_data, pinNr_load, pinNr_clock);
     }
+
     virtual Data readRegister() const override
     {
         Data data{};
@@ -26,5 +27,5 @@ class InputShiftRegister : public IInputShiftRegister<numberOfBytes * 8>
     }
 
   private:
-    mutable Rox74HC165<numberOfBytes> isrBackend;
+    mutable Backend &isrBackend;
 };
