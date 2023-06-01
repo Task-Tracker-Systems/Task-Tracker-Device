@@ -1,15 +1,10 @@
 /**
  * @file .
- * Provides defintions which are specific for the used framework.
- * 
- * Those definitions may be changed when switching to a different framework.
+ * @brief Framework adapters
  */
 #pragma once
+#include "board_types.hpp"
 #include <Arduino.h>
+#include <type_traits>
 
-/** 
- * Type expected by HAL for accessing pins.
- * 
- * This depends on the used framework.
- */
-typedef decltype(MOSI) PinType;
+static_assert(std::is_same_v<board::PinType, std::remove_cv<std::remove_reference<decltype(MOSI)>::type>::type>);
