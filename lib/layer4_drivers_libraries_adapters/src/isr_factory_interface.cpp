@@ -1,6 +1,5 @@
 #include "isr_factory_interface.hpp"
 #include "InputShiftRegister.hpp"
-#include <RoxMux.h>
 
 namespace isr
 {

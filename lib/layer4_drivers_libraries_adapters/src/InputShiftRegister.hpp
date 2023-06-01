@@ -2,6 +2,7 @@
 
 #include "IInputShiftRegister.hpp"
 #include <RoxMux.h>
+#include <Wire.h> // is needed by RoxMux
 #include <cstddef>
 
 template <std::size_t numberOfBytes>
