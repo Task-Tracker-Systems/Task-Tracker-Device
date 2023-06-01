@@ -6,7 +6,6 @@
  */
 #pragma once
 #include <Arduino.h>
-#include <cstdint>
 
 /** 
  * Type expected by HAL for accessing pins.
