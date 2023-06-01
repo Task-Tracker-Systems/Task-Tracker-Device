@@ -12,7 +12,7 @@ class Controller
     /**
      * Checks if the state of the HMI has changed and generates an event.
      * 
-     * @return KeyId 
+     * @returns an event identifier in case one has been detected
      */
     std::optional<KeyId> checkHmiInput() const;
 
