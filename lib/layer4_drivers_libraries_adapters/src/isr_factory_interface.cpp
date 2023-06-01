@@ -9,7 +9,7 @@ IInputShiftRegister<8> &getInputShiftRegister(const std::uint8_t pinNr_data, con
     static InputShiftRegister<1U>::Backend isrBackend;
     isrBackend.begin(pinNr_data, pinNr_load, pinNr_clock);
     static InputShiftRegister<1U> singleIsr(isrBackend);
-    return isrBackend,
+    return isrBackend;
 }
 
 } // namespace isr
