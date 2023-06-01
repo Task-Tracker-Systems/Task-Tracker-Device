@@ -9,7 +9,7 @@
 #include <cstdint>
 
 /** 
- * Type expected by HAL for acessing pins.
+ * Type expected by HAL for accessing pins.
  * 
  * This depends on the used framework.
  */
