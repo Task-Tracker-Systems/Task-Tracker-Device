@@ -22,7 +22,7 @@ class InputShiftRegister : public IInputShiftRegister<numberOfBytes * 8>
         typename Base::Data data{};
         isrBackend.update();
         std::uint16_t pinIndex = Base::numberOfBits - 1;
-        for (auto pin : data)
+        for (auto &pin : data)
         {
             pin = isrBackend.readPin(pinIndex--);
         }
