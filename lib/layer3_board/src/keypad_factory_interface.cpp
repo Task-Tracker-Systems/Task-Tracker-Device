@@ -7,14 +7,19 @@ namespace board
 {
 const IKeypad &getKeypad()
 {
-    constexpr Keypad::InputMapping inputPinToKeyId{KeyId::BACK,
-                                                   KeyId::ENTER,
-                                                   KeyId::LEFT,
-                                                   KeyId::RIGHT,
-                                                   KeyId::TASK1,
-                                                   KeyId::TASK2,
-                                                   KeyId::TASK3,
-                                                   KeyId::TASK4};
+    /*
+     * This depends on the wiring on the board.
+    */
+    static constexpr Keypad::InputMapping inputPinToKeyId{
+        KeyId::TASK1,
+        KeyId::TASK2,
+        KeyId::TASK3,
+        KeyId::TASK4,
+        KeyId::ENTER,
+        KeyId::LEFT,
+        KeyId::BACK,
+        KeyId::RIGHT,
+    };
     static const Keypad keypad(
         ::isr::getInputShiftRegister(
             board::isr::pin::data,
