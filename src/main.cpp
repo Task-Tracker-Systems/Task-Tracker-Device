@@ -29,10 +29,19 @@ void loop()
 {
     static const Controller controller(board::getKeypad());
     const auto event = controller.checkHmiInput();
+    using EventNumber = std::underlying_type_t<typename decltype(event)::value_type>;
     if (event)
     {
-        const std::uint8_t eventNumber = static_cast<std::uint8_t>(event.value()); //!< @TODO process ID instead of integer
-        Serial.printf("Process event '%u'.\n", eventNumber);
+        const EventNumber eventNumber = static_cast<EventNumber>(event.value()); //!< @TODO process ID instead of underlying type
+        Serial.printf("Process event '");
+        if constexpr (std::is_signed_v<EventNumber>)
+        {
+            Serial.printf("%i'.\n", eventNumber);
+        }
+        else
+        {
+            Serial.printf("%u'.\n", eventNumber);
+        }
         constexpr std::uint16_t notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
         const std::uint8_t newRegisterValue = 1 << (8 - eventNumber);
         outputShiftRegister.setAll(&newRegisterValue);
