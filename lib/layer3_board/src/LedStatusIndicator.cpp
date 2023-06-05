@@ -6,7 +6,7 @@ void LedStatusIndicator::off()
     digitalWrite(pin, LOW);
 }
 
-LedStatusIndicator::LedStatusIndicator(const PinType pinToUse)
+LedStatusIndicator::LedStatusIndicator(const board::PinType pinToUse)
     : pin(pinToUse)
 {
 }

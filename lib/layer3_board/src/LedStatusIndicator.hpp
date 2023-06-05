@@ -1,15 +1,15 @@
 #pragma once
 
 #include "StatusIndicator.hpp"
-#include "framework_config.hpp"
+#include "board_types.hpp"
 
 class LedStatusIndicator : public StatusIndicator
 {
   public:
-    LedStatusIndicator(const PinType pin);
+    LedStatusIndicator(const board::PinType pin);
     virtual void off() override;
     virtual void on() override;
 
   private:
-    PinType pin;
+    const board::PinType pin;
 };
