@@ -2,7 +2,6 @@
  * @file .
  * @brief Framework adapters
  */
-#pragma once
 #include "board_types.hpp"
 #include <Arduino.h>
 #include <type_traits>
