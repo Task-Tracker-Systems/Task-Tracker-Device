@@ -1,9 +1,9 @@
 #pragma once
 
-class StatusIndicator
+class IStatusIndicator
 {
   public:
     virtual void on() = 0;
     virtual void off() = 0;
-    virtual ~StatusIndicator(){};
+    virtual ~IStatusIndicator(){};
 };

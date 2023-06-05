@@ -3,7 +3,7 @@
 #include <cstdint>
 
 template <class OutputShiftRegister>
-class ShiftRegisterStatusIndicator : public StatusIndicator
+class ShiftRegisterStatusIndicator : public IStatusIndicator
 {
   public:
     ShiftRegisterStatusIndicator(OutputShiftRegister &outputShiftRegister, const std::uint8_t pin);

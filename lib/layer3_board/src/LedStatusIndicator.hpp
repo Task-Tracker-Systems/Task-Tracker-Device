@@ -1,9 +1,9 @@
 #pragma once
 
-#include "StatusIndicator.hpp"
+#include "IStatusIndicator.hpp"
 #include "board_types.hpp"
 
-class LedStatusIndicator : public StatusIndicator
+class LedStatusIndicator : public IStatusIndicator
 {
   public:
     LedStatusIndicator(const board::PinType pin);
