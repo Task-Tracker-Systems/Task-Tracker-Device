@@ -85,14 +85,14 @@ void loop()
         tone(board::buzzer::pin::on_off, notes[event - 1], loopDurationMs);
         if (event < sizeof(outputPins) / sizeof(outputPins[0]) + 1)
         {
-            digitalWrite(outputPins[event - 1], HIGH);
+            digitalWrite(outputPins[event - 1], LOW);
         }
     }
     else
     {
         for (const auto pin : outputPins)
         {
-            digitalWrite(pin, LOW);
+            digitalWrite(pin, HIGH);
         }
     }
     delay(loopDurationMs);
