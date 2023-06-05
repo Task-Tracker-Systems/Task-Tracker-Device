@@ -10,7 +10,7 @@
       "left": 446.17,
       "attrs": {}
     },
-    { "type": "board-ssd1306", "id": "oled1", "top": -284.86, "left": 614.63, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled1", "top": -284.86, "left": 614.63, "attrs": {"i2c-address": "0x3D"} },
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
