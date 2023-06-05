@@ -85,14 +85,17 @@ void loop()
         tone(board::buzzer::pin::on_off, notes[event - 1], loopDurationMs);
         if (event < sizeof(outputPins) / sizeof(outputPins[0]) + 1)
         {
-            digitalWrite(outputPins[event - 1], LOW);
+            constexpr int minBrightness = 0;
+            analogWrite(outputPins[event - 1], minBrightness);
         }
     }
     else
     {
         for (const auto pin : outputPins)
         {
-            digitalWrite(pin, HIGH);
+            constexpr int maxBrightness = 255;
+            constexpr int brightness = maxBrightness * 25 / 100.0;
+            analogWrite(pin, brightness);
         }
     }
     delay(loopDurationMs);
