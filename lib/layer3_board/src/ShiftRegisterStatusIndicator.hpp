@@ -2,23 +2,23 @@
 #include "StatusIndicator.hpp"
 #include <cstdint>
 
-template <class ShiftRegister>
+template <class OutputShiftRegister>
 class ShiftRegisterStatusIndicator : public StatusIndicator
 {
   public:
-    ShiftRegisterStatusIndicator(ShiftRegister &outputShiftRegister, const std::uint8_t pin);
+    ShiftRegisterStatusIndicator(OutputShiftRegister &outputShiftRegister, const std::uint8_t pin);
     virtual void off() override;
     virtual void on() override;
 
   private:
-    ShiftRegister &shiftRegister;
+    OutputShiftRegister &shiftRegister;
     const std::uint8_t pin;
 };
 
-template <class ShiftRegister>
-ShiftRegisterStatusIndicator<ShiftRegister> createShiftRegisterStatusIndicator(ShiftRegister &outputShiftRegister, const std::uint8_t pin)
+template <class OutputShiftRegister>
+ShiftRegisterStatusIndicator<OutputShiftRegister> createShiftRegisterStatusIndicator(OutputShiftRegister &outputShiftRegister, const std::uint8_t pin)
 {
-    return ShiftRegisterStatusIndicator<ShiftRegister>(outputShiftRegister, pin);
+    return ShiftRegisterStatusIndicator<OutputShiftRegister>(outputShiftRegister, pin);
 }
 
 #include "ShiftRegisterStatusIndicator_implementation.hpp"

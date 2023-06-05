@@ -2,20 +2,20 @@
 #include "ShiftRegisterStatusIndicator.hpp"
 #include <Arduino.h>
 
-template <class ShiftRegister>
-void ShiftRegisterStatusIndicator<ShiftRegister>::off()
+template <class OutputShiftRegister>
+void ShiftRegisterStatusIndicator<OutputShiftRegister>::off()
 {
     shiftRegister.set(pin, LOW);
 }
 
-template <class ShiftRegister>
-ShiftRegisterStatusIndicator<ShiftRegister>::ShiftRegisterStatusIndicator(ShiftRegister &outputShiftRegister, const std::uint8_t pinToUse)
+template <class OutputShiftRegister>
+ShiftRegisterStatusIndicator<OutputShiftRegister>::ShiftRegisterStatusIndicator(OutputShiftRegister &outputShiftRegister, const std::uint8_t pinToUse)
     : shiftRegister(outputShiftRegister), pin(pinToUse)
 {
 }
 
-template <class ShiftRegister>
-void ShiftRegisterStatusIndicator<ShiftRegister>::on()
+template <class OutputShiftRegister>
+void ShiftRegisterStatusIndicator<OutputShiftRegister>::on()
 {
     shiftRegister.set(pin, HIGH);
 }
