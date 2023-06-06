@@ -2,23 +2,19 @@
 
 #include "IInputShiftRegister.hpp"
 #include "IKeypad.hpp"
-#include <array>
+#include <cstddef>
 #include <optional>
 
 class Keypad : public IKeypad
 {
   public:
     typedef IInputShiftRegister<8U> InputShiftRegister;
-    /**
-     * For mapping of input pin to key ID.
-     */
-    typedef std::array<KeyId, InputShiftRegister::numberOfBits> InputMapping;
 
     virtual KeyId getCurrentlyPressedKey() const override;
-    Keypad(const InputShiftRegister &inputShiftRegisterToUse, const InputMapping &inputPinToKeyId);
+    Keypad(const InputShiftRegister &inputShiftRegisterToUse, const KeyId (&inputPinToKeyId)[InputShiftRegister::numberOfBits]);
 
   private:
     const InputShiftRegister &inputShiftRegister;
-    const InputMapping &inputMapping;
-    std::optional<InputMapping::size_type> getFirstPressedKeyIndex() const;
+    const KeyId (&inputMapping)[InputShiftRegister::numberOfBits];
+    std::optional<std::size_t> getFirstPressedKeyIndex() const;
 };
