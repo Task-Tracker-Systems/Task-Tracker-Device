@@ -1,10 +1,11 @@
 #pragma once
 
+#include "IController.hpp"
 #include "IKeypad.hpp"
 #include "KeyIds.hpp"
 #include <optional>
 
-class Controller
+class Controller : public IController
 {
   public:
     Controller(const IKeypad &);
@@ -14,7 +15,7 @@ class Controller
      * 
      * @returns an event identifier in case one has been detected
      */
-    std::optional<KeyId> checkHmiInput() const;
+    virtual std::optional<KeyId> checkHmiInput() const override;
 
   private:
     const IKeypad &keypad;

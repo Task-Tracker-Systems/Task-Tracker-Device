@@ -1,5 +1,5 @@
 #pragma once
-#include "StatusIndicator.hpp"
+#include "IStatusIndicator.hpp"
 #include <cstdint>
 
 template <class OutputShiftRegister>
