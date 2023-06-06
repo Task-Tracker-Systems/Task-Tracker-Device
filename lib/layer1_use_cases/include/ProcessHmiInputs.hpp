@@ -5,6 +5,9 @@
 
 class ProcessUserInputs
 {
+  public:
+    void loop();
+
   private:
     IController &userInputProvider;
     IPresenter &stateVisualizer;
