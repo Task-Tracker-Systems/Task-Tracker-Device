@@ -3,12 +3,10 @@
 
 namespace isr
 {
-IInputShiftRegister<8> &getInputShiftRegister(const std::uint8_t pinNr_data, const std::uint8_t pinNr_load, const std::uint8_t pinNr_clock)
+IInputShiftRegister<8> &getInputShiftRegister(const std::uint8_t serialDataPin, const std::uint8_t clockPin, const std::uint8_t latchPin)
 {
-    static InputShiftRegister<1U>::Backend isrBackend;
-    isrBackend.begin(pinNr_data, pinNr_load, pinNr_clock);
-    static InputShiftRegister<1U> singleIsr(isrBackend);
-    return singleIsr;
+    static InputShiftRegister<1U> singleton(serialDataPin, clockPin, latchPin);
+    return singleton;
 }
 
 } // namespace isr

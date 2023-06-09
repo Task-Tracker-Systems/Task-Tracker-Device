@@ -1,7 +1,7 @@
 
-#include "board_pins.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
+#include <board_config.hpp>
 #include <Wire.h>
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels

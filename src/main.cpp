@@ -1,10 +1,10 @@
 #include "main.hpp"
 #include "Controller.hpp"
-#include "board_pins.hpp"
 #include "display.h"
 #include "keypad_factory_interface.hpp"
 #include "pitches.hpp"
 #include <Arduino.h>
+#include <board_config.hpp>
 #include <ShiftRegister74HC595.h>
 #include <cstdint>
 

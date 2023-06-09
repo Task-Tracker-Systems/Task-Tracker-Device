@@ -4,6 +4,7 @@
  */
 #pragma once
 #include "board_types.hpp"
+#include <cstddef>
 
 namespace board
 {
@@ -27,6 +28,14 @@ constexpr PinType latch = 12;
  */
 constexpr PinType clock = 11;
 } // namespace osr::pin
+
+namespace osr::bit
+{
+constexpr std::size_t task1 = 0;
+constexpr std::size_t task2 = 1;
+constexpr std::size_t task3 = 2;
+constexpr std::size_t task4 = 3;
+} // namespace osr::bit
 
 /**
  * Pins attached to the input shift register.

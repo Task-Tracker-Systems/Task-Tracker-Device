@@ -1,6 +1,6 @@
+#include <board_config.hpp>
 #include "keypad_factory_interface.hpp"
 #include "Keypad.hpp"
-#include "board_pins.hpp"
 #include "isr_factory_interface.hpp"
 
 namespace board
@@ -10,7 +10,7 @@ const IKeypad &getKeypad()
     /*
      * This depends on the wiring on the board.
     */
-    static constexpr Keypad::InputMapping inputPinToKeyId{
+    static constexpr KeyId inputPinToKeyId[]{
         KeyId::TASK1,
         KeyId::TASK2,
         KeyId::TASK3,

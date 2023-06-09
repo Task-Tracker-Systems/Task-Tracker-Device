@@ -3,7 +3,7 @@
 #include "IController.hpp"
 #include "IPresenter.hpp"
 
-class ProcessUserInputs
+class ProcessHmiInputs
 {
   public:
     void loop();

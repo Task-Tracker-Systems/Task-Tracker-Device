@@ -13,15 +13,15 @@ KeyId Keypad::getCurrentlyPressedKey() const
     }
 }
 
-Keypad::Keypad(const InputShiftRegister &inputShiftRegisterToUse, const InputMapping &inputPinToKeyId)
+Keypad::Keypad(const InputShiftRegister &inputShiftRegisterToUse, const KeyId (&inputPinToKeyId)[InputShiftRegister::numberOfBits])
     : inputShiftRegister(inputShiftRegisterToUse), inputMapping(inputPinToKeyId)
 {
 }
 
-std::optional<Keypad::InputMapping::size_type> Keypad::getFirstPressedKeyIndex() const
+std::optional<std::size_t> Keypad::getFirstPressedKeyIndex() const
 {
     const auto registerValues = inputShiftRegister.readRegister();
-    for (InputMapping::size_type index = 0u; index < registerValues.size(); ++index)
+    for (std::size_t index = 0u; index < registerValues.size(); ++index)
     {
         if (registerValues[index])
         {

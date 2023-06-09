@@ -1,24 +1,16 @@
 #pragma once
+#include "IOutputShiftRegister.hpp"
 #include "IStatusIndicator.hpp"
-#include <cstdint>
+#include <cstddef>
 
-template <class OutputShiftRegister>
 class ShiftRegisterStatusIndicator : public IStatusIndicator
 {
   public:
-    ShiftRegisterStatusIndicator(OutputShiftRegister &outputShiftRegister, const std::uint8_t pin);
+    ShiftRegisterStatusIndicator(IOutputShiftRegister &outputShiftRegister, const IOutputShiftRegister::BitNumber bit);
     virtual void off() override;
     virtual void on() override;
 
   private:
-    OutputShiftRegister &shiftRegister;
-    const std::uint8_t pin;
+    IOutputShiftRegister &shiftRegister;
+    const IOutputShiftRegister::BitNumber bit;
 };
-
-template <class OutputShiftRegister>
-ShiftRegisterStatusIndicator<OutputShiftRegister> createShiftRegisterStatusIndicator(OutputShiftRegister &outputShiftRegister, const std::uint8_t pin)
-{
-    return ShiftRegisterStatusIndicator<OutputShiftRegister>(outputShiftRegister, pin);
-}
-
-#include "ShiftRegisterStatusIndicator_implementation.hpp"

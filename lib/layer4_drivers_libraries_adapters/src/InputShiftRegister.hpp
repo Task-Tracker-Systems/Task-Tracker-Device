@@ -11,10 +11,10 @@ class InputShiftRegister : public IInputShiftRegister<numberOfBytes * 8>
   public:
     //! Alias to the interface this class implements
     using Base = IInputShiftRegister<numberOfBytes * 8>;
-    typedef Rox74HC165<numberOfBytes> Backend;
-    InputShiftRegister(Backend &isrImplementation)
-        : isrBackend(isrImplementation)
+    InputShiftRegister(const std::uint8_t serialDataPin, const std::uint8_t clockPin, const std::uint8_t latchPin)
+        : isrBackend()
     {
+        isrBackend.begin(serialDataPin, latchPin, clockPin);
     }
 
     virtual typename Base::Data readRegister() const override
@@ -30,5 +30,5 @@ class InputShiftRegister : public IInputShiftRegister<numberOfBytes * 8>
     }
 
   private:
-    Backend &isrBackend;
+    mutable Rox74HC165<numberOfBytes> isrBackend;
 };

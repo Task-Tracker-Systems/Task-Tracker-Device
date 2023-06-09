@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>
+#include <cstddef>
 
 enum class TaskIndicatorState
 {
@@ -7,7 +7,7 @@ enum class TaskIndicatorState
     INACTIVE,
 };
 
-using TaskIndex = std::uint8_t;
+using TaskIndex = std::size_t;
 
 class IPresenter
 {
