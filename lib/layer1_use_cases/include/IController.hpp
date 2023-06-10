@@ -6,10 +6,11 @@
 class IController
 {
   public:
+    typedef KeyId EventType;
     /**
      * Checks if the state of the HMI has changed and generates an event.
      * 
      * @returns an event identifier in case one has been detected
      */
-    virtual std::optional<KeyId> checkHmiInput() const = 0;
+    virtual std::optional<EventType> checkHmiInput() const = 0;
 };

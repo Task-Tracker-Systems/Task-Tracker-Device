@@ -15,7 +15,10 @@ class Controller : public IController
      * 
      * @returns an event identifier in case one has been detected
      */
-    virtual std::optional<KeyId> checkHmiInput() const override;
+    virtual std::optional<IController::EventType> checkHmiInput() const override;
+    virtual ~Controller()
+    {
+    }
 
   private:
     const IKeypad &keypad;
