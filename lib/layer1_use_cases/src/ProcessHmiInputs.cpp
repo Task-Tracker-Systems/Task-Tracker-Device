@@ -7,23 +7,12 @@ ProcessHmiInputs::ProcessHmiInputs(IController &controller, IPresenter &presente
 {
 }
 
-/**
- * @deprecated this if for test purposes only
- * @todo use proper logging interface
- */
-static void printEvent(const IController::EventType event)
-{
-    using EventNumber = std::underlying_type_t<decltype(event)>;
-    const EventNumber eventNumber = static_cast<EventNumber>(event);
-    logging << "Process event '" << eventNumber << "'." << std::endl;
-}
-
 void ProcessHmiInputs::loop()
 {
     const auto event = userInputProvider.checkHmiInput();
     if (event)
     {
-        printEvent(event.value());
+        logging << "Process event '" << event.value() << "'." << std::endl;
         stateVisualizer.setTaskStatusIndicator(event2TaskEvent(event.value()), TaskIndicatorState::ACTIVE);
     }
     else
