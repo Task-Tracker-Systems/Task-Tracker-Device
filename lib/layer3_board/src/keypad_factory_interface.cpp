@@ -11,14 +11,14 @@ const IKeypad &getKeypad()
      * This depends on the wiring on the board.
     */
     static constexpr KeyId inputPinToKeyId[]{
-        KeyId::TASK1,
-        KeyId::TASK2,
-        KeyId::TASK3,
-        KeyId::TASK4,
-        KeyId::ENTER,
-        KeyId::LEFT,
-        KeyId::BACK,
         KeyId::RIGHT,
+        KeyId::BACK,
+        KeyId::LEFT,
+        KeyId::ENTER,
+        KeyId::TASK4,
+        KeyId::TASK3,
+        KeyId::TASK2,
+        KeyId::TASK1,
     };
     static const Keypad keypad(
         ::isr::getInputShiftRegister(
