@@ -1,7 +1,7 @@
-#include <board_config.hpp>
 #include "keypad_factory_interface.hpp"
 #include "Keypad.hpp"
 #include "isr_factory_interface.hpp"
+#include <board_config.hpp>
 
 namespace board
 {
@@ -23,8 +23,8 @@ const IKeypad &getKeypad()
     static const Keypad keypad(
         ::isr::getInputShiftRegister(
             board::isr::pin::data,
-            board::isr::pin::latch,
-            board::isr::pin::clock),
+            board::isr::pin::clock,
+            board::isr::pin::latch),
         inputPinToKeyId);
     return keypad;
 }
