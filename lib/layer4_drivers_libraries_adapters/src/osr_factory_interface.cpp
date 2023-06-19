@@ -1,5 +1,3 @@
-#pragma once
-
 #include "osr_factory_interface.hpp"
 #include "OutputShiftRegister.hpp"
 
