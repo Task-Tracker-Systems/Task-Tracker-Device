@@ -13,8 +13,6 @@ namespace main
 {
 void setup(char const *programIdentificationString)
 {
-    pinMode(board::buzzer::pin::on_off, OUTPUT);
-    setup_display();
     Serial.begin(115200);
     delay(100);
     Serial.flush();
@@ -26,6 +24,5 @@ void loop()
     static ProcessHmiInputs processHmiInputs(hmi::getController(), hmi::getPresenter());
     processHmiInputs.loop();
     delay(100);
-    testanimate(); // Animate bitmaps
 }
 } // namespace main
