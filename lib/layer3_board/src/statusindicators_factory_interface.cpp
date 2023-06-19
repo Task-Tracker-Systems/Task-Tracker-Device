@@ -10,15 +10,15 @@ IStatusIndicator *const (&getStatusIndicators())[hmi::numberOfStatusIndicators]
     IOutputShiftRegister &outputShiftRegister = ::osr::getOutputShiftRegister(board::osr::pin::data,
                                                                               board::osr::pin::clock,
                                                                               board::osr::pin::latch);
-    static ShiftRegisterStatusIndicator srsi1(outputShiftRegister, board::osr::bit::task1);
-    static ShiftRegisterStatusIndicator srsi2(outputShiftRegister, board::osr::bit::task2);
-    static ShiftRegisterStatusIndicator srsi3(outputShiftRegister, board::osr::bit::task3);
-    static ShiftRegisterStatusIndicator srsi4(outputShiftRegister, board::osr::bit::task4);
+    static ShiftRegisterStatusIndicator srSi1(outputShiftRegister, board::osr::bit::task1);
+    static ShiftRegisterStatusIndicator srSi2(outputShiftRegister, board::osr::bit::task2);
+    static ShiftRegisterStatusIndicator srSi3(outputShiftRegister, board::osr::bit::task3);
+    static ShiftRegisterStatusIndicator srSi4(outputShiftRegister, board::osr::bit::task4);
     static IStatusIndicator *const statusIndicators[]{
-        &srsi1,
-        &srsi2,
-        &srsi3,
-        &srsi4,
+        &srSi1,
+        &srSi2,
+        &srSi3,
+        &srSi4,
     };
     return statusIndicators;
 }
