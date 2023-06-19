@@ -1,4 +1,5 @@
 #pragma once
+#include <ostream>
 
 enum class KeyId
 {
@@ -21,3 +22,5 @@ enum class KeyId
     TASK3,
     TASK4,
 };
+
+std::ostream &operator<<(std::ostream &os, const KeyId id);
