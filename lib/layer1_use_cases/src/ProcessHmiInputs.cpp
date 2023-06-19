@@ -17,12 +17,12 @@ void ProcessHmiInputs::loop()
         {
             stateVisualizer.setTaskStatusIndicator(event2TaskEvent(event.value()), TaskIndicatorState::ACTIVE);
         }
-        else
+    }
+    else
+    {
+        for (const auto i : {0, 1, 2, 3})
         {
-            for (const auto i : {0, 1, 2, 3})
-            {
-                stateVisualizer.setTaskStatusIndicator(i, TaskIndicatorState::INACTIVE);
-            }
+            stateVisualizer.setTaskStatusIndicator(i, TaskIndicatorState::INACTIVE);
         }
     }
 }
