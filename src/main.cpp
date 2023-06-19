@@ -1,6 +1,7 @@
 #include "main.hpp"
 #include "ProcessHmiInputs.hpp"
 #include "controller_factory_interface.hpp"
+#include "logging.hpp"
 #include "presenter_factory_interface.hpp"
 #include <Arduino.h>
 
@@ -12,7 +13,8 @@ void setup(char const *programIdentificationString)
     delay(100);
     Serial.flush();
     delay(100);
-    Serial.printf("\n begin program '%s'\n", programIdentificationString);
+    logging << std::endl
+            << "begin program '" << programIdentificationString << "'" << std::endl;
 }
 void loop()
 {

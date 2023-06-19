@@ -1,5 +1,5 @@
 #include "ProcessHmiInputs.hpp"
-#include <Arduino.h> //!< @TODO this is for debugging only
+#include "logging.hpp"
 #include <type_traits>
 
 ProcessHmiInputs::ProcessHmiInputs(IController &controller, IPresenter &presenter)
@@ -15,15 +15,7 @@ static void printEvent(const IController::EventType event)
 {
     using EventNumber = std::underlying_type_t<decltype(event)>;
     const EventNumber eventNumber = static_cast<EventNumber>(event);
-    Serial.printf("Process event '");
-    if constexpr (std::is_signed_v<EventNumber>)
-    {
-        Serial.printf("%i'.\n", eventNumber);
-    }
-    else
-    {
-        Serial.printf("%u'.\n", eventNumber);
-    }
+    logging << "Process event '" << eventNumber << "'." << std::endl;
 }
 
 void ProcessHmiInputs::loop()
