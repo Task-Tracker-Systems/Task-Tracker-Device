@@ -1,5 +1,3 @@
-#pragma once
-
 #include "statusindicators_factory_interface.hpp"
 #include "ShiftRegisterStatusIndicator.hpp"
 #include "osr_factory_interface.hpp"

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "presenter_factory_interface.hpp"
 #include "Menu.hpp"
 #include "Presenter.hpp"

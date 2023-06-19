@@ -1,5 +1,3 @@
-#pragma once
-
 #include "controller_factory_interface.hpp"
 #include "Controller.hpp"
 #include "keypad_factory_interface.hpp"
