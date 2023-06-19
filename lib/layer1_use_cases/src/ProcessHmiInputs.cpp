@@ -13,13 +13,16 @@ void ProcessHmiInputs::loop()
     if (event)
     {
         logging << "Process event '" << event.value() << "'." << std::endl;
-        stateVisualizer.setTaskStatusIndicator(event2TaskEvent(event.value()), TaskIndicatorState::ACTIVE);
-    }
-    else
-    {
-        for (const auto i : {0, 1, 2, 3})
+        if (isEventTask(event.value()))
         {
-            stateVisualizer.setTaskStatusIndicator(i, TaskIndicatorState::INACTIVE);
+            stateVisualizer.setTaskStatusIndicator(event2TaskEvent(event.value()), TaskIndicatorState::ACTIVE);
+        }
+        else
+        {
+            for (const auto i : {0, 1, 2, 3})
+            {
+                stateVisualizer.setTaskStatusIndicator(i, TaskIndicatorState::INACTIVE);
+            }
         }
     }
 }
@@ -45,4 +48,9 @@ TaskIndex ProcessHmiInputs::event2TaskEvent(const IController::EventType event)
         return 0;
         break;
     }
+}
+
+bool ProcessHmiInputs::isEventTask(const IController::EventType event)
+{
+    return event == KeyId::TASK1 || event == KeyId::TASK2 || event == KeyId::TASK3 || event == KeyId::TASK4;
 }
