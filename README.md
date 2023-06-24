@@ -60,3 +60,5 @@ If you change [`platformio.ini`](platformio.ini), please note that [PlatformIO H
 In general we want to preserve useful comments in the project configuration file.
 Please revert unwanted deletions before committing them.
 
+#### Windows Driver
+See https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/establish-serial-connection.html#connect-esp32-s3-to-pc for driver installation guide.
