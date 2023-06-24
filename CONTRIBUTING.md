@@ -13,6 +13,7 @@ Please consider [the recommendation of the Git community for commit messages](ht
 ## Pull requests
 
 Use self-reviews to speed up the review process.
+This includes:
 
 - Review the content for technical accuracy.
 - If there are any failing checks in your PR, troubleshoot them until they're all passing.
