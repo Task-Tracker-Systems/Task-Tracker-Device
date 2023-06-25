@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['task_20tracker_0',['Task Tracker',['../index.xhtml',1,'']]]
+  ['license_0',['LICENSE',['../md_LICENSE.xhtml',1,'']]]
 ];
