@@ -44,8 +44,10 @@ Please document your code in Doxygen compatible syntax.
 
 ### C/C++ source code
 
-Please format your changes using ClangFormat.
+Please format your changes using [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html).
 A style configuration file is given: [`.clang-format`](.clang-format)
+
+Although the standalone tool `clang-format` may be used, we recommend to integrate the formatting using a [plugin](https://firefox-source-docs.mozilla.org/code-quality/coding-style/format_cpp_code_with_clang-format.html#editor-plugins) for the editor of your choice.
 
 ### Doxygen configuration
 
