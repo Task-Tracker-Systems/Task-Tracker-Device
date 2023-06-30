@@ -38,28 +38,7 @@ Please refer to its documentation for instructions on how to simulate the device
 
 ## Contribute
 
-### Document you code
-
-Please document your code in Doxygen compatible syntax.
-
-### C/C++ source code
-
-Please format your changes using [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html).
-A style configuration file is given: [`.clang-format`](.clang-format)
-
-Although the standalone tool `clang-format` may be used, we recommend to integrate the formatting using a [plugin](https://firefox-source-docs.mozilla.org/code-quality/coding-style/format_cpp_code_with_clang-format.html#editor-plugins) for the editor of your choice.
-
-### Doxygen configuration
-
-If you change [`Doxyfile`](Doxyfile), please do a ['cleanup'](https://stackoverflow.com/questions/71157463/what-part-of-the-doxygen-configuration-doxyfile-is-recommended-for-version-con#comment125783393_71157463) by using the output of `doxygen -x`.
-For example
-
-    doxygen -x > Doxyfile.tmp && mv Doxyfile.tmp Doxyfile
-
-### PlatformIO configuration
-
-If you change [`platformio.ini`](platformio.ini) using [PlatformIO Home](https://docs.platformio.org/en/latest/home/index.html#platformio-home), please note that [comments may be deleted unsolicitedly](https://github.com/platformio/platformio-core/issues/3862) by that tool.
-In general we want to preserve useful comments in the project configuration file.
+Please refer to [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 #### Windows Driver
 See [`https://docs.espressif.com`]https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/establish-serial-connection.html#connect-esp32-s3-to-pc for driver installation guide.
