@@ -58,9 +58,8 @@ For example
 
 ### PlatformIO configuration
 
-If you change [`platformio.ini`](platformio.ini), please note that [PlatformIO Home](https://docs.platformio.org/en/latest/home/index.html#platformio-home) [may delete comments unsolicitedly](https://github.com/platformio/platformio-core/issues/3862).
+If you change [`platformio.ini`](platformio.ini) using [PlatformIO Home](https://docs.platformio.org/en/latest/home/index.html#platformio-home), please note that [comments may be deleted unsolicitedly](https://github.com/platformio/platformio-core/issues/3862) by that tool.
 In general we want to preserve useful comments in the project configuration file.
-Please revert unwanted deletions before committing them.
 
 #### Windows Driver
 See [`https://docs.espressif.com`]https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/establish-serial-connection.html#connect-esp32-s3-to-pc for driver installation guide.
