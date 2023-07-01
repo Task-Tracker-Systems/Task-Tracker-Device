@@ -18,7 +18,7 @@ This includes:
 - Review the content for technical accuracy.
 - If there are any failing checks in your PR, troubleshoot them until they're all passing.
 
-## Document you code
+## Document your code
 
 Please document your code in Doxygen compatible syntax.
 
