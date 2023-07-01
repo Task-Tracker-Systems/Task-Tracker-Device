@@ -62,7 +62,7 @@ The project configuration for the simulator is provided as [`wokwi.toml`](wokwi_
 
 Note, that you must build the software (using the default build configuration) before it can be simulated.
 
-Please refer to the simulator's documentation for instructions on how to simulate the device.
+Please refer to the documentation of the simulator for instructions on how to simulate the device.
 
 ## Contribute
 
