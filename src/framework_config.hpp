@@ -7,10 +7,11 @@
 #pragma once
 #include <Arduino.h>
 #include <cstdint>
+#include <type_traits>
 
 /** 
  * Type expected by HAL for acessing pins.
  * 
  * This depends on the used framework.
  */
-typedef decltype(MOSI) PinType;
+typedef typename std::remove_cv<decltype(MOSI)>::type PinType;

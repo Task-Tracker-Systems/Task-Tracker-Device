@@ -3,40 +3,39 @@
 #include "display.h"
 #include "pitches.hpp"
 #include <Arduino.h>
-#include <RoxMux.h>
-#include <ShiftRegister74HC595.h>
 #include <cstdint>
 
 /**
- * Output shift registers with most significant bit first.
- */
-ShiftRegister74HC595<1U> outputShiftRegister(board::osr::pin::data, board::osr::pin::clock, board::osr::pin::latch);
-
-/**
- * Input shift register.
- */
-Rox74HC165<1U> inputShiftRegister;
-
-/**
+ * Events are the beginning of a pressed button.
+ * 
  * @returns 1-8 or 0 in case of no event
  */
 static std::uint8_t getEvent()
 {
-    static std::uint8_t oldValue = 0U;
-    std::uint8_t newValue = 0U;
+    constexpr PinType inputPins[] = {
+        board::button::pin::task1,
+        board::button::pin::task2,
+        board::button::pin::task3,
+        board::button::pin::task4,
+        board::button::pin::up,
+        board::button::pin::down,
+        board::button::pin::enter,
+        board::button::pin::back,
+    };
+    static PinType oldValue = 0U;
+    PinType newValue = 0U;
+    std::uint8_t result = 0U;
 
-    inputShiftRegister.update();
-    const auto numberOfPins = inputShiftRegister.getLength();
-    for (std::uint8_t newValueCand = numberOfPins; newValueCand > 0; newValueCand--)
+    std::uint8_t candidateEvent = 1;
+    for (const auto pin : inputPins)
     {
-        if (inputShiftRegister.readPin(numberOfPins - newValueCand))
+        if (digitalRead(pin) == LOW) // buttons are active low
         {
-            newValue = newValueCand;
-            break;
+            newValue = candidateEvent;
         }
+        candidateEvent++;
     }
 
-    std::uint8_t result = 0;
     if (newValue != 0 && oldValue == 0)
     {
         result = newValue;
@@ -49,8 +48,19 @@ namespace main
 {
 void setup(char const *programIdentificationString)
 {
+    pinMode(board::button::pin::up, INPUT_PULLUP);
+    pinMode(board::button::pin::down, INPUT_PULLUP);
+    pinMode(board::button::pin::enter, INPUT_PULLUP);
+    pinMode(board::button::pin::back, INPUT_PULLUP);
+    pinMode(board::button::pin::task1, INPUT_PULLUP);
+    pinMode(board::button::pin::task2, INPUT_PULLUP);
+    pinMode(board::button::pin::task3, INPUT_PULLUP);
+    pinMode(board::button::pin::task4, INPUT_PULLUP);
+    pinMode(board::led::pin::task1, OUTPUT);
+    pinMode(board::led::pin::task2, OUTPUT);
+    pinMode(board::led::pin::task3, OUTPUT);
+    pinMode(board::led::pin::task4, OUTPUT);
     pinMode(board::buzzer::pin::on_off, OUTPUT);
-    inputShiftRegister.begin(board::isr::pin::data, board::isr::pin::latch, board::isr::pin::clock);
     setup_display();
     Serial.begin(115200);
     delay(100);
@@ -60,20 +70,35 @@ void setup(char const *programIdentificationString)
 }
 void loop()
 {
+    constexpr unsigned long loopDurationMs = 250;
     const auto event = getEvent();
+    constexpr PinType outputPins[] = {
+        board::led::pin::task1,
+        board::led::pin::task2,
+        board::led::pin::task3,
+        board::led::pin::task4,
+    };
     if (event)
     {
         Serial.printf("Process event '%u'.\n", event);
         constexpr std::uint16_t notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
-        const std::uint8_t newRegisterValue = 1 << (8 - event);
-        outputShiftRegister.setAll(&newRegisterValue);
-        tone(board::buzzer::pin::on_off, notes[event - 1], 250);
+        tone(board::buzzer::pin::on_off, notes[event - 1], loopDurationMs);
+        if (event < sizeof(outputPins) / sizeof(outputPins[0]) + 1)
+        {
+            constexpr int minBrightness = 0;
+            analogWrite(outputPins[event - 1], minBrightness);
+        }
     }
     else
     {
-        outputShiftRegister.setAllLow();
+        for (const auto pin : outputPins)
+        {
+            constexpr int maxBrightness = 255;
+            constexpr int brightness = maxBrightness * 25 / 100.0;
+            analogWrite(pin, brightness);
+        }
     }
-    delay(100);
+    delay(loopDurationMs);
     testanimate(); // Animate bitmaps
 }
 } // namespace main
