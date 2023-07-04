@@ -7,7 +7,14 @@
 class Display : public IDisplay
 {
   public:
-    Display();
+    struct Configuration
+    {
+        std::uint8_t screen_width;
+        std::uint8_t screen_height;
+        bool generateDisplayVoltageInternally;
+        std::uint8_t display_i2c_address;
+    };
+    Display(const Configuration &configuration, TwoWire &i2c);
 
   private:
     Adafruit_SSD1306 display;
