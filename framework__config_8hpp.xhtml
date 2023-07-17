@@ -90,10 +90,11 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for framework_config.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="framework__config_8hpp__incl.svg" width="180" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="framework__config_8hpp__incl.svg" width="276" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -105,22 +106,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af2ec495d18e0b0b6d64dbc896e023fbb"><td class="memItemLeft" align="right" valign="top">typedef decltype(MOSI)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="framework__config_8hpp.xhtml#af2ec495d18e0b0b6d64dbc896e023fbb">PinType</a></td></tr>
-<tr class="memdesc:af2ec495d18e0b0b6d64dbc896e023fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type expected by HAL for acessing pins.  <br /></td></tr>
-<tr class="separator:af2ec495d18e0b0b6d64dbc896e023fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f084eabb88c2ccfb8dd92c6361befe6"><td class="memItemLeft" align="right" valign="top">typedef std::remove_cv&lt; decltype(MOSI)&gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="framework__config_8hpp.xhtml#a8f084eabb88c2ccfb8dd92c6361befe6">PinType</a></td></tr>
+<tr class="memdesc:a8f084eabb88c2ccfb8dd92c6361befe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type expected by HAL for acessing pins.  <br /></td></tr>
+<tr class="separator:a8f084eabb88c2ccfb8dd92c6361befe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides defintions which are specific for the used framework. </p>
 <p>Those definitions may be changed when switching to a different framework. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="af2ec495d18e0b0b6d64dbc896e023fbb" name="af2ec495d18e0b0b6d64dbc896e023fbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2ec495d18e0b0b6d64dbc896e023fbb">&#9670;&#160;</a></span>PinType</h2>
+<a id="a8f084eabb88c2ccfb8dd92c6361befe6" name="a8f084eabb88c2ccfb8dd92c6361befe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f084eabb88c2ccfb8dd92c6361befe6">&#9670;&#160;</a></span>PinType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef decltype(MOSI) <a class="el" href="framework__config_8hpp.xhtml#af2ec495d18e0b0b6d64dbc896e023fbb">PinType</a></td>
+          <td class="memname">typedef std::remove_cv&lt;decltype(MOSI)&gt;::type <a class="el" href="framework__config_8hpp.xhtml#a8f084eabb88c2ccfb8dd92c6361befe6">PinType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -133,7 +134,7 @@ Typedefs</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 4 2023 19:16:12 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+Generated on Mon Jul 17 2023 18:29:41 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
 </small></address>
 </body>
 </html>

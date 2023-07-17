@@ -38,7 +38,9 @@ var menudata={children:[
 {text:"g",url:"namespacemembers.xhtml#index_g"},
 {text:"l",url:"namespacemembers.xhtml#index_l"},
 {text:"o",url:"namespacemembers.xhtml#index_o"},
-{text:"s",url:"namespacemembers.xhtml#index_s"}]},
+{text:"s",url:"namespacemembers.xhtml#index_s"},
+{text:"t",url:"namespacemembers.xhtml#index_t"},
+{text:"u",url:"namespacemembers.xhtml#index_u"}]},
 {text:"Functions",url:"namespacemembers_func.xhtml"},
 {text:"Variables",url:"namespacemembers_vars.xhtml",children:[
 {text:"a",url:"namespacemembers_vars.xhtml#index_a"},
@@ -48,9 +50,10 @@ var menudata={children:[
 {text:"e",url:"namespacemembers_vars.xhtml#index_e"},
 {text:"f",url:"namespacemembers_vars.xhtml#index_f"},
 {text:"g",url:"namespacemembers_vars.xhtml#index_g"},
-{text:"l",url:"namespacemembers_vars.xhtml#index_l"},
 {text:"o",url:"namespacemembers_vars.xhtml#index_o"},
-{text:"s",url:"namespacemembers_vars.xhtml#index_s"}]}]}]},
+{text:"s",url:"namespacemembers_vars.xhtml#index_s"},
+{text:"t",url:"namespacemembers_vars.xhtml#index_t"},
+{text:"u",url:"namespacemembers_vars.xhtml#index_u"}]}]}]},
 {text:"Files",url:"files.xhtml",children:[
 {text:"File List",url:"files.xhtml"},
 {text:"File Members",url:"globals.xhtml",children:[

@@ -8,11 +8,12 @@ var searchData=
   ['b5_5',['b5',['../namespacenote.xhtml#a9c41d46609094680a567b83b863ace1b',1,'note']]],
   ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
   ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
-  ['board_8',['board',['../namespaceboard.xhtml',1,'']]],
-  ['board_5fpins_2ehpp_9',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
-  ['buzzer_10',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
-  ['i2c_5f1_11',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
-  ['isr_12',['isr',['../namespaceboard_1_1isr.xhtml',1,'board']]],
-  ['osr_13',['osr',['../namespaceboard_1_1osr.xhtml',1,'board']]],
-  ['pin_14',['pin',['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1isr_1_1pin.xhtml',1,'board::isr::pin'],['../namespaceboard_1_1osr_1_1pin.xhtml',1,'board::osr::pin']]]
+  ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
+  ['board_9',['board',['../namespaceboard.xhtml',1,'']]],
+  ['board_5fpins_2ehpp_10',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
+  ['button_11',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
+  ['buzzer_12',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
+  ['i2c_5f1_13',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
+  ['led_14',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
+  ['pin_15',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button::pin'],['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led::pin']]]
 ];

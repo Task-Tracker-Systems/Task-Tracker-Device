@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputshiftregister_0',['inputShiftRegister',['../main_8cpp.xhtml#a7a5de3cd8b1d6f996ad64d05714b7cad',1,'main.cpp']]]
+  ['on_5foff_0',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]]
 ];
