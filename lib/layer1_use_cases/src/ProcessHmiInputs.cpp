@@ -1,5 +1,6 @@
 #include "ProcessHmiInputs.hpp"
 #include "logging.hpp"
+#include <cassert>
 #include <type_traits>
 
 ProcessHmiInputs::ProcessHmiInputs(IController &controller, IPresenter &presenter)
