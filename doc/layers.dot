@@ -1,0 +1,80 @@
+digraph G {
+  compound=true;
+  node [shape="component"]
+  newrank=true;
+  rankdir="LR";
+  splines=line;
+  
+  
+  subgraph cluster_ebr {
+      label = "enterprise business rules";
+      rank="same";
+      style="bold";
+      ebr [shape=point style=invis];
+      
+      entities;
+  }
+  
+  subgraph cluster_app {
+      label = "application";
+      rank="same";
+      style="bold";
+      app [shape=point style=invis];
+      
+      bi [label="board interfaces"]
+      uc [label="use case interactors"]
+  }
+  
+  
+   subgraph clusterX_margin
+   {
+     style=invis
+     margin=20.0
+  
+  subgraph cluster_thirdparty {
+      label = "frameworks and libraries";
+      rank="same";
+      node [style="dotted"];
+      style="bold,dotted";
+      thirdparty[shape=point style=invis];
+      
+      sdk [label="software development kit"]
+      views;
+  }
+   }
+  
+  subgraph cluster_ia {
+      label = "interface adapters";
+      rank="same";
+      style="bold";
+      ia [shape=point style=invis];
+      
+      controllers, presenters, "driver adapters", "view models"
+  };
+  
+  subgraph cluster_board {
+      label = "board adapter";
+      rank="same";
+      style="bold";
+      board [shape=point style=invis];
+      
+  }
+  
+  n1 [label="Not part of\nthe project.", shape="note"]
+  n1 -> thirdparty [lhead="cluster_thirdparty"];
+  
+  { 
+      rank=source; 
+      ia, thirdparty;
+  }
+  
+  {
+      // dependencies
+      edge [style="dashed", arrowtail="vee", dir="back"];
+      thirdparty -> ia [ltail="cluster_thirdparty", lhead="cluster_ia"];
+      entities -> uc;
+      bi -> board [lhead="cluster_board", arrowtail=onormal];
+      app -> ia [ltail=cluster_app, lhead=cluster_ia];
+      board -> ia [ltail=cluster_board, lhead=cluster_ia];  
+  } 
+}
