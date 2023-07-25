@@ -3,7 +3,6 @@ digraph G {
   node [shape="component"]
   newrank=true;
   rankdir="LR";
-  splines=line;
   
   
   subgraph cluster_ebr {
@@ -21,8 +20,9 @@ digraph G {
       style="bold";
       app [shape=point style=invis];
       
-      bi [label="board interfaces"]
+      ob [label="<<interface>>\n output boundaries"]
       uc [label="use case interactors"]
+      ib [label="<<interface>>\n input boundaries"]
   }
   
   
@@ -39,6 +39,7 @@ digraph G {
       thirdparty[shape=point style=invis];
       
       sdk [label="software development kit"]
+      driver;
       views;
   }
    }
@@ -49,14 +50,28 @@ digraph G {
       style="bold";
       ia [shape=point style=invis];
       
-      controllers, presenters, "driver adapters", "view models"
+      controllers, presenters, "view models"
+      bi [label="board interfaces"]
+      da [label="driver adapters"]
   };
+  
+   subgraph clusterX_xyz
+   {
+  
+      label = "xyz";
+      rank="same";
+      style="bold";
+      xyz [shape=point style=invis];
+   }
   
   subgraph cluster_board {
       label = "board adapter";
       rank="same";
       style="bold";
+      driver_interface [label="driver interfaces"]
       board [shape=point style=invis];
+      board_impl [label="board implementatnion"]
+      board_impl -> driver_interface;
       
   }
   
@@ -65,7 +80,7 @@ digraph G {
   
   { 
       rank=source; 
-      ia, thirdparty;
+      ia, thirdparty, board;
   }
   
   {
@@ -73,8 +88,15 @@ digraph G {
       edge [style="dashed", arrowtail="vee", dir="back"];
       thirdparty -> ia [ltail="cluster_thirdparty", lhead="cluster_ia"];
       entities -> uc;
-      bi -> board [lhead="cluster_board", arrowtail=onormal];
+      bi -> board_impl [arrowtail=onormal];
       app -> ia [ltail=cluster_app, lhead=cluster_ia];
-      board -> ia [ltail=cluster_board, lhead=cluster_ia];  
+      ib -> controllers;
+      ob -> uc;
+      ib -> uc [arrowtail=onormal];
+      ob -> presenters [arrowtail=onormal];
+      driver_interface -> da [arrowtail=onormal];
+       driver -> da;
+      views -> presenters;
+      bi -> presenters;
   } 
-}
+} 
