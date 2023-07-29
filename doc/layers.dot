@@ -13,7 +13,6 @@ digraph component_architecture {
         
         subgraph cluster_app {
             label = "application";
-            application [shape=point style=invis];
         
             output_boundaries [label="«interface»\n output boundaries"]
             use_cases [label="use case interactors"]
@@ -28,7 +27,6 @@ digraph component_architecture {
         
         subgraph cluster_ebr {
             label = "enterprise business rules";
-            enterprise_business_rules [shape=point style=invis];
             
             entities;
         }
@@ -58,7 +56,6 @@ digraph component_architecture {
         
         subgraph cluster_ia {
             label = "interface adapters";
-            interface_adapters [shape=point style=invis];
         
             controllers, presenters;
             board_interfaces [label="«interface»\n board interfaces"];
@@ -71,7 +68,6 @@ digraph component_architecture {
         
         subgraph cluster_board {
             label = "board adapter";
-            board [shape=point style=invis];
         
             driver_interface [label="«interface»\n drivers interfaces"]
             board_impl [label="board implementation"]
@@ -84,7 +80,6 @@ digraph component_architecture {
         
         subgraph cluster_drivers_adapters {
             label = "drivers";
-            c_drivers_adapters [shape=point style=invis];
             drivers_adapters [label="drivers adapters"];
         
         };
