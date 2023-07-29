@@ -1,12 +1,11 @@
 digraph component_architecture {
   label="component architecture";
   compound=true;
-  concentrate=true;
-  rankdir="RL";
-  newrank="true";
+  rankdir="BT";
+  style="bold"
   
   node [shape="component"];
-  node [colorscheme="pastel15"];
+  node [colorscheme="pastel16"];
   
     {
         // package 'application'
@@ -14,13 +13,12 @@ digraph component_architecture {
         
         subgraph cluster_app {
             label = "application";
-            rank="same";
-            style="bold";
             application [shape=point style=invis];
         
             output_boundaries [label="«interface»\n output boundaries"]
             use_cases [label="use case interactors"]
             input_boundaries [label="«interface»\n input boundaries"]
+            view_models [label="view models"];
         }
     }
     
@@ -30,8 +28,6 @@ digraph component_architecture {
         
         subgraph cluster_ebr {
             label = "enterprise business rules";
-            rank="same";
-            style="bold";
             enterprise_business_rules [shape=point style=invis];
             
             entities;
@@ -44,15 +40,17 @@ digraph component_architecture {
         
         subgraph cluster_thirdparty {
             label = "frameworks and libraries";
-            rank="same";
             style="bold,dotted";
             thirdparty[shape=point style=invis];
            
-        sdk [label="software development kit"]
-        drivers [label="drivers"];
-        views;
+            sdk [label="software development kit"]
+            drivers [label="drivers"];
+            views;
         }
     }
+    
+    n1 [label="Not part of\nthe project.", shape="note"]
+    n1 -> thirdparty [lhead="cluster_thirdparty"];
   
     {
         // package 'interface adapters'
@@ -60,14 +58,10 @@ digraph component_architecture {
         
         subgraph cluster_ia {
             label = "interface adapters";
-            rank="same";
-            style="bold";
             interface_adapters [shape=point style=invis];
         
             controllers, presenters;
-            view_models [label="view models"];
-            drivers_adapters [label="drivers adapters"];
-            board_interfaces [label="board interfaces"];
+            board_interfaces [label="«interface»\n board interfaces"];
         };
     }
   
@@ -77,17 +71,25 @@ digraph component_architecture {
         
         subgraph cluster_board {
             label = "board adapter";
-            rank="same";
-            style="bold";
             board [shape=point style=invis];
         
-            driver_interface [label="drivers interfaces"]
-            board_impl [label="board implementatnion"]
+            driver_interface [label="«interface»\n drivers interfaces"]
+            board_impl [label="board implementation"]
         }
     }
+  
+    {
+        // package 'interface adapters'
+        node [fillcolor="6", style="filled"];
+        
+        subgraph cluster_drivers_adapters {
+            label = "drivers";
+            c_drivers_adapters [shape=point style=invis];
+            drivers_adapters [label="drivers adapters"];
+        
+        };
+    }
 
-    n1 [label="Not part of\nthe project.", shape="note"]
-    n1 -> thirdparty [lhead="cluster_thirdparty"];
   
     {
         // associations
@@ -95,7 +97,7 @@ digraph component_architecture {
         {
             // dependencies
             edge [arrowhead="vee"];
-            use_cases -> entities [constraint="true"];
+            use_cases -> entities;
             use_cases -> output_boundaries;
             presenters -> board_interfaces;
             presenters -> view_models;
@@ -105,6 +107,7 @@ digraph component_architecture {
             board_impl -> driver_interface;
             views -> view_models;
             drivers_adapters -> drivers;
+            {views, drivers, drivers_adapters} -> sdk;
         }
         {
             // realizations
@@ -115,10 +118,5 @@ digraph component_architecture {
             drivers_adapters -> driver_interface;
         }
     }
-    {
-        rank="same";
-        interface_adapters, thirdparty, board;
-    }
-    
 }
 
