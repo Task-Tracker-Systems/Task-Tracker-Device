@@ -53,9 +53,9 @@ digraph G {
       
       controllers, presenters;
       view_models [label="view models"];
-      bi [label="board interfaces"]
       da [label="driver adapters"]
   };
+      bi [label="board interfaces"]
   
   subgraph cluster_board {
       label = "board adapter";
@@ -85,17 +85,17 @@ digraph G {
   
   {
       // dependencies
-      edge [style="dashed", arrowtail="vee", dir="back"];
-      thirdparty -> ia [ltail="cluster_thirdparty", lhead="cluster_ia"];
-      entities -> uc;
-      app -> ia [ltail=cluster_app, lhead=cluster_ia];
-      ib -> controllers;
-      ob -> uc;
-       driver -> da;
-      views -> presenters;
-      view_models -> presenters;
-      bi -> presenters;
-      driver_interface -> board_impl;
+      edge [style="dashed", arrowhead="vee"];
+      ia -> thirdparty [ltail="cluster_ia", lhead="cluster_thirdparty"];
+      uc -> entities;
+      ia -> app [ltail=cluster_ia, lhead=cluster_app];
+      controllers -> ib;
+      uc -> ob;
+      da -> driver;
+      presenters -> views;
+      presenters -> view_models;
+      presenters -> bi;
+      board_impl -> driver_interface;
   } 
 }
 
