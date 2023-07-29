@@ -51,19 +51,11 @@ digraph G {
       style="bold";
       ia [shape=point style=invis];
       
-      controllers, presenters, "view models"
+      controllers, presenters;
+      view_models [label="view models"];
       bi [label="board interfaces"]
       da [label="driver adapters"]
   };
-  
-   subgraph clusterX_xyz
-   {
-  
-      label = "xyz";
-      rank="same";
-      style="bold";
-      xyz [shape=point style=invis];
-   }
   
   subgraph cluster_board {
       label = "board adapter";
@@ -72,7 +64,6 @@ digraph G {
       driver_interface [label="driver interfaces"]
       board [shape=point style=invis];
       board_impl [label="board implementatnion"]
-      board_impl -> driver_interface;
       
   }
   
@@ -81,7 +72,15 @@ digraph G {
   
   { 
       rank=same; 
-      ia, thirdparty, board;
+      // ia, thirdparty;
+  }
+  
+  {
+      edge [arrowhead=onormal];
+      board_impl -> bi;
+      uc -> ib;
+      presenters -> ob;
+      da -> driver_interface;
   }
   
   {
@@ -89,16 +88,14 @@ digraph G {
       edge [style="dashed", arrowtail="vee", dir="back"];
       thirdparty -> ia [ltail="cluster_thirdparty", lhead="cluster_ia"];
       entities -> uc;
-      bi -> board_impl [arrowtail=onormal];
       app -> ia [ltail=cluster_app, lhead=cluster_ia];
       ib -> controllers;
       ob -> uc;
-      ib -> uc [arrowtail=onormal];
-      ob -> presenters [arrowtail=onormal];
-      driver_interface -> da [arrowtail=onormal];
        driver -> da;
       views -> presenters;
+      view_models -> presenters;
       bi -> presenters;
+      driver_interface -> board_impl;
   } 
 }
 
