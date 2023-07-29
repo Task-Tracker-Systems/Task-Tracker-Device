@@ -3,6 +3,7 @@ digraph G {
   node [shape="component"]
   newrank=true;
   rankdir="LR";
+  concentrate=true;
   
   
   subgraph cluster_ebr {
@@ -79,7 +80,7 @@ digraph G {
   n1 -> thirdparty [lhead="cluster_thirdparty"];
   
   { 
-      rank=source; 
+      rank=same; 
       ia, thirdparty, board;
   }
   
@@ -99,4 +100,5 @@ digraph G {
       views -> presenters;
       bi -> presenters;
   } 
-} 
+}
+
