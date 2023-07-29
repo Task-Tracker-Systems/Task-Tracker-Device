@@ -27,18 +27,17 @@ digraph component_architecture {
         
         subgraph cluster_ebr {
             label = "enterprise business rules";
-            
             entities;
         }
     }
   
     {
         // package 'frameworks and libraries'
-        node [fillcolor="3", style="filled, dotted"];
+        node [fillcolor="3", style="filled, dashed"];
         
         subgraph cluster_thirdparty {
             label = "frameworks and libraries";
-            style="bold,dotted";
+            style="bold,dashed";
             thirdparty[shape=point style=invis];
            
             sdk [label="software development kit"]
@@ -47,8 +46,13 @@ digraph component_architecture {
         }
     }
     
-    n1 [label="Not part of\nthe project.", shape="note"]
-    n1 -> thirdparty [lhead="cluster_thirdparty"];
+    subgraph clusterX_margin
+    {
+        style=invis
+        margin="20.0,0.0"
+        n1 [label="Not part of\nthe project.", shape="note"]
+        n1 -> thirdparty [lhead="cluster_thirdparty"];
+    }
   
     {
         // package 'interface adapters'
