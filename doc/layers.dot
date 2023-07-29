@@ -1,101 +1,124 @@
-digraph G {
+digraph component_architecture {
+  label="component architecture";
   compound=true;
-  node [shape="component"]
-  newrank=true;
-  rankdir="LR";
   concentrate=true;
+  rankdir="RL";
+  newrank="true";
   
+  node [shape="component"];
+  node [colorscheme="pastel15"];
   
-  subgraph cluster_ebr {
-      label = "enterprise business rules";
-      rank="same";
-      style="bold";
-      ebr [shape=point style=invis];
-      
-      entities;
-  }
+    {
+        // package 'application'
+        node [fillcolor="1", style="filled"];
+        
+        subgraph cluster_app {
+            label = "application";
+            rank="same";
+            style="bold";
+            application [shape=point style=invis];
+        
+            output_boundaries [label="«interface»\n output boundaries"]
+            use_cases [label="use case interactors"]
+            input_boundaries [label="«interface»\n input boundaries"]
+        }
+    }
+    
+    {
+        // package 'enterprise business rules'
+        node [fillcolor="2", style="filled"];
+        
+        subgraph cluster_ebr {
+            label = "enterprise business rules";
+            rank="same";
+            style="bold";
+            enterprise_business_rules [shape=point style=invis];
+            
+            entities;
+        }
+    }
   
-  subgraph cluster_app {
-      label = "application";
-      rank="same";
-      style="bold";
-      app [shape=point style=invis];
-      
-      ob [label="<<interface>>\n output boundaries"]
-      uc [label="use case interactors"]
-      ib [label="<<interface>>\n input boundaries"]
-  }
+    {
+        // package 'frameworks and libraries'
+        node [fillcolor="3", style="filled, dotted"];
+        
+        subgraph cluster_thirdparty {
+            label = "frameworks and libraries";
+            rank="same";
+            style="bold,dotted";
+            thirdparty[shape=point style=invis];
+           
+        sdk [label="software development kit"]
+        drivers [label="drivers"];
+        views;
+        }
+    }
   
+    {
+        // package 'interface adapters'
+        node [fillcolor="4", style="filled"];
+        
+        subgraph cluster_ia {
+            label = "interface adapters";
+            rank="same";
+            style="bold";
+            interface_adapters [shape=point style=invis];
+        
+            controllers, presenters;
+            view_models [label="view models"];
+            drivers_adapters [label="drivers adapters"];
+            board_interfaces [label="board interfaces"];
+        };
+    }
   
-   subgraph clusterX_margin
-   {
-     style=invis
-     margin=20.0
+    {
+        // package 'board adapter'
+        node [fillcolor="5", style="filled"];
+        
+        subgraph cluster_board {
+            label = "board adapter";
+            rank="same";
+            style="bold";
+            board [shape=point style=invis];
+        
+            driver_interface [label="drivers interfaces"]
+            board_impl [label="board implementatnion"]
+        }
+    }
+
+    n1 [label="Not part of\nthe project.", shape="note"]
+    n1 -> thirdparty [lhead="cluster_thirdparty"];
   
-  subgraph cluster_thirdparty {
-      label = "frameworks and libraries";
-      rank="same";
-      node [style="dotted"];
-      style="bold,dotted";
-      thirdparty[shape=point style=invis];
-      
-      sdk [label="software development kit"]
-      driver;
-      views;
-  }
-   }
-  
-  subgraph cluster_ia {
-      label = "interface adapters";
-      rank="same";
-      style="bold";
-      ia [shape=point style=invis];
-      
-      controllers, presenters;
-      view_models [label="view models"];
-      da [label="driver adapters"]
-  };
-      bi [label="board interfaces"]
-  
-  subgraph cluster_board {
-      label = "board adapter";
-      rank="same";
-      style="bold";
-      driver_interface [label="driver interfaces"]
-      board [shape=point style=invis];
-      board_impl [label="board implementatnion"]
-      
-  }
-  
-  n1 [label="Not part of\nthe project.", shape="note"]
-  n1 -> thirdparty [lhead="cluster_thirdparty"];
-  
-  { 
-      rank=same; 
-      // ia, thirdparty;
-  }
-  
-  {
-      edge [arrowhead=onormal];
-      board_impl -> bi;
-      uc -> ib;
-      presenters -> ob;
-      da -> driver_interface;
-  }
-  
-  {
-      // dependencies
-      edge [style="dashed", arrowhead="vee"];
-      ia -> thirdparty [ltail="cluster_ia", lhead="cluster_thirdparty"];
-      uc -> entities;
-      ia -> app [ltail=cluster_ia, lhead=cluster_app];
-      controllers -> ib;
-      uc -> ob;
-      da -> driver;
-      presenters -> views;
-      presenters -> view_models;
-      presenters -> bi;
-      board_impl -> driver_interface;
-  } 
+    {
+        // associations
+        edge [style="dashed"];
+        {
+            // dependencies
+            edge [arrowhead="vee"];
+            use_cases -> entities [constraint="true"];
+            use_cases -> output_boundaries;
+            presenters -> board_interfaces;
+            presenters -> view_models;
+            presenters -> views;
+            controllers -> input_boundaries;
+            controllers -> board_interfaces;
+            board_impl -> driver_interface;
+            views -> view_models;
+            drivers_adapters -> drivers;
+        }
+        {
+            // realizations
+            edge [arrowhead="onormal"];
+            use_cases -> input_boundaries;
+            presenters -> output_boundaries;
+            board_impl -> board_interfaces;
+            drivers_adapters -> driver_interface;
+        }
+    }
+    {
+        rank="same";
+        interface_adapters, thirdparty, board;
+    }
+    
 }
 
