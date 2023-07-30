@@ -80,6 +80,10 @@ For example a library (including any interface adapters) can be considered as on
 Another example of a component is the software for adapting to the board (the device's hardware used by the software).
 As a different board may be used for the same application.
 
+Also this definition of *components* from the [C4 software architecture model](https://c4model.com/) by Simon Brown applies (\cite CleanArchitecture p. 314):
+
+> A grouping of related functionality behind a nice clean interface, which resides inside an execution environment like an application.
+
 Further References
 ------------------
 
