@@ -4,6 +4,7 @@ OUTPUT_DIRECTORY       = doc
 JAVADOC_AUTOBRIEF      = YES
 EXTENSION_MAPPING      = ino=C++
 EXTRACT_ALL            = YES
+CITE_BIB_FILES         = doc/bibliography
 INPUT                  = .
 FILE_PATTERNS          = *.c \
                          *.cc \
