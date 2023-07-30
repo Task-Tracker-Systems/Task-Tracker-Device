@@ -1,4 +1,8 @@
-# Objectives of the Software Architecture
+Software Architecture
+=====================
+
+Objectives of the Software Architecture
+---------------------------------------
 
 The objectives of the software architecture are:
 
@@ -6,7 +10,8 @@ The objectives of the software architecture are:
  - A use case driven approach: The architecture shall be centered on use cases and not depend on implementation details.
  - Flexible structure: The software shall not be hard to adjust to changing hardware, development frameworks or external/third party libraries.
 
-# Achieving a Flexible Structure
+Achieving a Flexible Structure
+------------------------------
 
 For maintaining flexibility the software architecture shall adhere to:
 
@@ -28,7 +33,8 @@ In contrast the software will commit to the following dependencies:
  - The code may depend on a compiler which is capable to compile C++17 as defined in ISO/IEC 14882:2017.
  - The code may depend on an implementation of the C++ Standard Library as defined in ISO/IEC 14882:2017.
   
-# Implementing a Plug-in Architecture
+Implementing a Plug-in Architecture
+-----------------------------------
 
 The software is structured in software layers.
 
@@ -67,6 +73,7 @@ The declarations are the interface required by the higher level.
 Those files must be in the directory of the higher level.
 The definitions of the factory functions must be in the lower level directory.
 
-# References
+References
+----------
 
 * 'The Clean Architecture' by R.C. Martin aka Uncle Bob. He has also written [an article](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
