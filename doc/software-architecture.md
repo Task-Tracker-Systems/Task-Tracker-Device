@@ -65,6 +65,8 @@ As the specific realization of dependency injection is specific for its usage, t
 separate files of the interface and its realization.
 It must reside in a package of a level equal or lower than the package containing the realization of the interface.
 
+\dotfile dependency_injection.dot "example dependency injection"
+
 ### Interface Adapters
 
 In case an implementation detail can not be changed:

@@ -1,0 +1,25 @@
+digraph dependency_injection {
+    rankdir="BT"
+    edge[style="dashed", arrowhead="vee"]
+
+  subgraph cluster_high {
+      label="high level policy package"
+      factory_interface [label="«interface»\n factory B"];
+      component_a [shape="component", label="A"];
+      interface_b [shape="rectangle", label="«interface»\n B"];
+  }
+  
+  subgraph cluster_low {
+      label="low level policy package"
+      factory_impl [label="factory B"];
+      component_b [shape="component", label="B"];
+  }
+
+  component_b -> interface_b [arrowhead="onormal", label="«realizes»"]
+  factory_impl -> component_b [constraint="false", label="«instantiates a»"]
+  component_a -> interface_b [label="«depends on»"]
+  component_a -> factory_interface [constraint="false", label="«calls»"]
+  factory_interface -> interface_b [constraint="false", label="«depends on»"]
+  factory_impl -> factory_interface [label="«implements»"]
+}
+
