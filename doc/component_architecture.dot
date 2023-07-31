@@ -1,5 +1,4 @@
 digraph component_architecture {
-  label="component architecture";
   compound=true;
   rankdir="BT";
   style="bold"

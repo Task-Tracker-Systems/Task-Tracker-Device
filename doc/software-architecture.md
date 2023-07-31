@@ -86,6 +86,65 @@ Also this definition of *components* from the [C4 software architecture model](h
 
 > A grouping of related functionality behind a nice clean interface, which resides inside an execution environment like an application.
 
+Component Architecture
+----------------------
+
+The following diagram sketches the plan for the component architecture.
+The elements in the diagram are placeholders for components which will be defined in a generic way further below.
+
+The component architecture shall support the objectives of the software architecture.
+Mechanisms for dependency injection are omitted in this diagram for readability.
+
+\dotfile component_architecture.dot "component architecture for this software"
+
+The rectangles with bold border are packages.
+The label at the bottom of each package is the name of the package.
+
+### Enterprise Business Rules
+
+This is the package with the policies of highest level.
+This package contains policies which are valid not only for the software of this application.
+Instead they define rules which apply to more than one application within their organization.
+
+The enterprise business rules are a distinct package as they have a specific reason for changing.
+In general they should be very stable.
+The motivation of the border to other packages is the Common Closure Principle.
+
+#### Entities
+
+The following can be entities:
+
+ - The format *task* data is interchanged between applications.
+ - Requirements for calculation of task duration (i.e. how to deal with changing time zones).
+ - Requirements for labeling tasks.
+
+### Application
+
+The application package contains everything which is specific for the application.
+That is all policies or rules which will only change if the core logic of the application changes.
+
+The enterprise business rules have a different reason to change, as they are defined on the level of the organization.
+Thus they are not part of the application package.
+
+Everything which could possibly change without changing the behavior of the use cases is not part of the application package.
+This is in particular:
+
+ - The (graphical) user interface.
+ - Realization of storage.
+ - Any input or output interfaces to or from the software system.
+ - Any hardware adapters, hardware abstraction layers, processor abstraction layers.
+   This includes peripheral drivers.
+ - Any software development kit or library which is not exclusive for this application.
+
+#### Use Case Interactors, Input- and Output Boundaries
+
+
+#### View Models
+
+### Interface Adapters
+
+This package contains components which act as a bridge between the application and "the outside world" (anything outside the system).
+
 Further References
 ------------------
 
