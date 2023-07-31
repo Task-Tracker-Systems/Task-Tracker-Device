@@ -65,8 +65,6 @@ As the specific realization of dependency injection is specific for its usage, t
 separate files of the interface and its realization.
 It must reside in a package of a level equal or lower than the package containing the realization of the interface.
 
-\dotfile dependency_injection.dot "example dependency injection"
-
 ### Interface Adapters
 
 In case an implementation detail can not be changed:
@@ -74,6 +72,8 @@ For example because it is a stable software part, or 3rd-party or otherwise immu
 Then interface adapters must be implemented.
 Those interface adapters realize the higher layer interface while using the stable component.
 The usage may for example be realized using the delegation pattern.
+
+\dotfile dependency_injection_interface_adapter.dot "example of dependency injection and interface adapter"
 
 ### Components
 

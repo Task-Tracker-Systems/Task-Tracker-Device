@@ -1,4 +1,4 @@
-digraph dependency_injection {
+digraph dependency_injection_interface_adapter {
     rankdir="BT"
     edge[style="dashed", arrowhead="vee"]
 
@@ -10,12 +10,18 @@ digraph dependency_injection {
   }
   
   subgraph cluster_low {
-      label="low level policy package"
+      label="interface adapters package"
       factory_impl [label="factory B"];
       component_b [shape="component", label="B"];
   }
+  
+  subgraph cluster_external {
+      label="third party libraries"
+      component_c [shape="component", label="external library"];
+  }
 
   component_b -> interface_b [arrowhead="onormal", label="«realizes»"]
+  component_b -> component_c [constraint="false", arrowhead="odiamond", label="«delegates to»"]
   factory_impl -> component_b [constraint="false", label="«instantiates a»"]
   component_a -> interface_b [label="«depends on»"]
   component_a -> factory_interface [constraint="false", label="«calls»"]
