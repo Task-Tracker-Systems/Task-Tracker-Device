@@ -21,7 +21,7 @@ digraph dependency_injection_interface_adapter {
   }
 
   component_b -> interface_b [arrowhead="onormal", label="«realizes»"]
-  component_b -> component_c [constraint="false", arrowhead="odiamond", label="«delegates to»"]
+  component_b -> component_c [constraint="false", label="«delegates to»"]
   factory_impl -> component_b [constraint="false", label="«instantiates a»"]
   component_a -> interface_b [label="«depends on»"]
   component_a -> factory_interface [constraint="false", label="«calls»"]
