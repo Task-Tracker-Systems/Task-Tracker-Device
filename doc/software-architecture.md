@@ -50,20 +50,19 @@ Implementing a Plug-in Architecture
 ### Dependency Injection
 
 For a higher level package to use an implementation from a lower level, interfaces shall be used.
-Now, at some point, the higher level package needs to use the actual object realizing the interface.
+At runtime the higher level package needs to use the actual object realizing the interface.
 But this shall be done without revealing the implementation details to the higher level package.
-For this, in the higher level package, non-member "getter"- or "factory" functions shall be declared.
-These declarations can be interpreted as an interface.
-Those functions will return the object of interest.
+For this, non-member "getter"- or "factory"- functions (Dependency Injector Function; DIF) shall be declared in the higher level.
+Using functions as dependency injector allows to call the constructor of the implementation with run-time arguments.
 The return type is a reference to an object of the base class (interface).
-The actual object is created and kept (in the sense of definition) in the lower layer package.
+The actual object is created and kept in the lower layer package.
+In general a DIF may return different objects which have to be allocated in dynamic memory.
 
-Using functions allows to call the constructor of the implementation with run-time arguments.
-In general, those functions may return different objects which have to be allocated in dynamic memory.
-In our case, often only one instance of each class is required.
-As the specific realization of dependency injection is specific for its usage, the factory function shall be declared and defined in
-separate files of the interface and its realization.
-It must reside in a package of a level equal or lower than the package containing the realization of the interface.
+The declaration of a DIF must reside in the (highest) level which calls it.
+Its definition must reside at the level which implements the dependency or at a lower level.
+But it should not reside in the same unit as the dependency.
+As the definition of the DIF depends on its usage it should not pollute the implementation's unit.
+This simplifies reusability and testability of the implementation.
 
 ### Interface Adapters
 
