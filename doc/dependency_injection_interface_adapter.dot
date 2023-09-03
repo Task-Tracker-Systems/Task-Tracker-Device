@@ -4,15 +4,15 @@ digraph dependency_injection_interface_adapter {
 
   subgraph cluster_high {
       label="high level policy package"
-      factory_interface [label="«interface»\n factory B"];
-      component_a [shape="component", label="A"];
-      interface_b [shape="rectangle", label="«interface»\n B"];
+      factory_interface [label=<«interface»<BR/><FONT FACE="Courier New">B&amp; factoryB();</FONT>>];
+      component_a [shape="component", label="A", fontname="Courier New"];
+      interface_b [shape="rectangle", label=<«interface»<BR/><FONT FACE="Courier New">B</FONT>>];
   }
   
   subgraph cluster_low {
       label="interface adapters package"
-      factory_impl [label="factory B"];
-      component_b [shape="component", label="B"];
+      factory_impl [label="B& factoryB(){}" fontname="Courier New"];
+      component_b [shape="component", label="B", fontname="Courier New"];
   }
   
   subgraph cluster_external {
