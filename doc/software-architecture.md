@@ -13,6 +13,9 @@ The objectives of the software architecture are:
 Achieving a Flexible Structure
 ------------------------------
 
+\note The description will use the term '*level*' or '*policy* level'.
+      It is used according to the description given in \cite CleanArchitecture p. 184 ff..
+
 For maintaining flexibility the software architecture shall adhere to:
 
 - The 'Acyclic Dependencies Principle' in \cite CleanArchitecture p. 112 ff..:  
@@ -39,9 +42,6 @@ In contrast the software will commit to the following dependencies:
 
 Implementing a Plug-in Architecture
 -----------------------------------
-
-\note The description will use the term '*level*' or '*policy* level'.
-      It is used according to the description given in \cite CleanArchitecture p. 184 ff..
 
 \note The description will use the term '*package*'.
       In this context a package groups related implementation of functionality of a common policy level.
