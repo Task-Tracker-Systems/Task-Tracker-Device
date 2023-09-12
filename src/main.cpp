@@ -61,8 +61,8 @@ void setup(char const *programIdentificationString)
     pinMode(board::led::pin::task3, OUTPUT);
     pinMode(board::led::pin::task4, OUTPUT);
     pinMode(board::buzzer::pin::on_off, OUTPUT);
-    setup_display();
     Serial.begin(115200);
+    setup_display();
     delay(100);
     Serial.flush();
     delay(100);
