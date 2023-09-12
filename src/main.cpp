@@ -99,6 +99,6 @@ void loop()
         }
     }
     delay(loopDurationMs);
-    testanimate(); // Animate bitmaps
+    refresh_display();
 }
 } // namespace main
