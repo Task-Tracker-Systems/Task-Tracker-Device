@@ -1,28 +1,28 @@
 digraph component_architecture {
   compound=true;
-  rankdir="BT";
+  rankdir="RL";
   style="bold"
   
   node [shape="component"];
-  node [colorscheme="pastel16"];
+  node [colorscheme="pastel19"];
   
     {
         // package 'application'
-        node [fillcolor="1", style="filled"];
+        node [fillcolor="2", style="filled"];
         
         subgraph cluster_app {
-            label = "application";
+            label = "application business rules";
         
             output_boundaries [label="«interface»\n output boundaries"]
             use_cases [label="use case interactors"]
             input_boundaries [label="«interface»\n input boundaries"]
-            view_models [label="view models"];
+            data_interface [label="«interface»\n data gateway"]
         }
     }
     
     {
         // package 'enterprise business rules'
-        node [fillcolor="2", style="filled"];
+        node [fillcolor="1", style="filled"];
         
         subgraph cluster_ebr {
             label = "enterprise business rules";
@@ -32,7 +32,7 @@ digraph component_architecture {
   
     {
         // package 'frameworks and libraries'
-        node [fillcolor="3", style="filled, dashed"];
+        node [fillcolor="5", style="filled, dashed"];
         
         subgraph cluster_thirdparty {
             label = "frameworks and libraries";
@@ -40,8 +40,7 @@ digraph component_architecture {
             thirdparty[shape=point style=invis];
            
             sdk [label="software development kit"]
-            drivers [label="drivers"];
-            views;
+            libraries;
         }
     }
     
@@ -59,36 +58,23 @@ digraph component_architecture {
         
         subgraph cluster_ia {
             label = "interface adapters";
-        
-            controllers, presenters;
-            board_interfaces [label="«interface»\n board interfaces"];
+            liberaries_adapters [label="libraries adapters"];
         };
     }
   
     {
-        // package 'board adapter'
-        node [fillcolor="5", style="filled"];
+        // package 'board adapters'
+        node [fillcolor="3", style="filled"];
         
         subgraph cluster_board {
-            label = "board adapter";
+            label = "board adapters";
         
-            driver_interface [label="«interface»\n drivers interfaces"]
+            // controllers, presenters, views;
+            library_interfaces [label="«interface»\n library interfaces"]
             board_impl [label="board implementation"]
         }
     }
-  
-    {
-        // package 'interface adapters'
-        node [fillcolor="6", style="filled"];
-        
-        subgraph cluster_drivers_adapters {
-            label = "drivers";
-            drivers_adapters [label="drivers adapters"];
-        
-        };
-    }
-
-  
+    
     {
         // associations
         edge [style="dashed"];
@@ -97,23 +83,20 @@ digraph component_architecture {
             edge [arrowhead="vee"];
             use_cases -> entities;
             use_cases -> output_boundaries;
-            presenters -> board_interfaces;
-            presenters -> view_models;
-            presenters -> views;
-            controllers -> input_boundaries;
-            controllers -> board_interfaces;
-            board_impl -> driver_interface;
-            views -> view_models;
-            drivers_adapters -> drivers;
-            {views, drivers, drivers_adapters} -> sdk;
+            board_impl -> input_boundaries;
+            board_impl -> library_interfaces;
+            use_cases -> data_interface;
+            
+            libraries -> sdk;
+            liberaries_adapters -> libraries;
         }
         {
             // realizations
             edge [arrowhead="onormal"];
             use_cases -> input_boundaries;
-            presenters -> output_boundaries;
-            board_impl -> board_interfaces;
-            drivers_adapters -> driver_interface;
+            board_impl -> output_boundaries;
+            liberaries_adapters -> library_interfaces;
+            board_impl -> data_interface;
         }
     }
 }
