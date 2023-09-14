@@ -18,7 +18,7 @@ jobs:
         branch_name="${{ github.ref }}"
         branch_name="${branch_name#refs/heads/}"
         if [ "$branch_name" != "develop" ]; then
-          output_dir="./${branch_name//\//_}"
+          output_dir="./${branch_name}"
         else
           output_dir="."
         fi
