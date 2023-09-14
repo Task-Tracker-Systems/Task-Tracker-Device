@@ -45,7 +45,7 @@ Implementing a Plug-in Architecture
 
 \note The description will use the term '*package*'.
       In this context a package groups related implementation of functionality of a common policy level.
-      This does not refer to a specific artifact type in a programming language.
+      It does not refer to a specific artifact type in a programming language.
 
 ### Interpretation of the Dependency Rule
 
@@ -149,6 +149,10 @@ This is in particular:
 ### Interface Adapters
 
 This package contains components which act as a bridge between the application and "the outside world" (anything outside the system).
+
+### Board Adapter
+
+Only the board adapter knows the hardware and its capabilities.
 
 Further References
 ------------------
