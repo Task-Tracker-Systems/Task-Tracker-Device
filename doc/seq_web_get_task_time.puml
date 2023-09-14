@@ -1,0 +1,62 @@
+@startuml
+
+actor user
+boundary "web server" as server
+control "(web?) controller" as controller
+participant "(web?) presenter" as presenter
+entity "use case interactor" as uci
+database "data access" as db
+
+user -> server : I want to see the time for a task
+activate server
+server -> controller : get task time
+activate controller
+deactivate server
+
+controller -> presenter : ask for task id
+activate presenter
+deactivate controller
+presenter -> server : ask user for task id
+activate server
+deactivate presenter
+server -> user : please input task number
+deactivate server
+user --> server :  task number
+activate server
+server --> controller : task id
+activate controller
+deactivate server
+
+autoactivate on
+
+controller -> uci : present task time of task(id)
+note right
+  <DS> Input Data
+  * task ID
+end note
+deactivate controller
+
+deactivate controller
+
+uci -> db : getTime(taskId)
+return time
+
+uci -> presenter : show task time to user
+
+deactivate uci
+
+note over presenter
+  generate message to 
+  user about task time
+end note
+presenter -> server : send message to user
+note right
+  <DS> Output Data
+  * task ID
+  * task time
+end note
+server -> user : present message to user
+
+
+@enduml
+
