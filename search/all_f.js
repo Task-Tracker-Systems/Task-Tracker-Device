@@ -6,5 +6,9 @@ var searchData=
   ['task3_3',['task3',['../namespaceboard_1_1button_1_1pin.xhtml#aad9896b748a735d9304ef60924162000',1,'board::button::pin::task3'],['../namespaceboard_1_1led_1_1pin.xhtml#aba86faf011fc8b9c9af6cabb5f0ca227',1,'board::led::pin::task3']]],
   ['task4_4',['task4',['../namespaceboard_1_1button_1_1pin.xhtml#af30de0f692a26bd309ea016b1ea1a952',1,'board::button::pin::task4'],['../namespaceboard_1_1led_1_1pin.xhtml#a019fad5ba8be83d38e6a42bfdb172c8a',1,'board::led::pin::task4']]],
   ['testanimate_5',['testanimate',['../display_8cpp.xhtml#a58c16ae6270d65c36f66d92ec542e8df',1,'testanimate():&#160;display.cpp'],['../display_8h.xhtml#a58c16ae6270d65c36f66d92ec542e8df',1,'testanimate():&#160;display.cpp']]],
-  ['time_2dtracker_2eino_6',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]]
+  ['the_20documentation_6',['Generate the documentation',['../index.xhtml#autotoc_md10',1,'']]],
+  ['the_20software_7',['Build and Upload the Software',['../index.xhtml#autotoc_md11',1,'']]],
+  ['time_2dtracker_2eino_8',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]],
+  ['to_20contribute_9',['How to contribute',['../md_CONTRIBUTING.xhtml',1,'']]],
+  ['tracker_10',['Task Tracker',['../index.xhtml',1,'']]]
 ];

@@ -10,10 +10,14 @@ var searchData=
   ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
   ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
   ['board_9',['board',['../namespaceboard.xhtml',1,'']]],
-  ['board_5fpins_2ehpp_10',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
-  ['button_11',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
-  ['buzzer_12',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
-  ['i2c_5f1_13',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
-  ['led_14',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
-  ['pin_15',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button::pin'],['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led::pin']]]
+  ['board_3a_3abutton_10',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
+  ['board_3a_3abutton_3a_3apin_11',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button']]],
+  ['board_3a_3abuzzer_12',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
+  ['board_3a_3abuzzer_3a_3apin_13',['pin',['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer']]],
+  ['board_3a_3ai2c_5f1_14',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
+  ['board_3a_3ai2c_5f1_3a_3apin_15',['pin',['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1']]],
+  ['board_3a_3aled_16',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
+  ['board_3a_3aled_3a_3apin_17',['pin',['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led']]],
+  ['board_5fpins_2ehpp_18',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
+  ['build_20and_20upload_20the_20software_19',['Build and Upload the Software',['../index.xhtml#autotoc_md11',1,'']]]
 ];
