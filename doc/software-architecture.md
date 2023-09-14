@@ -47,6 +47,11 @@ Implementing a Plug-in Architecture
       In this context a package groups related implementation of functionality of a common policy level.
       This does not refer to a specific artifact type in a programming language.
 
+### Interpretation of the Dependency Rule
+
+For this software architecture the Dependency Rule (see \cite CleanArchitecture p. 203) is applied on source code dependencies between *packages*.
+That means that source code may only depend on source code within its own package or on source code in packages of higher-level policies.
+
 ### Dependency Injection
 
 For a higher level package to use an implementation from a lower level, interfaces shall be used.
@@ -98,6 +103,7 @@ Mechanisms for dependency injection are omitted in this diagram for readability.
 
 The rectangles with bold border are packages.
 The label at the bottom of each package is the name of the package.
+Each component consists of one or more components.
 
 ### Enterprise Business Rules
 
