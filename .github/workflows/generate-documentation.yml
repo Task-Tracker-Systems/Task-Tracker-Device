@@ -1,20 +1,36 @@
 name: generate and deploy documentation
 on:
   push:
-    branches: [ develop ]
 permissions:
   contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Determine Output Directory
+      id: output_dir
+      run: |
+        branch_name="${{ github.ref }}"
+        branch_name="${branch_name#refs/heads/}"
+        if [ "$branch_name" != "develop" ]; then
+          output_dir="./${branch_name//\//_}"
+        else
+          output_dir="."
+        fi
+        echo "DOC_OUTPUT_DIR=$output_dir" >> "$GITHUB_ENV"
+
     - name: generate documentation
       uses: mattnotmitt/doxygen-action@v1.1.0
+
     - name: deploy documentation
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./doc/html
+        destination_dir: ${{ env.DOC_OUTPUT_DIR }}
 
