@@ -187,7 +187,10 @@ Use Case Interactors, Input- and Output Boundaries</h3>
 <p >&zwj;A use case is a description of the way that an automated system is used. It specifies the input to be provided by the user, the output to be returned to the user, and the processing steps involved in producing that output. A use case describes <em>application-specific</em> business rules [...]. </p>
 </blockquote>
 <p>Note, that all input data (a request) to a use case interactor is obtained outside the use case interactor (typically by a "Controller"). The output data of a use case interactor (a response) is passed to an output boundary (typically by a "Presenter").</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
+Data Gateway</h3>
+<p >Data gateway represents an interface to a persistent data storage. Implementation will be specific to the capabilities of the board.</p>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Board Adapters (interface adapters)</h2>
 <p ><div class="dotgraph">
 <iframe scrolling="no" frameborder="0" src="dot_component_board.svg" width="194" height="59"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -203,7 +206,7 @@ Board Adapters (interface adapters)</h2>
 <li>View Models and Views (see <a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 212 f.) used to present information to the user</li>
 </ul>
 <p >Whether those concepts are realized as dedicated components may depend on the concrete board the board adapter interfaces.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 3rd Party Adapters (interface adapters)</h2>
 <p ><div class="dotgraph">
 <iframe scrolling="no" frameborder="0" src="dot_component_libadapter.svg" width="158" height="59"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -212,7 +215,7 @@ Board Adapters (interface adapters)</h2>
 <p >"Own" code is authored and fully controlled by the organization. "External" code is code which is provided by other parties. That code is used by the "own" code. External code may be incorporated as source code or (pre-)compiled code.</p>
 <p >3rd party adapters shield the own code from the external code. That is, any changes to external code shall only impact the 3rd party adapters. That includes for example if one library is exchanged by another library which servers the same purpose.</p>
 <p >The software development kits (or frameworks) should not be directly used by the own code (for example the Arduino environment). Third party (external) code may depend on the SDKs. In case the own code needs to use a SDK, using a 3rd party adapter should be aimed at. The reason for this is that this simplifies moving the own code to a different SDK.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Further References</h1>
 <ul>
 <li><a class="el" href="citelist.xhtml#CITEREF_TheCleanArchitecture">[1]</a> </li>
@@ -221,7 +224,7 @@ Further References</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 15 2023 16:27:33 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Fri Sep 15 2023 17:24:05 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
