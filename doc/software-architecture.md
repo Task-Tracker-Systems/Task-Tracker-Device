@@ -157,12 +157,12 @@ Note, that all input data (a request) to a use case interactor is obtained outsi
 The output data of a use case interactor (a response) is passed to an output boundary
 (typically by a "Presenter").
 
-### Board Adapter
+### Board Adapters (interface adapters)
 
 \note The "board" means the sum of hardware of the device which can be interfaced - directly or indirectly - by the software.
       Examples are the processor, Bluetooth modules, memory devices, displays and buttons.
       
-The board adapter is a special kind of interface adapter.
+The board adapter is a special kind of interface adapters.
 It is *the* adapter to the user.
 This package contains components which act as a bridge between the application and "the outside world" (anything outside the system).
 Any interaction with a user (whether via a human-machine interface or indirectly using a machine-to-machine interface)
@@ -183,22 +183,23 @@ The board adapter may realize concepts as
 
 Whether those concepts are realized as dedicated components may depend on the concrete board the board adapter interfaces.
 
-### Interface Adapters
+### 3rd Party Adapters (interface adapters)
 
-This package contains components which act as a bridge between software's own code and external code.
+This package is a special kind of interface adapters.
+It contains components which act as a bridge between software's own code and external code.
 
 "Own" code is authored and fully controlled by the organization. 
 "External" code is code which is provided by other parties.
 That code is used by the "own" code.
 External code may be incorporated as source code or (pre-)compiled code.
 
-Interface adapters shield the own code from the external code.
-That is, any changes to external code shall only impact the interface adapters.
+3rd party adapters shield the own code from the external code.
+That is, any changes to external code shall only impact the 3rd party adapters.
 That includes for example if one library is exchanged by another library which servers the same purpose.
 
 The software development kits (or frameworks) should not be directly used by the own code (for example the Arduino environment).
 Third party (external) code may depend on the SDKs.
-In case the own code needs to use a SDK, using an interface adapter should be aimed at.
+In case the own code needs to use a SDK, using a 3rd party adapter should be aimed at.
 The reason for this is that this simplifies moving the own code to a different SDK.
 
 Further References

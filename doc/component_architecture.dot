@@ -57,7 +57,7 @@ digraph component_architecture {
         node [fillcolor="4", style="filled"];
         
         subgraph cluster_ia {
-            label = "interface adapters";
+            label = "3rd party adapters";
             liberaries_adapters [label="libraries adapters"];
         };
     }
