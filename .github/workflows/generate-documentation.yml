@@ -1,6 +1,10 @@
 name: generate and deploy documentation
+
 on:
   push:
+    branches-ignore:
+      - 'gh-pages'
+
 permissions:
   contents: write
 

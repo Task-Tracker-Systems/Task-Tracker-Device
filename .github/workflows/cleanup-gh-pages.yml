@@ -2,6 +2,8 @@ name: Cleanup GitHub Pages Branch Workflow
 
 on:
   push:
+    branches-ignore:
+      - 'gh-pages'
 
 permissions:
   contents: write
