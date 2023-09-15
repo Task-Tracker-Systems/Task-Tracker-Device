@@ -86,7 +86,7 @@ For example a library (including any interface adapters) can be considered as on
 Another example of a component is the software for adapting to the board (the device's hardware used by the software).
 As a different board may be used for the same application.
 
-Also this definition of *components* from the [C4 software architecture model](https://c4model.com/) by Simon Brown applies (\cite CleanArchitecture p. 314):
+Also this definition of *components* from the [C4 software architecture model](https://c4model.com/) by Simon Brown applies (\cite CleanArchitecture p. 314) applies:
 
 > A grouping of related functionality behind a nice clean interface, which resides inside an execution environment like an application.
 
@@ -103,7 +103,8 @@ Mechanisms for dependency injection are omitted in this diagram for readability.
 
 The rectangles with bold border are packages.
 The label at the bottom of each package is the name of the package.
-Each component consists of one or more components.
+Each package consists of one or more components.
+All components in this diagram are exemplarily.
 
 ### Enterprise Business Rules
 
@@ -111,9 +112,9 @@ This is the package with the policies of highest level.
 This package contains policies which are valid not only for the software of this application.
 Instead they define rules which apply to more than one application within their organization.
 
-The enterprise business rules are a distinct package as they have a specific reason for changing.
+The enterprise business rules are a distinct package as they have a specific reason for changing:
+Something changes at the organization level.
 In general they should be very stable.
-The motivation of the border to other packages is the Common Closure Principle.
 
 #### Entities
 
@@ -123,9 +124,9 @@ The following can be entities:
  - Requirements for calculation of task duration (i.e. how to deal with changing time zones).
  - Requirements for labeling tasks.
 
-### Application
+### Application Business Rules
 
-The application package contains everything which is specific for the application.
+The application business rules package contains everything which is specific for the application.
 That is all policies or rules which will only change if the core logic of the application changes.
 
 The enterprise business rules have a different reason to change, as they are defined on the level of the organization.
@@ -143,16 +144,57 @@ This is in particular:
 
 #### Use Case Interactors, Input- and Output Boundaries
 
+Use case interactors implement use cases as defined in \cite CleanArchitecture p. 192:
 
-#### View Models
+> A use case is a description of the way that an automated system is used.
+> It specifies the input to be provided by the user, 
+> the output to be returned to the user, 
+> and the processing steps involved in producing that output.
+> A use case describes *application-specific* business rules [...].
 
-### Interface Adapters
-
-This package contains components which act as a bridge between the application and "the outside world" (anything outside the system).
+Note, that all input data (a request) to a use case interactor is obtained outside the use case interactor 
+(typically by a "Controller").
+The output data of a use case interactor (a response) is passed to an output boundary
+(typically by a "Presenter").
 
 ### Board Adapter
 
+\note The "board" means the sum of hardware of the device which can be interfaced - directly or indirectly - by the software.
+      Examples are the processor, Bluetooth modules, memory devices, displays and buttons.
+      
+The board adapter is a special kind of interface adapter.
+It is *the* adapter to the user.
+This package contains components which act as a bridge between the application and "the outside world" (anything outside the system).
+Any interaction with a user (whether via a human-machine interface or indirectly using a machine-to-machine interface)
+passes through the board.
+
+The (implementation of the) components of the board adapter usually depend on the concrete hardware.
+The application business rules may be realized with different variants of the board.
+A change of board should not result in changes other than in the board adapter.
+
 Only the board adapter knows the hardware and its capabilities.
+Thus only the board adapter can decide best on how to specifically interact with the user.
+
+The board adapter may realize concepts as
+
+ - Controllers (see \cite CleanArchitecture p. 207) using input boundaries
+ - Presenters (see \cite CleanArchitecture p. 208) implementing output boundaries
+ - View Models and Views (see \cite CleanArchitecture p. 212 f.) used to present information to the user
+
+Whether those concepts are realized as dedicated components may depend on the concrete board the board adapter interfaces.
+
+### Interface Adapters
+
+This package contains components which act as a bridge between software's own code and external code.
+
+"Own" code is authored and fully controlled by the organization. 
+"External" code is code which is provided by other parties.
+That code is used by the "own" code.
+External code may be incorporated as source code or (pre-)compiled code.
+
+Interface adapters shield the own code from the external code.
+That is, any changes to external code shall only impact the interface adapters.
+That includes for example if one library is exchanged by another library which servers the same purpose.
 
 Further References
 ------------------
