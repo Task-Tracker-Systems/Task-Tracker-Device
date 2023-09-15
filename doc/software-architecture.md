@@ -161,6 +161,11 @@ Note, that all input data (a request) to a use case interactor is obtained outsi
 The output data of a use case interactor (a response) is passed to an output boundary
 (typically by a "Presenter").
 
+#### Data Gateway
+
+Data gateway represents an interface to a persistent data storage.
+Implementation will be specific to the capabilities of the board.
+
 ### Board Adapters (interface adapters)
 
 \dotfile component_board.dot
