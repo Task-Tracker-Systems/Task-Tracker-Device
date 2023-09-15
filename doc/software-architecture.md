@@ -196,6 +196,11 @@ Interface adapters shield the own code from the external code.
 That is, any changes to external code shall only impact the interface adapters.
 That includes for example if one library is exchanged by another library which servers the same purpose.
 
+The software development kits (or frameworks) should not be directly used by the own code (for example the Arduino environment).
+Third party (external) code may depend on the SDKs.
+In case the own code needs to use a SDK, using an interface adapter should be aimed at.
+The reason for this is that this simplifies moving the own code to a different SDK.
+
 Further References
 ------------------
 
