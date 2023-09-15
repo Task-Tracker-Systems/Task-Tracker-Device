@@ -108,6 +108,8 @@ All components in this diagram are exemplarily.
 
 ### Enterprise Business Rules
 
+\dotfile component_entities.dot
+
 This is the package with the policies of highest level.
 This package contains policies which are valid not only for the software of this application.
 Instead they define rules which apply to more than one application within their organization.
@@ -125,6 +127,8 @@ The following can be entities:
  - Requirements for labeling tasks.
 
 ### Application Business Rules
+
+\dotfile component_uci.dot
 
 The application business rules package contains everything which is specific for the application.
 That is all policies or rules which will only change if the core logic of the application changes.
@@ -159,6 +163,8 @@ The output data of a use case interactor (a response) is passed to an output bou
 
 ### Board Adapters (interface adapters)
 
+\dotfile component_board.dot
+
 \note The "board" means the sum of hardware of the device which can be interfaced - directly or indirectly - by the software.
       Examples are the processor, Bluetooth modules, memory devices, displays and buttons.
       
@@ -184,6 +190,8 @@ The board adapter may realize concepts as
 Whether those concepts are realized as dedicated components may depend on the concrete board the board adapter interfaces.
 
 ### 3rd Party Adapters (interface adapters)
+
+\dotfile component_libadapter.dot
 
 This package is a special kind of interface adapters.
 It contains components which act as a bridge between software's own code and external code.

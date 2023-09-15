@@ -1,0 +1,5 @@
+digraph {
+    node [fillcolor="2", style="filled", colorscheme="pastel19", shape="component"]
+    c [label="use case interactors"]
+}
+
