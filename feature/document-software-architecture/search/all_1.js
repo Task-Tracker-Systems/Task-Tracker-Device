@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['b0_0',['b0',['../namespacenote.xhtml#a36fa3f03940236aadaa6dfb3b4241791',1,'note']]],
+  ['b1_1',['b1',['../namespacenote.xhtml#a8d3acc3e3f3ed1d86c699a6ab64950f5',1,'note']]],
+  ['b2_2',['b2',['../namespacenote.xhtml#a48881eb8428416c9b4f583b745ed78bb',1,'note']]],
+  ['b3_3',['b3',['../namespacenote.xhtml#a7ef1058b106d6d4b18a262bfd920bd57',1,'note']]],
+  ['b4_4',['b4',['../namespacenote.xhtml#afdb6259892d8cd0f2bad7f5ab676a4dc',1,'note']]],
+  ['b5_5',['b5',['../namespacenote.xhtml#a9c41d46609094680a567b83b863ace1b',1,'note']]],
+  ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
+  ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
+  ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
+  ['bibliography_9',['Bibliography',['../citelist.xhtml',1,'']]],
+  ['board_10',['board',['../namespaceboard.xhtml',1,'']]],
+  ['board_20adapter_11',['Board Adapter',['../md_doc_2software-architecture.xhtml#autotoc_md21',1,'']]],
+  ['board_3a_3abutton_12',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
+  ['board_3a_3abutton_3a_3apin_13',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button']]],
+  ['board_3a_3abuzzer_14',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
+  ['board_3a_3abuzzer_3a_3apin_15',['pin',['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer']]],
+  ['board_3a_3ai2c_5f1_16',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
+  ['board_3a_3ai2c_5f1_3a_3apin_17',['pin',['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1']]],
+  ['board_3a_3aled_18',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
+  ['board_3a_3aled_3a_3apin_19',['pin',['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led']]],
+  ['board_5fpins_2ehpp_20',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
+  ['boundaries_21',['Use Case Interactors, Input- and Output Boundaries',['../md_doc_2software-architecture.xhtml#autotoc_md18',1,'']]],
+  ['build_20and_20upload_20the_20software_22',['Build and Upload the Software',['../index.xhtml#autotoc_md27',1,'']]],
+  ['business_20rules_23',['Enterprise Business Rules',['../md_doc_2software-architecture.xhtml#autotoc_md15',1,'']]]
+];
