@@ -27,7 +27,7 @@
 <g id="clust9" class="cluster">
 <title>cluster_ia</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="388.5,-98 388.5,-173 514.5,-173 514.5,-98 388.5,-98"/>
-<text text-anchor="middle" x="451.5" y="-157.8" font-family="Times,serif" font-size="14.00">interface adapters</text>
+<text text-anchor="middle" x="451.5" y="-157.8" font-family="Times,serif" font-size="14.00">3rd party adapters</text>
 </g>
 <g id="clust11" class="cluster">
 <title>cluster_board</title>
