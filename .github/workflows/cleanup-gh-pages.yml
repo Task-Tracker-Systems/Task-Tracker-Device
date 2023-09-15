@@ -1,0 +1,93 @@
+name: Cleanup GitHub Pages Branch Workflow
+
+on:
+  push:
+    branches-ignore:
+      - 'gh-pages'
+
+permissions:
+  contents: write
+
+env:
+  GITHUB_PAGES_BRANCH: 'gh-pages'  # Replace with your GitHub Pages branch name
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch all history for all tags and branches
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Generate a list of all branches
+        run: |
+          git branch --remotes --format='%(refname:lstrip=3)' > branches.txt
+          {
+            echo 'BRANCH_LIST<<EOF'
+            cat branches.txt
+            echo EOF
+          } >> "$GITHUB_ENV"
+
+      - name: Checkout GitHub Pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.GITHUB_PAGES_BRANCH }}
+          fetch-depth: 0 # necessary to be able to commit changes
+          
+      - name: Remove files which are not part of branch-specific directories
+        run: |
+          echo "Process branches: $BRANCH_LIST"
+          
+          # Loop through all files in the current Git HEAD
+          git ls-tree -r HEAD --name-only | while read -r file; do
+          
+              # Get the directory part of the file path
+              file_dir=$(dirname "$file")
+              
+              # Initialize a flag to check if the file is part of any directory in DIRS
+              found=false
+              
+              # Loop through each directory in BRANCH_LIST
+              while IFS= read -r line; do
+                
+                # Check if the line is not empty
+                if [[ -n "$line" ]]; then
+                  directory=$line
+                  # Check if the directory is a prefix of the file path
+                  if [[ "$file_dir" == "$directory"* ]]; then
+                      found=true
+                      break
+                  fi
+                fi
+              done <<< "$BRANCH_LIST"
+              
+              # If the file is not part of any directory in BRANCH_LIST, remove it
+              if [ "$found" == "false" ]; then
+                  git rm $file
+              fi
+          done
+
+      - name: Generate landing page with branch list
+        run: |
+          echo '<html><body><h1>List of Branches</h1><ul>' > index.html    
+          
+          # Loop through each directory in BRANCH_LIST
+          while IFS= read -r line; do
+            # Check if the line is not empty
+            if [[ -n "$line" ]]; then
+              echo "<li><a href=\"$line\"><code>$line</code></a></li>" >> index.html
+            fi
+          done <<< "$BRANCH_LIST"
+          
+          echo '</ul></body></html>' >> index.html
+          git add index.html
+          
+      - name: Commit and push deletions
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git commit --all --allow-empty --message="Cleanup branch directories."
+          git push
+

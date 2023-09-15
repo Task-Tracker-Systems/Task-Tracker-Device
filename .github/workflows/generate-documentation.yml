@@ -1,6 +1,10 @@
 name: generate and deploy documentation
+
 on:
   push:
+    branches-ignore:
+      - 'gh-pages'
+
 permissions:
   contents: write
 
@@ -17,11 +21,7 @@ jobs:
       run: |
         branch_name="${{ github.ref }}"
         branch_name="${branch_name#refs/heads/}"
-        if [ "$branch_name" != "develop" ]; then
-          output_dir="./${branch_name}"
-        else
-          output_dir="."
-        fi
+        output_dir="./${branch_name}"
         echo "DOC_OUTPUT_DIR=$output_dir" >> "$GITHUB_ENV"
 
     - name: generate documentation
