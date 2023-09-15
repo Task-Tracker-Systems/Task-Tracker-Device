@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../namespacemain.xhtml',1,'']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.xhtml',1,'']]],
-  ['main_2ehpp_2',['main.hpp',['../main_8hpp.xhtml',1,'']]],
-  ['messages_3',['Commit messages',['../md_CONTRIBUTING.xhtml#autotoc_md1',1,'']]],
-  ['models_4',['View Models',['../md_doc_2software-architecture.xhtml#autotoc_md19',1,'']]]
+  ['note_0',['note',['../namespacenote.xhtml',1,'']]],
+  ['numflakes_1',['NUMFLAKES',['../display_8cpp.xhtml#a1d77579612ad82d1e371a721f4c626c7',1,'display.cpp']]]
 ];

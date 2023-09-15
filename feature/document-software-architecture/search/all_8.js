@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['implementing_20a_20plug_20in_20architecture_0',['Implementing a Plug-in Architecture',['../md_doc_2software-architecture.xhtml#autotoc_md9',1,'']]],
-  ['in_20architecture_1',['Implementing a Plug-in Architecture',['../md_doc_2software-architecture.xhtml#autotoc_md9',1,'']]],
-  ['injection_2',['Dependency Injection',['../md_doc_2software-architecture.xhtml#autotoc_md11',1,'']]],
-  ['input_20and_20output_20boundaries_3',['Use Case Interactors, Input- and Output Boundaries',['../md_doc_2software-architecture.xhtml#autotoc_md18',1,'']]],
-  ['interactors_20input_20and_20output_20boundaries_4',['Use Case Interactors, Input- and Output Boundaries',['../md_doc_2software-architecture.xhtml#autotoc_md18',1,'']]],
-  ['interface_20adapters_5',['interface adapters',['../md_doc_2software-architecture.xhtml#autotoc_md12',1,'Interface Adapters'],['../md_doc_2software-architecture.xhtml#autotoc_md20',1,'Interface Adapters']]],
-  ['interpretation_20of_20the_20dependency_20rule_6',['Interpretation of the Dependency Rule',['../md_doc_2software-architecture.xhtml#autotoc_md10',1,'']]]
+  ['license_0',['LICENSE',['../md_LICENSE.xhtml',1,'']]],
+  ['license_2emd_1',['LICENSE.md',['../LICENSE_8md.xhtml',1,'']]],
+  ['logo_5fheight_2',['LOGO_HEIGHT',['../display_8cpp.xhtml#a88b90a6366ac67c662321171f5b1fe34',1,'display.cpp']]],
+  ['logo_5fwidth_3',['LOGO_WIDTH',['../display_8cpp.xhtml#aaca826667b185ef968585f830dcec417',1,'display.cpp']]],
+  ['loop_4',['loop',['../namespacemain.xhtml#aa018644f5f4d7111540bb4777634ec42',1,'main::loop()'],['../time-tracker_8ino.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;time-tracker.ino']]]
 ];

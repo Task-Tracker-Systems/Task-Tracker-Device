@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['architecture_0',['Software Architecture',['../md_doc_2software-architecture.xhtml',1,'']]]
+  ['bibliography_0',['Bibliography',['../citelist.xhtml',1,'']]]
 ];

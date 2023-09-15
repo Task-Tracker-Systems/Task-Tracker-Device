@@ -7,7 +7,5 @@ var searchData=
   ['e5_4',['e5',['../namespacenote.xhtml#a0582e9fe23e241b242660b9d28b66d52',1,'note']]],
   ['e6_5',['e6',['../namespacenote.xhtml#aaf0988bcd9b44e42bcdb0f935fc07920',1,'note']]],
   ['e7_6',['e7',['../namespacenote.xhtml#afd5c5f45b3af02f9dda3abce955cee2f',1,'note']]],
-  ['enter_7',['enter',['../namespaceboard_1_1button_1_1pin.xhtml#a90a7026c496310befdf7c4ddf92d91ad',1,'board::button::pin']]],
-  ['enterprise_20business_20rules_8',['Enterprise Business Rules',['../md_doc_2software-architecture.xhtml#autotoc_md15',1,'']]],
-  ['entities_9',['Entities',['../md_doc_2software-architecture.xhtml#autotoc_md16',1,'']]]
+  ['enter_7',['enter',['../namespaceboard_1_1button_1_1pin.xhtml#a90a7026c496310befdf7c4ddf92d91ad',1,'board::button::pin']]]
 ];
