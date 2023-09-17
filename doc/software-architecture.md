@@ -1,6 +1,8 @@
 Software Architecture
 =====================
 
+[TOC]
+
 Objectives of the Software Architecture
 ---------------------------------------
 
