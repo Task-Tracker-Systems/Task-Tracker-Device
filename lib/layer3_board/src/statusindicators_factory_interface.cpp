@@ -1,24 +1,21 @@
 #include "statusindicators_factory_interface.hpp"
-#include "ShiftRegisterStatusIndicator.hpp"
-#include "osr_factory_interface.hpp"
+#include "LedStatusIndicator.hpp"
 #include <board_config.hpp>
 
 namespace board
 {
 IStatusIndicator *const (&getStatusIndicators())[hmi::numberOfStatusIndicators]
 {
-    IOutputShiftRegister &outputShiftRegister = ::osr::getOutputShiftRegister(board::osr::pin::data,
-                                                                              board::osr::pin::clock,
-                                                                              board::osr::pin::latch);
-    static ShiftRegisterStatusIndicator srSi1(outputShiftRegister, board::osr::bit::task1);
-    static ShiftRegisterStatusIndicator srSi2(outputShiftRegister, board::osr::bit::task2);
-    static ShiftRegisterStatusIndicator srSi3(outputShiftRegister, board::osr::bit::task3);
-    static ShiftRegisterStatusIndicator srSi4(outputShiftRegister, board::osr::bit::task4);
+    static LedStatusIndicator led_task1(board::led::pin::task1);
+    static LedStatusIndicator led_task2(board::led::pin::task2);
+    static LedStatusIndicator led_task3(board::led::pin::task3);
+    static LedStatusIndicator led_task4(board::led::pin::task4);
+
     static IStatusIndicator *const statusIndicators[]{
-        &srSi1,
-        &srSi2,
-        &srSi3,
-        &srSi4,
+        &led_task1,
+        &led_task2,
+        &led_task3,
+        &led_task4,
     };
     return statusIndicators;
 }

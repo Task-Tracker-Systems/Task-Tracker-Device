@@ -1,4 +1,5 @@
 #include "Keypad.hpp"
+#include <Arduino.h>
 
 KeyId Keypad::getCurrentlyPressedKey() const
 {
@@ -13,20 +14,38 @@ KeyId Keypad::getCurrentlyPressedKey() const
     }
 }
 
-Keypad::Keypad(const InputShiftRegister &inputShiftRegisterToUse, const KeyId (&inputPinToKeyId)[InputShiftRegister::numberOfBits])
-    : inputShiftRegister(inputShiftRegisterToUse), inputMapping(inputPinToKeyId)
+Keypad::Keypad(const KeyId (&inputPinToKeyId)[numberOfPins])
+    : inputMapping(inputPinToKeyId)
 {
+    for (const auto pin : inputPins)
+    {
+        pinMode(pin, INPUT_PULLUP);
+    }
 }
 
 std::optional<std::size_t> Keypad::getFirstPressedKeyIndex() const
 {
-    const auto registerValues = inputShiftRegister.readRegister();
-    for (std::size_t index = 0u; index < registerValues.size(); ++index)
+    static board::PinType oldValue = 0U;
+    board::PinType newValue = 0U;
+
+    std::uint8_t candidateEvent = 1;
+    for (const auto pin : inputPins)
     {
-        if (registerValues[index])
+        if (digitalRead(pin) == LOW) // buttons are active low
         {
-            return index;
+            newValue = candidateEvent;
+            break;
         }
+        candidateEvent++;
     }
-    return std::nullopt;
+
+    oldValue = newValue;
+    if (newValue != 0 && oldValue == 0)
+    {
+        return newValue;
+    }
+    else
+    {
+        return std::nullopt;
+    }
 }

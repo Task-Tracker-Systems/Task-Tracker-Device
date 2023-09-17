@@ -1,5 +1,10 @@
 name: Clang-Format Check
-on: [push, pull_request]
+
+on:
+  push:
+    branches-ignore:
+      - 'gh-pages'
+
 jobs:
   formatting-check:
     name: check style formatting

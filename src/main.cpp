@@ -18,8 +18,9 @@ void setup(char const *programIdentificationString)
 }
 void loop()
 {
+    constexpr unsigned long loopDurationMs = 250;
     static ProcessHmiInputs processHmiInputs(hmi::getController(), hmi::getPresenter());
     processHmiInputs.loop();
-    delay(100);
+    delay(loopDurationMs);
 }
 } // namespace main

@@ -20,12 +20,7 @@ const IKeypad &getKeypad()
         KeyId::TASK2,
         KeyId::TASK1,
     };
-    static const Keypad keypad(
-        ::isr::getInputShiftRegister(
-            board::isr::pin::data,
-            board::isr::pin::clock,
-            board::isr::pin::latch),
-        inputPinToKeyId);
+    static const Keypad keypad(inputPinToKeyId);
     return keypad;
 }
 } // namespace board
