@@ -1,0 +1,7 @@
+<map id="LedStatusIndicator" name="LedStatusIndicator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="60,174,201,279"/>
+<area shape="rect" id="Node000002" href="$classIStatusIndicator.xhtml" title=" " alt="" coords="5,5,136,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,124,115,173,110,175,92,125"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="161,25,221,91"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,91,158,159,153,157,177,90"/>
+</map>

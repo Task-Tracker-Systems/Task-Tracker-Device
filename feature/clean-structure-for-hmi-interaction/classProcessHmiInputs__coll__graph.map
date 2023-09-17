@@ -1,0 +1,7 @@
+<map id="ProcessHmiInputs" name="ProcessHmiInputs">
+<area shape="rect" id="Node000001" title=" " alt="" coords="79,154,219,279"/>
+<area shape="rect" id="Node000002" href="$classIController.xhtml" title=" " alt="" coords="5,15,125,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,79,97,129,102,138,98,140,93,131,73,81"/>
+<area shape="rect" id="Node000003" href="$classIPresenter.xhtml" title=" " alt="" coords="150,5,317,91"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,92,206,131,201,140,197,138,202,129,218,89"/>
+</map>
