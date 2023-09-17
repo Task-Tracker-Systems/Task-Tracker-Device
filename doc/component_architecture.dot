@@ -12,6 +12,7 @@ digraph component_architecture {
         
         subgraph cluster_app {
             label = "application business rules";
+            URL = "\ref application_business_rules";
         
             output_boundaries [label="«interface»\n output boundaries"]
             use_cases [label="use case interactors"]
@@ -26,6 +27,7 @@ digraph component_architecture {
         
         subgraph cluster_ebr {
             label = "enterprise business rules";
+            URL = "\ref enterprise_business_rules";
             entities;
         }
     }
@@ -58,6 +60,7 @@ digraph component_architecture {
         
         subgraph cluster_ia {
             label = "3rd party adapters";
+            URL = "\ref third_party_adapters";
             liberaries_adapters [label="libraries adapters"];
         };
     }
@@ -68,6 +71,7 @@ digraph component_architecture {
         
         subgraph cluster_board {
             label = "board adapters";
+            URL = "\ref board_adapters";
         
             // controllers, presenters, views;
             library_interfaces [label="«interface»\n library interfaces"]
