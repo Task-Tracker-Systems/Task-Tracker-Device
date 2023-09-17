@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readme_0',['README',['../md_doc_design_decisions_README.xhtml',1,'(Global Namespace)'],['../md_hardware_README.xhtml',1,'(Global Namespace)']]]
+  ['how_20to_20contribute_0',['How to contribute',['../md_CONTRIBUTING.xhtml',1,'']]]
 ];

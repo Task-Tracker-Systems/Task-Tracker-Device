@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['how_20to_20contribute_0',['How to contribute',['../md_CONTRIBUTING.xhtml',1,'']]]
+  ['bibliography_0',['Bibliography',['../citelist.xhtml',1,'']]],
+  ['board_20adapters_1',['Board Adapters',['../board_adapters.xhtml',1,'md_doc_software_architecture']]]
 ];

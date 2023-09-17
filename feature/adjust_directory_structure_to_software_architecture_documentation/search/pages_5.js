@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['software_20architecture_0',['Software Architecture',['../md_doc_software_architecture.xhtml',1,'']]]
+  ['license_0',['LICENSE',['../md_LICENSE.xhtml',1,'']]]
 ];

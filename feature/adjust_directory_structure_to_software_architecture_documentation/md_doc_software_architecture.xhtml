@@ -150,72 +150,14 @@ component architecture for this software</div>
 </div>
 </p>
 <p >The rectangles with bold border are packages. The label at the bottom of each package is the name of the package. Each package consists of one or more components. All components in this diagram are exemplarily.</p>
-<h2><a class="anchor" id="autotoc_md16"></a>
-Enterprise Business Rules</h2>
-<p ><div class="dotgraph">
-<iframe scrolling="no" frameborder="0" src="dot_component_entities.svg" width="86" height="59"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</p>
-<p >This is the package with the policies of highest level. This package contains policies which are valid not only for the software of this application. Instead they define rules which apply to more than one application within their organization.</p>
-<p >The enterprise business rules are a distinct package as they have a specific reason for changing: Something changes at the organization level. In general they should be very stable.</p>
-<h3><a class="anchor" id="autotoc_md17"></a>
-Entities</h3>
-<p >The following can be entities:</p>
+<p >The components are described in further detail in their respective pages:</p>
 <ul>
-<li>The format <em>task</em> data is interchanged between applications.</li>
-<li>Requirements for calculation of task duration (i.e. how to deal with changing time zones).</li>
-<li>Requirements for labeling tasks.</li>
+<li><a class="el" href="enterprise_business_rules.xhtml">Enterprise Business Rules</a></li>
+<li><a class="el" href="application_business_rules.xhtml">Application Business Rules</a></li>
+<li><a class="el" href="board_adapters.xhtml">Board Adapters</a></li>
+<li><a class="el" href="third_party_adapters.xhtml">3rd Party Adapters</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md18"></a>
-Application Business Rules</h2>
-<p ><div class="dotgraph">
-<iframe scrolling="no" frameborder="0" src="dot_component_uci.svg" width="174" height="59"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</p>
-<p >The application business rules package contains everything which is specific for the application. That is all policies or rules which will only change if the core logic of the application changes.</p>
-<p >The enterprise business rules have a different reason to change, as they are defined on the level of the organization. Thus they are not part of the application package.</p>
-<p >Everything which could possibly change without changing the behavior of the use cases is not part of the application package. This is in particular:</p>
-<ul>
-<li>The (graphical) user interface.</li>
-<li>Realization of storage.</li>
-<li>Any input or output interfaces to or from the software system.</li>
-<li>Any hardware adapters, hardware abstraction layers, processor abstraction layers. This includes peripheral drivers.</li>
-<li>Any software development kit or library which is not exclusive for this application.</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md19"></a>
-Use Case Interactors, Input- and Output Boundaries</h3>
-<p >Use case interactors implement use cases as defined in <a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 192:</p>
-<blockquote class="doxtable">
-<p >&zwj;A use case is a description of the way that an automated system is used. It specifies the input to be provided by the user, the output to be returned to the user, and the processing steps involved in producing that output. A use case describes <em>application-specific</em> business rules [...]. </p>
-</blockquote>
-<p>Note, that all input data (a request) to a use case interactor is obtained outside the use case interactor (typically by a "Controller"). The output data of a use case interactor (a response) is passed to an output boundary (typically by a "Presenter").</p>
-<h3><a class="anchor" id="autotoc_md20"></a>
-Data Gateway</h3>
-<p >Data gateway represents an interface to a persistent data storage. Implementation will be specific to the capabilities of the board.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
-Board Adapters (interface adapters)</h2>
-<p ><div class="dotgraph">
-<iframe scrolling="no" frameborder="0" src="dot_component_board.svg" width="194" height="59"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</p>
-<dl class="section note"><dt>Note</dt><dd>The "board" means the sum of hardware of the device which can be interfaced - directly or indirectly - by the software. Examples are the processor, Bluetooth modules, memory devices, displays and buttons.</dd></dl>
-<p>The board adapter is a special kind of interface adapters. It is <em>the</em> adapter to the user. This package contains components which act as a bridge between the application and "the outside world" (anything outside the system). Any interaction with a user (whether via a human-machine interface or indirectly using a machine-to-machine interface) passes through the board.</p>
-<p >The (implementation of the) components of the board adapter usually depend on the concrete hardware. The application business rules may be realized with different variants of the board. A change of board should not result in changes other than in the board adapter.</p>
-<p >Only the board adapter knows the hardware and its capabilities. Thus only the board adapter can decide best on how to specifically interact with the user.</p>
-<p >The board adapter may realize concepts as</p>
-<ul>
-<li>Controllers (see <a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 207) using input boundaries</li>
-<li>Presenters (see <a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 208) implementing output boundaries</li>
-<li>View Models and Views (see <a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 212 f.) used to present information to the user</li>
-</ul>
-<p >Whether those concepts are realized as dedicated components may depend on the concrete board the board adapter interfaces.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
-3rd Party Adapters (interface adapters)</h2>
-<p ><div class="dotgraph">
-<iframe scrolling="no" frameborder="0" src="dot_component_libadapter.svg" width="158" height="59"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</p>
-<p >This package is a special kind of interface adapters. It contains components which act as a bridge between software's own code and external code.</p>
-<p >"Own" code is authored and fully controlled by the organization. "External" code is code which is provided by other parties. That code is used by the "own" code. External code may be incorporated as source code or (pre-)compiled code.</p>
-<p >3rd party adapters shield the own code from the external code. That is, any changes to external code shall only impact the 3rd party adapters. That includes for example if one library is exchanged by another library which servers the same purpose.</p>
-<p >The software development kits (or frameworks) should not be directly used by the own code (for example the Arduino environment). Third party (external) code may depend on the SDKs. In case the own code needs to use a SDK, using a 3rd party adapter should be aimed at. The reason for this is that this simplifies moving the own code to a different SDK.</p>
-<h1><a class="anchor" id="autotoc_md23"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Further References</h1>
 <ul>
 <li><a class="el" href="citelist.xhtml#CITEREF_TheCleanArchitecture">[1]</a> </li>
@@ -224,7 +166,7 @@ Further References</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 17 2023 10:37:38 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Sep 17 2023 11:58:35 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
