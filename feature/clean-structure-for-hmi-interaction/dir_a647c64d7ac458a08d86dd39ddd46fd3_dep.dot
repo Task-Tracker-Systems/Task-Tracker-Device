@@ -8,7 +8,6 @@ digraph "lib/layer2_hmi"
   subgraph clusterdir_97aefd0d527b934f1d99a682da8fe6a9 {
     graph [ bgcolor="#edf0f7", pencolor="grey25", label="lib", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml",tooltip=""]
   dir_bc8d9efccb68c9442e5dc466270ac2ea [label="layer1_use_cases", fillcolor="#c8d2e7", color="red", style="filled", URL="dir_bc8d9efccb68c9442e5dc466270ac2ea.xhtml",tooltip=""];
-  dir_5c46fa0267ad0d15fb3a57afaaf550a7 [label="layer3_board", fillcolor="#c8d2e7", color="red", style="filled", URL="dir_5c46fa0267ad0d15fb3a57afaaf550a7.xhtml",tooltip="board abstraction layer"];
   subgraph clusterdir_a647c64d7ac458a08d86dd39ddd46fd3 {
     graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_a647c64d7ac458a08d86dd39ddd46fd3.xhtml",tooltip=""]
     dir_a647c64d7ac458a08d86dd39ddd46fd3 [shape=plaintext, label="layer2_hmi"];
@@ -16,10 +15,7 @@ digraph "lib/layer2_hmi"
   dir_9bd86a7a38936839c6e136efba5b5507 [label="src", fillcolor="#c8d2e7", color="grey25", style="filled", URL="dir_9bd86a7a38936839c6e136efba5b5507.xhtml",tooltip=""];
   }
   }
-  dir_68267d1309a1af8e8297ef4c3efbcdba [label="src", fillcolor="#edf0f7", color="grey25", style="filled", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml",tooltip=""];
   dir_5cc884592035fcf1f8f92921114afb76->dir_bc8d9efccb68c9442e5dc466270ac2ea [headlabel="1", labeldistance=1.5 headhref="dir_000002_000004.xhtml" href="dir_000002_000004.xhtml" color="steelblue1" fontcolor="steelblue1"];
-  dir_9bd86a7a38936839c6e136efba5b5507->dir_5c46fa0267ad0d15fb3a57afaaf550a7 [headlabel="1", labeldistance=1.5 headhref="dir_000010_000006.xhtml" href="dir_000010_000006.xhtml" color="steelblue1" fontcolor="steelblue1"];
   dir_9bd86a7a38936839c6e136efba5b5507->dir_5cc884592035fcf1f8f92921114afb76 [headlabel="7", labeldistance=1.5 headhref="dir_000010_000002.xhtml" href="dir_000010_000002.xhtml" color="steelblue1" fontcolor="steelblue1"];
-  dir_9bd86a7a38936839c6e136efba5b5507->dir_68267d1309a1af8e8297ef4c3efbcdba [headlabel="1", labeldistance=1.5 headhref="dir_000010_000013.xhtml" href="dir_000010_000013.xhtml" color="steelblue1" fontcolor="steelblue1"];
   dir_9bd86a7a38936839c6e136efba5b5507->dir_bc8d9efccb68c9442e5dc466270ac2ea [headlabel="5", labeldistance=1.5 headhref="dir_000010_000004.xhtml" href="dir_000010_000004.xhtml" color="steelblue1" fontcolor="steelblue1"];
 }

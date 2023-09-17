@@ -1,18 +1,16 @@
 <map id="lib/layer3_board/src/board_config.hpp" name="lib/layer3_board/src/board_config.hpp">
-<area shape="rect" id="Node000001" title="Provides named objects for the pins provided by the board." alt="" coords="309,5,443,46"/>
-<area shape="rect" id="Node000002" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="59,109,181,150"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="306,54,194,96,162,111,160,106,192,92,304,49"/>
-<area shape="rect" id="Node000003" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="205,109,339,150"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="347,59,294,110,290,107,343,55"/>
-<area shape="rect" id="Node000005" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="321,213,514,253"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="384,61,404,164,415,212,410,213,399,165,379,62"/>
-<area shape="rect" id="Node000007" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="413,102,576,157"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="412,54,465,99,461,103,409,58"/>
-<area shape="rect" id="Node000008" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="600,94,733,165"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="458,48,589,91,600,96,599,101,587,97,456,53"/>
-<area shape="rect" id="Node000004" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="5,213,139,253"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="221,159,112,214,110,210,219,155"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="314,157,391,210,388,214,311,161"/>
-<area shape="rect" id="Node000006" href="$test__board_8cpp.xhtml" title=" " alt="" coords="162,213,297,253"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="260,165,240,213,235,211,256,163"/>
+<area shape="rect" id="Node000001" title="Provides named objects for the pins provided by the board." alt="" coords="388,5,521,46"/>
+<area shape="rect" id="Node000002" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="204,109,337,150"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,56,307,111,305,106,405,51"/>
+<area shape="rect" id="Node000004" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="321,213,514,253"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="437,61,424,95,416,158,418,212,413,212,411,158,419,93,432,59"/>
+<area shape="rect" id="Node000006" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="433,102,596,157"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="476,58,501,100,496,102,472,61"/>
+<area shape="rect" id="Node000007" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="620,94,753,165"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="514,50,621,96,619,101,512,55"/>
+<area shape="rect" id="Node000003" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="5,213,139,253"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="220,159,112,214,109,210,218,155"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="313,157,391,210,388,214,310,161"/>
+<area shape="rect" id="Node000005" href="$test__board_8cpp.xhtml" title=" " alt="" coords="162,213,297,253"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="260,165,240,213,235,211,255,163"/>
 </map>

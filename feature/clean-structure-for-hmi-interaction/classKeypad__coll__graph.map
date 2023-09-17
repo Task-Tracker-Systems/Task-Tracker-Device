@@ -1,11 +1,11 @@
 <map id="Keypad" name="Keypad">
-<area shape="rect" id="Node000001" title=" " alt="" coords="272,154,448,259"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,154,379,259"/>
 <area shape="rect" id="Node000002" href="$classIKeypad.xhtml" title=" " alt="" coords="5,5,176,91"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,96,274,152,271,157,174,100"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="201,15,354,81"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="296,79,327,137,322,140,292,82"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="378,15,510,81"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="430,82,398,140,394,137,425,79"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="535,15,628,81"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="559,82,536,108,508,132,465,160,462,156,505,128,532,104,555,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,98,226,152,223,156,154,102"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="201,15,261,81"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,79,263,129,266,137,261,139,258,131,239,81"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="285,15,417,81"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="342,81,324,131,321,139,316,137,319,129,337,79"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="441,15,535,81"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="470,82,451,107,427,132,395,156,391,151,424,128,447,104,466,79"/>
 </map>

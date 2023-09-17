@@ -21,16 +21,7 @@ digraph "lib/layer2_hmi/src/Presenter.cpp"
   Node8 [id="Node000008",label="hmi_configuration.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$hmi__configuration_8hpp.xhtml",tooltip=" "];
   Node8 -> Node4 [id="edge8_Node000008_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node9 [id="edge9_Node000001_Node000009",color="steelblue1",style="solid",tooltip=" "];
-  Node9 [id="Node000009",label="board_config.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$board__config_8hpp.xhtml",tooltip="Provides named objects for the pins provided by the board."];
-  Node9 -> Node10 [id="edge10_Node000009_Node000010",color="steelblue1",style="solid",tooltip=" "];
-  Node10 [id="Node000010",label="board_types.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$board__types_8hpp.xhtml",tooltip=" "];
-  Node10 -> Node11 [id="edge11_Node000010_Node000011",color="steelblue1",style="solid",tooltip=" "];
-  Node11 [id="Node000011",label="cstdint",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node1 -> Node12 [id="edge12_Node000001_Node000012",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="pitches.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$pitches_8hpp.xhtml",tooltip=" "];
-  Node12 -> Node11 [id="edge13_Node000012_Node000011",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node13 [id="edge14_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="Arduino.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node1 -> Node14 [id="edge15_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="cassert",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node9 [id="Node000009",label="Arduino.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node1 -> Node10 [id="edge10_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="cassert",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
 }
