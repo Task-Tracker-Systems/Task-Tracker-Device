@@ -47,7 +47,7 @@ Implementing a Plug-in Architecture
       In this context a package groups related implementation of functionality of a common policy level.
       It does not refer to a specific artifact type in a programming language.
 
-### Interpretation of the Dependency Rule
+### Interpretation of the Dependency Rule {#interpretation_dependency_rule}
 
 For this software architecture the Dependency Rule (see \cite CleanArchitecture p. 203) is applied on source code dependencies between *packages*.
 That means that source code may only depend on source code within its own package or on source code in packages of higher-level policies.
@@ -90,7 +90,7 @@ Also this definition of *components* from the [C4 software architecture model](h
 
 > A grouping of related functionality behind a nice clean interface, which resides inside an execution environment like an application.
 
-Component Architecture
+Component Architecture {#component_architecture}
 ----------------------
 
 The following diagram sketches the plan for the component architecture.
