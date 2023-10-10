@@ -1,10 +1,12 @@
 
 #include "board_pins.hpp"
+#include "lvgl_helpers.h"
+#include "lvgl_i2c_conf.h"
+#include "lvgl_ssd1306.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include <Wire.h>
 #include <lvgl.h>
-#include "lvgl_ssd1306.hpp"
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -47,7 +49,7 @@ static int8_t icons[NUMFLAKES][3];
 /**
  * Log print function. Receives "Log Level", "File path", "Line number", "Function name" and "Description".
  */
-void lvgl_log_to_serial(lv_log_level_t level, const char * file, uint32_t line, const char * function, const char * desc)
+void lvgl_log_to_serial(lv_log_level_t level, const char *file, uint32_t line, const char *function, const char *desc)
 {
     Serial.printf("D%02i: %s <- %s@%s:%i ", level, desc, function, file, line);
     Serial.flush();
@@ -57,7 +59,7 @@ void lvgl_log_to_serial(lv_log_level_t level, const char * file, uint32_t line, 
 void setup_display()
 {
 #if LV_USE_LOG != 0
-    lv_log_register_print_cb( lvgl_log_to_serial ); /* register print function for debugging */
+    lv_log_register_print_cb(lvgl_log_to_serial); /* register print function for debugging */
 #endif
     Serial.println(F("LVGL: calling lv_init()"));
     lv_init();
@@ -67,9 +69,11 @@ void setup_display()
     Wire.begin(board::i2c_1::pin::sda, board::i2c_1::pin::scl);
 
     Serial.println(F("LVGL: calling lv_ssd1306_init()"));
-    lv_ssd1306_init();
+    lvgl_i2c_driver_init(DISP_I2C_PORT,
+                         DISP_I2C_SDA, DISP_I2C_SCL,
+                         DISP_I2C_SPEED_HZ);
+    ssd1306_init();
     Serial.println(F("LVGL: lv_ssd1306_init() done"));
-
 
     Serial.println(F("LVGL: calling lv_disp_buf_init()"));
     static lv_disp_buf_t disp_buf;
@@ -78,13 +82,13 @@ void setup_display()
     Serial.println(F("LVGL: lv_disp_buf_init() done"));
 
     Serial.println(F("LVGL: calling lv_disp_drv_register()"));
-    lv_disp_drv_t disp_drv;                 /*A variable to hold the drivers. Can be local variable*/
-    lv_disp_drv_init(&disp_drv);            /*Basic initialization*/
-    disp_drv.buffer = &disp_buf;            /*Set an initialized buffer*/
-    disp_drv.flush_cb = lv_ssd1306_flush;   /*Set a flush callback to draw to the display*/
-    disp_drv.rounder_cb = lv_ssd1306_rounder;
-    disp_drv.set_px_cb = lv_ssd1306_set_px_cb;
-    lv_disp_t * disp;
+    lv_disp_drv_t disp_drv;            /*A variable to hold the drivers. Can be local variable*/
+    lv_disp_drv_init(&disp_drv);       /*Basic initialization*/
+    disp_drv.buffer = &disp_buf;       /*Set an initialized buffer*/
+    disp_drv.flush_cb = ssd1306_flush; /*Set a flush callback to draw to the display*/
+    disp_drv.rounder_cb = ssd1306_rounder;
+    disp_drv.set_px_cb = ssd1306_set_px_cb;
+    lv_disp_t *disp;
     disp = lv_disp_drv_register(&disp_drv); /*Register the driver and save the created display objects*/
     Serial.println(F("LVGL: lv_disp_drv_register() done"));
 
@@ -132,7 +136,6 @@ void setup_display()
     //     Serial.print(F(" dy: "));
     //     Serial.println(icons[f][DELTAY], DEC);
     // }
-
 }
 
 void refresh_display()

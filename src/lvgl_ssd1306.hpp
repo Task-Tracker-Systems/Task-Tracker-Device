@@ -7,7 +7,8 @@
 #define SSD1306_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /*********************
@@ -21,34 +22,35 @@ extern "C" {
 #include "lvgl/lvgl.h"
 #endif
 
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
 /*********************
  *      DEFINES
  *********************/
+#define SSD1306_SDA CONFIG_LV_DISP_PIN_SDA
+#define SSD1306_SCL CONFIG_LV_DISP_PIN_SCL
+#define SSD1306_DISPLAY_ORIENTATION TFT_ORIENTATION_LANDSCAPE
 
-/**********************
+    /**********************
  *      TYPEDEFS
  **********************/
 
-/**********************
+    /**********************
  * GLOBAL PROTOTYPES
  **********************/
-void lv_ssd1306_init(void);
-void lv_ssd1306_flush(lv_disp_drv_t * drv, const lv_area_t * area, lv_color_t * color_map);
-void lv_ssd1306_rounder(lv_disp_drv_t * disp_drv, lv_area_t *area);
-void lv_ssd1306_set_px_cb(lv_disp_drv_t * disp_drv, uint8_t * buf, lv_coord_t buf_w, lv_coord_t x, lv_coord_t y,
-    lv_color_t color, lv_opa_t opa);
+    void ssd1306_init(void);
+    void ssd1306_flush(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t *color_map);
+    void ssd1306_rounder(lv_disp_drv_t *disp_drv, lv_area_t *area);
+    void ssd1306_set_px_cb(lv_disp_drv_t *disp_drv, uint8_t *buf, lv_coord_t buf_w, lv_coord_t x, lv_coord_t y,
+                           lv_color_t color, lv_opa_t opa);
 
-void lv_ssd1306_sleep_in(void);
-void lv_ssd1306_sleep_out(void);
+    void ssd1306_sleep_in(void);
+    void ssd1306_sleep_out(void);
 
-/**********************
+    /**********************
  *      MACROS
  **********************/
 
-
-
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /*SSD1306_H*/
