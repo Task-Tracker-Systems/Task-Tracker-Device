@@ -10,11 +10,17 @@
  *      INCLUDES
  *********************/
 #include "lv_port_disp.h"
+#include "ssd1306_driver_adapter.h"
 #include <stdbool.h>
 
 /*********************
  *      DEFINES
  *********************/
+
+/* use resolution for SSD1306 OLED display */
+#define MY_DISP_HOR_RES SSD1306_RES_HOR
+#define MY_DISP_VER_RES SSD1306_RES_VER
+
 #ifndef MY_DISP_HOR_RES
 #warning Please define or replace the macro MY_DISP_HOR_RES with the actual screen width, default value 320 is used for now.
 #define MY_DISP_HOR_RES 320
