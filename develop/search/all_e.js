@@ -6,7 +6,6 @@ var searchData=
   ['sda_3',['sda',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a2b99fb8347cb0b5a5921ae85256110b2',1,'board::i2c_1::pin']]],
   ['setup_4',['setup',['../namespacemain.xhtml#ace1a84b1871a86fa3e10a6b2e44d4042',1,'main::setup()'],['../time-tracker_8ino.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;time-tracker.ino']]],
   ['setup_5fdisplay_5',['setup_display',['../display_8cpp.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp'],['../display_8h.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp']]],
-  ['simulate_6',['Simulate',['../index.xhtml#autotoc_md12',1,'']]],
-  ['software_7',['Build and Upload the Software',['../index.xhtml#autotoc_md11',1,'']]],
-  ['source_20code_8',['C/C++ source code',['../md_CONTRIBUTING.xhtml#autotoc_md4',1,'']]]
+  ['software_20architecture_6',['Software Architecture',['../md_doc_software_architecture.xhtml',1,'']]],
+  ['software_2darchitecture_2emd_7',['software-architecture.md',['../software-architecture_8md.xhtml',1,'']]]
 ];

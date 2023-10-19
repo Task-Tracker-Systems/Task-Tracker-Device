@@ -1,24 +1,12 @@
 <map id="src/main.cpp" name="src/main.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="240,5,335,31"/>
-<area shape="rect" id="Node000002" href="$main_8hpp.xhtml" title=" " alt="" coords="5,79,79,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,34,94,78,93,73,245,29"/>
-<area shape="rect" id="Node000003" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="183,79,291,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="281,33,256,68,252,65,277,30"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="83,226,158,252"/>
-<area shape="poly" id="edge11_Node000001_Node000005" title=" " alt="" coords="248,34,208,53,172,81,151,112,137,147,125,211,120,210,132,145,147,109,168,77,205,48,246,29"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="308,226,368,252"/>
-<area shape="poly" id="edge12_Node000001_Node000006" title=" " alt="" coords="293,31,306,78,335,211,330,212,301,80,288,32"/>
-<area shape="rect" id="Node000008" href="$display_8h.xhtml" title=" " alt="" coords="376,79,447,105"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="310,29,379,69,376,73,307,34"/>
-<area shape="rect" id="Node000010" href="$pitches_8hpp.xhtml" title=" " alt="" coords="464,153,551,178"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="336,24,399,42,432,57,461,77,485,106,501,137,496,140,481,109,458,81,429,62,397,47,335,29"/>
-<area shape="rect" id="Node000004" href="$framework__config_8hpp.xhtml" title="Provides defintions which are specific for the used framework." alt="" coords="154,153,301,178"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,105,234,138,228,137,232,105"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="211,181,153,220,150,215,208,177"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="248,177,308,215,305,220,245,181"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="187,226,268,252"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="230,179,230,211,225,211,225,179"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="376,153,439,178"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="413,105,412,137,406,137,408,105"/>
-<area shape="poly" id="edge10_Node000010_Node000006" title=" " alt="" coords="480,181,382,222,380,217,478,176"/>
+<area shape="rect" id="node1" title=" " alt="" coords="241,5,337,31"/>
+<area shape="rect" id="node2" href="$main_8hpp.xhtml" title=" " alt="" coords="5,79,80,104"/>
+<area shape="rect" id="node3" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="184,79,293,104"/>
+<area shape="rect" id="node5" title=" " alt="" coords="83,225,159,251"/>
+<area shape="rect" id="node6" title=" " alt="" coords="311,225,372,251"/>
+<area shape="rect" id="node8" href="$display_8h.xhtml" title=" " alt="" coords="379,79,451,104"/>
+<area shape="rect" id="node10" href="$pitches_8hpp.xhtml" title=" " alt="" coords="467,152,555,177"/>
+<area shape="rect" id="node4" href="$framework__config_8hpp.xhtml" title="Provides defintions which are specific for the used framework." alt="" coords="155,152,303,177"/>
+<area shape="rect" id="node7" title=" " alt="" coords="188,225,271,251"/>
+<area shape="rect" id="node9" title=" " alt="" coords="379,152,443,177"/>
 </map>

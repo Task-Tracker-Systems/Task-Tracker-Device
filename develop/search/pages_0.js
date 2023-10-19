@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contribute_0',['How to contribute',['../md_CONTRIBUTING.xhtml',1,'']]]
+  ['bibliography_0',['Bibliography',['../citelist.xhtml',1,'']]]
 ];
