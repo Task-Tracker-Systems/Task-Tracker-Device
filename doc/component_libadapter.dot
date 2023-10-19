@@ -1,0 +1,5 @@
+digraph {
+    node [fillcolor="4", style="filled", colorscheme="pastel19", shape="component"]
+    c [label="libraries adapters"]
+}
+

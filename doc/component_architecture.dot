@@ -1,0 +1,103 @@
+digraph component_architecture {
+  compound=true;
+  rankdir="RL";
+  style="bold"
+  
+  node [shape="component"];
+  node [colorscheme="pastel19"];
+  
+    {
+        // package 'application'
+        node [fillcolor="2", style="filled"];
+        
+        subgraph cluster_app {
+            label = "application business rules";
+        
+            output_boundaries [label="«interface»\n output boundaries"]
+            use_cases [label="use case interactors"]
+            input_boundaries [label="«interface»\n input boundaries"]
+            data_interface [label="«interface»\n data gateway"]
+        }
+    }
+    
+    {
+        // package 'enterprise business rules'
+        node [fillcolor="1", style="filled"];
+        
+        subgraph cluster_ebr {
+            label = "enterprise business rules";
+            entities;
+        }
+    }
+  
+    {
+        // package 'frameworks and libraries'
+        node [fillcolor="5", style="filled, dashed"];
+        
+        subgraph cluster_thirdparty {
+            label = "frameworks and libraries";
+            style="bold,dashed";
+            thirdparty[shape=point style=invis];
+           
+            sdk [label="software development kit"]
+            libraries;
+        }
+    }
+    
+    subgraph clusterX_margin
+    {
+        style=invis
+        margin="20.0,0.0"
+        n1 [label="Not part of\nthe project.", shape="note"]
+        n1 -> thirdparty [lhead="cluster_thirdparty"];
+    }
+  
+    {
+        // package 'interface adapters'
+        node [fillcolor="4", style="filled"];
+        
+        subgraph cluster_ia {
+            label = "3rd party adapters";
+            liberaries_adapters [label="libraries adapters"];
+        };
+    }
+  
+    {
+        // package 'board adapters'
+        node [fillcolor="3", style="filled"];
+        
+        subgraph cluster_board {
+            label = "board adapters";
+        
+            // controllers, presenters, views;
+            library_interfaces [label="«interface»\n library interfaces"]
+            board_impl [label="board implementation"]
+        }
+    }
+    
+    {
+        // associations
+        edge [style="dashed"];
+        {
+            // dependencies
+            edge [arrowhead="vee"];
+            use_cases -> entities;
+            use_cases -> output_boundaries;
+            board_impl -> input_boundaries;
+            board_impl -> library_interfaces;
+            use_cases -> data_interface;
+            
+            libraries -> sdk;
+            liberaries_adapters -> libraries;
+        }
+        {
+            // realizations
+            edge [arrowhead="onormal"];
+            use_cases -> input_boundaries;
+            board_impl -> output_boundaries;
+            liberaries_adapters -> library_interfaces;
+            board_impl -> data_interface;
+        }
+    }
+}
+
