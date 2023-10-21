@@ -8,15 +8,6 @@ SerialInputHandler::SerialInputHandler()
 
 void SerialInputHandler::handleNewSerialData(Stream &stream)
 {
-}
-
-/*
-  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
-  routine is run between each time loop() runs, so using delay inside loop can
-  delay response. Multiple bytes of data may be available.
-*/
-void serialEvent()
-{
     while (Serial.available() > 0)
     {
         const auto inData = Serial.read();
@@ -27,13 +18,37 @@ void serialEvent()
         else
         {
             const auto inChar = static_cast<char>(inData);
-            inputString += inChar;
-            // if the incoming character is a newline, set a flag so the main loop can
-            // do something about it:
+            static std::string begunLine;
+            begunLine += inChar;
             if (inChar == '\n' || inChar == '\r')
             {
-                stringComplete = true;
+                messageQueue.push(begunLine);
+                begunLine.clear();
             }
         }
     }
+}
+
+std::string SerialInputHandler::getNextLine()
+{
+    const std::string line = messageQueue.front();
+    messageQueue.pop();
+    return line;
+}
+
+SerialInputHandler &SerialInputHandler::getInstance()
+{
+    static SerialInputHandler instance;
+    return instance;
+}
+
+/*
+  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
+  routine is run between each time loop() runs, so using delay inside loop can
+  delay response. Multiple bytes of data may be available.
+*/
+void serialEvent()
+{
+    auto handler = SerialInputHandler::getInstance();
+    handler.handleNewSerialData(Serial);
 }
