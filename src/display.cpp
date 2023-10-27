@@ -88,7 +88,7 @@ void setup_display()
 
     // create first text in lvgl
     lv_obj_t *label = lv_label_create(lv_scr_act());
-    lv_label_set_text(label, reinterpret_cast<const char *>(F("LVGL is up")));
+    lv_label_set_text(label, "LVGL is up");
     lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 0);
 
     // display lvgl screen
