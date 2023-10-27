@@ -57,8 +57,18 @@ var menudata={children:[
 {text:"Files",url:"files.xhtml",children:[
 {text:"File List",url:"files.xhtml"},
 {text:"File Members",url:"globals.xhtml",children:[
-{text:"All",url:"globals.xhtml"},
+{text:"All",url:"globals.xhtml",children:[
+{text:"d",url:"globals.xhtml#index_d"},
+{text:"f",url:"globals.xhtml#index_f"},
+{text:"l",url:"globals.xhtml#index_l"},
+{text:"o",url:"globals.xhtml#index_o"},
+{text:"p",url:"globals.xhtml#index_p"},
+{text:"r",url:"globals.xhtml#index_r"},
+{text:"s",url:"globals.xhtml#index_s"}]},
 {text:"Functions",url:"globals_func.xhtml"},
 {text:"Variables",url:"globals_vars.xhtml"},
 {text:"Typedefs",url:"globals_type.xhtml"},
-{text:"Macros",url:"globals_defs.xhtml"}]}]}]}
+{text:"Macros",url:"globals_defs.xhtml",children:[
+{text:"l",url:"globals_defs.xhtml#index_l"},
+{text:"o",url:"globals_defs.xhtml#index_o"},
+{text:"s",url:"globals_defs.xhtml#index_s"}]}]}]}]}

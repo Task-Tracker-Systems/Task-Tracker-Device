@@ -7,12 +7,13 @@ var searchData=
   ['f5_4',['f5',['../namespacenote.xhtml#a7c088d3db9695b900666055ef911d903',1,'note']]],
   ['f6_5',['f6',['../namespacenote.xhtml#af0f4a8e76cf32c2bb4e10bf3a1692573',1,'note']]],
   ['f7_6',['f7',['../namespacenote.xhtml#a0f4332a830d0f68df9c454ce0401933b',1,'note']]],
-  ['framework_5fconfig_2ehpp_7',['framework_config.hpp',['../framework__config_8hpp.xhtml',1,'']]],
-  ['fs1_8',['fs1',['../namespacenote.xhtml#a38cbf4f42589e1e33e3fe6b52fe9bbc3',1,'note']]],
-  ['fs2_9',['fs2',['../namespacenote.xhtml#a33490c9943e9b70a9113aab6f0dda418',1,'note']]],
-  ['fs3_10',['fs3',['../namespacenote.xhtml#ad098f489d3168806353c40495976f359',1,'note']]],
-  ['fs4_11',['fs4',['../namespacenote.xhtml#ac24035d566718fe7b530514b6bf9fab5',1,'note']]],
-  ['fs5_12',['fs5',['../namespacenote.xhtml#a04ef8a5f987201b9e9d8100cf4401ab6',1,'note']]],
-  ['fs6_13',['fs6',['../namespacenote.xhtml#a1b4fc08db23182354566813672f085e3',1,'note']]],
-  ['fs7_14',['fs7',['../namespacenote.xhtml#a35af22cad2c26133b81ae1e5fb302f85',1,'note']]]
+  ['flushssd1306adafruit_7',['flushSSD1306Adafruit',['../display_8cpp.xhtml#a4e36773439af3b252f4913461e9afa12',1,'display.cpp']]],
+  ['framework_5fconfig_2ehpp_8',['framework_config.hpp',['../framework__config_8hpp.xhtml',1,'']]],
+  ['fs1_9',['fs1',['../namespacenote.xhtml#a38cbf4f42589e1e33e3fe6b52fe9bbc3',1,'note']]],
+  ['fs2_10',['fs2',['../namespacenote.xhtml#a33490c9943e9b70a9113aab6f0dda418',1,'note']]],
+  ['fs3_11',['fs3',['../namespacenote.xhtml#ad098f489d3168806353c40495976f359',1,'note']]],
+  ['fs4_12',['fs4',['../namespacenote.xhtml#ac24035d566718fe7b530514b6bf9fab5',1,'note']]],
+  ['fs5_13',['fs5',['../namespacenote.xhtml#a04ef8a5f987201b9e9d8100cf4401ab6',1,'note']]],
+  ['fs6_14',['fs6',['../namespacenote.xhtml#a1b4fc08db23182354566813672f085e3',1,'note']]],
+  ['fs7_15',['fs7',['../namespacenote.xhtml#a35af22cad2c26133b81ae1e5fb302f85',1,'note']]]
 ];

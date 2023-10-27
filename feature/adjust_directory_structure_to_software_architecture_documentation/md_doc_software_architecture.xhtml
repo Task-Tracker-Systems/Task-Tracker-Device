@@ -79,6 +79,19 @@ $(function() {
   <div class="headertitle"><div class="title">Software Architecture </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md10">Objectives of the Software Architecture</a></li>
+<li class="level1"><a href="#autotoc_md11">Achieving a Flexible Structure</a></li>
+<li class="level1"><a href="#autotoc_md12">Implementing a Plug-in Architecture</a><ul><li class="level2"><a href="#interpretation_dependency_rule">Interpretation of the Dependency Rule</a></li>
+<li class="level2"><a href="#autotoc_md13">Dependency Injection</a></li>
+<li class="level2"><a href="#autotoc_md14">Interface Adapters</a></li>
+<li class="level2"><a href="#autotoc_md15">Components</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#component_architecture">Component Architecture</a></li>
+<li class="level1"><a href="#autotoc_md16">Further References</a></li>
+</ul>
+</div>
 <div class="textblock"><h1><a class="anchor" id="autotoc_md10"></a>
 Objectives of the Software Architecture</h1>
 <p >The objectives of the software architecture are:</p>
@@ -123,7 +136,7 @@ Interpretation of the Dependency Rule</h2>
 <p >For this software architecture the Dependency Rule (see <a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 203) is applied on source code dependencies between <em>packages</em>. That means that source code may only depend on source code within its own package or on source code in packages of higher-level policies.</p>
 <h2><a class="anchor" id="autotoc_md13"></a>
 Dependency Injection</h2>
-<p >For a higher level package to use an implementation from a lower level, interfaces shall be used. At runtime the higher level package needs to use the actual object realizing the interface. But this shall be done without revealing the implementation details to the higher level package. For this, non-member "getter"- or "factory"- functions (Dependency Injector Function; DIF) shall be declared in the higher level. Using functions as dependency injector allows to call the constructor of the implementation with run-time arguments. The return type is a reference to an object of the base class (interface). The actual object is created and kept in the lower layer package. In general a DIF may return different objects which have to be allocated in dynamic memory.</p>
+<p >For a higher level package to use an implementation from a lower level, interfaces shall be used. At runtime the higher level package needs to use the actual object realizing the interface. But this shall be done without revealing the implementation details to the higher level package. For this, non-member "getter"- or "factory"- functions (Dependency Injector Function; DIF) shall be declared in the higher level package. Using functions as dependency injector allows to call the constructor of the implementation with run-time arguments. The actual object is created by the DIF which is defined in the lower layer package. The DIF provides the object to the caller, for example by returning a reference to it.</p>
 <p >The declaration of a DIF must reside in the (highest) level which calls it. Its definition must reside at the level which implements the dependency or at a lower level. But it should not reside in the same unit as the dependency. As the definition of the DIF depends on its usage it should not pollute the implementation's unit. This simplifies reusability and testability of the implementation.</p>
 <h2><a class="anchor" id="autotoc_md14"></a>
 Interface Adapters</h2>
@@ -166,7 +179,7 @@ Further References</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 17 2023 11:58:35 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Fri Oct 27 2023 18:29:46 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
