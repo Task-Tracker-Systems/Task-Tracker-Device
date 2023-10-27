@@ -1,4 +1,4 @@
 #include <stdint.h>
 
-void testanimate();
 void setup_display();
+void refresh_display();

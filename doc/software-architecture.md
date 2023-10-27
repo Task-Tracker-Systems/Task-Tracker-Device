@@ -1,6 +1,8 @@
 Software Architecture
 =====================
 
+[TOC]
+
 Objectives of the Software Architecture
 ---------------------------------------
 
@@ -57,11 +59,10 @@ That means that source code may only depend on source code within its own packag
 For a higher level package to use an implementation from a lower level, interfaces shall be used.
 At runtime the higher level package needs to use the actual object realizing the interface.
 But this shall be done without revealing the implementation details to the higher level package.
-For this, non-member "getter"- or "factory"- functions (Dependency Injector Function; DIF) shall be declared in the higher level.
+For this, non-member "getter"- or "factory"- functions (Dependency Injector Function; DIF) shall be declared in the higher level package.
 Using functions as dependency injector allows to call the constructor of the implementation with run-time arguments.
-The return type is a reference to an object of the base class (interface).
-The actual object is created and kept in the lower layer package.
-In general a DIF may return different objects which have to be allocated in dynamic memory.
+The actual object is created by the DIF which is defined in the lower layer package.
+The DIF provides the object to the caller, for example by returning a reference to it.
 
 The declaration of a DIF must reside in the (highest) level which calls it.
 Its definition must reside at the level which implements the dependency or at a lower level.
