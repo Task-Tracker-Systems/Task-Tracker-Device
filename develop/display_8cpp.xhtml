@@ -90,10 +90,11 @@ $(function() {
 <code>#include &lt;Adafruit_SSD1306.h&gt;</code><br />
 <code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;lvgl.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for display.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="display_8cpp__incl.svg" width="442" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="display_8cpp__incl.svg" width="518" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -105,85 +106,19 @@ Macros</h2></td></tr>
 <tr class="separator:a6974d08a74da681b3957b2fead2608b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a619e07239fb3b9b14d40646ab41d5b4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a619e07239fb3b9b14d40646ab41d5b4f">OLED_RESET</a>&#160;&#160;&#160;-1</td></tr>
 <tr class="separator:a619e07239fb3b9b14d40646ab41d5b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d77579612ad82d1e371a721f4c626c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a1d77579612ad82d1e371a721f4c626c7">NUMFLAKES</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:a1d77579612ad82d1e371a721f4c626c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88b90a6366ac67c662321171f5b1fe34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a88b90a6366ac67c662321171f5b1fe34">LOGO_HEIGHT</a>&#160;&#160;&#160;16</td></tr>
-<tr class="separator:a88b90a6366ac67c662321171f5b1fe34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaca826667b185ef968585f830dcec417"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#aaca826667b185ef968585f830dcec417">LOGO_WIDTH</a>&#160;&#160;&#160;16</td></tr>
-<tr class="separator:aaca826667b185ef968585f830dcec417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a389f7aa21a1b492a5aa192f19857be6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a389f7aa21a1b492a5aa192f19857be6a">XPOS</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a389f7aa21a1b492a5aa192f19857be6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb6015d51c0c8263883ec6c69a115fb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#abb6015d51c0c8263883ec6c69a115fb6">YPOS</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:abb6015d51c0c8263883ec6c69a115fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a242f273ef9c6483550561ac19a34ab5b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a242f273ef9c6483550561ac19a34ab5b">DELTAY</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a242f273ef9c6483550561ac19a34ab5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae780a76d06cb56e14435ebfe3db3f6d3"><td class="memItemLeft" align="right" valign="top">Adafruit_SSD1306&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#ae780a76d06cb56e14435ebfe3db3f6d3">display</a> (<a class="el" href="display_8cpp.xhtml#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a>, <a class="el" href="display_8cpp.xhtml#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a>, &amp;Wire, <a class="el" href="display_8cpp.xhtml#a619e07239fb3b9b14d40646ab41d5b4f">OLED_RESET</a>)</td></tr>
 <tr class="separator:ae780a76d06cb56e14435ebfe3db3f6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58c16ae6270d65c36f66d92ec542e8df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a58c16ae6270d65c36f66d92ec542e8df">testanimate</a> ()</td></tr>
-<tr class="separator:a58c16ae6270d65c36f66d92ec542e8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e36773439af3b252f4913461e9afa12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a4e36773439af3b252f4913461e9afa12">flushSSD1306Adafruit</a> (lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p)</td></tr>
+<tr class="separator:a4e36773439af3b252f4913461e9afa12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98d68beab431566434b2775d48097ec9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a98d68beab431566434b2775d48097ec9">setup_display</a> ()</td></tr>
 <tr class="separator:a98d68beab431566434b2775d48097ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd55a287e038568d2304927ec8b2449"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.xhtml#a6fd55a287e038568d2304927ec8b2449">refresh_display</a> ()</td></tr>
+<tr class="separator:a6fd55a287e038568d2304927ec8b2449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a242f273ef9c6483550561ac19a34ab5b" name="a242f273ef9c6483550561ac19a34ab5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a242f273ef9c6483550561ac19a34ab5b">&#9670;&#160;</a></span>DELTAY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DELTAY&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a88b90a6366ac67c662321171f5b1fe34" name="a88b90a6366ac67c662321171f5b1fe34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88b90a6366ac67c662321171f5b1fe34">&#9670;&#160;</a></span>LOGO_HEIGHT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LOGO_HEIGHT&#160;&#160;&#160;16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaca826667b185ef968585f830dcec417" name="aaca826667b185ef968585f830dcec417"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaca826667b185ef968585f830dcec417">&#9670;&#160;</a></span>LOGO_WIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LOGO_WIDTH&#160;&#160;&#160;16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1d77579612ad82d1e371a721f4c626c7" name="a1d77579612ad82d1e371a721f4c626c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d77579612ad82d1e371a721f4c626c7">&#9670;&#160;</a></span>NUMFLAKES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NUMFLAKES&#160;&#160;&#160;10</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a619e07239fb3b9b14d40646ab41d5b4f" name="a619e07239fb3b9b14d40646ab41d5b4f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a619e07239fb3b9b14d40646ab41d5b4f">&#9670;&#160;</a></span>OLED_RESET</h2>
 
@@ -220,34 +155,6 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define SCREEN_WIDTH&#160;&#160;&#160;128</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a389f7aa21a1b492a5aa192f19857be6a" name="a389f7aa21a1b492a5aa192f19857be6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a389f7aa21a1b492a5aa192f19857be6a">&#9670;&#160;</a></span>XPOS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define XPOS&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abb6015d51c0c8263883ec6c69a115fb6" name="abb6015d51c0c8263883ec6c69a115fb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb6015d51c0c8263883ec6c69a115fb6">&#9670;&#160;</a></span>YPOS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define YPOS&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -295,6 +202,57 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4e36773439af3b252f4913461e9afa12" name="a4e36773439af3b252f4913461e9afa12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e36773439af3b252f4913461e9afa12">&#9670;&#160;</a></span>flushSSD1306Adafruit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void flushSSD1306Adafruit </td>
+          <td>(</td>
+          <td class="paramtype">lv_disp_drv_t *&#160;</td>
+          <td class="paramname"><em>disp_drv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const lv_area_t *&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_color_t *&#160;</td>
+          <td class="paramname"><em>color_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fd55a287e038568d2304927ec8b2449" name="a6fd55a287e038568d2304927ec8b2449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd55a287e038568d2304927ec8b2449">&#9670;&#160;</a></span>refresh_display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void refresh_display </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a98d68beab431566434b2775d48097ec9" name="a98d68beab431566434b2775d48097ec9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98d68beab431566434b2775d48097ec9">&#9670;&#160;</a></span>setup_display()</h2>
 
@@ -312,27 +270,10 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a58c16ae6270d65c36f66d92ec542e8df" name="a58c16ae6270d65c36f66d92ec542e8df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58c16ae6270d65c36f66d92ec542e8df">&#9670;&#160;</a></span>testanimate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void testanimate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 19 2023 21:49:20 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Fri Oct 27 2023 18:14:38 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
