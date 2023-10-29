@@ -103,7 +103,7 @@ Mechanisms for dependency injection are omitted in this diagram for readability.
 \dotfile component_architecture.dot "component architecture for this software"
 
 The rectangles with bold border are packages.
-The label at the bottom of each package is the name of the package.
+The label at the top of each package is the name of the package.
 Each package consists of one or more components.
 All components in this diagram are exemplarily.
 
