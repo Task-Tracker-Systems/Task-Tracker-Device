@@ -1,5 +1,0 @@
-digraph {
-    node [fillcolor="1", style="filled", colorscheme="pastel19", shape="component"]
-    c [label="entities"]
-}
-

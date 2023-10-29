@@ -1,5 +1,0 @@
-digraph {
-    node [fillcolor="3", style="filled", colorscheme="pastel19", shape="component"]
-    c [label="board implementation"]
-}
-
