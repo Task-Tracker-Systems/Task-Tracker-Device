@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Task Tracker: ADR001 Represent Software Architecture in Directory Structure</title>
+<title>Task Tracker: DR001 Represent Software Architecture in Directory Structure</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,16 +76,16 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">ADR001 Represent Software Architecture in Directory Structure </div></div>
+  <div class="headertitle"><div class="title">DR001 Represent Software Architecture in Directory Structure </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md7"></a>
 Context</h1>
-<p >The software architecture suggests to <a class="el" href="md_doc_software_architecture.xhtml#component_architecture">separate different parts of the code</a>. How shall this separation be represented in the organization of the source files in the file system?</p>
+<p >The software architecture suggests to <a class="el" href="md_doc_software_architecture.xhtml#component_architecture">reference to 'Component Architecture' in Doxygen documentation</a>. How shall this separation be represented in the organization of the source files in the file system?</p>
 <h1><a class="anchor" id="autotoc_md8"></a>
 Decision</h1>
 <ul>
-<li>All source code belonging to a package shall be within a directory representing that package. In combination with <a href="https://www.doxygen.nl/manual/diagrams.html" title="Doxygen documentation of graphs which can be generated.">automatically generated directory dependency graphs</a> it is then easy to see if the <a class="el" href="md_doc_software_architecture.xhtml#interpretation_dependency_rule">Dependency Rule for packages</a> is violated.</li>
+<li>All source code belonging to a package shall be within a directory representing that package. In combination with <a href="https://www.doxygen.nl/manual/diagrams.html" title="Doxygen documentation of graphs which can be generated.">automatically generated directory dependency graphs</a> it is then easy to see if the <a class="el" href="md_doc_software_architecture.xhtml#interpretation_dependency_rule">reference to ' Interpretation of the Dependency Rule' in Doxygen documentation</a> is violated.</li>
 <li>Further encapsulation within package directories as components is encouraged but not necessary.</li>
 <li>Also it is encouraged to place header files in a different directory than the rest of the compound (package, component, module, ...) implementation. This allows to hide implementation details from the publicly available interfaces.</li>
 </ul>
@@ -118,7 +118,7 @@ Consequences</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 27 2023 18:32:43 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Oct 29 2023 09:31:36 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
