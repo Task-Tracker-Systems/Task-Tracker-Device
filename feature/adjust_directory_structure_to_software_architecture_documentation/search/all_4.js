@@ -13,7 +13,7 @@ var searchData=
   ['display_2eh_10',['display.h',['../display_8h.xhtml',1,'']]],
   ['down_11',['down',['../namespaceboard_1_1button_1_1pin.xhtml#aabaca2e2956dcb32ccb5a31e91578953',1,'board::button::pin']]],
   ['dr_2d001_2emd_12',['dr-001.md',['../dr-001_8md.xhtml',1,'']]],
-  ['dr001_20represent_20software_20architecture_20in_20directory_20structure_13',['DR001 Represent Software Architecture in Directory Structure',['../md_doc_design_decisions_dr_001.xhtml',1,'']]],
+  ['dr001_20represent_20software_20architecture_20in_20directory_20structure_13',['DR001 Represent Software Architecture in Directory Structure',['../md_doc_decisions_dr_001.xhtml',1,'']]],
   ['ds1_14',['ds1',['../namespacenote.xhtml#a8aad924f1ca4d46b938a7a7c41f4d0ed',1,'note']]],
   ['ds2_15',['ds2',['../namespacenote.xhtml#a8c93973c1c1a71a6092195013a8262f9',1,'note']]],
   ['ds3_16',['ds3',['../namespacenote.xhtml#a8173ef1023b3b51d0f850d37246c31f5',1,'note']]],
