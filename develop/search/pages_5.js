@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['task_20tracker_0',['Task Tracker',['../index.xhtml',1,'']]]
+  ['how_20to_20contribute_0',['How to contribute',['../md_CONTRIBUTING.xhtml',1,'']]]
 ];
