@@ -96,7 +96,7 @@
 
 /*Default Dot Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
  *(Not so important, you can adjust it to modify default sizes and spaces)*/
-#define LV_DPI_DEF (128/11)     /*[px/inch]*/
+#define LV_DPI_DEF ((128*2540)/2942)     /*[px/inch]: horizontal pixels = 128; conversion inch to 10^(-5)m = 2540; width in 10^(-5)m: 2942 */
 
 /*=======================
  * FEATURE CONFIGURATION
