@@ -86,7 +86,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Configuration file for v8.3.7.  
+<p>Configuration file for v8.3.9.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -126,11 +126,11 @@ Macros</h2></td></tr>
 <tr class="separator:a45d4adceb8fcf32eea0c68b91fd9e9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a244b19e028c500d10572872fa00dd995"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#a244b19e028c500d10572872fa00dd995">LV_TICK_CUSTOM</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a244b19e028c500d10572872fa00dd995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac187cce8443f66c7c451794679354804"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#ac187cce8443f66c7c451794679354804">LV_TICK_CUSTOM_INCLUDE</a>&#160;&#160;&#160;&quot;esp_timer.h&quot;</td></tr>
+<tr class="memitem:ac187cce8443f66c7c451794679354804"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#ac187cce8443f66c7c451794679354804">LV_TICK_CUSTOM_INCLUDE</a>&#160;&#160;&#160;&quot;Arduino.h&quot;         /*Header for the system time function*/</td></tr>
 <tr class="separator:ac187cce8443f66c7c451794679354804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c7c9bcaf7b3edf752664c8438ee3d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aa9c7c9bcaf7b3edf752664c8438ee3d6">LV_TICK_CUSTOM_SYS_TIME_EXPR</a>&#160;&#160;&#160;((esp_timer_get_time() / 1000LL))</td></tr>
+<tr class="memitem:aa9c7c9bcaf7b3edf752664c8438ee3d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aa9c7c9bcaf7b3edf752664c8438ee3d6">LV_TICK_CUSTOM_SYS_TIME_EXPR</a>&#160;&#160;&#160;(millis())    /*Expression evaluating to current system time in ms*/</td></tr>
 <tr class="separator:aa9c7c9bcaf7b3edf752664c8438ee3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf0386c6d60d0c07153b38654f6b6d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aadf0386c6d60d0c07153b38654f6b6d3">LV_DPI_DEF</a>&#160;&#160;&#160;110     /*[px/inch]*/</td></tr>
+<tr class="memitem:aadf0386c6d60d0c07153b38654f6b6d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aadf0386c6d60d0c07153b38654f6b6d3">LV_DPI_DEF</a>&#160;&#160;&#160;((128*2540)/2942)     /*[px/inch]: horizontal pixels = 128; conversion inch to 10^(-5)m = 2540; width in 10^(-5)m: 2942 */</td></tr>
 <tr class="separator:aadf0386c6d60d0c07153b38654f6b6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabbb65481bcb6ea39af12dce67b78987"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aabbb65481bcb6ea39af12dce67b78987">LV_DRAW_COMPLEX</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:aabbb65481bcb6ea39af12dce67b78987"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +157,8 @@ Macros</h2></td></tr>
 <tr class="separator:aad27fe771b4c9af002a90084d5652280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae82ec72d48383f7ea5c0635cde734115"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#ae82ec72d48383f7ea5c0635cde734115">LV_USE_GPU_STM32_DMA2D</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ae82ec72d48383f7ea5c0635cde734115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c15d733e392e99354d630253c9499c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#a5c15d733e392e99354d630253c9499c6">LV_USE_GPU_RA6M3_G2D</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a5c15d733e392e99354d630253c9499c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82b20c0c63677af87dc53d6dd9f727c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#a82b20c0c63677af87dc53d6dd9f727c1">LV_USE_GPU_SWM341_DMA2D</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a82b20c0c63677af87dc53d6dd9f727c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8144f58325bda4bd72d89115ec1a8c20"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#a8144f58325bda4bd72d89115ec1a8c20">LV_USE_GPU_NXP_PXP</a>&#160;&#160;&#160;0</td></tr>
@@ -474,7 +476,7 @@ Macros</h2></td></tr>
 <tr class="separator:a291831ee05115d17571a371d3cbf18f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Configuration file for v8.3.7. </p>
+<div class="textblock"><p >Configuration file for v8.3.9. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a7f89929bee5e1d1f3047b6fc57723602" name="a7f89929bee5e1d1f3047b6fc57723602"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f89929bee5e1d1f3047b6fc57723602">&#9670;&#160;</a></span>LV_ASSERT_HANDLER</h2>
@@ -833,7 +835,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LV_DPI_DEF&#160;&#160;&#160;110     /*[px/inch]*/</td>
+          <td class="memname">#define LV_DPI_DEF&#160;&#160;&#160;((128*2540)/2942)     /*[px/inch]: horizontal pixels = 128; conversion inch to 10^(-5)m = 2540; width in 10^(-5)m: 2942 */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1783,7 +1785,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LV_TICK_CUSTOM_INCLUDE&#160;&#160;&#160;&quot;esp_timer.h&quot;</td>
+          <td class="memname">#define LV_TICK_CUSTOM_INCLUDE&#160;&#160;&#160;&quot;Arduino.h&quot;         /*Header for the system time function*/</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1797,7 +1799,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LV_TICK_CUSTOM_SYS_TIME_EXPR&#160;&#160;&#160;((esp_timer_get_time() / 1000LL))</td>
+          <td class="memname">#define LV_TICK_CUSTOM_SYS_TIME_EXPR&#160;&#160;&#160;(millis())    /*Expression evaluating to current system time in ms*/</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2468,6 +2470,20 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a5c15d733e392e99354d630253c9499c6" name="a5c15d733e392e99354d630253c9499c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c15d733e392e99354d630253c9499c6">&#9670;&#160;</a></span>LV_USE_GPU_RA6M3_G2D</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LV_USE_GPU_RA6M3_G2D&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a028f56151f846d3d6fb50042ea1ad2b4" name="a028f56151f846d3d6fb50042ea1ad2b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a028f56151f846d3d6fb50042ea1ad2b4">&#9670;&#160;</a></span>LV_USE_GPU_SDL</h2>
 
@@ -3087,7 +3103,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 29 2023 20:48:40 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Oct 30 2023 21:18:00 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
