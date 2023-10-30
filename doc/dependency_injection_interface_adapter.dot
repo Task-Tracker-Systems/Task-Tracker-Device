@@ -1,0 +1,31 @@
+digraph dependency_injection_interface_adapter {
+    rankdir="BT"
+    edge[style="dashed", arrowhead="vee"]
+
+  subgraph cluster_high {
+      label="high level policy package"
+      factory_interface [label=<«interface»<BR/><FONT FACE="Courier New">B&amp; factoryB();</FONT>>];
+      component_a [shape="component", label="A", fontname="Courier New"];
+      interface_b [shape="rectangle", label=<«interface»<BR/><FONT FACE="Courier New">B</FONT>>];
+  }
+  
+  subgraph cluster_low {
+      label="interface adapters package"
+      factory_impl [label="B& factoryB(){}" fontname="Courier New"];
+      component_b [shape="component", label="B", fontname="Courier New"];
+  }
+  
+  subgraph cluster_external {
+      label="third party libraries"
+      component_c [shape="component", label="external library"];
+  }
+
+  component_b -> interface_b [arrowhead="onormal", label="«realizes»"]
+  component_b -> component_c [constraint="false", label="«delegates to»"]
+  factory_impl -> component_b [constraint="false", label="«instantiates a»"]
+  component_a -> interface_b [label="«depends on»"]
+  component_a -> factory_interface [constraint="false", label="«calls»"]
+  factory_interface -> interface_b [constraint="false", label="«depends on»"]
+  factory_impl -> factory_interface [label="«implements»"]
+}
+

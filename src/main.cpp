@@ -48,6 +48,7 @@ namespace main
 {
 void setup(char const *programIdentificationString)
 {
+    Serial.begin(115200);
     pinMode(board::button::pin::up, INPUT_PULLUP);
     pinMode(board::button::pin::down, INPUT_PULLUP);
     pinMode(board::button::pin::enter, INPUT_PULLUP);
@@ -61,7 +62,6 @@ void setup(char const *programIdentificationString)
     pinMode(board::led::pin::task3, OUTPUT);
     pinMode(board::led::pin::task4, OUTPUT);
     pinMode(board::buzzer::pin::on_off, OUTPUT);
-    Serial.begin(115200);
     setup_display();
     delay(100);
     Serial.flush();
@@ -99,6 +99,6 @@ void loop()
         }
     }
     delay(loopDurationMs);
-    testanimate(); // Animate bitmaps
+    refresh_display(); // Animate bitmaps
 }
 } // namespace main
