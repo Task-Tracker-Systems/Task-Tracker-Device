@@ -130,7 +130,7 @@ Macros</h2></td></tr>
 <tr class="separator:ac187cce8443f66c7c451794679354804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9c7c9bcaf7b3edf752664c8438ee3d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aa9c7c9bcaf7b3edf752664c8438ee3d6">LV_TICK_CUSTOM_SYS_TIME_EXPR</a>&#160;&#160;&#160;(millis())    /*Expression evaluating to current system time in ms*/</td></tr>
 <tr class="separator:aa9c7c9bcaf7b3edf752664c8438ee3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf0386c6d60d0c07153b38654f6b6d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aadf0386c6d60d0c07153b38654f6b6d3">LV_DPI_DEF</a>&#160;&#160;&#160;(128/11)     /*[px/inch]*/</td></tr>
+<tr class="memitem:aadf0386c6d60d0c07153b38654f6b6d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aadf0386c6d60d0c07153b38654f6b6d3">LV_DPI_DEF</a>&#160;&#160;&#160;((128*2540)/2942)     /*[px/inch]: horizontal pixels = 128; conversion inch to 10^(-5)m = 2540; width in 10^(-5)m: 2942 */</td></tr>
 <tr class="separator:aadf0386c6d60d0c07153b38654f6b6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabbb65481bcb6ea39af12dce67b78987"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__conf_8h.xhtml#aabbb65481bcb6ea39af12dce67b78987">LV_DRAW_COMPLEX</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:aabbb65481bcb6ea39af12dce67b78987"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -835,7 +835,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LV_DPI_DEF&#160;&#160;&#160;(128/11)     /*[px/inch]*/</td>
+          <td class="memname">#define LV_DPI_DEF&#160;&#160;&#160;((128*2540)/2942)     /*[px/inch]: horizontal pixels = 128; conversion inch to 10^(-5)m = 2540; width in 10^(-5)m: 2942 */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3103,7 +3103,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 30 2023 20:50:53 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Oct 30 2023 21:16:54 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
