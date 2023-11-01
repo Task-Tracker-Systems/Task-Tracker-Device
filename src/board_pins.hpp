@@ -44,6 +44,13 @@ constexpr PinType on_off = 14;
 namespace i2c_1::pin
 {
 /**
+ * Reset pin.
+ * 
+ * Active low.
+ */
+constexpr PinType res = 35;
+
+/**
  * Serial data.
  */
 constexpr PinType sda = 37;
