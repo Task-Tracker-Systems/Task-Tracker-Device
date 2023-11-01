@@ -80,8 +80,6 @@ The backtrace is hard to read, but using a backtrace interpreter it can give val
 
 [A filter to the serial monitor of PlatformIO IDE](https://github.com/platformio/platform-espressif32/issues/105#issuecomment-945158769) has been [configured](https://github.com/Task-Tracker-Systems/Task-Tracker-Device/pull/35).
 It is a [built-in filter to PlatformIO](https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#built-in-filters).
-
-Make sure the software has been build with a `debug` [build configuration](https://docs.platformio.org/en/latest/projectconf/build_configurations.html#build-configurations).
 This way input on the PlatformIO serial monitor will be interpreted live.
 
 ##### Separate backtrace interpreter
