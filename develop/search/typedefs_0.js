@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pintype_0',['PinType',['../framework__config_8hpp.xhtml#a8f084eabb88c2ccfb8dd92c6361befe6',1,'framework_config.hpp']]]
+  ['duration_0',['Duration',['../classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b',1,'Task']]]
 ];

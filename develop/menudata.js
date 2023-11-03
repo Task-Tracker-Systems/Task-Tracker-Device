@@ -56,6 +56,13 @@ var menudata={children:[
 {text:"s",url:"namespacemembers_vars.xhtml#index_s"},
 {text:"t",url:"namespacemembers_vars.xhtml#index_t"},
 {text:"u",url:"namespacemembers_vars.xhtml#index_u"}]}]}]},
+{text:"Classes",url:"annotated.xhtml",children:[
+{text:"Class List",url:"annotated.xhtml"},
+{text:"Class Index",url:"classes.xhtml"},
+{text:"Class Members",url:"functions.xhtml",children:[
+{text:"All",url:"functions.xhtml"},
+{text:"Functions",url:"functions_func.xhtml"},
+{text:"Typedefs",url:"functions_type.xhtml"}]}]},
 {text:"Files",url:"files.xhtml",children:[
 {text:"File List",url:"files.xhtml"},
 {text:"File Members",url:"globals.xhtml",children:[
