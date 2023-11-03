@@ -27,3 +27,5 @@ jobs:
       run: platformio pkg install
     - name: Build default environment
       run: platformio run --verbose
+    - name: On native platform run tests for 'tasks'
+      run: platformio test --verbose --environment test_native_tasks
