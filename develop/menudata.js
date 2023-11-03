@@ -68,11 +68,13 @@ var menudata={children:[
 {text:"File Members",url:"globals.xhtml",children:[
 {text:"All",url:"globals.xhtml",children:[
 {text:"d",url:"globals.xhtml#index_d"},
-{text:"f",url:"globals.xhtml#index_f"},
-{text:"l",url:"globals.xhtml#index_l"},
-{text:"p",url:"globals.xhtml#index_p"},
-{text:"r",url:"globals.xhtml#index_r"},
-{text:"s",url:"globals.xhtml#index_s"}]},
+{text:"f",url:"globals_f.xhtml#index_f"},
+{text:"l",url:"globals_l.xhtml#index_l"},
+{text:"m",url:"globals_m.xhtml#index_m"},
+{text:"p",url:"globals_p.xhtml#index_p"},
+{text:"r",url:"globals_r.xhtml#index_r"},
+{text:"s",url:"globals_s.xhtml#index_s"},
+{text:"t",url:"globals_t.xhtml#index_t"}]},
 {text:"Functions",url:"globals_func.xhtml"},
 {text:"Variables",url:"globals_vars.xhtml"},
 {text:"Typedefs",url:"globals_type.xhtml"},
