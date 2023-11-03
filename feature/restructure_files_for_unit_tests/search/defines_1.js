@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['oled_5freset_0',['OLED_RESET',['../display_8cpp.xhtml#a619e07239fb3b9b14d40646ab41d5b4f',1,'display.cpp']]]
+  ['screen_5fheight_0',['SCREEN_HEIGHT',['../display_8cpp.xhtml#a6974d08a74da681b3957b2fead2608b8',1,'display.cpp']]],
+  ['screen_5fwidth_1',['SCREEN_WIDTH',['../display_8cpp.xhtml#a2cd109632a6dcccaa80b43561b1ab700',1,'display.cpp']]]
 ];

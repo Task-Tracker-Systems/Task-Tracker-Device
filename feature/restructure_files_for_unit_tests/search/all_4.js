@@ -8,7 +8,7 @@ var searchData=
   ['d6_5',['d6',['../namespacenote.xhtml#a1edeaaa7e732e79aeb4d61fcb9159f77',1,'note']]],
   ['d7_6',['d7',['../namespacenote.xhtml#a3f70430f59a825a08bd42ee552378f5b',1,'note']]],
   ['d8_7',['d8',['../namespacenote.xhtml#a7698c4f1a6bd9fe81ce8c6a783987756',1,'note']]],
-  ['display_8',['display',['../display_8cpp.xhtml#ae780a76d06cb56e14435ebfe3db3f6d3',1,'display.cpp']]],
+  ['display_8',['display',['../display_8cpp.xhtml#a4d6bc3d09f81150805f553df3e34fa11',1,'display.cpp']]],
   ['display_2ecpp_9',['display.cpp',['../display_8cpp.xhtml',1,'']]],
   ['display_2eh_10',['display.h',['../display_8h.xhtml',1,'']]],
   ['down_11',['down',['../namespaceboard_1_1button_1_1pin.xhtml#aabaca2e2956dcb32ccb5a31e91578953',1,'board::button::pin']]],
@@ -21,5 +21,6 @@ var searchData=
   ['ds5_18',['ds5',['../namespacenote.xhtml#af33f38efe8d5be58701a9e1b3010f965',1,'note']]],
   ['ds6_19',['ds6',['../namespacenote.xhtml#a0e3d7ab14f8e28061f65b5e9dbb50e5f',1,'note']]],
   ['ds7_20',['ds7',['../namespacenote.xhtml#a5c3983bcac2b6da2d581ea20653e71c8',1,'note']]],
-  ['ds8_21',['ds8',['../namespacenote.xhtml#a1185b178af9b9497e74aaa1750009a85',1,'note']]]
+  ['ds8_21',['ds8',['../namespacenote.xhtml#a1185b178af9b9497e74aaa1750009a85',1,'note']]],
+  ['duration_22',['Duration',['../classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b',1,'Task']]]
 ];

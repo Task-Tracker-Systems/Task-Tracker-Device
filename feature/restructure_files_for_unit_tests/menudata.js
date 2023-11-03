@@ -38,6 +38,7 @@ var menudata={children:[
 {text:"g",url:"namespacemembers.xhtml#index_g"},
 {text:"l",url:"namespacemembers.xhtml#index_l"},
 {text:"o",url:"namespacemembers.xhtml#index_o"},
+{text:"r",url:"namespacemembers.xhtml#index_r"},
 {text:"s",url:"namespacemembers.xhtml#index_s"},
 {text:"t",url:"namespacemembers.xhtml#index_t"},
 {text:"u",url:"namespacemembers.xhtml#index_u"}]},
@@ -51,9 +52,17 @@ var menudata={children:[
 {text:"f",url:"namespacemembers_vars.xhtml#index_f"},
 {text:"g",url:"namespacemembers_vars.xhtml#index_g"},
 {text:"o",url:"namespacemembers_vars.xhtml#index_o"},
+{text:"r",url:"namespacemembers_vars.xhtml#index_r"},
 {text:"s",url:"namespacemembers_vars.xhtml#index_s"},
 {text:"t",url:"namespacemembers_vars.xhtml#index_t"},
 {text:"u",url:"namespacemembers_vars.xhtml#index_u"}]}]}]},
+{text:"Classes",url:"annotated.xhtml",children:[
+{text:"Class List",url:"annotated.xhtml"},
+{text:"Class Index",url:"classes.xhtml"},
+{text:"Class Members",url:"functions.xhtml",children:[
+{text:"All",url:"functions.xhtml"},
+{text:"Functions",url:"functions_func.xhtml"},
+{text:"Typedefs",url:"functions_type.xhtml"}]}]},
 {text:"Files",url:"files.xhtml",children:[
 {text:"File List",url:"files.xhtml"},
 {text:"File Members",url:"globals.xhtml",children:[
@@ -61,7 +70,6 @@ var menudata={children:[
 {text:"d",url:"globals.xhtml#index_d"},
 {text:"f",url:"globals.xhtml#index_f"},
 {text:"l",url:"globals.xhtml#index_l"},
-{text:"o",url:"globals.xhtml#index_o"},
 {text:"p",url:"globals.xhtml#index_p"},
 {text:"r",url:"globals.xhtml#index_r"},
 {text:"s",url:"globals.xhtml#index_s"}]},
@@ -70,5 +78,4 @@ var menudata={children:[
 {text:"Typedefs",url:"globals_type.xhtml"},
 {text:"Macros",url:"globals_defs.xhtml",children:[
 {text:"l",url:"globals_defs.xhtml#index_l"},
-{text:"o",url:"globals_defs.xhtml#index_o"},
 {text:"s",url:"globals_defs.xhtml#index_s"}]}]}]}]}
