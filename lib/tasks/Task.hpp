@@ -33,7 +33,21 @@ class Task
      */
     typedef std::wstring String;
     Task(const String &newLabel, const Duration elapsedTime = 0U);
+
+    /**
+     * Starts/continues capturing duration
+     *
+     * Sets the state of the task to "running".
+     * Has no effect if already running.
+     */
     void start();
+
+    /**
+     * Stops/pauses capturing duration.
+     *
+     * Sets the state of the task to "stopped".
+     * Has no effect if already stopped.
+     */
     void stop();
     const String &getLabel() const;
     void setLabel(const String &label);
