@@ -22,7 +22,7 @@
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
 <polygon fill="#e0e0e0" stroke="#999999" points="46,-19 0,-19 0,0 46,0 46,-19"/>
-<text text-anchor="middle" x="23" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">cstdint</text>
+<text text-anchor="middle" x="23" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">chrono</text>
 </a>
 </g>
 </g>

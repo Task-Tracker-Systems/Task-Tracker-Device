@@ -91,23 +91,26 @@ $(function() {
 <div class="dynheader">
 Collaboration diagram for Task:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTask__coll__graph.svg" width="174" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTask__coll__graph.svg" width="174" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:af6bda648ebcf68511a9bbbbdfdeccf6b"><td class="memItemLeft" align="right" valign="top">typedef std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">Duration</a></td></tr>
-<tr class="memdesc:af6bda648ebcf68511a9bbbbdfdeccf6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type used to record durations.  <a href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">More...</a><br /></td></tr>
-<tr class="separator:af6bda648ebcf68511a9bbbbdfdeccf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58c86df7691c4efc868fb4dc56d0fe0"><td class="memItemLeft" align="right" valign="top">typedef std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a></td></tr>
+<tr class="memdesc:ab58c86df7691c4efc868fb4dc56d0fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type used to record durations.  <a href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">More...</a><br /></td></tr>
+<tr class="separator:ab58c86df7691c4efc868fb4dc56d0fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f8facdfbad8706c42f56cc93d9220e7"><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">ID</a></td></tr>
+<tr class="memdesc:a5f8facdfbad8706c42f56cc93d9220e7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classTask.xhtml" title="Manages a task.">Task</a> ID.  <a href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">More...</a><br /></td></tr>
+<tr class="separator:a5f8facdfbad8706c42f56cc93d9220e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3115c5f5b6c8bca2d57c410bdc5b871a"><td class="memItemLeft" align="right" valign="top">typedef std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a></td></tr>
 <tr class="memdesc:a3115c5f5b6c8bca2d57c410bdc5b871a"><td class="mdescLeft">&#160;</td><td class="mdescRight">String type used for labels of the task.  <a href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">More...</a><br /></td></tr>
 <tr class="separator:a3115c5f5b6c8bca2d57c410bdc5b871a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2aff9e78907db6c3855aa2cbba03eac9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#a2aff9e78907db6c3855aa2cbba03eac9">Task</a> (const <a class="el" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;newLabel, const <a class="el" href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">Duration</a> elapsedTime=0U)</td></tr>
-<tr class="separator:a2aff9e78907db6c3855aa2cbba03eac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebed5ce57997c5b3039cbd1b53bf12f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#aebed5ce57997c5b3039cbd1b53bf12f4">Task</a> (const <a class="el" href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">ID</a> id, const <a class="el" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;newLabel, const <a class="el" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a> elapsedTime=Duration::zero())</td></tr>
+<tr class="separator:aebed5ce57997c5b3039cbd1b53bf12f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d6a1d3c6cd5b587d2414737fab9f3ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed">start</a> ()</td></tr>
 <tr class="memdesc:a5d6a1d3c6cd5b587d2414737fab9f3ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts/continues capturing duration.  <a href="classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed">More...</a><br /></td></tr>
 <tr class="separator:a5d6a1d3c6cd5b587d2414737fab9f3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,26 +121,47 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ada97787ea9e1d67d6708eb6c306629dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac503952d3049aede0a5427faea94ceb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#ac503952d3049aede0a5427faea94ceb1">setLabel</a> (const <a class="el" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;label)</td></tr>
 <tr class="separator:ac503952d3049aede0a5427faea94ceb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d5e70ed55fcf5e28b641b17eaab1f9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#a3d5e70ed55fcf5e28b641b17eaab1f9b">getRecordedDuration</a> () const</td></tr>
-<tr class="separator:a3d5e70ed55fcf5e28b641b17eaab1f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c5ec0d50d2a92028a008721d132d5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d">getRecordedDuration</a> ()</td></tr>
+<tr class="memdesc:a35c5ec0d50d2a92028a008721d132d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the recorded duration.  <a href="classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d">More...</a><br /></td></tr>
+<tr class="separator:a35c5ec0d50d2a92028a008721d132d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6abe9097628c64d57347c1657e518c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#ad6abe9097628c64d57347c1657e518c8">isRunning</a> () const</td></tr>
+<tr class="separator:ad6abe9097628c64d57347c1657e518c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9793dbc18f60c07e324ff6150bc9cf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTask.xhtml#ae9793dbc18f60c07e324ff6150bc9cf2">getId</a> () const</td></tr>
+<tr class="separator:ae9793dbc18f60c07e324ff6150bc9cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Manages a task. </p>
 <p >A task consists of a label and a duration. The duration is incremented while the task is running. The duration is stored in seconds. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="af6bda648ebcf68511a9bbbbdfdeccf6b" name="af6bda648ebcf68511a9bbbbdfdeccf6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6bda648ebcf68511a9bbbbdfdeccf6b">&#9670;&#160;</a></span>Duration</h2>
+<a id="ab58c86df7691c4efc868fb4dc56d0fe0" name="ab58c86df7691c4efc868fb4dc56d0fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58c86df7691c4efc868fb4dc56d0fe0">&#9670;&#160;</a></span>Duration</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::uint32_t <a class="el" href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">Task::Duration</a></td>
+          <td class="memname">typedef std::chrono::seconds <a class="el" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Task::Duration</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Type used to record durations. </p>
+
+</div>
+</div>
+<a id="a5f8facdfbad8706c42f56cc93d9220e7" name="a5f8facdfbad8706c42f56cc93d9220e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8facdfbad8706c42f56cc93d9220e7">&#9670;&#160;</a></span>ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned int <a class="el" href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">Task::ID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classTask.xhtml" title="Manages a task.">Task</a> ID. </p>
 
 </div>
 </div>
@@ -158,8 +182,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2aff9e78907db6c3855aa2cbba03eac9" name="a2aff9e78907db6c3855aa2cbba03eac9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aff9e78907db6c3855aa2cbba03eac9">&#9670;&#160;</a></span>Task()</h2>
+<a id="aebed5ce57997c5b3039cbd1b53bf12f4" name="aebed5ce57997c5b3039cbd1b53bf12f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebed5ce57997c5b3039cbd1b53bf12f4">&#9670;&#160;</a></span>Task()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,14 +191,20 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Task::Task </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">ID</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;&#160;</td>
           <td class="paramname"><em>newLabel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">Duration</a>&#160;</td>
-          <td class="paramname"><em>elapsedTime</em> = <code>0U</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a>&#160;</td>
+          <td class="paramname"><em>elapsedTime</em> = <code>Duration::zero()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -187,6 +217,23 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae9793dbc18f60c07e324ff6150bc9cf2" name="ae9793dbc18f60c07e324ff6150bc9cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9793dbc18f60c07e324ff6150bc9cf2">&#9670;&#160;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTask.xhtml#a5f8facdfbad8706c42f56cc93d9220e7">Task::ID</a> Task::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ada97787ea9e1d67d6708eb6c306629dc" name="ada97787ea9e1d67d6708eb6c306629dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada97787ea9e1d67d6708eb6c306629dc">&#9670;&#160;</a></span>getLabel()</h2>
 
@@ -204,14 +251,35 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3d5e70ed55fcf5e28b641b17eaab1f9b" name="a3d5e70ed55fcf5e28b641b17eaab1f9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5e70ed55fcf5e28b641b17eaab1f9b">&#9670;&#160;</a></span>getRecordedDuration()</h2>
+<a id="a35c5ec0d50d2a92028a008721d132d5d" name="a35c5ec0d50d2a92028a008721d132d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c5ec0d50d2a92028a008721d132d5d">&#9670;&#160;</a></span>getRecordedDuration()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b">Task::Duration</a> Task::getRecordedDuration </td>
+          <td class="memname"><a class="el" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Task::Duration</a> Task::getRecordedDuration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the recorded duration. </p>
+<p >Does also consider an already begun interval if the task is running.</p>
+<dl class="section return"><dt>Returns</dt><dd>the accumulated duration </dd></dl>
+
+</div>
+</div>
+<a id="ad6abe9097628c64d57347c1657e518c8" name="ad6abe9097628c64d57347c1657e518c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6abe9097628c64d57347c1657e518c8">&#9670;&#160;</a></span>isRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Task::isRunning </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -255,7 +323,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts/continues capturing duration. </p>
-<p >Sets the state of the task to "running". Has no effect if already running. </p>
+<p >Sets the state of the task to "running". </p>
 
 </div>
 </div>
@@ -286,7 +354,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 3 2023 23:26:32 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Nov 4 2023 15:43:29 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

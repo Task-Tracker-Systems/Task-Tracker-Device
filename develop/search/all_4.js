@@ -22,5 +22,5 @@ var searchData=
   ['ds6_19',['ds6',['../namespacenote.xhtml#a0e3d7ab14f8e28061f65b5e9dbb50e5f',1,'note']]],
   ['ds7_20',['ds7',['../namespacenote.xhtml#a5c3983bcac2b6da2d581ea20653e71c8',1,'note']]],
   ['ds8_21',['ds8',['../namespacenote.xhtml#a1185b178af9b9497e74aaa1750009a85',1,'note']]],
-  ['duration_22',['Duration',['../classTask.xhtml#af6bda648ebcf68511a9bbbbdfdeccf6b',1,'Task']]]
+  ['duration_22',['Duration',['../classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0',1,'Task']]]
 ];
