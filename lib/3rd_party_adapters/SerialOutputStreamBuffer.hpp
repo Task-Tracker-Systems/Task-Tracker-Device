@@ -2,6 +2,9 @@
 
 #include <streambuf>
 
+/**
+ * Controls output of a character sequence to serial port.
+ */
 class SerialOutputStreamBuffer : public std::streambuf
 {
   private:
@@ -14,6 +17,14 @@ class SerialOutputStreamBuffer : public std::streambuf
   protected:
     int_type overflow(const int_type input) override;
     int sync() override;
+
+    /**
+     * Writes the put area before the current character to serial interface.
+     */
     void flush();
+
+    /**
+     * Sets the pointers to the extend of the buffer.
+     */
     void resetOutputPointers();
 };
