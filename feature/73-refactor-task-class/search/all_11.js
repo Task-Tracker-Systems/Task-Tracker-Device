@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['task_0',['Task',['../classTask.xhtml',1,'Task'],['../classTask.xhtml#aadaa1e97886b53d7aa2353460da713bc',1,'Task::Task()']]],
+  ['task_0',['Task',['../classTask.xhtml',1,'Task'],['../classTask.xhtml#aebed5ce57997c5b3039cbd1b53bf12f4',1,'Task::Task()']]],
   ['task_20tracker_1',['Task Tracker',['../index.xhtml',1,'']]],
   ['task_2ecpp_2',['Task.cpp',['../Task_8cpp.xhtml',1,'']]],
   ['task_2ecpp_3',['task.cpp',['../task_8cpp.xhtml',1,'']]],
@@ -12,5 +12,6 @@ var searchData=
   ['teardown_9',['tearDown',['../task_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'task.cpp']]],
   ['test_5fget_5flabel_10',['test_get_label',['../task_8cpp.xhtml#a7af579ba1b72f5a4634c9df196aa5c8f',1,'task.cpp']]],
   ['test_5ftime_5felapses_11',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
-  ['time_2dtracker_2eino_12',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]]
+  ['test_5ftime_5flabel_12',['test_time_label',['../task_8cpp.xhtml#abb7fac1e49807ff686807aa2e32ffe4d',1,'task.cpp']]],
+  ['time_2dtracker_2eino_13',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]]
 ];
