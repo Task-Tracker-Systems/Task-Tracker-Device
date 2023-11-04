@@ -25,6 +25,11 @@ class Task
     typedef std::chrono::seconds Duration;
 
     /**
+     * Task ID.
+     */
+    typedef unsigned int ID;
+
+    /**
      * String type used for labels of the task.
      *
      * \internal
@@ -32,7 +37,7 @@ class Task
      * \endinternal
      */
     typedef std::wstring String;
-    Task(const String &newLabel, const Duration elapsedTime = Duration::zero());
+    Task(const ID id, const String &newLabel, const Duration elapsedTime = Duration::zero());
 
     /**
      * Starts/continues capturing duration
@@ -60,8 +65,10 @@ class Task
      */
     Duration getRecordedDuration();
     bool isRunning() const;
+    ID getId() const;
 
   private:
+    const ID id;
     String label;
     enum class State
     {

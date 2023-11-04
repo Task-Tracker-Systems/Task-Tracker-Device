@@ -6,8 +6,8 @@ const Task::String &Task::getLabel() const
     return label;
 }
 
-Task::Task(const String &newLabel, const Duration elapsedTime)
-    : recordedDuration(elapsedTime), label(newLabel), state(State::IDLE)
+Task::Task(const ID id, const String &newLabel, const Duration elapsedTime)
+    : id(id), recordedDuration(elapsedTime), label(newLabel), state(State::IDLE)
 {
 }
 
@@ -45,4 +45,9 @@ Task::Duration Task::getRecordedDuration()
         start();
     }
     return std::chrono::round<Duration>(recordedDuration);
+}
+
+Task::ID Task::getId() const
+{
+    return id;
 }
