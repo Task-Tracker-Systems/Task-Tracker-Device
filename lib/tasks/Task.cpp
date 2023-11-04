@@ -25,7 +25,7 @@ void Task::stop()
     if (isRunning)
     {
         isRunning = false;
-        recordedDuration += std::chrono::duration_cast<Duration>(Clock::now() - timestampStart);
+        recordedDuration += std::chrono::duration_cast<DurationFraction>(Clock::now() - timestampStart);
     }
 }
 
@@ -36,5 +36,5 @@ void Task::setLabel(const String &label)
 
 Task::Duration Task::getRecordedDuration() const
 {
-    return recordedDuration;
+    return std::chrono::round<Duration>(recordedDuration);
 }

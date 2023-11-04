@@ -32,7 +32,7 @@ class Task
      * \endinternal
      */
     typedef std::wstring String;
-    Task(const String &newLabel, const Duration elapsedTime = Duration(0U));
+    Task(const String &newLabel, const Duration elapsedTime = Duration::zero());
 
     /**
      * Starts/continues capturing duration
@@ -54,10 +54,14 @@ class Task
     Duration getRecordedDuration() const;
 
   private:
-    Duration recordedDuration;
     String label;
     bool isRunning;
-    typedef std::chrono::system_clock Clock;
+
+    /**
+     * Internal representation in order to reduce loss of precision.
+     */
     typedef std::chrono::milliseconds DurationFraction;
+    DurationFraction recordedDuration;
+    typedef std::chrono::system_clock Clock;
     std::chrono::time_point<Clock, DurationFraction> timestampStart;
 };
