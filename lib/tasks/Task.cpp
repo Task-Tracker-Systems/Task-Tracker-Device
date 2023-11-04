@@ -1,5 +1,4 @@
 #include "Task.hpp"
-#include <Arduino.h>
 #include <type_traits>
 
 const Task::String &Task::getLabel() const
@@ -17,7 +16,7 @@ void Task::start()
     if (!isRunning)
     {
         isRunning = true;
-        timestampStart = millis() / 1000;
+        timestampStart = std::chrono::round<DurationFraction>(Clock::now());
     }
 }
 
@@ -26,7 +25,7 @@ void Task::stop()
     if (isRunning)
     {
         isRunning = false;
-        recordedDuration += (millis() / 1000) - timestampStart;
+        recordedDuration += std::chrono::duration_cast<Duration>(Clock::now() - timestampStart);
     }
 }
 

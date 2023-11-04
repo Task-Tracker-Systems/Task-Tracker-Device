@@ -2,7 +2,7 @@
  * \file .
  */
 #pragma once
-#include <cstdint>
+#include <chrono>
 #include <string>
 
 /**
@@ -22,7 +22,7 @@ class Task
      * Must be big enough to hold a duration of 10 years in milliseconds.
      * \endinternal
      */
-    typedef std::uint32_t Duration;
+    typedef std::chrono::seconds Duration;
 
     /**
      * String type used for labels of the task.
@@ -57,5 +57,7 @@ class Task
     Duration recordedDuration;
     String label;
     bool isRunning;
-    unsigned long timestampStart;
+    typedef std::chrono::system_clock Clock;
+    typedef std::chrono::milliseconds DurationFraction;
+    std::chrono::time_point<Clock, DurationFraction> timestampStart;
 };
