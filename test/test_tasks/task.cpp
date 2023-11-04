@@ -1,10 +1,8 @@
 #include "Task.hpp"
-#include <ArduinoFake.h>
+#include <thread>
 #include <unity.h>
 
 static const Task::String label(L"äüöß");
-
-using namespace fakeit;
 
 void setUp()
 {
@@ -23,12 +21,12 @@ void test_get_label()
 void test_time_elapses()
 {
     Task task(label);
+    constexpr unsigned int durationToTest = 2;
     TEST_ASSERT_EQUAL_UINT(0U, task.getRecordedDuration().count());
-    When(Method(ArduinoFake(), millis)).Return(0);
     task.start();
-    When(Method(ArduinoFake(), millis)).Return(2000);
+    std::this_thread::sleep_for(Task::Duration(durationToTest));
     task.stop();
-    TEST_ASSERT_EQUAL_UINT(2U, task.getRecordedDuration().count());
+    TEST_ASSERT_EQUAL_UINT(durationToTest, task.getRecordedDuration().count());
 }
 
 int main(int argc, char **argv)
