@@ -22,10 +22,14 @@ void test_time_elapses()
 {
     Task task(label);
     constexpr unsigned int durationToTest = 2;
+    TEST_ASSERT_FALSE(task.isRunning());
     TEST_ASSERT_EQUAL_UINT(0U, task.getRecordedDuration().count());
     task.start();
-    std::this_thread::sleep_for(Task::Duration(durationToTest));
+    std::this_thread::sleep_for(Task::Duration(durationToTest / 2));
+    TEST_ASSERT_TRUE(task.isRunning());
+    std::this_thread::sleep_for(Task::Duration(durationToTest / 2));
     task.stop();
+    TEST_ASSERT_FALSE(task.isRunning());
     TEST_ASSERT_EQUAL_UINT(durationToTest, task.getRecordedDuration().count());
 }
 

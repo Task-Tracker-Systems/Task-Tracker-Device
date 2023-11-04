@@ -52,10 +52,16 @@ class Task
     const String &getLabel() const;
     void setLabel(const String &label);
     Duration getRecordedDuration() const;
+    bool isRunning() const;
 
   private:
     String label;
-    bool isRunning;
+    enum class State
+    {
+        IDLE,
+        RUNNING,
+    };
+    State state;
 
     /**
      * Internal representation in order to reduce loss of precision.

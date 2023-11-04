@@ -7,26 +7,29 @@ const Task::String &Task::getLabel() const
 }
 
 Task::Task(const String &newLabel, const Duration elapsedTime)
-    : recordedDuration(elapsedTime), label(newLabel), isRunning(false)
+    : recordedDuration(elapsedTime), label(newLabel), state(State::IDLE)
 {
 }
 
 void Task::start()
 {
-    if (!isRunning)
-    {
-        isRunning = true;
-        timestampStart = std::chrono::round<DurationFraction>(Clock::now());
-    }
+    state = State::RUNNING;
+    timestampStart = std::chrono::round<DurationFraction>(Clock::now());
 }
 
 void Task::stop()
 {
-    if (isRunning)
+    // this check is necessary, as else the timestamp using for comparison will be invalid
+    if (state == State::RUNNING)
     {
-        isRunning = false;
+        state = State::IDLE;
         recordedDuration += std::chrono::duration_cast<DurationFraction>(Clock::now() - timestampStart);
     }
+}
+
+bool Task::isRunning() const
+{
+    return state == State::RUNNING;
 }
 
 void Task::setLabel(const String &label)
