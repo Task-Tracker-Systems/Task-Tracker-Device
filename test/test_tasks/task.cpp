@@ -23,12 +23,12 @@ void test_get_label()
 void test_time_elapses()
 {
     Task task(label);
-    TEST_ASSERT_EQUAL_UINT(0U, task.getRecordedDuration());
+    TEST_ASSERT_EQUAL_UINT(0U, task.getRecordedDuration().count());
     When(Method(ArduinoFake(), millis)).Return(0);
     task.start();
     When(Method(ArduinoFake(), millis)).Return(2000);
     task.stop();
-    TEST_ASSERT_EQUAL_UINT(2U, task.getRecordedDuration());
+    TEST_ASSERT_EQUAL_UINT(2U, task.getRecordedDuration().count());
 }
 
 int main(int argc, char **argv)

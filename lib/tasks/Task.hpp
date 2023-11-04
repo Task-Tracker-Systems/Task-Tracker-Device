@@ -32,7 +32,7 @@ class Task
      * \endinternal
      */
     typedef std::wstring String;
-    Task(const String &newLabel, const Duration elapsedTime = 0U);
+    Task(const String &newLabel, const Duration elapsedTime = Duration(0U));
 
     /**
      * Starts/continues capturing duration
