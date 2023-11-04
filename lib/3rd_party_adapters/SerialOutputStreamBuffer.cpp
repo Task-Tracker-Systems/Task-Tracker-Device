@@ -1,5 +1,6 @@
 #include "SerialOutputStreamBuffer.hpp"
 #include <Arduino.h>
+#include <iterator>
 
 SerialOutputStreamBuffer::SerialOutputStreamBuffer(char_type *const buffer_begin, char_type *const buffer_end)
     : std::streambuf(), buffer_begin(buffer_begin), buffer_end(buffer_end)
@@ -24,10 +25,7 @@ void SerialOutputStreamBuffer::flush()
 {
     const auto begin = pbase();
     const auto end = pptr();
-    for (auto p = begin; p < end; p++)
-    {
-        Serial.print(*p);
-    }
+    Serial.write(begin, std::distance(begin, end));
     resetOutputPointers();
 }
 
