@@ -8,7 +8,7 @@ var searchData=
   ['g6_5',['g6',['../namespacenote.xhtml#aede33eab08f4c68ea5bbbd0df79d4637',1,'note']]],
   ['g7_6',['g7',['../namespacenote.xhtml#a7d8c0cc577fab31a5632b1874c62c8b8',1,'note']]],
   ['getlabel_7',['getLabel',['../classTask.xhtml#ada97787ea9e1d67d6708eb6c306629dc',1,'Task']]],
-  ['getrecordedduration_8',['getRecordedDuration',['../classTask.xhtml#a3d5e70ed55fcf5e28b641b17eaab1f9b',1,'Task']]],
+  ['getrecordedduration_8',['getRecordedDuration',['../classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d',1,'Task']]],
   ['gs1_9',['gs1',['../namespacenote.xhtml#a4a0532c6cfa8775dd979bdf248120040',1,'note']]],
   ['gs2_10',['gs2',['../namespacenote.xhtml#a7c6877490c4b3c86d8721bde91320baf',1,'note']]],
   ['gs3_11',['gs3',['../namespacenote.xhtml#ad2d04136970998928d8da89c010a1c8c',1,'note']]],
