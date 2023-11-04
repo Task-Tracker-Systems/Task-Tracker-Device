@@ -37,7 +37,12 @@ void Task::setLabel(const String &label)
     this->label = label;
 }
 
-Task::Duration Task::getRecordedDuration() const
+Task::Duration Task::getRecordedDuration()
 {
+    if (isRunning())
+    {
+        stop();
+        start();
+    }
     return std::chrono::round<Duration>(recordedDuration);
 }

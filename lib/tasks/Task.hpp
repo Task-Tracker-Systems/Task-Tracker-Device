@@ -38,7 +38,6 @@ class Task
      * Starts/continues capturing duration
      *
      * Sets the state of the task to "running".
-     * Has no effect if already running.
      */
     void start();
 
@@ -51,7 +50,15 @@ class Task
     void stop();
     const String &getLabel() const;
     void setLabel(const String &label);
-    Duration getRecordedDuration() const;
+
+    /**
+     * Gets the recorded duration.
+     * 
+     * Does also consider an already begun interval if the task is running.
+     * 
+     * \returns the accumulated duration
+     */
+    Duration getRecordedDuration();
     bool isRunning() const;
 
   private:
