@@ -2,7 +2,7 @@
  * \file .
  */
 #pragma once
-#include <cstdint>
+#include <chrono>
 #include <string>
 
 /**
@@ -22,7 +22,12 @@ class Task
      * Must be big enough to hold a duration of 10 years in milliseconds.
      * \endinternal
      */
-    typedef std::uint32_t Duration;
+    typedef std::chrono::seconds Duration;
+
+    /**
+     * Task ID.
+     */
+    typedef unsigned int ID;
 
     /**
      * String type used for labels of the task.
@@ -32,13 +37,12 @@ class Task
      * \endinternal
      */
     typedef std::wstring String;
-    Task(const String &newLabel, const Duration elapsedTime = 0U);
+    Task(const ID id, const String &newLabel, const Duration elapsedTime = Duration::zero());
 
     /**
      * Starts/continues capturing duration
      *
      * Sets the state of the task to "running".
-     * Has no effect if already running.
      */
     void start();
 
@@ -51,11 +55,33 @@ class Task
     void stop();
     const String &getLabel() const;
     void setLabel(const String &label);
-    Duration getRecordedDuration() const;
+
+    /**
+     * Gets the recorded duration.
+     * 
+     * Does also consider an already begun interval if the task is running.
+     * 
+     * \returns the accumulated duration
+     */
+    Duration getRecordedDuration();
+    bool isRunning() const;
+    ID getId() const;
 
   private:
-    Duration recordedDuration;
+    const ID id;
     String label;
-    bool isRunning;
-    unsigned long timestampStart;
+    enum class State
+    {
+        IDLE,
+        RUNNING,
+    };
+    State state;
+
+    /**
+     * Internal representation in order to reduce loss of precision.
+     */
+    typedef std::chrono::milliseconds DurationFraction;
+    DurationFraction recordedDuration;
+    typedef std::chrono::system_clock Clock;
+    std::chrono::time_point<Clock, DurationFraction> timestampStart;
 };

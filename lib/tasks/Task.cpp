@@ -1,5 +1,4 @@
 #include "Task.hpp"
-#include <Arduino.h>
 #include <type_traits>
 
 const Task::String &Task::getLabel() const
@@ -7,27 +6,30 @@ const Task::String &Task::getLabel() const
     return label;
 }
 
-Task::Task(const String &newLabel, const Duration elapsedTime)
-    : recordedDuration(elapsedTime), label(newLabel), isRunning(false)
+Task::Task(const ID id, const String &newLabel, const Duration elapsedTime)
+    : id(id), recordedDuration(elapsedTime), label(newLabel), state(State::IDLE)
 {
 }
 
 void Task::start()
 {
-    if (!isRunning)
-    {
-        isRunning = true;
-        timestampStart = millis() / 1000;
-    }
+    state = State::RUNNING;
+    timestampStart = std::chrono::round<DurationFraction>(Clock::now());
 }
 
 void Task::stop()
 {
-    if (isRunning)
+    // this check is necessary, as else the timestamp using for comparison will be invalid
+    if (state == State::RUNNING)
     {
-        isRunning = false;
-        recordedDuration += (millis() / 1000) - timestampStart;
+        state = State::IDLE;
+        recordedDuration += std::chrono::duration_cast<DurationFraction>(Clock::now() - timestampStart);
     }
+}
+
+bool Task::isRunning() const
+{
+    return state == State::RUNNING;
 }
 
 void Task::setLabel(const String &label)
@@ -35,7 +37,17 @@ void Task::setLabel(const String &label)
     this->label = label;
 }
 
-Task::Duration Task::getRecordedDuration() const
+Task::Duration Task::getRecordedDuration()
 {
-    return recordedDuration;
+    if (isRunning())
+    {
+        stop();
+        start();
+    }
+    return std::chrono::round<Duration>(recordedDuration);
+}
+
+Task::ID Task::getId() const
+{
+    return id;
 }
