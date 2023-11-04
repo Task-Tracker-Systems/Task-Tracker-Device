@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['task_0',['Task',['../classTask.xhtml#aadaa1e97886b53d7aa2353460da713bc',1,'Task']]],
-  ['teardown_1',['tearDown',['../task_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'task.cpp']]],
-  ['test_5fget_5flabel_2',['test_get_label',['../task_8cpp.xhtml#a7af579ba1b72f5a4634c9df196aa5c8f',1,'task.cpp']]],
-  ['test_5ftime_5felapses_3',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]]
+  ['setlabel_0',['setLabel',['../classTask.xhtml#ac503952d3049aede0a5427faea94ceb1',1,'Task']]],
+  ['setup_1',['setup',['../namespacemain.xhtml#ace1a84b1871a86fa3e10a6b2e44d4042',1,'main::setup()'],['../time-tracker_8ino.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;time-tracker.ino']]],
+  ['setup_2',['setUp',['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'task.cpp']]],
+  ['setup_5fdisplay_3',['setup_display',['../display_8cpp.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp'],['../display_8h.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp']]],
+  ['start_4',['start',['../classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed',1,'Task']]],
+  ['stop_5',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]]
 ];
