@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05',1,'serial_port.hpp']]],
-  ['overflow_1',['overflow',['../classSerialOutputStreamBuffer.xhtml#a013018e29f8d955cf5b0ab6b35e07a80',1,'SerialOutputStreamBuffer']]]
-];
