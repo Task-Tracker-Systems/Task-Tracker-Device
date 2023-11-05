@@ -2,6 +2,7 @@
 #include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
+#include "serial_port.hpp"
 #include <Arduino.h>
 #include <cstdint>
 
@@ -48,7 +49,7 @@ namespace main
 {
 void setup(char const *programIdentificationString)
 {
-    Serial.begin(115200);
+    serial_port::initialize();
     pinMode(board::button::pin::up, INPUT_PULLUP);
     pinMode(board::button::pin::down, INPUT_PULLUP);
     pinMode(board::button::pin::enter, INPUT_PULLUP);
@@ -63,10 +64,8 @@ void setup(char const *programIdentificationString)
     pinMode(board::led::pin::task4, OUTPUT);
     pinMode(board::buzzer::pin::on_off, OUTPUT);
     setup_display();
-    delay(100);
-    Serial.flush();
-    delay(100);
-    Serial.printf("\n begin program '%s'\n", programIdentificationString);
+    serial_port::cout << std::endl
+                      << " begin program '" << programIdentificationString << std::endl;
 }
 void loop()
 {
