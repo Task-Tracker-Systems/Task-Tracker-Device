@@ -82,8 +82,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">serial_port.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -98,7 +97,7 @@ Include dependency graph for serial_port.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8hpp__dep__incl.svg" width="171" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8hpp__dep__incl.svg" width="280" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -111,14 +110,13 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af033b97544f5d1bba48bf19f2a336608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">serial_port::initialize</a> ()</td></tr>
+<tr class="memdesc:af033b97544f5d1bba48bf19f2a336608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and initializes serial port.  <a href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">More...</a><br /></td></tr>
+<tr class="separator:af033b97544f5d1bba48bf19f2a336608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49d2d6c41844a0f8067674f6088c3d05"><td class="memTemplParams" colspan="2">template&lt;std::size_t BITS&gt; </td></tr>
 <tr class="memitem:a49d2d6c41844a0f8067674f6088c3d05"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">operator&lt;&lt;</a> (std::ostream &amp;os, const std::array&lt; bool, BITS &gt; &amp;bitArray)</td></tr>
+<tr class="memdesc:a49d2d6c41844a0f8067674f6088c3d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes formatted bits to <code>ostream</code>.  <a href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">More...</a><br /></td></tr>
 <tr class="separator:a49d2d6c41844a0f8067674f6088c3d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aff084dc54fbe3b3e2fe93631562c34c4"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">serial_port::cout</a> = serialOutputStream</td></tr>
-<tr class="separator:aff084dc54fbe3b3e2fe93631562c34c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a49d2d6c41844a0f8067674f6088c3d05" name="a49d2d6c41844a0f8067674f6088c3d05"></a>
@@ -149,12 +147,28 @@ template&lt;std::size_t BITS&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Writes formatted bits to <code>ostream</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BITS</td><td>number of bits </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>output stream to write to </td></tr>
+    <tr><td class="paramname">bitArray</td><td>the bits to output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the stream </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2023 00:10:33 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Nov 5 2023 00:30:50 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
