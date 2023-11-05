@@ -88,31 +88,29 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for SerialInputStreamBuffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSerialInputStreamBuffer__inherit__graph.svg" width="196" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSerialInputStreamBuffer__inherit__graph.svg" width="196" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for SerialInputStreamBuffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSerialInputStreamBuffer__coll__graph.svg" width="196" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSerialInputStreamBuffer__coll__graph.svg" width="196" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a66f26bfe737483c2733535f7852f66c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialInputStreamBuffer.xhtml#a66f26bfe737483c2733535f7852f66c5">SerialInputStreamBuffer</a> ()</td></tr>
-<tr class="separator:a66f26bfe737483c2733535f7852f66c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f7563e15c4b0dfc29f7137b99f65ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialInputStreamBuffer.xhtml#a95f7563e15c4b0dfc29f7137b99f65ff">SerialInputStreamBuffer</a> (char_type *const buffer_begin, char_type *const buffer_end)</td></tr>
+<tr class="separator:a95f7563e15c4b0dfc29f7137b99f65ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aabadf66cce5bb6382bdd71d8193ed797"><td class="memItemLeft" align="right" valign="top">int_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialInputStreamBuffer.xhtml#aabadf66cce5bb6382bdd71d8193ed797">underflow</a> () override</td></tr>
 <tr class="separator:aabadf66cce5bb6382bdd71d8193ed797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f4f2f4e0bcb9a3d49f088fc0a20822b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialInputStreamBuffer.xhtml#a9f4f2f4e0bcb9a3d49f088fc0a20822b">sync</a> () override</td></tr>
-<tr class="separator:a9f4f2f4e0bcb9a3d49f088fc0a20822b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a66f26bfe737483c2733535f7852f66c5" name="a66f26bfe737483c2733535f7852f66c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66f26bfe737483c2733535f7852f66c5">&#9670;&#160;</a></span>SerialInputStreamBuffer()</h2>
+<a id="a95f7563e15c4b0dfc29f7137b99f65ff" name="a95f7563e15c4b0dfc29f7137b99f65ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f7563e15c4b0dfc29f7137b99f65ff">&#9670;&#160;</a></span>SerialInputStreamBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,8 +118,19 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">SerialInputStreamBuffer::SerialInputStreamBuffer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char_type *const&#160;</td>
+          <td class="paramname"><em>buffer_begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char_type *const&#160;</td>
+          <td class="paramname"><em>buffer_end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -129,31 +138,6 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9f4f2f4e0bcb9a3d49f088fc0a20822b" name="a9f4f2f4e0bcb9a3d49f088fc0a20822b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f4f2f4e0bcb9a3d49f088fc0a20822b">&#9670;&#160;</a></span>sync()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int SerialInputStreamBuffer::sync </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aabadf66cce5bb6382bdd71d8193ed797" name="aabadf66cce5bb6382bdd71d8193ed797"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabadf66cce5bb6382bdd71d8193ed797">&#9670;&#160;</a></span>underflow()</h2>
 
@@ -186,7 +170,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2023 01:03:41 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Nov 5 2023 21:13:27 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

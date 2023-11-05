@@ -11,7 +11,7 @@ var searchData=
   ['serialinputhandler_8',['SerialInputHandler',['../classSerialInputHandler.xhtml',1,'']]],
   ['serialinputhandler_2ecpp_9',['SerialInputHandler.cpp',['../SerialInputHandler_8cpp.xhtml',1,'']]],
   ['serialinputhandler_2ehpp_10',['SerialInputHandler.hpp',['../SerialInputHandler_8hpp.xhtml',1,'']]],
-  ['serialinputstreambuffer_11',['SerialInputStreamBuffer',['../classSerialInputStreamBuffer.xhtml',1,'SerialInputStreamBuffer'],['../classSerialInputStreamBuffer.xhtml#a66f26bfe737483c2733535f7852f66c5',1,'SerialInputStreamBuffer::SerialInputStreamBuffer()']]],
+  ['serialinputstreambuffer_11',['SerialInputStreamBuffer',['../classSerialInputStreamBuffer.xhtml',1,'SerialInputStreamBuffer'],['../classSerialInputStreamBuffer.xhtml#a95f7563e15c4b0dfc29f7137b99f65ff',1,'SerialInputStreamBuffer::SerialInputStreamBuffer()']]],
   ['serialinputstreambuffer_2ecpp_12',['SerialInputStreamBuffer.cpp',['../SerialInputStreamBuffer_8cpp.xhtml',1,'']]],
   ['serialinputstreambuffer_2ehpp_13',['SerialInputStreamBuffer.hpp',['../SerialInputStreamBuffer_8hpp.xhtml',1,'']]],
   ['serialoutputstreambuffer_14',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml#a4a0c30964625e5259156a76c6d62fcad',1,'SerialOutputStreamBuffer::SerialOutputStreamBuffer()'],['../classSerialOutputStreamBuffer.xhtml',1,'SerialOutputStreamBuffer']]],
@@ -26,5 +26,5 @@ var searchData=
   ['start_23',['start',['../classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed',1,'Task']]],
   ['stop_24',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]],
   ['string_25',['String',['../classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a',1,'Task']]],
-  ['sync_26',['sync',['../classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0',1,'SerialOutputStreamBuffer::sync()'],['../classSerialInputStreamBuffer.xhtml#a9f4f2f4e0bcb9a3d49f088fc0a20822b',1,'SerialInputStreamBuffer::sync()']]]
+  ['sync_26',['sync',['../classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0',1,'SerialOutputStreamBuffer']]]
 ];
