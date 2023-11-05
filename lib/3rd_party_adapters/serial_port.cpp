@@ -10,6 +10,7 @@ static std::ostream serialOutputStream(&serialOutputStreamBuffer);
 namespace serial_port
 {
 std::ostream &cout = serialOutputStream;
+
 void initialize()
 {
     Serial.begin(115200);
