@@ -1,7 +1,10 @@
 #include <array>
 #include <ostream>
 
-extern std::ostream &logging;
+namespace serial_port
+{
+extern std::ostream &cout;
+}
 
 template <std::size_t BITS>
 std::ostream &operator<<(std::ostream &os, const std::array<bool, BITS> &bitArray)
