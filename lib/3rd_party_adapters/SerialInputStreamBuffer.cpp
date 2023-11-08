@@ -12,11 +12,6 @@ SerialInputStreamBuffer::SerialInputStreamBuffer(char_type *const buffer_begin, 
 
 SerialInputStreamBuffer::int_type SerialInputStreamBuffer::underflow()
 {
-    const auto availableBytes = Serial.available();
-    if (availableBytes <= 0)
-    {
-        return traits_type::eof();
-    }
     static const auto bufferLength = std::distance(buffer_begin, buffer_end);
     static const auto bufferSize = bufferLength / sizeof(*buffer_begin);
     const auto readBytes = Serial.readBytes(buffer_begin, bufferSize);
