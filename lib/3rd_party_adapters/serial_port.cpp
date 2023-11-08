@@ -18,4 +18,10 @@ void initialize()
     Serial.flush();
     delay(100);
 }
+
+std::string getString()
+{
+    return Serial.readString().c_str();
+}
+
 } // namespace serial_port

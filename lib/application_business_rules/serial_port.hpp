@@ -1,5 +1,6 @@
 #include <array>
 #include <ostream>
+#include <string>
 
 namespace serial_port
 {
@@ -14,6 +15,14 @@ extern std::ostream &cout;
  * Configures and initializes serial port.
  */
 void initialize();
+
+/**
+ * Gets a null terminated string from serial interface.
+ * 
+ * If no character is available at the moment of the call,
+ * it will be waited until the configured timeout occurs.
+ */
+std::string getString();
 } // namespace serial_port
 
 /**
