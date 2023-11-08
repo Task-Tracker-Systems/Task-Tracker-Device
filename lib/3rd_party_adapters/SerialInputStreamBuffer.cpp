@@ -1,4 +1,5 @@
 #include "SerialInputStreamBuffer.hpp"
+#include "serial_port.hpp"
 #include <Arduino.h>
 #include <algorithm>
 #include <iterator>
@@ -18,7 +19,8 @@ SerialInputStreamBuffer::int_type SerialInputStreamBuffer::underflow()
     }
     static const auto bufferLength = std::distance(buffer_begin, buffer_end);
     static const auto bufferSize = bufferLength / sizeof(*buffer_begin);
-    const auto readBytes = Serial.readBytes(buffer_begin, std::min(static_cast<int>(bufferSize), availableBytes));
+    const auto readBytes = Serial.readBytes(buffer_begin, bufferSize);
+    serial_port::cout << "Received: " << readBytes;
     if (readBytes <= 0)
     {
         return traits_type::eof();
