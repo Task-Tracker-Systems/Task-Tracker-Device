@@ -8,13 +8,14 @@ var searchData=
   ['c6_5',['c6',['../namespacenote.xhtml#aa73a3b47af535caf06555548257de81e',1,'note']]],
   ['c7_6',['c7',['../namespacenote.xhtml#a290147175d8f797c68f24f8fc2037e28',1,'note']]],
   ['c8_7',['c8',['../namespacenote.xhtml#afce38462497c0a3cb1e95a8bdf31c6b0',1,'note']]],
-  ['cout_8',['cout',['../namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4',1,'serial_port']]],
-  ['cs1_9',['cs1',['../namespacenote.xhtml#a5515fa1f2eb391b9ce0296b8c09253c8',1,'note']]],
-  ['cs2_10',['cs2',['../namespacenote.xhtml#a2ea8dbd4c9f39581d65a33c2e0d12f61',1,'note']]],
-  ['cs3_11',['cs3',['../namespacenote.xhtml#a13cc786c824e3229a09556fb9f829de7',1,'note']]],
-  ['cs4_12',['cs4',['../namespacenote.xhtml#a031fab625a6dd3b561585921a60255b0',1,'note']]],
-  ['cs5_13',['cs5',['../namespacenote.xhtml#a7b3291a54748aca5c517bf63c5eb6302',1,'note']]],
-  ['cs6_14',['cs6',['../namespacenote.xhtml#a5226b9e500b6dae07f573f59f43eb5b9',1,'note']]],
-  ['cs7_15',['cs7',['../namespacenote.xhtml#a7d0416ebe38533c259224c236bc62e16',1,'note']]],
-  ['cs8_16',['cs8',['../namespacenote.xhtml#abb62c92268d6fa5a5dd765165a342157',1,'note']]]
+  ['cin_8',['cin',['../namespaceserial__port.xhtml#a6b8ddaf5c84122ffcb67e87b9a3c2404',1,'serial_port']]],
+  ['cout_9',['cout',['../namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4',1,'serial_port']]],
+  ['cs1_10',['cs1',['../namespacenote.xhtml#a5515fa1f2eb391b9ce0296b8c09253c8',1,'note']]],
+  ['cs2_11',['cs2',['../namespacenote.xhtml#a2ea8dbd4c9f39581d65a33c2e0d12f61',1,'note']]],
+  ['cs3_12',['cs3',['../namespacenote.xhtml#a13cc786c824e3229a09556fb9f829de7',1,'note']]],
+  ['cs4_13',['cs4',['../namespacenote.xhtml#a031fab625a6dd3b561585921a60255b0',1,'note']]],
+  ['cs5_14',['cs5',['../namespacenote.xhtml#a7b3291a54748aca5c517bf63c5eb6302',1,'note']]],
+  ['cs6_15',['cs6',['../namespacenote.xhtml#a5226b9e500b6dae07f573f59f43eb5b9',1,'note']]],
+  ['cs7_16',['cs7',['../namespacenote.xhtml#a7d0416ebe38533c259224c236bc62e16',1,'note']]],
+  ['cs8_17',['cs8',['../namespacenote.xhtml#abb62c92268d6fa5a5dd765165a342157',1,'note']]]
 ];

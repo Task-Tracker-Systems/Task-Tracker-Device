@@ -1,10 +1,13 @@
 <map id="lib/3rd_party_adapters/serial_port.cpp" name="lib/3rd_party_adapters/serial_port.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="256,5,405,45"/>
-<area shape="rect" id="node2" href="$serial__port_8hpp.xhtml" title=" " alt="" coords="23,93,129,119"/>
-<area shape="rect" id="node5" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="153,93,348,119"/>
-<area shape="rect" id="node7" title=" " alt="" coords="373,93,449,119"/>
-<area shape="rect" id="node8" title=" " alt="" coords="473,93,535,119"/>
+<area shape="rect" id="node1" title=" " alt="" coords="501,5,651,45"/>
+<area shape="rect" id="node2" href="$serial__port_8hpp.xhtml" title=" " alt="" coords="60,93,167,119"/>
+<area shape="rect" id="node6" href="$SerialInputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="191,93,375,119"/>
+<area shape="rect" id="node8" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="399,93,593,119"/>
+<area shape="rect" id="node9" title=" " alt="" coords="618,93,694,119"/>
+<area shape="rect" id="node10" title=" " alt="" coords="718,93,783,119"/>
+<area shape="rect" id="node11" title=" " alt="" coords="807,93,870,119"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,167,56,192"/>
-<area shape="rect" id="node4" title=" " alt="" coords="80,167,149,192"/>
-<area shape="rect" id="node6" title=" " alt="" coords="211,167,291,192"/>
+<area shape="rect" id="node4" title=" " alt="" coords="81,167,146,192"/>
+<area shape="rect" id="node5" title=" " alt="" coords="171,167,240,192"/>
+<area shape="rect" id="node7" title=" " alt="" coords="360,167,440,192"/>
 </map>
