@@ -18,4 +18,17 @@ void initialize()
     Serial.flush();
     delay(100);
 }
+
+std::optional<std::string> readLine()
+{
+    if (Serial.available() > 0)
+    {
+        return std::string(Serial.readStringUntil('\n').c_str());
+    }
+    else
+    {
+        return {};
+    }
+}
+
 } // namespace serial_port

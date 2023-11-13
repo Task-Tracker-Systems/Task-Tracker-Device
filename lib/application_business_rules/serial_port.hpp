@@ -1,5 +1,7 @@
 #include <array>
+#include <optional>
 #include <ostream>
+#include <string>
 
 namespace serial_port
 {
@@ -14,6 +16,16 @@ extern std::ostream &cout;
  * Configures and initializes serial port.
  */
 void initialize();
+
+/**
+ * Read a line from serial port.
+ * 
+ * Interprets the end of line as `\n`.
+ * 
+ * 
+ */
+std::optional<std::string> readLine();
+
 } // namespace serial_port
 
 /**
