@@ -18,13 +18,21 @@ extern std::ostream &cout;
 void initialize();
 
 /**
- * Read a line from serial port.
+ * Reads a line from serial port.
  * 
  * Interprets the end of line as `\n`.
- * 
- * 
+ * It will wait for data for the duration of the timeout.
+ * \returns an empty string in case no data is read
  */
-std::optional<std::string> readLine();
+std::string readLine();
+
+/**
+ * Gets a line from serial port.
+ * 
+ * Interprets the end of line as `\n`.
+ * \returns an object that does not contain a value in case no data is already available.
+ */
+std::optional<std::string> getLine();
 
 } // namespace serial_port
 

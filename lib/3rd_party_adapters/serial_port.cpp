@@ -19,11 +19,16 @@ void initialize()
     delay(100);
 }
 
-std::optional<std::string> readLine()
+std::string readLine()
+{
+    return std::string(Serial.readStringUntil('\n').c_str());
+}
+
+std::optional<std::string> getLine()
 {
     if (Serial.available() > 0)
     {
-        return std::string(Serial.readStringUntil('\n').c_str());
+        return readLine();
     }
     else
     {
