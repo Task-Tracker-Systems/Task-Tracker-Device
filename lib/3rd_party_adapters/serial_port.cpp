@@ -9,6 +9,8 @@ static std::ostream serialOutputStream(&serialOutputStreamBuffer);
 
 namespace serial_port
 {
+static StringHandler incomingStringHandler;
+
 std::ostream &cout = serialOutputStream;
 
 void initialize()
@@ -34,6 +36,11 @@ std::optional<std::string> getLine()
     {
         return {};
     }
+}
+
+void subscribeToIncomingLine(StringHandler &callback)
+{
+    incomingStringHandler = callback;
 }
 
 } // namespace serial_port

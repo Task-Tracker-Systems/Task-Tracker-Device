@@ -1,4 +1,5 @@
 #include <array>
+#include <functional>
 #include <optional>
 #include <ostream>
 #include <string>
@@ -33,6 +34,10 @@ std::string readLine();
  * \returns an object that does not contain a value in case no data is already available.
  */
 std::optional<std::string> getLine();
+
+typedef std::function<void(const std::string &)> StringHandler;
+
+void subscribeToIncomingLine(StringHandler &callback);
 
 } // namespace serial_port
 
