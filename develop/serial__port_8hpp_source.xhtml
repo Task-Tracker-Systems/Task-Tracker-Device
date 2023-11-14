@@ -84,40 +84,56 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="serial__port_8hpp.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceserial__port.xhtml">serial_port</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">extern</span> std::ostream &amp;<a class="code hl_variable" href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">cout</a>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">initialize</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>} <span class="comment">// namespace serial_port</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> BITS&gt;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">   28</a></span>std::ostream &amp;<a class="code hl_function" href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">operator&lt;&lt;</a>(std::ostream &amp;os, <span class="keyword">const</span> std::array&lt;bool, BITS&gt; &amp;bitArray)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    os &lt;&lt; <span class="stringliteral">&quot;0b&quot;</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">bool</span> bit : bitArray)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">if</span> (bit)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            os &lt;&lt; <span class="stringliteral">&quot;1&quot;</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            os &lt;&lt; <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceserial__port.xhtml">serial_port</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> std::ostream &amp;<a class="code hl_variable" href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">cout</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">initialize</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>std::string <a class="code hl_function" href="namespaceserial__port.xhtml#a6cdebd7f35f262ff9dbbe728722b6973">readLine</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>std::optional&lt;std::string&gt; <a class="code hl_function" href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">getLine</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">   41</a></span><span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> std::string &amp;)&gt; <a class="code hl_typedef" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">StringHandler</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c">setCallbackForLineReception</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">StringHandler</a> &amp;callback);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>} <span class="comment">// namespace serial_port</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> BITS&gt;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">   60</a></span>std::ostream &amp;<a class="code hl_function" href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">operator&lt;&lt;</a>(std::ostream &amp;os, <span class="keyword">const</span> std::array&lt;bool, BITS&gt; &amp;bitArray)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    os &lt;&lt; <span class="stringliteral">&quot;0b&quot;</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">bool</span> bit : bitArray)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (bit)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            os &lt;&lt; <span class="stringliteral">&quot;1&quot;</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            os &lt;&lt; <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
 <div class="ttc" id="anamespaceserial__port_xhtml"><div class="ttname"><a href="namespaceserial__port.xhtml">serial_port</a></div><div class="ttdef"><b>Definition:</b> serial_port.cpp:11</div></div>
-<div class="ttc" id="anamespaceserial__port_xhtml_af033b97544f5d1bba48bf19f2a336608"><div class="ttname"><a href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">serial_port::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Configures and initializes serial port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:14</div></div>
-<div class="ttc" id="anamespaceserial__port_xhtml_aff084dc54fbe3b3e2fe93631562c34c4"><div class="ttname"><a href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">serial_port::cout</a></div><div class="ttdeci">std::ostream &amp; cout</div><div class="ttdoc">Output stream for characters to serial port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:12</div></div>
-<div class="ttc" id="aserial__port_8hpp_xhtml_a49d2d6c41844a0f8067674f6088c3d05"><div class="ttname"><a href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const std::array&lt; bool, BITS &gt; &amp;bitArray)</div><div class="ttdoc">Writes formatted bits to ostream.</div><div class="ttdef"><b>Definition:</b> serial_port.hpp:28</div></div>
+<div class="ttc" id="anamespaceserial__port_xhtml_a6cdebd7f35f262ff9dbbe728722b6973"><div class="ttname"><a href="namespaceserial__port.xhtml#a6cdebd7f35f262ff9dbbe728722b6973">serial_port::readLine</a></div><div class="ttdeci">std::string readLine()</div><div class="ttdoc">Reads a line from serial port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:24</div></div>
+<div class="ttc" id="anamespaceserial__port_xhtml_a839d45b607d3bc6cf84065572f0cb735"><div class="ttname"><a href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">serial_port::StringHandler</a></div><div class="ttdeci">std::function&lt; void(const std::string &amp;)&gt; StringHandler</div><div class="ttdoc">Callback which can handle strings.</div><div class="ttdef"><b>Definition:</b> serial_port.hpp:41</div></div>
+<div class="ttc" id="anamespaceserial__port_xhtml_a8ed4fda662b92bd35c8ecfb6521edb4c"><div class="ttname"><a href="namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c">serial_port::setCallbackForLineReception</a></div><div class="ttdeci">void setCallbackForLineReception(const StringHandler &amp;callback)</div><div class="ttdoc">Set the handler to be called when a full line has been received via serial_port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:41</div></div>
+<div class="ttc" id="anamespaceserial__port_xhtml_ab6c8af59bd81882c7b16c860ce5fdf52"><div class="ttname"><a href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">serial_port::getLine</a></div><div class="ttdeci">std::optional&lt; std::string &gt; getLine()</div><div class="ttdoc">Gets a line from serial port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:29</div></div>
+<div class="ttc" id="anamespaceserial__port_xhtml_af033b97544f5d1bba48bf19f2a336608"><div class="ttname"><a href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">serial_port::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Configures and initializes serial port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:16</div></div>
+<div class="ttc" id="anamespaceserial__port_xhtml_aff084dc54fbe3b3e2fe93631562c34c4"><div class="ttname"><a href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">serial_port::cout</a></div><div class="ttdeci">std::ostream &amp; cout</div><div class="ttdoc">Output stream for characters to serial port.</div><div class="ttdef"><b>Definition:</b> serial_port.cpp:14</div></div>
+<div class="ttc" id="aserial__port_8hpp_xhtml_a49d2d6c41844a0f8067674f6088c3d05"><div class="ttname"><a href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const std::array&lt; bool, BITS &gt; &amp;bitArray)</div><div class="ttdoc">Writes formatted bits to ostream.</div><div class="ttdef"><b>Definition:</b> serial_port.hpp:60</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2023 00:35:54 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Tue Nov 14 2023 16:52:58 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
