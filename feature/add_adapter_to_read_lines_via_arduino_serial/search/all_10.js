@@ -11,7 +11,7 @@ var searchData=
   ['serialoutputstreambuffer_8',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml',1,'SerialOutputStreamBuffer'],['../classSerialOutputStreamBuffer.xhtml#a4a0c30964625e5259156a76c6d62fcad',1,'SerialOutputStreamBuffer::SerialOutputStreamBuffer()']]],
   ['serialoutputstreambuffer_2ecpp_9',['SerialOutputStreamBuffer.cpp',['../SerialOutputStreamBuffer_8cpp.xhtml',1,'']]],
   ['serialoutputstreambuffer_2ehpp_10',['SerialOutputStreamBuffer.hpp',['../SerialOutputStreamBuffer_8hpp.xhtml',1,'']]],
-  ['setcallbacktolinereception_11',['setCallbackToLineReception',['../namespaceserial__port.xhtml#ab25c580b5906c34b62d2e38667b543b8',1,'serial_port']]],
+  ['setcallbackforlinereception_11',['setCallbackForLineReception',['../namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c',1,'serial_port']]],
   ['setlabel_12',['setLabel',['../classTask.xhtml#ac503952d3049aede0a5427faea94ceb1',1,'Task']]],
   ['setup_13',['setup',['../time-tracker_8ino.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;time-tracker.ino'],['../namespacemain.xhtml#ace1a84b1871a86fa3e10a6b2e44d4042',1,'main::setup()']]],
   ['setup_14',['setUp',['../test__serial__port_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_serial_port.cpp'],['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;task.cpp']]],
