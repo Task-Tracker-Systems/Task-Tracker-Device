@@ -53,7 +53,7 @@ extern void serialEvent();
 
 void test_subscribeToLine()
 {
-    serial_port::subscribeToIncomingLine(lineHandler);
+    serial_port::setCallbackToLineReception(lineHandler);
 
     constexpr auto testLine = "C++\n";
     for (std::size_t i = 0; i < std::strlen(testLine); ++i)

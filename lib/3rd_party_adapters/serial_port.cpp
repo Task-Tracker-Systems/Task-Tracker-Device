@@ -38,7 +38,7 @@ std::optional<std::string> getLine()
     }
 }
 
-void subscribeToIncomingLine(const StringHandler &callback)
+void setCallbackToLineReception(const StringHandler &callback)
 {
     incomingStringHandler = callback;
 }

@@ -35,9 +35,16 @@ std::string readLine();
  */
 std::optional<std::string> getLine();
 
+/**
+ * Callback which can handle strings.
+ */
 typedef std::function<void(const std::string &)> StringHandler;
 
-void subscribeToIncomingLine(const StringHandler &callback);
+/**
+ * Set the handler to be called when a full line has been received via serial_port.
+ * \param callback 
+ */
+void setCallbackToLineReception(const StringHandler &callback);
 
 } // namespace serial_port
 
