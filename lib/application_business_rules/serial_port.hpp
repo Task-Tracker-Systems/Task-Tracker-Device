@@ -1,5 +1,8 @@
 #include <array>
+#include <functional>
+#include <optional>
 #include <ostream>
+#include <string>
 
 namespace serial_port
 {
@@ -14,6 +17,35 @@ extern std::ostream &cout;
  * Configures and initializes serial port.
  */
 void initialize();
+
+/**
+ * Reads a line from serial port.
+ * 
+ * Interprets the end of line as `\n`.
+ * It will wait for data for the duration of the timeout.
+ * \returns an empty string in case no data is read
+ */
+std::string readLine();
+
+/**
+ * Gets a line from serial port.
+ * 
+ * Interprets the end of line as `\n`.
+ * \returns an object that does not contain a value in case no data is already available.
+ */
+std::optional<std::string> getLine();
+
+/**
+ * Callback which can handle strings.
+ */
+typedef std::function<void(const std::string &)> StringHandler;
+
+/**
+ * Set the handler to be called when a full line has been received via serial_port.
+ * \param callback 
+ */
+void setCallbackForLineReception(const StringHandler &callback);
+
 } // namespace serial_port
 
 /**
