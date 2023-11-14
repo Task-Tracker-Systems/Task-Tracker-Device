@@ -1,11 +1,12 @@
 #pragma once
 
+#include <serial_port.hpp>
 #include <streambuf>
 
 /**
  * Controls output of a character sequence to serial port.
  */
-class SerialOutputStreamBuffer : public std::streambuf
+class SerialOutputStreamBuffer : public std::basic_streambuf<serial_port::CharType>
 {
   private:
     char_type *const buffer_begin;
