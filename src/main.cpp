@@ -5,6 +5,7 @@
 #include "serial_port.hpp"
 #include <Arduino.h>
 #include <cstdint>
+#include <string>
 
 /**
  * Events are the beginning of a pressed button.
@@ -66,6 +67,15 @@ void setup(char const *programIdentificationString)
     setup_display();
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
+    std::string foo;
+
+    Serial.setTimeout(3000);
+    for (unsigned int i = 0; i < 3;)
+    {
+        serial_port::cout << "Waiting for user input:" << std::endl;
+        serial_port::cin >> foo;
+        serial_port::cout << "Did read: '" << foo << "'" << std::endl;
+    }
 }
 void loop()
 {

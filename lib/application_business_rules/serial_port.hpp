@@ -1,4 +1,5 @@
 #include <array>
+#include <istream>
 #include <ostream>
 
 namespace serial_port
@@ -9,6 +10,8 @@ namespace serial_port
  * \pre call \ref initialize() before using
  */
 extern std::ostream &cout;
+
+extern std::istream &cin;
 
 /**
  * Configures and initializes serial port.
