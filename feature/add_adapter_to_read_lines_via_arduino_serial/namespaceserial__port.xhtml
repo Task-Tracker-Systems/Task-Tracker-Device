@@ -87,6 +87,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a839d45b607d3bc6cf84065572f0cb735"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const std::string &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">StringHandler</a></td></tr>
+<tr class="memdesc:a839d45b607d3bc6cf84065572f0cb735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback which can handle strings.  <a href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">More...</a><br /></td></tr>
 <tr class="separator:a839d45b607d3bc6cf84065572f0cb735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -100,8 +101,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">getLine</a> ()</td></tr>
 <tr class="memdesc:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a line from serial port.  <a href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">More...</a><br /></td></tr>
 <tr class="separator:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea06adad95c0b700fb92e4d73e47b728"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#aea06adad95c0b700fb92e4d73e47b728">subscribeToIncomingLine</a> (const <a class="el" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">StringHandler</a> &amp;callback)</td></tr>
-<tr class="separator:aea06adad95c0b700fb92e4d73e47b728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab25c580b5906c34b62d2e38667b543b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#ab25c580b5906c34b62d2e38667b543b8">setCallbackToLineReception</a> (const <a class="el" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">StringHandler</a> &amp;callback)</td></tr>
+<tr class="memdesc:ab25c580b5906c34b62d2e38667b543b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the handler to be called when a full line has been received via <a class="el" href="namespaceserial__port.xhtml">serial_port</a>.  <a href="namespaceserial__port.xhtml#ab25c580b5906c34b62d2e38667b543b8">More...</a><br /></td></tr>
+<tr class="separator:ab25c580b5906c34b62d2e38667b543b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -121,6 +123,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Callback which can handle strings. </p>
 
 </div>
 </div>
@@ -184,14 +188,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aea06adad95c0b700fb92e4d73e47b728" name="aea06adad95c0b700fb92e4d73e47b728"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea06adad95c0b700fb92e4d73e47b728">&#9670;&#160;</a></span>subscribeToIncomingLine()</h2>
+<a id="ab25c580b5906c34b62d2e38667b543b8" name="ab25c580b5906c34b62d2e38667b543b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab25c580b5906c34b62d2e38667b543b8">&#9670;&#160;</a></span>setCallbackToLineReception()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void serial_port::subscribeToIncomingLine </td>
+          <td class="memname">void serial_port::setCallbackToLineReception </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">StringHandler</a> &amp;&#160;</td>
           <td class="paramname"><em>callback</em></td><td>)</td>
@@ -199,6 +203,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the handler to be called when a full line has been received via <a class="el" href="namespaceserial__port.xhtml">serial_port</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -223,7 +235,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2023 13:33:07 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Tue Nov 14 2023 16:28:42 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
