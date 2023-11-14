@@ -41,12 +41,37 @@ void test_getLine()
     }
 }
 
+static std::string receivedLine;
+
+static void lineHandler(const std::string &line)
+{
+    receivedLine = line;
+}
+
+// we know that this function is used to insert data from serial port
+extern void serialEvent();
+
+void test_subscribeToLine()
+{
+    serial_port::subscribeToIncomingLine(lineHandler);
+
+    constexpr auto testLine = "C++";
+    for (std::size_t i = 0; i <= std::strlen(testLine); ++i)
+    {
+        When(Method(ArduinoFake(Serial), available)).Return(1);
+        When(Method(ArduinoFake(Serial), read)).Return(testLine[i]);
+        serialEvent();
+    }
+    TEST_ASSERT_EQUAL_STRING(testLine, receivedLine.c_str());
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
 
     RUN_TEST(test_initialize);
     RUN_TEST(test_getLine);
+    RUN_TEST(test_subscribeToLine);
 
     UNITY_END();
 }
