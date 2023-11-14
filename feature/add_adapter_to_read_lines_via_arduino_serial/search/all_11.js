@@ -14,7 +14,8 @@ var searchData=
   ['test_5fgetline_11',['test_getLine',['../test__serial__port_8cpp.xhtml#a492639c9436263009f893f9731b32aca',1,'test_serial_port.cpp']]],
   ['test_5finitialize_12',['test_initialize',['../test__serial__port_8cpp.xhtml#a2b5bfbda327faaefb6221f74ea7f53d0',1,'test_serial_port.cpp']]],
   ['test_5fserial_5fport_2ecpp_13',['test_serial_port.cpp',['../test__serial__port_8cpp.xhtml',1,'']]],
-  ['test_5ftask_5fid_14',['test_task_id',['../task_8cpp.xhtml#ac4e4e791bac9eefd3691d9b0dca2805f',1,'task.cpp']]],
-  ['test_5ftime_5felapses_15',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
-  ['time_2dtracker_2eino_16',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]]
+  ['test_5fsubscribetoline_14',['test_subscribeToLine',['../test__serial__port_8cpp.xhtml#a2ff85ede4d563d84b05459e8b71f153a',1,'test_serial_port.cpp']]],
+  ['test_5ftask_5fid_15',['test_task_id',['../task_8cpp.xhtml#ac4e4e791bac9eefd3691d9b0dca2805f',1,'task.cpp']]],
+  ['test_5ftime_5felapses_16',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
+  ['time_2dtracker_2eino_17',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]]
 ];
