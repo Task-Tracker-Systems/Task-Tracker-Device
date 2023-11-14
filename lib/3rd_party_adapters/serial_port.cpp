@@ -5,13 +5,13 @@
 
 static SerialOutputStreamBuffer::char_type serial_output_buffer[255];
 static SerialOutputStreamBuffer serialOutputStreamBuffer(std::begin(serial_output_buffer), std::end(serial_output_buffer));
-static std::ostream serialOutputStream(&serialOutputStreamBuffer);
+static std::basic_ostream<SerialOutputStreamBuffer::char_type> serialOutputStream(&serialOutputStreamBuffer);
 
 namespace serial_port
 {
 static StringHandler incomingStringHandler;
 
-std::ostream &cout = serialOutputStream;
+std::basic_ostream<CharType> &cout = serialOutputStream;
 
 void initialize()
 {
@@ -21,12 +21,12 @@ void initialize()
     delay(100);
 }
 
-std::string readLine()
+String readLine()
 {
-    return std::string(Serial.readStringUntil('\n').c_str());
+    return String(Serial.readStringUntil('\n').c_str());
 }
 
-std::optional<std::string> getLine()
+std::optional<String> getLine()
 {
     if (Serial.available() > 0)
     {
@@ -61,8 +61,8 @@ void serialEvent()
         }
         else
         {
-            static std::string inputBuffer{};
-            const char inChar = inData;
+            static serial_port::String inputBuffer{};
+            const serial_port::String::value_type inChar = inData;
             inputBuffer += inChar;
             // if the incoming character is a newline, call handler
             if (inChar == '\n' || inChar == '\r')
