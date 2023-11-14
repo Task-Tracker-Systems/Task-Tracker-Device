@@ -37,7 +37,7 @@ std::optional<std::string> getLine();
 
 typedef std::function<void(const std::string &)> StringHandler;
 
-void subscribeToIncomingLine(StringHandler &callback);
+void subscribeToIncomingLine(const StringHandler &callback);
 
 } // namespace serial_port
 

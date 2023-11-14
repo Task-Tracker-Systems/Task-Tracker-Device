@@ -38,7 +38,7 @@ std::optional<std::string> getLine()
     }
 }
 
-void subscribeToIncomingLine(StringHandler &callback)
+void subscribeToIncomingLine(const StringHandler &callback)
 {
     incomingStringHandler = callback;
 }
@@ -55,19 +55,20 @@ void serialEvent()
     while (Serial.available() > 0)
     {
         const auto inData = Serial.read();
-        if (inData < 0)
+        if (inData == -1)
         {
             break;
         }
         else
         {
-            const auto inChar = static_cast<char>(inData);
-            inputString += inChar;
-            // if the incoming character is a newline, set a flag so the main loop can
-            // do something about it:
+            static std::string inputBuffer{};
+            const char inChar = inData;
+            inputBuffer += inChar;
+            // if the incoming character is a newline, call handler
             if (inChar == '\n' || inChar == '\r')
             {
-                stringComplete = true;
+                serial_port::incomingStringHandler(inputBuffer);
+                inputBuffer.clear();
             }
         }
     }
