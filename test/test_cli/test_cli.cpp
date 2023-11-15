@@ -24,11 +24,6 @@ static void foo()
     fooData.timesCalled++;
 }
 
-static void bar(const int n)
-{
-    std::cout << "Bar: " << n + 1 << std::endl;
-}
-
 static void two(const std::string s, const int n)
 {
     std::cout << "Two: " << n << " " << s << std::endl;
@@ -42,18 +37,70 @@ void test_command_argVoid()
     TEST_ASSERT_EQUAL_UINT(1, fooData.timesCalled);
 }
 
+static struct BarData
+{
+    std::size_t timesCalled;
+    int n;
+} barData;
+
+static void bar(const int n)
+{
+    barData.timesCalled++;
+    barData.n = n;
+}
+
 void test_command_argInt()
 {
     const Argument<int> barArg = {.labels = {"drinks"}, -42};
     const auto myCommand2 = makeCommand("bar", std::make_tuple(&barArg), std::function(bar));
-    myCommand2.parse("bar drins 3");
-    myCommand2.parse("bar drinks 3");
-    myCommand2.parse("bar drinks ");
-    myCommand2.parse("bar drinks");
-    myCommand2.parse("bar");
-    myCommand2.parse("op drinks 3");
-    myCommand2.parse(" bar foo bar -55.5 drinks 3.9");
-    myCommand2.parse(" bar foo bar -55.5 drinks 4.9");
+    {
+        barData = {};
+        myCommand2.parse("bar drinks 3");
+        TEST_ASSERT_EQUAL_UINT(1, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(3, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse("bar");
+        TEST_ASSERT_EQUAL_UINT(1, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(-42, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse("bar drins 3");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse("bar drinks ");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse("bar drinks");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse("op drinks 3");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse(" bar foo bar -55.5 drinks 3.9");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    {
+        barData = {};
+        myCommand2.parse(" bar foo bar -55.5 drinks 4.9");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
 }
 
 void test_command_argStringInt()
