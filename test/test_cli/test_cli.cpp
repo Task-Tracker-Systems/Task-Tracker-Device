@@ -1,4 +1,5 @@
 #include <command_line_interpreter.hpp>
+#include <cstddef>
 #include <fakeit.hpp>
 #include <iostream>
 #include <unity.h>
@@ -13,9 +14,14 @@ void tearDown()
 {
 }
 
+static struct FooData
+{
+    std::size_t timesCalled;
+} fooData;
+
 static void foo()
 {
-    std::cout << "Hello World" << std::endl;
+    fooData.timesCalled++;
 }
 
 static void bar(const int n)
@@ -32,6 +38,8 @@ void test_command_argVoid()
 {
     const auto myCommand = makeCommand("operate", std::make_tuple(), std::function(foo));
     myCommand.parse("operate");
+
+    TEST_ASSERT_EQUAL_UINT(1, fooData.timesCalled);
 }
 
 void test_command_argInt()
