@@ -1,0 +1,27 @@
+<map id="test/test_board/test_board.cpp" name="test/test_board/test_board.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="350,5,484,46"/>
+<area shape="rect" id="Node000002" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="253,94,341,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="389,49,329,88,326,83,386,44"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="365,94,469,120"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="420,46,420,78,414,78,414,46"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="493,94,551,120"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="444,44,495,82,492,86,441,49"/>
+<area shape="rect" id="Node000003" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="5,168,98,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,123,109,165,107,160,254,118"/>
+<area shape="rect" id="Node000006" href="$board__config_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="122,168,240,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="279,122,215,162,212,157,276,118"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="265,168,329,193"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="300,120,300,152,294,152,294,120"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="353,168,414,193"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="313,118,359,156,356,160,310,122"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="438,168,505,193"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="327,118,429,159,427,164,325,123"/>
+<area shape="rect" id="Node000004" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="9,241,94,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="54,194,54,226,49,226,49,194"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="17,315,86,341"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="54,267,54,299,49,299,49,267"/>
+<area shape="rect" id="Node000007" href="$board__types_8hpp.xhtml" title=" " alt="" coords="123,241,239,267"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="184,194,184,226,178,226,178,194"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="151,315,211,341"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="184,267,184,299,178,299,178,267"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="lib/layer4_drivers_libraries_adapters/src/framework_config.hpp" name="lib/layer4_drivers_libraries_adapters/src/framework_config.hpp">
+<area shape="rect" id="Node000001" title="Framework adapters." alt="" coords="15,5,188,61"/>
+<area shape="rect" id="Node000002" href="$OutputShiftRegister__implementation_8hpp.xhtml" title=" " alt="" coords="21,109,182,180"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,76,104,109,99,109,99,76"/>
+<area shape="rect" id="Node000003" href="$OutputShiftRegister_8hpp.xhtml" title=" " alt="" coords="9,228,194,283"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,195,96,227,91,227,90,195"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="108,212,107,180,113,180,113,212"/>
+<area shape="rect" id="Node000004" href="$osr__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,331,198,387"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="104,299,104,331,99,331,99,299"/>
+</map>

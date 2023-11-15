@@ -1,0 +1,12 @@
+<map id="InputShiftRegister&lt; numberOfBytes &gt;" name="InputShiftRegister&lt; numberOfBytes &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="109,460,245,560"/>
+<area shape="rect" id="Node000002" href="$classIInputShiftRegister.xhtml" title=" " alt="" coords="5,297,152,397"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,408,150,459,145,461,114,411"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="55,5,102,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,71,72,134,72,234,75,280,69,280,66,234,66,134,72,70"/>
+<area shape="rect" id="Node000004" href="$classIInputShiftRegister.xhtml" title=" " alt="" coords="172,134,319,234"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="104,57,177,120,174,124,100,61"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="186,246,131,299,127,295,182,242"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="177,314,378,379"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="260,381,219,447,214,444,256,378"/>
+</map>
