@@ -1,3 +1,4 @@
+#include <command_line_interpreter.hpp>
 #include <fakeit.hpp>
 #include <iostream>
 #include <unity.h>
