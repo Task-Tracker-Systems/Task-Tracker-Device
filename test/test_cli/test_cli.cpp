@@ -12,12 +12,6 @@ void tearDown()
 {
 }
 
-static void testExtractWord(std::string &s)
-{
-    std::cout << "Next word\t = '" << (extractData<std::string>(s)).value() << "'" << std::endl;
-    std::cout << "Remainer\t = '" << s << "'" << std::endl;
-}
-
 static void foo()
 {
     std::cout << "Hello World" << std::endl;
