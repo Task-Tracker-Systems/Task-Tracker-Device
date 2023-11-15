@@ -33,7 +33,7 @@ void test_getLine()
 
     {
         // Test non-empty
-        constexpr auto testString = "Hello World";
+        constexpr const serial_port::CharType *const testString = "Hello World";
         When(Method(ArduinoFake(Serial), available)).Return(std::strlen(testString) + 1);
         When(Method(ArduinoFake(Serial), readStringUntil)).Return(testString);
         const auto result = serial_port::getLine();
@@ -41,9 +41,9 @@ void test_getLine()
     }
 }
 
-static std::string receivedLine = "foo";
+static serial_port::String receivedLine = "foo";
 
-static void lineHandler(const std::string &line)
+static void lineHandler(const serial_port::String &line)
 {
     receivedLine = line;
 }
@@ -55,7 +55,7 @@ void test_subscribeToLine()
 {
     serial_port::setCallbackForLineReception(lineHandler);
 
-    constexpr auto testLine = "C++\n";
+    constexpr const serial_port::CharType *const testLine = "C++\n";
     for (std::size_t i = 0; i < std::strlen(testLine); ++i)
     {
         When(Method(ArduinoFake(Serial), available)).Return(1, 0); // every time only 1 char is available

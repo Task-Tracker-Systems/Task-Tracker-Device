@@ -1,3 +1,5 @@
+#pragma once
+
 #include <array>
 #include <functional>
 #include <optional>
@@ -7,11 +9,21 @@
 namespace serial_port
 {
 /**
+ * Character type used by serial port.
+ */
+typedef char CharType;
+
+/**
+ * String type provided by serial port.
+ */
+typedef std::basic_string<CharType> String;
+
+/**
  * Output stream for characters to serial port.
  * 
  * \pre call \ref initialize() before using
  */
-extern std::ostream &cout;
+extern std::basic_ostream<CharType> &cout;
 
 /**
  * Configures and initializes serial port.
@@ -25,7 +37,7 @@ void initialize();
  * It will wait for data for the duration of the timeout.
  * \returns an empty string in case no data is read
  */
-std::string readLine();
+String readLine();
 
 /**
  * Gets a line from serial port.
@@ -33,12 +45,12 @@ std::string readLine();
  * Interprets the end of line as `\n`.
  * \returns an object that does not contain a value in case no data is already available.
  */
-std::optional<std::string> getLine();
+std::optional<String> getLine();
 
 /**
  * Callback which can handle strings.
  */
-typedef std::function<void(const std::string &)> StringHandler;
+typedef std::function<void(const String &)> StringHandler;
 
 /**
  * Set the handler to be called when a full line has been received via serial_port.
@@ -56,8 +68,8 @@ void setCallbackForLineReception(const StringHandler &callback);
  * \param bitArray the bits to output
  * \returns the stream
  */
-template <std::size_t BITS>
-std::ostream &operator<<(std::ostream &os, const std::array<bool, BITS> &bitArray)
+template <std::size_t BITS, typename CharType = char>
+std::ostream &operator<<(std::basic_ostream<CharType> &os, const std::array<bool, BITS> &bitArray)
 {
     os << "0b";
     for (const bool bit : bitArray)
