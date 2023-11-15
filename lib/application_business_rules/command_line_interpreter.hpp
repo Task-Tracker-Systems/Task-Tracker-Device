@@ -80,7 +80,7 @@ struct Argument
                 const auto foundData = extractData<T>(remainer);
                 if (foundData)
                 {
-                    const auto preamble = argumentsToExtract.substr(0, label_end);
+                    const auto preamble = argumentsToExtract.substr(0, startLabel);
                     // the given string will be replaced by the substring before and after the extracted option
                     argumentsToExtract = preamble + remainer;
                     return foundData.value();
