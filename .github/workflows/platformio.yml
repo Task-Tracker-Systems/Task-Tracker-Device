@@ -29,3 +29,5 @@ jobs:
       run: platformio run --verbose
     - name: On native platform run tests for 'tasks'
       run: platformio test --verbose --environment test_native_tasks
+    - name: On native platform run tests for 'trim'
+      run: platformio test --verbose --environment test_native_trim
