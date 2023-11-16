@@ -33,12 +33,23 @@ void test_trimPrefix()
     TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringWithFront.c_str());
 }
 
+void test_trimEmpty()
+{
+    const std::string stringExpected = "";
+    std::string stringEmpty = stringExpected;
+
+    trim(stringEmpty);
+
+    TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringEmpty.c_str());
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
 
     RUN_TEST(test_nothingToTrim);
     RUN_TEST(test_trimPrefix);
+    RUN_TEST(test_trimEmpty);
 
     UNITY_END();
 }
