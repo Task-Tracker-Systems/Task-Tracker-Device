@@ -1,3 +1,4 @@
+#include <cstring>
 #include <functional>
 #include <optional>
 #include <sstream>
@@ -65,7 +66,7 @@ struct Argument
             startLabel = argumentsToExtract.find(label);
             if (startLabel != std::string::npos)
             {
-                endLabel = startLabel + label.size();
+                endLabel = startLabel + std::strlen(label);
                 break;
             }
         }
@@ -79,7 +80,7 @@ struct Argument
         const auto beginArgument = argumentsToExtract.find_first_not_of(separator, endLabel);
         if (beginArgument == std::string::npos)
         {
-            return beginArgument;
+            return defaultValue;
         }
 
         // extract data
@@ -93,6 +94,10 @@ struct Argument
             // the given string will be replaced by the substring before and after the extracted option
             argumentsToExtract = preamble + remainder;
             return foundData.value();
+        }
+        else
+        {
+            return defaultValue;
         }
     }
 
