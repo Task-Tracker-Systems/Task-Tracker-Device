@@ -11,13 +11,19 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-550 540,-550 540,4 -4,4"/>
 <g id="clust2" class="cluster">
 <title>cluster_app</title>
+<g id="a_clust2"><a xlink:href="application_business_rules.xhtml#application_business_rules" target="_top" xlink:title="application business rules">
 <polygon fill="none" stroke="black" stroke-width="2" points="206,-266 206,-455 520.5,-455 520.5,-266 206,-266"/>
 <text text-anchor="middle" x="363.25" y="-439.8" font-family="Times,serif" font-size="14.00">application business rules</text>
+</a>
+</g>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_ebr</title>
+<g id="a_clust4"><a xlink:href="enterprise_business_rules.xhtml#enterprise_business_rules" target="_top" xlink:title="enterprise business rules">
 <polygon fill="none" stroke="black" stroke-width="2" points="198,-463 198,-538 347,-538 347,-463 198,-463"/>
 <text text-anchor="middle" x="272.5" y="-522.8" font-family="Times,serif" font-size="14.00">enterprise business rules</text>
+</a>
+</g>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_thirdparty</title>
@@ -26,13 +32,19 @@
 </g>
 <g id="clust9" class="cluster">
 <title>cluster_ia</title>
+<g id="a_clust9"><a xlink:href="third_party_adapters.xhtml#third_party_adapters" target="_top" xlink:title="3rd party adapters">
 <polygon fill="none" stroke="black" stroke-width="2" points="388.5,-98 388.5,-173 514.5,-173 514.5,-98 388.5,-98"/>
 <text text-anchor="middle" x="451.5" y="-157.8" font-family="Times,serif" font-size="14.00">3rd party adapters</text>
+</a>
+</g>
 </g>
 <g id="clust11" class="cluster">
 <title>cluster_board</title>
+<g id="a_clust11"><a xlink:href="board_adapters.xhtml#board_adapters" target="_top" xlink:title="board adapters">
 <polygon fill="none" stroke="black" stroke-width="2" points="208.5,-181 208.5,-258 528,-258 528,-181 208.5,-181"/>
 <text text-anchor="middle" x="368.25" y="-242.8" font-family="Times,serif" font-size="14.00">board adapters</text>
+</a>
+</g>
 </g>
 <g id="clust7" class="cluster">
 <title>clusterX_margin</title>

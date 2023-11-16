@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../cli_8cpp.xhtml#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'cli.cpp']]],
-  ['makecommand_1',['makeCommand',['../cli_8cpp.xhtml#a6471ef314e32b9b867cb1a31df995938',1,'cli.cpp']]]
+  ['loop_0',['loop',['../namespacemain.xhtml#aa018644f5f4d7111540bb4777634ec42',1,'main::loop()'],['../time-tracker_8ino.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;time-tracker.ino']]],
+  ['ltrim_1',['ltrim',['../trim_8hpp.xhtml#a3feaab52cc7380c0c9146c0796746c0f',1,'trim.hpp']]]
 ];

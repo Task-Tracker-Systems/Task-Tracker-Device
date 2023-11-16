@@ -83,6 +83,11 @@ $(function() {
   <div class="headertitle"><div class="title">Argument&lt; T &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Combines a command option with an argument.  
+ <a href="structArgument.xhtml#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="command__line__interpreter_8hpp_source.xhtml">command_line_interpreter.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Argument&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -93,16 +98,27 @@ Collaboration diagram for Argument&lt; T &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a35154593bc94e703c326d569f03aa375"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArgument.xhtml#a35154593bc94e703c326d569f03aa375">extract</a> (std::string &amp;argumentsToExtract) const</td></tr>
+<tr class="memdesc:a35154593bc94e703c326d569f03aa375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts an option from the string matching the argument.  <a href="structArgument.xhtml#a35154593bc94e703c326d569f03aa375">More...</a><br /></td></tr>
 <tr class="separator:a35154593bc94e703c326d569f03aa375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a09a6664568fba292ee7ea5ac90922b3d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArgument.xhtml#a09a6664568fba292ee7ea5ac90922b3d">labels</a></td></tr>
+<tr class="memdesc:a09a6664568fba292ee7ea5ac90922b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a variety of notations for a command option.  <a href="structArgument.xhtml#a09a6664568fba292ee7ea5ac90922b3d">More...</a><br /></td></tr>
 <tr class="separator:a09a6664568fba292ee7ea5ac90922b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4aa2373a59c4f17f6dbee945eec8ec8"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArgument.xhtml#ab4aa2373a59c4f17f6dbee945eec8ec8">defaultValue</a></td></tr>
 <tr class="separator:ab4aa2373a59c4f17f6dbee945eec8ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
+struct Argument&lt; T &gt;</div><p >Combines a command option with an argument. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>is the type of the argument </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a35154593bc94e703c326d569f03aa375" name="a35154593bc94e703c326d569f03aa375"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35154593bc94e703c326d569f03aa375">&#9670;&#160;</a></span>extract()</h2>
 
@@ -128,6 +144,16 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Extracts an option from the string matching the argument. </p>
+<p >Separator characters are allowed between the label and the actual value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argumentsToExtract</td><td>the string to be parsed; found option will be removed from string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the found data from the option or the default value if not found </dd></dl>
 
 </div>
 </div>
@@ -162,15 +188,17 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Accepts a variety of notations for a command option. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>lib/serial_interface/<a class="el" href="cli_8cpp.xhtml">cli.cpp</a></li>
+<li>lib/application_business_rules/<a class="el" href="command__line__interpreter_8hpp_source.xhtml">command_line_interpreter.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 15 2023 15:19:30 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Thu Nov 16 2023 11:17:06 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

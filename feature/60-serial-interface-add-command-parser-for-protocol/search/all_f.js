@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['task_20tracker_0',['Task Tracker',['../index.xhtml',1,'']]],
-  ['task1_1',['task1',['../namespaceboard_1_1button_1_1pin.xhtml#a7a57e33c8128c114bfad8ea1c57a617f',1,'board::button::pin::task1()'],['../namespaceboard_1_1led_1_1pin.xhtml#a10e78f1b1a60fed640e0185b061db000',1,'board::led::pin::task1()']]],
-  ['task2_2',['task2',['../namespaceboard_1_1button_1_1pin.xhtml#a2341415705d5e95571a10221477dcdb0',1,'board::button::pin::task2()'],['../namespaceboard_1_1led_1_1pin.xhtml#a633d7d7a17af7226e9a7b5002d366e3f',1,'board::led::pin::task2()']]],
-  ['task3_3',['task3',['../namespaceboard_1_1button_1_1pin.xhtml#aad9896b748a735d9304ef60924162000',1,'board::button::pin::task3()'],['../namespaceboard_1_1led_1_1pin.xhtml#aba86faf011fc8b9c9af6cabb5f0ca227',1,'board::led::pin::task3()']]],
-  ['task4_4',['task4',['../namespaceboard_1_1button_1_1pin.xhtml#af30de0f692a26bd309ea016b1ea1a952',1,'board::button::pin::task4()'],['../namespaceboard_1_1led_1_1pin.xhtml#a019fad5ba8be83d38e6a42bfdb172c8a',1,'board::led::pin::task4()']]],
-  ['testanimate_5',['testanimate',['../display_8cpp.xhtml#a58c16ae6270d65c36f66d92ec542e8df',1,'testanimate():&#160;display.cpp'],['../display_8h.xhtml#a58c16ae6270d65c36f66d92ec542e8df',1,'testanimate():&#160;display.cpp']]],
-  ['time_2dtracker_2eino_6',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]]
+  ['readline_0',['readLine',['../namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142',1,'serial_port']]],
+  ['readme_1',['README',['../md_doc_decisions_README.xhtml',1,'(Global Namespace)'],['../md_hardware_README.xhtml',1,'(Global Namespace)'],['../md_lib_3rd_party_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_application_business_rules_README.xhtml',1,'(Global Namespace)'],['../md_lib_board_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_enterprise_business_rules_README.xhtml',1,'(Global Namespace)']]],
+  ['readme_2emd_2',['README.md',['../hardware_2README_8md.xhtml',1,'(Global Namespace)'],['../README_8md.xhtml',1,'(Global Namespace)'],['../lib_2enterprise__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2board__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2application__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_23rd__party__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../doc_2decisions_2README_8md.xhtml',1,'(Global Namespace)']]],
+  ['refresh_5fdisplay_3',['refresh_display',['../display_8cpp.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp'],['../display_8h.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp']]],
+  ['res_4',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]],
+  ['resetoutputpointers_5',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727',1,'SerialOutputStreamBuffer']]],
+  ['rtrim_6',['rtrim',['../trim_8hpp.xhtml#a7ece08d3d1ffe60149ab652e5cdd8bc8',1,'trim.hpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resetoutputpointers_0',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#ab6733e1e2ca93d24c41016558f576ede',1,'SerialOutputStreamBuffer']]]
+  ['parse_0',['parse',['../structCommand.xhtml#a42b42891b65fd8128f7ede52844dd5d2',1,'Command']]]
 ];

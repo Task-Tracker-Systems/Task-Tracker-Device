@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pintype_0',['PinType',['../framework__config_8hpp.xhtml#a8f084eabb88c2ccfb8dd92c6361befe6',1,'framework_config.hpp']]]
+  ['chartype_0',['CharType',['../namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e',1,'serial_port']]]
 ];

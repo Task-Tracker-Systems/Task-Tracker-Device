@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="structArgument.xhtml" target="_top" xlink:title=" ">
+<g id="a_node1"><a xlink:href="structArgument.xhtml" target="_top" xlink:title="Combines a command option with an argument.">
 <polygon fill="white" stroke="#666666" points="81,-19 0,-19 0,0 81,0 81,-19"/>
 <text text-anchor="middle" x="40.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Argument&lt; T &gt;</text>
 </a>
