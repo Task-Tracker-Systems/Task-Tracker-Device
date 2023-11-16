@@ -2,6 +2,7 @@
 #include <optional>
 #include <sstream>
 #include <string>
+#include <trim.hpp>
 #include <tuple>
 #include <vector>
 
@@ -57,39 +58,44 @@ struct Argument
     T extract(std::string &argumentsToExtract) const
     {
         // find an option label
-        auto startLabel = std::string::npos;
+        auto endLabel = std::string::npos; // points to the character next to the label
+        std::string::size_type startLabel;
         for (const auto label : labels)
         {
             startLabel = argumentsToExtract.find(label);
             if (startLabel != std::string::npos)
             {
+                endLabel = startLabel + label.size();
                 break;
             }
         }
-
-        // extract data
-        if (startLabel != std::string::npos)
+        if (endLabel == std::string::npos)
         {
-            constexpr const char *const seperator = " =,;";
-            const auto label_end = argumentsToExtract.find_first_of(seperator, startLabel + 1);
-            if (label_end != std::string::npos)
-            {
-                // everything behind the label and separator
-                auto remainer = argumentsToExtract.substr(label_end + 1);
-                // extracts an object of the given type from the beginning of the remaining string
-                const auto foundData = extractData<T>(remainer);
-                if (foundData)
-                {
-                    const auto preamble = argumentsToExtract.substr(0, startLabel);
-                    // the given string will be replaced by the substring before and after the extracted option
-                    argumentsToExtract = preamble + remainer;
-                    return foundData.value();
-                }
-            }
+            return defaultValue;
         }
 
-        return defaultValue;
+        // search for beginning of argument
+        constexpr const char *const separator = " =";
+        const auto beginArgument = argumentsToExtract.find_first_not_of(separator, endLabel);
+        if (beginArgument == std::string::npos)
+        {
+            return beginArgument;
+        }
+
+        // extract data
+        // everything behind the label and separator
+        auto remainder = trim(argumentsToExtract.substr(beginArgument));
+        // extracts an object of the given type from the beginning of the remaining string
+        const auto foundData = extractData<T>(remainder);
+        if (foundData)
+        {
+            const auto preamble = argumentsToExtract.substr(0, startLabel);
+            // the given string will be replaced by the substring before and after the extracted option
+            argumentsToExtract = preamble + remainder;
+            return foundData.value();
+        }
     }
+
     T defaultValue;
 };
 
