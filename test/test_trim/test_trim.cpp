@@ -23,11 +23,22 @@ void test_nothingToTrim()
     TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringFine.c_str());
 }
 
+void test_trimPrefix()
+{
+    const std::string stringExpected = "Hello World";
+    std::string stringWithFront = "\t " + stringExpected;
+
+    trim(stringWithFront);
+
+    TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringWithFront.c_str());
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
 
     RUN_TEST(test_nothingToTrim);
+    RUN_TEST(test_trimPrefix);
 
     UNITY_END();
 }
