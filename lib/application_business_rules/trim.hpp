@@ -14,7 +14,18 @@ SequenceT &ltrim(SequenceT &input, const std::locale &locale = std::locale())
 }
 
 template <typename SequenceT>
+SequenceT &rtrim(SequenceT &input, const std::locale &locale = std::locale())
+{
+    const auto end_trimmed = std::find_if(
+        std::rbegin(input),
+        std::rend(input),
+        [&](const auto ch) { return !std::isspace(ch, locale); });
+    input = SequenceT(std::begin(input), end_trimmed.base());
+    return input;
+}
+
+template <typename SequenceT>
 SequenceT &trim(SequenceT &input, const std::locale &locale = std::locale())
 {
-    return ltrim(input);
+    return rtrim(ltrim(input));
 }
