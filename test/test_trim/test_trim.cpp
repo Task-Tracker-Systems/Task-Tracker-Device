@@ -53,6 +53,16 @@ void test_trimWhitespaceOnly()
     TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringWhitespaces.c_str());
 }
 
+void test_trimSuffix()
+{
+    const std::string stringExpected = "Hello World";
+    std::string stringWhithSuffix = stringExpected + "\t \n \r ";
+
+    trim(stringWhithSuffix);
+
+    TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringWhithSuffix.c_str());
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
@@ -61,6 +71,7 @@ int main(int argc, char **argv)
     RUN_TEST(test_trimPrefix);
     RUN_TEST(test_trimEmpty);
     RUN_TEST(test_trimWhitespaceOnly);
+    RUN_TEST(test_trimSuffix);
 
     UNITY_END();
 }
