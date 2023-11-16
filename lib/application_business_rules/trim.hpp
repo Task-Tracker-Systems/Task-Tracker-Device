@@ -39,7 +39,13 @@ SequenceT &rtrim(SequenceT &input, const std::locale &locale = std::locale())
 }
 
 template <typename SequenceT>
-SequenceT &trim(SequenceT &&input, const std::locale &locale = std::locale())
+SequenceT trim(SequenceT &&input, const std::locale &locale = std::locale())
+{
+    return rtrim(ltrim(std::move(input)));
+}
+
+template <typename SequenceT>
+SequenceT &trim(SequenceT &input, const std::locale &locale = std::locale())
 {
     return rtrim(ltrim(input));
 }
