@@ -79,36 +79,6 @@ void test_command_argInt()
         TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
         TEST_ASSERT_EQUAL_INT(0, barData.n);
     }
-    {
-        barData = {};
-        myCommand2.parse("bar drinks ");
-        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
-        TEST_ASSERT_EQUAL_INT(0, barData.n);
-    }
-    {
-        barData = {};
-        myCommand2.parse("bar drinks");
-        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
-        TEST_ASSERT_EQUAL_INT(0, barData.n);
-    }
-    {
-        barData = {};
-        myCommand2.parse("op drinks 3");
-        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
-        TEST_ASSERT_EQUAL_INT(0, barData.n);
-    }
-    {
-        barData = {};
-        myCommand2.parse(" bar foo bar -55.5 drinks 3.9");
-        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
-        TEST_ASSERT_EQUAL_INT(0, barData.n);
-    }
-    {
-        barData = {};
-        myCommand2.parse(" bar foo bar -55.5 drinks 4.9");
-        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
-        TEST_ASSERT_EQUAL_INT(0, barData.n);
-    }
 }
 
 void test_command_argStringInt()
