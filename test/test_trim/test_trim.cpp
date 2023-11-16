@@ -63,6 +63,25 @@ void test_trimSuffix()
     TEST_ASSERT_EQUAL_STRING(stringExpected.c_str(), stringWhithSuffix.c_str());
 }
 
+void test_trimBoth()
+{
+    const std::string expected = "Hello World";
+    std::string padded = " \t " + expected + " \n ";
+
+    const std::string result = trim(padded);
+
+    TEST_ASSERT_EQUAL_STRING(expected.c_str(), result.c_str());
+    TEST_ASSERT_EQUAL_STRING(expected.c_str(), padded.c_str());
+}
+
+void test_trimRValue()
+{
+    const auto rvalueString = []() { return std::string("  Hello World  "); };
+    const std::string result = trim(rvalueString());
+
+    TEST_ASSERT_EQUAL_STRING("Hello World", result.c_str());
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
@@ -72,6 +91,8 @@ int main(int argc, char **argv)
     RUN_TEST(test_trimEmpty);
     RUN_TEST(test_trimWhitespaceOnly);
     RUN_TEST(test_trimSuffix);
+    RUN_TEST(test_trimBoth);
+    RUN_TEST(test_trimRValue);
 
     UNITY_END();
 }
