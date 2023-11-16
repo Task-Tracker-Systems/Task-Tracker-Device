@@ -67,7 +67,15 @@ void test_command_argInt()
     }
     {
         barData = {};
-        myCommand2.parse("bar drins 3");
+        try
+        {
+            myCommand2.parse("bar drins 3");
+            TEST_FAIL_MESSAGE("exception has not been thrown");
+        }
+        catch (const std::runtime_error &)
+        {
+        }
+
         TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
         TEST_ASSERT_EQUAL_INT(0, barData.n);
     }

@@ -1,5 +1,6 @@
 #include <cstring>
 #include <functional>
+#include <iostream>
 #include <optional>
 #include <sstream>
 #include <string>
@@ -18,7 +19,7 @@ template <typename DataType>
 std::optional<DataType> extractData(std::string &sentence)
 {
     std::istringstream istream(sentence);
-    std::ostringstream remainer;
+    std::ostringstream remainder;
     DataType data;
     // read object from string
     istream >> data;
@@ -27,9 +28,9 @@ std::optional<DataType> extractData(std::string &sentence)
     if (!istream.fail())
     {
         // copy the rest of the string
-        remainer << istream.rdbuf();
+        remainder << istream.rdbuf();
         // replace the given string with the remainder
-        sentence = remainer.str();
+        sentence = remainder.str();
         return data;
     }
 
@@ -129,24 +130,53 @@ struct Command
      * \retval true in case command was found and function called
      * @return false in case command was not found
      */
-    const bool parse(std::string commandToParse) const
+    bool parse(std::string commandToParse, ReturnType *const pReturnValue = nullptr) const
     {
-        const auto foundCommandName = extractData<std::string>(commandToParse);
-        if (foundCommandName)
+        std::cout << "Command to parse: '" << commandToParse << "'" << std::endl;
+        const auto someCommandNameFound = extractData<std::string>(commandToParse);
+        if (!someCommandNameFound)
         {
-            if (foundCommandName.value().compare(commandName) == 0)
-            {
-                // unpack the collection of parsers
-                std::apply(
-                    [&](auto &...argumentParser) {
-                        // call function after passing command through all parsers
-                        function(argumentParser->extract(commandToParse)...);
-                    },
-                    argumentParsers);
-                return true;
-            }
+            return false;
         }
-        return false;
+
+        if (someCommandNameFound.value().compare(commandName) != 0)
+        {
+            return false; // OK: apparently this command was not meant to be called
+        }
+
+        // unpack the collection of parsers
+        return std::apply(
+            [&](auto &...argumentParser) {
+                const std::tuple<const Arguments...> extractedArguments = {argumentParser->extract(commandToParse)...};
+                std::cout << "Rest of command = '" << commandToParse << "'" << std::endl;
+
+                // check if some part of the command string was invalid and thus not extracted
+                if (trim(commandToParse).length() > 0)
+                {
+                    throw std::runtime_error("invalid arguments to command");
+                    return false;
+                }
+
+                // call function after passing command through all parsers
+                const auto handler = [&]() { return std::apply(function, extractedArguments); };
+                if constexpr (!std::is_same_v<ReturnType, void>)
+                {
+                    if (pReturnValue)
+                    {
+                        *pReturnValue = handler();
+                    }
+                    else
+                    {
+                        handler();
+                    }
+                }
+                else
+                {
+                    handler();
+                }
+                return true;
+            },
+            argumentParsers);
     }
 };
 
