@@ -1,24 +1,25 @@
 #include <cstring>
-#include <cwchar>>
+#include <cwchar>
 #include <functional>
 #include <iomanip>
 #include <iostream>
+#include <iterator>
 #include <sstream>
 #include <stdexcept>
 #include <tuple>
 #include <vector>
 
 template <typename CharType>
-int gstrcmp(const CharType *const lhs, const CharType *const rhs);
+int strcmp_g(const CharType *const lhs, const CharType *const rhs);
 
 template <>
-int gstrcmp(const char *const lhs, const char *const rhs)
+int strcmp_g(const char *const lhs, const char *const rhs)
 {
     return std::strcmp(lhs, rhs);
 }
 
 template <>
-int gstrcmp(const wchar_t *const lhs, const wchar_t *const rhs)
+int strcmp_g(const wchar_t *const lhs, const wchar_t *const rhs)
 {
     return std::wcscmp(lhs, rhs);
 }
@@ -45,8 +46,8 @@ struct Option
      */
     bool doesMatchName(const CharT *const optionName) const
     {
-        return std::find_if(labels.begin(), labels.end(), [](const CharT *const candidate) {
-                   return gstrcmp(candidate, optionName) == 0;
+        return std::find_if(std::begin(labels), std::end(labels), [](const auto candidate) {
+                   return strcmp_g(candidate, optionName) == 0;
                }) != labels.end();
     }
 
@@ -97,10 +98,10 @@ struct Command
         // Iterate over each option and compare it against the full range of args (except the first one)
         for (const auto &option : options)
         {
-            const auto itAllOptions = std::next(args.begin()); // Skip the command name
+            const auto itAllOptions = std::next(std::begin(args)); // Skip the command name
 
             // Find the first matching argument in the command line
-            const auto argIt = std::find_if(itAllOptions, args.end(), [&option](const auto &arg) {
+            const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
                 return option.matches(arg);
             });
 
