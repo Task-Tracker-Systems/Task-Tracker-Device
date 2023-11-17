@@ -82,17 +82,16 @@ struct Command
      */
     // TODO add bool as return value to indicate success
     // TODO add pointer as parameter to return the return value of the handler is appropriate
-    void execute(const std::vector<std::basic_string<CharT>> &args) const
+    bool execute(const std::vector<std::basic_string<CharT>> &args, ReturnType *const retVal = nullptr) const
     {
         if (args.empty())
         {
-            std::cerr << "Invalid command line format." << std::endl;
-            return;
+            throw std::runtime_error("Invalid command line format.");
+            return false;
         }
         else if (args[0].compare(commandName) != 0)
         {
-            std::cerr << "Invalid command line format." << std::endl;
-            return;
+            return false;
         }
 
         // Iterate over each option and compare it against the full range of args (except the first one)
@@ -124,8 +123,26 @@ struct Command
         }
 
         // Call the command handler with the extracted arguments
-        // TODO is std::apply() necessary?
-        handler(options.argument...);
+        // call function after passing command through all parsers
+        const auto function = [&handler, &options]() { return std::apply(
+                                                           [&handler](const auto &...option) { handler(option.argument...) },
+                                                           options); };
+        if constexpr (!std::is_same_v<ReturnType, void>)
+        {
+            if (pReturnValue)
+            {
+                *pReturnValue = function();
+            }
+            else
+            {
+                function();
+            }
+        }
+        else
+        {
+            function();
+        }
+        return true;
     }
 };
 
