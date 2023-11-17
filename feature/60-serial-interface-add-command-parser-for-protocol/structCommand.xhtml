@@ -103,9 +103,9 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a934964afae7ace02a8df4845142544f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a934964afae7ace02a8df4845142544f1">execute</a> (const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;args) const</td></tr>
-<tr class="memdesc:a934964afae7ace02a8df4845142544f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command with the provided arguments.  <a href="structCommand.xhtml#a934964afae7ace02a8df4845142544f1">More...</a><br /></td></tr>
-<tr class="separator:a934964afae7ace02a8df4845142544f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a374ae8328fe75a9fd70113e2b1f2d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a1a374ae8328fe75a9fd70113e2b1f2d7">execute</a> (const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;args, ReturnType *const retVal=nullptr) const</td></tr>
+<tr class="memdesc:a1a374ae8328fe75a9fd70113e2b1f2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command with the provided arguments.  <a href="structCommand.xhtml#a1a374ae8328fe75a9fd70113e2b1f2d7">More...</a><br /></td></tr>
+<tr class="separator:a1a374ae8328fe75a9fd70113e2b1f2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -145,8 +145,8 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a934964afae7ace02a8df4845142544f1" name="a934964afae7ace02a8df4845142544f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a934964afae7ace02a8df4845142544f1">&#9670;&#160;</a></span>execute()</h2>
+<a id="a1a374ae8328fe75a9fd70113e2b1f2d7" name="a1a374ae8328fe75a9fd70113e2b1f2d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a374ae8328fe75a9fd70113e2b1f2d7">&#9670;&#160;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,11 +157,21 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::execute </td>
+          <td class="memname">bool <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::execute </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ReturnType *const&#160;</td>
+          <td class="paramname"><em>retVal</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -238,7 +248,7 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2023 17:48:53 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Fri Nov 17 2023 18:03:23 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
