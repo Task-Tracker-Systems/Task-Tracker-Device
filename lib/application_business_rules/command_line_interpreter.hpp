@@ -51,9 +51,29 @@ struct Option
                }) != labels.end();
     }
 
-    T argument;
     T defaultValue;
 };
+
+// Tokenize a string using std::quoted
+template <typename CharType>
+std::vector<std::basic_string<CharType>> tokenizeQuoted(const std::basic_string<CharType> &input)
+{
+    std::basic_stringstream<CharType> iss(input);
+    std::vector<std::basic_string<CharType>> tokens;
+
+    std::basic_string<CharType> token;
+    while (!iss.eof())
+    {
+        iss >> std::quoted(token);
+        if (iss.fail())
+        {
+            throw std::runtime_error("failed to tokenize string: '" + input + "'");
+        }
+        tokens.push_back(token);
+    }
+
+    return tokens;
+}
 
 /**
  * Combines a command with a function.
@@ -69,6 +89,7 @@ struct Command
 {
     typedef CharType CharT;
     const CharT *commandName;
+    // TODO check if we can use objects or references instead of pointers
     std::tuple<const Option<ArgTypes> *...> options;
     std::function<ReturnType(ArgTypes...)> handler;
 
@@ -82,8 +103,9 @@ struct Command
      */
     // TODO add bool as return value to indicate success
     // TODO add pointer as parameter to return the return value of the handler is appropriate
-    bool execute(const std::vector<std::basic_string<CharT>> &args, ReturnType *const pRetVal = nullptr) const
+    bool execute(const CharT *const commandLine, ReturnType *const pRetVal = nullptr) const
     {
+        const auto args = tokenizeQuoted(std::basic_string<CharT>(commandLine));
         if (args.empty())
         {
             throw std::runtime_error("Invalid command line format.");
@@ -95,32 +117,36 @@ struct Command
         }
 
         // Iterate over each option and compare it against the full range of args (except the first one)
-        for (const auto &option : options)
-        {
-            const auto itAllOptions = std::next(std::begin(args)); // Skip the command name
 
-            // Find the first matching argument in the command line
-            const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
-                return option.matches(arg);
-            });
+        // const auto retrieveArgument = ;
 
-            if (argIt != std::end(args))
-            {
-                // If a match is found, set the corresponding argument value
-                const auto &argValueString = *std::next(argIt);
-                std::basic_istringstream<CharT> iss(argValueString);
-                iss >> option.argument;
-                if (iss.fail())
+        const std::tuple<ArgTypes...> arguments = std::apply(
+            [&](auto &...option) {
+                const auto itAllOptions = std::next(std::begin(args)); // Skip the command name
+
+                // Find the first matching argument in the command line
+                const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
+                    return option.matches(arg);
+                });
+
+                if (argIt != std::end(args))
                 {
-                    throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
+                    // If a match is found, set the corresponding argument value
+                    const auto &argValueString = *std::next(argIt);
+                    std::basic_istringstream<CharT> iss(argValueString);
+                    iss >> option.argument;
+                    if (iss.fail())
+                    {
+                        throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
+                    }
                 }
-            }
-            else
-            {
-                // If no match is found, set the default value
-                option.argument = option.defaultValue;
-            }
-        }
+                else
+                {
+                    // If no match is found, set the default value
+                    option.argument = option.defaultValue;
+                }
+            },
+            options);
 
         // Call the command handler with the extracted arguments
         // call function after passing command through all parsers
@@ -146,27 +172,6 @@ struct Command
     }
 };
 
-// Tokenize a string using std::quoted
-template <typename CharType>
-std::vector<std::basic_string<CharType>> tokenizeQuoted(const std::basic_string<CharType> &input)
-{
-    std::basic_stringstream<CharType> iss(input);
-    std::vector<std::basic_string<CharType>> tokens;
-
-    std::basic_string<CharType> token;
-    while (!iss.eof())
-    {
-        iss >> std::quoted(token);
-        if (iss.fail())
-        {
-            throw std::runtime_error("failed to tokenize string: '" + input + "'");
-        }
-        tokens.push_back(token);
-    }
-
-    return tokens;
-}
-
 /**
  * Creates \ref Command object while deducing template arguments for its type.
  * 
@@ -181,7 +186,7 @@ std::vector<std::basic_string<CharType>> tokenizeQuoted(const std::basic_string<
  * \returns an object of \ref Command
  */
 template <typename CharType, typename ReturnType, typename... ArgTypes>
-Command<ReturnType, ArgTypes...> makeCommand(
+Command<CharType, ReturnType, ArgTypes...> makeCommand(
     const CharType *const commandName,
     const std::tuple<const Option<ArgTypes, CharType> *...> &options,
     const std::function<ReturnType(ArgTypes...)> &handler)
