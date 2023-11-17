@@ -27,28 +27,19 @@ CommandLine parseCommandLine(const std::string &commandLine)
 
     while (iss >> std::quoted(token))
     {
-        if (token.size() >= 3 && token.substr(0, 3) == "---")
-        {
-            // Found an option
-            Option option;
-            option.name = token.substr(3); // Extract option name
+        // The entire token is considered as the option name
+        Option option;
+        option.name = token;
 
-            // Check if there is an argument for the option
-            if (iss >> std::quoted(option.argument))
-            {
-                result.options.push_back(option);
-            }
-            else
-            {
-                // Missing argument for the option
-                std::cerr << "Missing argument for option: " << option.name << std::endl;
-                std::exit(1); // Exit with an error code
-            }
+        // Check if there is an argument for the option
+        if (iss >> std::quoted(option.argument))
+        {
+            result.options.push_back(option);
         }
         else
         {
-            // Invalid argument format
-            std::cerr << "Invalid argument format: " << token << std::endl;
+            // Missing argument for the option
+            std::cerr << "Missing argument for option: " << option.name << std::endl;
             std::exit(1); // Exit with an error code
         }
     }
