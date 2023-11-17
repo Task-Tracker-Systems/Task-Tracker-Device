@@ -105,7 +105,7 @@ struct Command
                 return option.matches(arg);
             });
 
-            if (argIt != args.end())
+            if (argIt != std::end(args))
             {
                 // If a match is found, set the corresponding argument value
                 const auto &argValueString = *std::next(argIt);
