@@ -1,107 +1,56 @@
 #include <cstring>
+#include <cwchar>>
 #include <functional>
+#include <iomanip>
 #include <iostream>
-#include <optional>
 #include <sstream>
-#include <string>
-#include <trim.hpp>
+#include <stdexcept>
 #include <tuple>
 #include <vector>
 
-/**
- * Reads and removes an object from a string.
- * 
- * \tparam DataType is the type of the object in question
- * \param sentence is the string to be inspected
- * \returns a container optionally holding the searched object
- */
-template <typename DataType>
-std::optional<DataType> extractData(std::string &sentence)
+template <typename CharType>
+int gstrcmp(const CharType *const lhs, const CharType *const rhs);
+
+template <>
+int gstrcmp(const char *const lhs, const char *const rhs)
 {
-    std::istringstream istream(sentence);
-    std::ostringstream remainder;
-    DataType data;
-    // read object from string
-    istream >> data;
+    return std::strcmp(lhs, rhs);
+}
 
-    // check if extraction was successful
-    if (!istream.fail())
-    {
-        // copy the rest of the string
-        remainder << istream.rdbuf();
-        // replace the given string with the remainder
-        sentence = remainder.str();
-        return data;
-    }
-
-    return std::nullopt;
+template <>
+int gstrcmp(const wchar_t *const lhs, const wchar_t *const rhs)
+{
+    return std::wcscmp(lhs, rhs);
 }
 
 /**
  * Combines a command option with an argument.
  * \tparam T is the type of the argument
  */
-template <class T>
-struct Argument
+template <class T, typename CharType = char>
+struct Option
 {
+    typedef CharType CharT;
+
     /**
      * Accepts a variety of notations for a command option.
      */
-    std::vector<const char *> labels;
+    std::vector<const CharT *> labels;
 
     /**
-     * Extracts an option from the string matching the argument.
-     * 
-     * Separator characters are allowed between the label and the actual value.
-     * 
-     * \param argumentsToExtract the string to be parsed; found option will be removed from string
-     * \return the found data from the option or the default value if not found
+     * Checks if the name matches one of the labels valid for this option.
+     * @param optionName the string to compare against
+     * @return true in case it matches one of the valid labels
+     * @return false else
      */
-    T extract(std::string &argumentsToExtract) const
+    bool doesMatchName(const CharT *const optionName) const
     {
-        // find an option label
-        auto endLabel = std::string::npos; // points to the character next to the label
-        std::string::size_type startLabel;
-        for (const auto label : labels)
-        {
-            startLabel = argumentsToExtract.find(label);
-            if (startLabel != std::string::npos)
-            {
-                endLabel = startLabel + std::strlen(label);
-                break;
-            }
-        }
-        if (endLabel == std::string::npos)
-        {
-            return defaultValue;
-        }
-
-        // search for beginning of argument
-        constexpr const char *const separator = " =";
-        const auto beginArgument = argumentsToExtract.find_first_not_of(separator, endLabel);
-        if (beginArgument == std::string::npos)
-        {
-            return defaultValue;
-        }
-
-        // extract data
-        // everything behind the label and separator
-        auto remainder = trim(argumentsToExtract.substr(beginArgument));
-        // extracts an object of the given type from the beginning of the remaining string
-        const auto foundData = extractData<T>(remainder);
-        if (foundData)
-        {
-            const auto preamble = argumentsToExtract.substr(0, startLabel);
-            // the given string will be replaced by the substring before and after the extracted option
-            argumentsToExtract = preamble + remainder;
-            return foundData.value();
-        }
-        else
-        {
-            return defaultValue;
-        }
+        return std::find_if(labels.begin(), labels.end(), [](const CharT *const candidate) {
+                   return gstrcmp(candidate, optionName) == 0;
+               }) != labels.end();
     }
 
+    T argument;
     T defaultValue;
 };
 
@@ -109,76 +58,96 @@ struct Argument
  * Combines a command with a function.
  * 
  * The order of the argument parsers must match the order of the 
- * parameters of the function.
+ * parameters of the handler.
  * 
- * \tparam ReturnType return type of the function
- * \tparam Arguments parameter types of the function
+ * \tparam ReturnType return type of the handler
+ * \tparam ArgTypes parameter types of the handler
  */
-template <typename ReturnType, typename... Arguments>
+template <typename CharType, typename ReturnType, typename... ArgTypes>
 struct Command
 {
-    const char *commandName;
-    std::tuple<const Argument<Arguments> *...> argumentParsers;
-    std::function<ReturnType(Arguments...)> function;
+    typedef CharType CharT;
+    const CharT *commandName;
+    std::tuple<const Option<ArgTypes> *...> options;
+    std::function<ReturnType(ArgTypes...)> handler;
 
     /**
-     * Parses a string and calls the function if command was found.
+     * Executes the command with the provided arguments.
      * 
      * The order of the arguments in the string does not matter.
      * 
-     * \param commandToParse Is the string to be interpreted.
-     * \retval true in case command was found and function called
+     * \retval true in case command was found and handler called
      * @return false in case command was not found
      */
-    bool parse(std::string commandToParse, ReturnType *const pReturnValue = nullptr) const
+    // TODO add bool as return value to indicate success
+    // TODO add pointer as parameter to return the return value of the handler is appropriate
+    void execute(const std::vector<std::basic_string<CharT>> &args) const
     {
-        std::cout << "Command to parse: '" << commandToParse << "'" << std::endl;
-        const auto someCommandNameFound = extractData<std::string>(commandToParse);
-        if (!someCommandNameFound)
+        if (args.empty())
         {
-            return false;
+            std::cerr << "Invalid command line format." << std::endl;
+            return;
+        }
+        else if (args[0].compare(commandName) != 0)
+        {
+            std::cerr << "Invalid command line format." << std::endl;
+            return;
         }
 
-        if (someCommandNameFound.value().compare(commandName) != 0)
+        // Iterate over each option and compare it against the full range of args (except the first one)
+        for (const auto &option : options)
         {
-            return false; // OK: apparently this command was not meant to be called
+            const auto itAllOptions = std::next(args.begin()); // Skip the command name
+
+            // Find the first matching argument in the command line
+            const auto argIt = std::find_if(itAllOptions, args.end(), [&option](const auto &arg) {
+                return option.matches(arg);
+            });
+
+            if (argIt != args.end())
+            {
+                // If a match is found, set the corresponding argument value
+                const auto &argValueString = *std::next(argIt);
+                std::basic_istringstream<CharT> iss(argValueString);
+                iss >> option.argument;
+                if (iss.fail())
+                {
+                    throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
+                }
+            }
+            else
+            {
+                // If no match is found, set the default value
+                option.argument = option.defaultValue;
+            }
         }
 
-        // unpack the collection of parsers
-        return std::apply(
-            [&](auto &...argumentParser) {
-                const std::tuple<const Arguments...> extractedArguments = {argumentParser->extract(commandToParse)...};
-                std::cout << "Rest of command = '" << commandToParse << "'" << std::endl;
-
-                // check if some part of the command string was invalid and thus not extracted
-                if (trim(commandToParse).length() > 0)
-                {
-                    throw std::runtime_error("invalid arguments to command");
-                    return false;
-                }
-
-                // call function after passing command through all parsers
-                const auto handler = [&]() { return std::apply(function, extractedArguments); };
-                if constexpr (!std::is_same_v<ReturnType, void>)
-                {
-                    if (pReturnValue)
-                    {
-                        *pReturnValue = handler();
-                    }
-                    else
-                    {
-                        handler();
-                    }
-                }
-                else
-                {
-                    handler();
-                }
-                return true;
-            },
-            argumentParsers);
+        // Call the command handler with the extracted arguments
+        // TODO is std::apply() necessary?
+        handler(options.argument...);
     }
 };
+
+// Tokenize a string using std::quoted
+template <typename CharType>
+std::vector<std::basic_string<CharType>> tokenizeQuoted(const std::basic_string<CharType> &input)
+{
+    std::basic_stringstream<CharType> iss(input);
+    std::vector<std::basic_string<CharType>> tokens;
+
+    std::basic_string<CharType> token;
+    while (!iss.eof())
+    {
+        iss >> std::quoted(token);
+        if (iss.fail())
+        {
+            throw std::runtime_error("failed to tokenize string: '" + input + "'");
+        }
+        tokens.push_back(token);
+    }
+
+    return tokens;
+}
 
 /**
  * Creates \ref Command object while deducing template arguments for its type.
@@ -186,23 +155,23 @@ struct Command
  * This is a helper function to deduce the type of the created object using the
  * types of the arguments to this function.
  * 
- * \tparam ReturnType is the return type of the function to be called
- * \tparam Arguments  are the parameters of the function to be called
+ * \tparam ReturnType is the return type of the handler to be called
+ * \tparam ArgTypes  are the parameters of the handler to be called
  * \param commandName is a string representing the name of the command
- * \param argumentParsers is a collection of parsers for extracting the arguments
- * \param function is the function to be called
+ * \param options is a collection of parsers for extracting the arguments
+ * \param handler is the handler to be called
  * \returns an object of \ref Command
  */
-template <typename ReturnType, typename... Arguments>
-Command<ReturnType, Arguments...> makeCommand(
-    const char *const commandName,
-    const std::tuple<const Argument<Arguments> *...> &argumentParsers,
-    const std::function<ReturnType(Arguments...)> &function)
+template <typename CharType, typename ReturnType, typename... ArgTypes>
+Command<ReturnType, ArgTypes...> makeCommand(
+    const CharType *const commandName,
+    const std::tuple<const Option<ArgTypes, CharType> *...> &options,
+    const std::function<ReturnType(ArgTypes...)> &handler)
 {
-    Command<ReturnType, Arguments...> command = {
+    Command<CharType, ReturnType, ArgTypes...> command = {
         .commandName = commandName,
-        .argumentParsers = argumentParsers,
-        .function = function,
+        .options = options,
+        .handler = handler,
     };
     return command;
 }
