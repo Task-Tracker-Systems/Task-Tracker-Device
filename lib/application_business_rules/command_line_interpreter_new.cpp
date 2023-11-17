@@ -74,7 +74,13 @@ class Command
             if (argIt != args.end())
             {
                 // If a match is found, set the corresponding argument value
-                std::istringstream(*std::next(argIt)) >> option.argument;
+                const auto &argValueString = *std::next(argIt);
+                std::istringstream iss(argValueString);
+                iss >> option.argument;
+                if (iss.fail())
+                {
+                    throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
+                }
             }
             else
             {
@@ -84,7 +90,8 @@ class Command
         }
 
         // Call the command handler with the extracted arguments
-        handler(std::get<ArgTypes>(options).argument...);
+        // TODO is std::apply() necessary
+        handler(options.argument...);
     }
 };
 
