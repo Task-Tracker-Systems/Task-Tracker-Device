@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -14,53 +15,17 @@ struct CommandLine
     std::vector<Option> options;
 };
 
-std::string unescapeString(const std::string &str)
-{
-    std::string result;
-    bool escape = false;
-
-    for (char ch : str)
-    {
-        if (escape)
-        {
-            // Handle escaped characters
-            if (ch == '\\' || ch == '\"')
-            {
-                result += ch;
-            }
-            else
-            {
-                // Invalid escape sequence, treat as a regular character
-                result += '\\';
-                result += ch;
-            }
-            escape = false;
-        }
-        else
-        {
-            if (ch == '\\')
-            {
-                escape = true;
-            }
-            else
-            {
-                result += ch;
-            }
-        }
-    }
-
-    return result;
-}
-
 CommandLine parseCommandLine(const std::string &commandLine)
 {
     CommandLine result;
 
     std::istringstream iss(commandLine);
     std::string token;
-    bool inQuotedString = false;
 
-    while (iss >> token)
+    // First token is the command
+    iss >> result.command;
+
+    while (iss >> std::quoted(token))
     {
         if (token.size() >= 3 && token.substr(0, 3) == "---")
         {
@@ -69,33 +34,16 @@ CommandLine parseCommandLine(const std::string &commandLine)
             option.name = token.substr(3); // Extract option name
 
             // Check if there is an argument for the option
-            if (iss >> token)
+            if (iss >> std::quoted(option.argument))
             {
-                // Handle quoted string
-                if (token.front() == '\"')
-                {
-                    inQuotedString = true;
-                    option.argument = token.substr(1); // Skip the opening quote
-                }
-                else
-                {
-                    option.argument = unescapeString(token);
-                }
-
-                // Continue reading tokens until the closing quote is found
-                while (inQuotedString && iss >> token)
-                {
-                    option.argument += " " + unescapeString(token);
-                    if (token.back() == '\"')
-                    {
-                        inQuotedString = false;
-                        option.argument.pop_back(); // Remove the closing quote
-                        break;
-                    }
-                }
+                result.options.push_back(option);
             }
-
-            result.options.push_back(option);
+            else
+            {
+                // Missing argument for the option
+                std::cerr << "Missing argument for option: " << option.name << std::endl;
+                std::exit(1); // Exit with an error code
+            }
         }
         else
         {
