@@ -7,7 +7,7 @@ var searchData=
   ['a5_4',['a5',['../namespacenote.xhtml#a856a7cabd7700a855966d307a328d396',1,'note']]],
   ['a6_5',['a6',['../namespacenote.xhtml#a7908e15aee357f4c333934adbad799b4',1,'note']]],
   ['a7_6',['a7',['../namespacenote.xhtml#a589257150b2dec4774a514f2a55cb00a',1,'note']]],
-  ['argumentparsers_7',['argumentParsers',['../structCommand.xhtml#a3df7bf99981ddbb5f02a0bfc600811c5',1,'Command']]],
+  ['argument_7',['argument',['../structOption.xhtml#aab55166a940c196836770a42286a714c',1,'Option']]],
   ['as1_8',['as1',['../namespacenote.xhtml#a4270dbc8083790d4920c3230f12d0878',1,'note']]],
   ['as2_9',['as2',['../namespacenote.xhtml#a98d7e8ce52208bc463bff371308a8299',1,'note']]],
   ['as3_10',['as3',['../namespacenote.xhtml#ae1060e02f67b2249bb17b957ec5415ce',1,'note']]],

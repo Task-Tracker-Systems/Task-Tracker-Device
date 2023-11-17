@@ -9,6 +9,5 @@ var searchData=
   ['e7_6',['e7',['../namespacenote.xhtml#afd5c5f45b3af02f9dda3abce955cee2f',1,'note']]],
   ['enter_7',['enter',['../namespaceboard_1_1button_1_1pin.xhtml#a90a7026c496310befdf7c4ddf92d91ad',1,'board::button::pin']]],
   ['enterprise_20business_20rules_8',['Enterprise Business Rules',['../enterprise_business_rules.xhtml',1,'md_doc_software_architecture']]],
-  ['extract_9',['extract',['../structArgument.xhtml#a35154593bc94e703c326d569f03aa375',1,'Argument']]],
-  ['extractdata_10',['extractData',['../command__line__interpreter_8hpp.xhtml#a866ff6a8cb348f3cc3bbc2ac17ccd735',1,'command_line_interpreter.hpp']]]
+  ['execute_9',['execute',['../structCommand.xhtml#a934964afae7ace02a8df4845142544f1',1,'Command']]]
 ];

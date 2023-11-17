@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['programidentificationstring_0',['programIdentificationString',['../time-tracker_8ino.xhtml#a2b95c44e365489a256863888655ac8f8',1,'time-tracker.ino']]]
+  ['on_5foff_0',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]],
+  ['options_1',['options',['../structCommand.xhtml#aaac0260156b4de212c8832083129a1bb',1,'Command']]]
 ];

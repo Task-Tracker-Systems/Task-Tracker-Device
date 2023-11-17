@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['labels_0',['labels',['../structArgument.xhtml#a09a6664568fba292ee7ea5ac90922b3d',1,'Argument']]]
+  ['handler_0',['handler',['../structCommand.xhtml#a1224661faffda938684cccc71bacd589',1,'Command']]]
 ];

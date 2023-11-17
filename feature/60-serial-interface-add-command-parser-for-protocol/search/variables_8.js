@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['on_5foff_0',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]]
+  ['labels_0',['labels',['../structOption.xhtml#a9cbcb843704dad341f93fb91199a2c88',1,'Option']]]
 ];

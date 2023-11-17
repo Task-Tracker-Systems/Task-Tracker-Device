@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['argument_0',['Argument',['../structArgument.xhtml',1,'']]]
+  ['command_0',['Command',['../structCommand.xhtml',1,'']]]
 ];

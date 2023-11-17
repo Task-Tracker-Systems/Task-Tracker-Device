@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Task Tracker: Command&lt; ReturnType, Arguments &gt; Struct Template Reference</title>
+<title>Task Tracker: Command&lt; CharType, ReturnType, ArgTypes &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,10 +77,11 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structCommand-members.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Command&lt; ReturnType, Arguments &gt; Struct Template Reference</div></div>
+  <div class="headertitle"><div class="title">Command&lt; CharType, ReturnType, ArgTypes &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -89,55 +90,77 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="command__line__interpreter_8hpp_source.xhtml">command_line_interpreter.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for Command&lt; ReturnType, Arguments &gt;:</div>
+Collaboration diagram for Command&lt; CharType, ReturnType, ArgTypes &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structCommand__coll__graph.svg" width="178" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structCommand__coll__graph.svg" width="175" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aaf9339bf1c86918161c0f6413b0b546e"><td class="memItemLeft" align="right" valign="top">typedef CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a></td></tr>
+<tr class="separator:aaf9339bf1c86918161c0f6413b0b546e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a42b42891b65fd8128f7ede52844dd5d2"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a42b42891b65fd8128f7ede52844dd5d2">parse</a> (std::string commandToParse) const</td></tr>
-<tr class="memdesc:a42b42891b65fd8128f7ede52844dd5d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string and calls the function if command was found.  <a href="structCommand.xhtml#a42b42891b65fd8128f7ede52844dd5d2">More...</a><br /></td></tr>
-<tr class="separator:a42b42891b65fd8128f7ede52844dd5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934964afae7ace02a8df4845142544f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a934964afae7ace02a8df4845142544f1">execute</a> (const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;args) const</td></tr>
+<tr class="memdesc:a934964afae7ace02a8df4845142544f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command with the provided arguments.  <a href="structCommand.xhtml#a934964afae7ace02a8df4845142544f1">More...</a><br /></td></tr>
+<tr class="separator:a934964afae7ace02a8df4845142544f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ade08593269c6bcf6dc2ec78ff726ef57"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#ade08593269c6bcf6dc2ec78ff726ef57">commandName</a></td></tr>
-<tr class="separator:ade08593269c6bcf6dc2ec78ff726ef57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3df7bf99981ddbb5f02a0bfc600811c5"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; const <a class="el" href="structArgument.xhtml">Argument</a>&lt; Arguments &gt; *... &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a3df7bf99981ddbb5f02a0bfc600811c5">argumentParsers</a></td></tr>
-<tr class="separator:a3df7bf99981ddbb5f02a0bfc600811c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9219bdda2729db89f216f28be7a78424"><td class="memItemLeft" align="right" valign="top">std::function&lt; ReturnType(Arguments...)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a9219bdda2729db89f216f28be7a78424">function</a></td></tr>
-<tr class="separator:a9219bdda2729db89f216f28be7a78424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bfc3a6d27c2609b087ee3d48654b68"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#ad2bfc3a6d27c2609b087ee3d48654b68">commandName</a></td></tr>
+<tr class="separator:ad2bfc3a6d27c2609b087ee3d48654b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac0260156b4de212c8832083129a1bb"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgTypes &gt; *... &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#aaac0260156b4de212c8832083129a1bb">options</a></td></tr>
+<tr class="separator:aaac0260156b4de212c8832083129a1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1224661faffda938684cccc71bacd589"><td class="memItemLeft" align="right" valign="top">std::function&lt; ReturnType(ArgTypes...)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a1224661faffda938684cccc71bacd589">handler</a></td></tr>
+<tr class="separator:a1224661faffda938684cccc71bacd589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnType, typename... Arguments&gt;<br />
-struct Command&lt; ReturnType, Arguments &gt;</div><p >Combines a command with a function. </p>
-<p >The order of the argument parsers must match the order of the parameters of the function.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename CharType, typename ReturnType, typename... ArgTypes&gt;<br />
+struct Command&lt; CharType, ReturnType, ArgTypes &gt;</div><p >Combines a command with a function. </p>
+<p >The order of the argument parsers must match the order of the parameters of the handler.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">ReturnType</td><td>return type of the function </td></tr>
-    <tr><td class="paramname">Arguments</td><td>parameter types of the function </td></tr>
+    <tr><td class="paramname">ReturnType</td><td>return type of the handler </td></tr>
+    <tr><td class="paramname">ArgTypes</td><td>parameter types of the handler </td></tr>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a42b42891b65fd8128f7ede52844dd5d2" name="a42b42891b65fd8128f7ede52844dd5d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42b42891b65fd8128f7ede52844dd5d2">&#9670;&#160;</a></span>parse()</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aaf9339bf1c86918161c0f6413b0b546e" name="aaf9339bf1c86918161c0f6413b0b546e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9339bf1c86918161c0f6413b0b546e">&#9670;&#160;</a></span>CharT</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ReturnType , typename... Arguments&gt; </div>
+template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef CharType <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::CharT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a934964afae7ace02a8df4845142544f1" name="a934964afae7ace02a8df4845142544f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934964afae7ace02a8df4845142544f1">&#9670;&#160;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="structCommand.xhtml">Command</a>&lt; ReturnType, Arguments &gt;::parse </td>
+          <td class="memname">void <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::execute </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>commandToParse</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -148,17 +171,11 @@ template&lt;typename ReturnType , typename... Arguments&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Parses a string and calls the function if command was found. </p>
+<p>Executes the command with the provided arguments. </p>
 <p >The order of the arguments in the string does not matter.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">commandToParse</td><td>Is the string to be interpreted. </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">true</td><td>in case command was found and function called </td></tr>
+    <tr><td class="paramname">true</td><td>in case command was found and handler called </td></tr>
   </table>
   </dd>
 </dl>
@@ -167,48 +184,48 @@ template&lt;typename ReturnType , typename... Arguments&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3df7bf99981ddbb5f02a0bfc600811c5" name="a3df7bf99981ddbb5f02a0bfc600811c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3df7bf99981ddbb5f02a0bfc600811c5">&#9670;&#160;</a></span>argumentParsers</h2>
+<a id="ad2bfc3a6d27c2609b087ee3d48654b68" name="ad2bfc3a6d27c2609b087ee3d48654b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2bfc3a6d27c2609b087ee3d48654b68">&#9670;&#160;</a></span>commandName</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ReturnType , typename... Arguments&gt; </div>
+template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt;const <a class="el" href="structArgument.xhtml">Argument</a>&lt;Arguments&gt; *...&gt; <a class="el" href="structCommand.xhtml">Command</a>&lt; ReturnType, Arguments &gt;::argumentParsers</td>
+          <td class="memname">const <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a>* <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::commandName</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ade08593269c6bcf6dc2ec78ff726ef57" name="ade08593269c6bcf6dc2ec78ff726ef57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade08593269c6bcf6dc2ec78ff726ef57">&#9670;&#160;</a></span>commandName</h2>
+<a id="a1224661faffda938684cccc71bacd589" name="a1224661faffda938684cccc71bacd589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1224661faffda938684cccc71bacd589">&#9670;&#160;</a></span>handler</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ReturnType , typename... Arguments&gt; </div>
+template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const char* <a class="el" href="structCommand.xhtml">Command</a>&lt; ReturnType, Arguments &gt;::commandName</td>
+          <td class="memname">std::function&lt;ReturnType(ArgTypes...)&gt; <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9219bdda2729db89f216f28be7a78424" name="a9219bdda2729db89f216f28be7a78424"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9219bdda2729db89f216f28be7a78424">&#9670;&#160;</a></span>function</h2>
+<a id="aaac0260156b4de212c8832083129a1bb" name="aaac0260156b4de212c8832083129a1bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac0260156b4de212c8832083129a1bb">&#9670;&#160;</a></span>options</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ReturnType , typename... Arguments&gt; </div>
+template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;ReturnType(Arguments...)&gt; <a class="el" href="structCommand.xhtml">Command</a>&lt; ReturnType, Arguments &gt;::function</td>
+          <td class="memname">std::tuple&lt;const <a class="el" href="structOption.xhtml">Option</a>&lt;ArgTypes&gt; *...&gt; <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::options</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -221,7 +238,7 @@ template&lt;typename ReturnType , typename... Arguments&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 16 2023 11:17:06 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Fri Nov 17 2023 17:48:53 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

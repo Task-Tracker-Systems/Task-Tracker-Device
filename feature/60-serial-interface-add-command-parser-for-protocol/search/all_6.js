@@ -16,6 +16,5 @@ var searchData=
   ['fs4_13',['fs4',['../namespacenote.xhtml#ac24035d566718fe7b530514b6bf9fab5',1,'note']]],
   ['fs5_14',['fs5',['../namespacenote.xhtml#a04ef8a5f987201b9e9d8100cf4401ab6',1,'note']]],
   ['fs6_15',['fs6',['../namespacenote.xhtml#a1b4fc08db23182354566813672f085e3',1,'note']]],
-  ['fs7_16',['fs7',['../namespacenote.xhtml#a35af22cad2c26133b81ae1e5fb302f85',1,'note']]],
-  ['function_17',['function',['../structCommand.xhtml#a9219bdda2729db89f216f28be7a78424',1,'Command']]]
+  ['fs7_16',['fs7',['../namespacenote.xhtml#a35af22cad2c26133b81ae1e5fb302f85',1,'note']]]
 ];

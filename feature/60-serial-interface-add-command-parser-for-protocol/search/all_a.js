@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['labels_0',['labels',['../structArgument.xhtml#a09a6664568fba292ee7ea5ac90922b3d',1,'Argument']]],
+  ['labels_0',['labels',['../structOption.xhtml#a9cbcb843704dad341f93fb91199a2c88',1,'Option']]],
   ['license_1',['LICENSE',['../md_LICENSE.xhtml',1,'']]],
   ['license_2emd_2',['LICENSE.md',['../LICENSE_8md.xhtml',1,'']]],
   ['loop_3',['loop',['../time-tracker_8ino.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;time-tracker.ino'],['../namespacemain.xhtml#aa018644f5f4d7111540bb4777634ec42',1,'main::loop()']]],
-  ['ltrim_4',['ltrim',['../trim_8hpp.xhtml#a3feaab52cc7380c0c9146c0796746c0f',1,'trim.hpp']]],
+  ['ltrim_4',['ltrim',['../trim_8hpp.xhtml#a776dd7542163409f7e662efd46c562d4',1,'ltrim(SequenceT &amp;&amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp'],['../trim_8hpp.xhtml#a3feaab52cc7380c0c9146c0796746c0f',1,'ltrim(SequenceT &amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp']]],
   ['lv_5fassert_5fhandler_5',['LV_ASSERT_HANDLER',['../lv__conf_8h.xhtml#a7f89929bee5e1d1f3047b6fc57723602',1,'lv_conf.h']]],
   ['lv_5fassert_5fhandler_5finclude_6',['LV_ASSERT_HANDLER_INCLUDE',['../lv__conf_8h.xhtml#aa4d75719785838a72b61c58e920fc8f8',1,'lv_conf.h']]],
   ['lv_5fattribute_5fdma_7',['LV_ATTRIBUTE_DMA',['../lv__conf_8h.xhtml#ad75bbb40b927ad7efa7231d3625672b1',1,'lv_conf.h']]],
