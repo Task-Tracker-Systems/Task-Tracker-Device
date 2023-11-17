@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 #include <vector>
 
 struct Option
@@ -39,8 +40,7 @@ CommandLine parseCommandLine(const std::string &commandLine)
         else
         {
             // Missing argument for the option
-            std::cerr << "Missing argument for option: " << option.name << std::endl;
-            std::exit(1); // Exit with an error code
+            throw std::runtime_error("Missing argument for option: " + option.name);
         }
     }
 
@@ -49,17 +49,25 @@ CommandLine parseCommandLine(const std::string &commandLine)
 
 int main()
 {
-    // Example of receiving the command line as a single string
-    std::string commandLine = "command ---option1 arg1 ---option2 \"arg with spaces\"";
-
-    CommandLine cmdLine = parseCommandLine(commandLine);
-
-    // Print the parsed command and options
-    std::cout << "Command: " << cmdLine.command << std::endl;
-    std::cout << "Options:" << std::endl;
-    for (const auto &option : cmdLine.options)
+    try
     {
-        std::cout << "  Name: " << option.name << ", Argument: " << option.argument << std::endl;
+        // Example of receiving the command line as a single string
+        std::string commandLine = "command ---option1 arg1 ---option2 \"arg with spaces\"";
+        CommandLine cmdLine = parseCommandLine(commandLine);
+
+        // Print the parsed command and options
+        std::cout << "Command: " << cmdLine.command << std::endl;
+        std::cout << "Options:" << std::endl;
+        for (const auto &option : cmdLine.options)
+        {
+            std::cout << "  Name: " << option.name << ", Argument: " << option.argument << std::endl;
+        }
+    }
+    catch (const std::runtime_error &e)
+    {
+        // Handle the missing argument exception
+        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Correct format: command ---option1 arg1 ---option2 \"arg with spaces\"" << std::endl;
     }
 
     return 0;
