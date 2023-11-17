@@ -53,6 +53,8 @@ class Command
     }
 
     // Execute the command with the provided arguments
+    // TODO add bool as return value to indicate success
+    // TODO add pointer as parameter to return the return value of the handler is appropriate
     void execute(const std::vector<std::string> &args) const
     {
         if (args.empty() || args[0] != name)
