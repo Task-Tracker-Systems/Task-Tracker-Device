@@ -46,7 +46,7 @@ struct Option
      */
     bool doesMatchName(const CharT *const optionName) const
     {
-        return std::find_if(std::begin(labels), std::end(labels), [](const auto candidate) {
+        return std::find_if(std::begin(labels), std::end(labels), [&optionName](const auto candidate) {
                    return strcmp_g(candidate, optionName) == 0;
                }) != labels.end();
     }
@@ -82,7 +82,7 @@ struct Command
      */
     // TODO add bool as return value to indicate success
     // TODO add pointer as parameter to return the return value of the handler is appropriate
-    bool execute(const std::vector<std::basic_string<CharT>> &args, ReturnType *const retVal = nullptr) const
+    bool execute(const std::vector<std::basic_string<CharT>> &args, ReturnType *const pRetVal = nullptr) const
     {
         if (args.empty())
         {
@@ -124,14 +124,14 @@ struct Command
 
         // Call the command handler with the extracted arguments
         // call function after passing command through all parsers
-        const auto function = [&handler, &options]() { return std::apply(
-                                                           [&handler](const auto &...option) { handler(option.argument...) },
-                                                           options); };
+        const auto function = [this]() { return std::apply(
+                                             [this](const auto &...option) { return handler(option.argument...); },
+                                             options); };
         if constexpr (!std::is_same_v<ReturnType, void>)
         {
-            if (pReturnValue)
+            if (pRetVal)
             {
-                *pReturnValue = function();
+                *pRetVal = function();
             }
             else
             {
