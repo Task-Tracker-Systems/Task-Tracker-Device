@@ -90,8 +90,39 @@ struct Command
     typedef CharType CharT;
     const CharT *commandName;
     // TODO check if we can use objects or references instead of pointers
-    std::tuple<const Option<ArgTypes> *...> options;
+    std::tuple<const Option<ArgTypes, CharT> *...> options;
     std::function<ReturnType(ArgTypes...)> handler;
+
+    template <class ArgumentType>
+    static ArgumentType getArgument(const Option<ArgumentType, CharT> &option,
+                                    const std::vector<std::basic_string<CharT>> &args)
+    {
+        const auto itAllOptions = std::next(std::begin(args)); // Skip the command name
+
+        // Find the first matching argument in the command line
+        const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
+            return option.matches(arg);
+        });
+
+        if (argIt != std::end(args))
+        {
+            // If a match is found, set the corresponding argument value
+            const auto &argValueString = *std::next(argIt);
+            std::basic_istringstream<CharT> iss(argValueString);
+            ArgumentType argument;
+            iss >> argument;
+            if (iss.fail())
+            {
+                throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
+            }
+            return argument;
+        }
+        else
+        {
+            // If no match is found, set the default value
+            return option.defaultValue;
+        }
+    }
 
     /**
      * Executes the command with the provided arguments.
@@ -117,42 +148,18 @@ struct Command
         }
 
         // Iterate over each option and compare it against the full range of args (except the first one)
-
-        // const auto retrieveArgument = ;
-
-        const std::tuple<ArgTypes...> arguments = std::apply(
-            [&](auto &...option) {
-                const auto itAllOptions = std::next(std::begin(args)); // Skip the command name
-
-                // Find the first matching argument in the command line
-                const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
-                    return option.matches(arg);
-                });
-
-                if (argIt != std::end(args))
-                {
-                    // If a match is found, set the corresponding argument value
-                    const auto &argValueString = *std::next(argIt);
-                    std::basic_istringstream<CharT> iss(argValueString);
-                    iss >> option.argument;
-                    if (iss.fail())
-                    {
-                        throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
-                    }
-                }
-                else
-                {
-                    // If no match is found, set the default value
-                    option.argument = option.defaultValue;
-                }
+        const auto arguments = std::apply(
+            [&](const auto &...option) {
+                return std::make_tuple(getArgument(option, args)...);
             },
             options);
 
         // Call the command handler with the extracted arguments
-        // call function after passing command through all parsers
-        const auto function = [this]() { return std::apply(
-                                             [this](const auto &...option) { return handler(option.argument...); },
-                                             options); };
+        const auto function = [this, &arguments]() { return std::apply(
+                                                         [this](const auto &...argument) {
+                                                             return handler(argument...);
+                                                         },
+                                                         arguments); };
         if constexpr (!std::is_same_v<ReturnType, void>)
         {
             if (pRetVal)
