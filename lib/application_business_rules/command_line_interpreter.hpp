@@ -89,7 +89,7 @@ struct Command
 {
     typedef CharType CharT;
     const CharT *commandName;
-    // TODO check if we can use objects or references instead of pointers
+    // TODO check if we can use objects or reference_wrapper instead of pointers
     std::tuple<const Option<ArgTypes, CharT> *...> options;
     std::function<ReturnType(ArgTypes...)> handler;
 
@@ -101,7 +101,7 @@ struct Command
 
         // Find the first matching argument in the command line
         const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
-            return option.matches(arg);
+            return option.doesMatchName(arg.c_str());
         });
 
         if (argIt != std::end(args))
@@ -113,7 +113,7 @@ struct Command
             iss >> argument;
             if (iss.fail())
             {
-                throw std::runtime_error("argument to option " + option.name + " could not be parsed: '" + argValueString + "'");
+                throw std::runtime_error("argument to option " + std::basic_string<CharT>(option.labels[0]) + " could not be parsed: '" + argValueString + "'");
             }
             return argument;
         }
@@ -150,9 +150,11 @@ struct Command
         // Iterate over each option and compare it against the full range of args (except the first one)
         const auto arguments = std::apply(
             [&](const auto &...option) {
-                return std::make_tuple(getArgument(option, args)...);
+                return std::make_tuple(getArgument(*option, args)...);
             },
             options);
+
+        // TODO: remove extracted arguments from list and check at the and if some token has not been evaluated
 
         // Call the command handler with the extracted arguments
         const auto function = [this, &arguments]() { return std::apply(
