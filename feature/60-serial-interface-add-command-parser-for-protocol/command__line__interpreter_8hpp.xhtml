@@ -134,14 +134,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
 <tr class="memitem:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::basic_string&lt; CharType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="command__line__interpreter_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">tokenizeQuoted</a> (const std::basic_string&lt; CharType &gt; &amp;input)</td></tr>
 <tr class="separator:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f1c23a3150f191f4197cc3b96042a42"><td class="memTemplParams" colspan="2">template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </td></tr>
-<tr class="memitem:a3f1c23a3150f191f4197cc3b96042a42"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structCommand.xhtml">Command</a>&lt; ReturnType, ArgTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="command__line__interpreter_8hpp.xhtml#a3f1c23a3150f191f4197cc3b96042a42">makeCommand</a> (const CharType *const commandName, const std::tuple&lt; const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgTypes, CharType &gt; *... &gt; &amp;options, const std::function&lt; ReturnType(ArgTypes...)&gt; &amp;handler)</td></tr>
-<tr class="memdesc:a3f1c23a3150f191f4197cc3b96042a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structCommand.xhtml">Command</a> object while deducing template arguments for its type.  <a href="command__line__interpreter_8hpp.xhtml#a3f1c23a3150f191f4197cc3b96042a42">More...</a><br /></td></tr>
-<tr class="separator:a3f1c23a3150f191f4197cc3b96042a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b51056193e60dc3ad3d326fc0b153e"><td class="memTemplParams" colspan="2">template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </td></tr>
+<tr class="memitem:a53b51056193e60dc3ad3d326fc0b153e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="command__line__interpreter_8hpp.xhtml#a53b51056193e60dc3ad3d326fc0b153e">makeCommand</a> (const CharType *const commandName, const std::tuple&lt; const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgTypes, CharType &gt; *... &gt; &amp;options, const std::function&lt; ReturnType(ArgTypes...)&gt; &amp;handler)</td></tr>
+<tr class="memdesc:a53b51056193e60dc3ad3d326fc0b153e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structCommand.xhtml">Command</a> object while deducing template arguments for its type.  <a href="command__line__interpreter_8hpp.xhtml#a53b51056193e60dc3ad3d326fc0b153e">More...</a><br /></td></tr>
+<tr class="separator:a53b51056193e60dc3ad3d326fc0b153e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3f1c23a3150f191f4197cc3b96042a42" name="a3f1c23a3150f191f4197cc3b96042a42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f1c23a3150f191f4197cc3b96042a42">&#9670;&#160;</a></span>makeCommand()</h2>
+<a id="a53b51056193e60dc3ad3d326fc0b153e" name="a53b51056193e60dc3ad3d326fc0b153e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b51056193e60dc3ad3d326fc0b153e">&#9670;&#160;</a></span>makeCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +149,7 @@ Functions</h2></td></tr>
 template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCommand.xhtml">Command</a>&lt; ReturnType, ArgTypes... &gt; makeCommand </td>
+          <td class="memname"><a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes... &gt; makeCommand </td>
           <td>(</td>
           <td class="paramtype">const CharType *const&#160;</td>
           <td class="paramname"><em>commandName</em>, </td>
@@ -308,7 +308,7 @@ template&lt;typename CharType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2023 18:14:46 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Nov 19 2023 12:36:49 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

@@ -79,6 +79,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structCommand-members.xhtml">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Command&lt; CharType, ReturnType, ArgTypes &gt; Struct Template Reference</div></div>
@@ -92,7 +93,7 @@ $(function() {
 <div class="dynheader">
 Collaboration diagram for Command&lt; CharType, ReturnType, ArgTypes &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structCommand__coll__graph.svg" width="175" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structCommand__coll__graph.svg" width="175" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -103,16 +104,22 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86cca230c6c5d7dd224ac600390d1198"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a86cca230c6c5d7dd224ac600390d1198">execute</a> (const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;args, ReturnType *const pRetVal=nullptr) const</td></tr>
-<tr class="memdesc:a86cca230c6c5d7dd224ac600390d1198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command with the provided arguments.  <a href="structCommand.xhtml#a86cca230c6c5d7dd224ac600390d1198">More...</a><br /></td></tr>
-<tr class="separator:a86cca230c6c5d7dd224ac600390d1198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd06f186311bbdcc3def917cc0ea6f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a7fd06f186311bbdcc3def917cc0ea6f0">execute</a> (const <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> *const commandLine, ReturnType *const pRetVal=nullptr) const</td></tr>
+<tr class="memdesc:a7fd06f186311bbdcc3def917cc0ea6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command with the provided arguments.  <a href="structCommand.xhtml#a7fd06f186311bbdcc3def917cc0ea6f0">More...</a><br /></td></tr>
+<tr class="separator:a7fd06f186311bbdcc3def917cc0ea6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:acaf448d0346143172f19d16643bc62a6"><td class="memTemplParams" colspan="2">template&lt;class ArgumentType &gt; </td></tr>
+<tr class="memitem:acaf448d0346143172f19d16643bc62a6"><td class="memTemplItemLeft" align="right" valign="top">static ArgumentType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#acaf448d0346143172f19d16643bc62a6">extractArgument</a> (const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgumentType, <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &amp;option, std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;args)</td></tr>
+<tr class="separator:acaf448d0346143172f19d16643bc62a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad2bfc3a6d27c2609b087ee3d48654b68"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#ad2bfc3a6d27c2609b087ee3d48654b68">commandName</a></td></tr>
 <tr class="separator:ad2bfc3a6d27c2609b087ee3d48654b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaac0260156b4de212c8832083129a1bb"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgTypes &gt; *... &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#aaac0260156b4de212c8832083129a1bb">options</a></td></tr>
-<tr class="separator:aaac0260156b4de212c8832083129a1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f0c3407c0610a0b882687168b534bf"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgTypes, <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; *... &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#aa7f0c3407c0610a0b882687168b534bf">options</a></td></tr>
+<tr class="separator:aa7f0c3407c0610a0b882687168b534bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1224661faffda938684cccc71bacd589"><td class="memItemLeft" align="right" valign="top">std::function&lt; ReturnType(ArgTypes...)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.xhtml#a1224661faffda938684cccc71bacd589">handler</a></td></tr>
 <tr class="separator:a1224661faffda938684cccc71bacd589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -145,8 +152,8 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a86cca230c6c5d7dd224ac600390d1198" name="a86cca230c6c5d7dd224ac600390d1198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86cca230c6c5d7dd224ac600390d1198">&#9670;&#160;</a></span>execute()</h2>
+<a id="a7fd06f186311bbdcc3def917cc0ea6f0" name="a7fd06f186311bbdcc3def917cc0ea6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd06f186311bbdcc3def917cc0ea6f0">&#9670;&#160;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,8 +166,8 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
         <tr>
           <td class="memname">bool <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::execute </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>args</em>, </td>
+          <td class="paramtype">const <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> *const&#160;</td>
+          <td class="paramname"><em>commandLine</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -190,6 +197,46 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>false in case command was not found </dd></dl>
+
+</div>
+</div>
+<a id="acaf448d0346143172f19d16643bc62a6" name="acaf448d0346143172f19d16643bc62a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaf448d0346143172f19d16643bc62a6">&#9670;&#160;</a></span>extractArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
+<div class="memtemplate">
+template&lt;class ArgumentType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ArgumentType <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::extractArgument </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structOption.xhtml">Option</a>&lt; ArgumentType, <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>option</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::basic_string&lt; <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -226,8 +273,8 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 
 </div>
 </div>
-<a id="aaac0260156b4de212c8832083129a1bb" name="aaac0260156b4de212c8832083129a1bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaac0260156b4de212c8832083129a1bb">&#9670;&#160;</a></span>options</h2>
+<a id="aa7f0c3407c0610a0b882687168b534bf" name="aa7f0c3407c0610a0b882687168b534bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f0c3407c0610a0b882687168b534bf">&#9670;&#160;</a></span>options</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +282,7 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt;const <a class="el" href="structOption.xhtml">Option</a>&lt;ArgTypes&gt; *...&gt; <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::options</td>
+          <td class="memname">std::tuple&lt;const <a class="el" href="structOption.xhtml">Option</a>&lt;ArgTypes, <a class="el" href="structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e">CharT</a>&gt; *...&gt; <a class="el" href="structCommand.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes &gt;::options</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -248,7 +295,7 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2023 18:14:46 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Nov 19 2023 12:36:49 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
