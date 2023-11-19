@@ -55,8 +55,10 @@ void test_command_argInt()
     const auto myCommand2 = makeCommand("bar", std::make_tuple(&barArg), std::function(bar));
     {
         barData = {};
-        myCommand2.execute("bar drinks 3");
-        TEST_ASSERT_EQUAL_UINT(1, barData.timesCalled);
+        constexpr auto command = "bar drinks 3";
+        myCommand2.execute(command);
+        std::string msg = "function not called for command ";
+        TEST_ASSERT_EQUAL_UINT_MESSAGE(1, barData.timesCalled, (msg + command).c_str());
         TEST_ASSERT_EQUAL_INT(3, barData.n);
     }
     {
