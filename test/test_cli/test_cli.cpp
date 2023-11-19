@@ -24,11 +24,6 @@ static void foo()
     fooData.timesCalled++;
 }
 
-static void two(const std::string s, const int n)
-{
-    std::cout << "Two: " << n << " " << s << std::endl;
-}
-
 void test_command_argVoid()
 {
     const auto myCommand = makeCommand("operate", std::make_tuple(), std::function(foo));
@@ -83,12 +78,32 @@ void test_command_argInt()
     }
 }
 
+static struct
+{
+    std::size_t timesCalled;
+    std::string s;
+    int n;
+} twoData;
+
+static void two(const std::string s, const int n)
+{
+    twoData.timesCalled++;
+    twoData.s = s;
+    twoData.n = n;
+}
+
 void test_command_argStringInt()
 {
     const Option<std::string> object = {.labels = {"thing"}, "nothing"};
     const Option<int> number = {.labels = {"number"}, 0};
     const auto myCommand3 = makeCommand("two", std::make_tuple(&object, &number), std::function(two));
-    myCommand3.execute("two");
+
+    {
+        twoData = {};
+        myCommand3.execute("two");
+        TEST_ASSERT_EQUAL_STRING("nothing", twoData.s.c_str());
+        TEST_ASSERT_EQUAL_INT(0, twoData.n);
+    }
     myCommand3.execute("two thing \"tree in the woods\" number 15");
     myCommand3.execute("two number -1 thing car");
 }
