@@ -124,6 +124,9 @@ struct Command
         }
     }
 
+    // TODO add function to generate helper message.
+    // This message can print the labels and tell the user which default value is used instead
+
     /**
      * Executes the command with the provided arguments.
      * 
