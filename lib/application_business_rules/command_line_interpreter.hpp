@@ -94,10 +94,10 @@ struct Command
     std::function<ReturnType(ArgTypes...)> handler;
 
     template <class ArgumentType>
-    static ArgumentType getArgument(const Option<ArgumentType, CharT> &option,
-                                    const std::vector<std::basic_string<CharT>> &args)
+    static ArgumentType extractArgument(const Option<ArgumentType, CharT> &option,
+                                        std::vector<std::basic_string<CharT>> &args)
     {
-        const auto itAllOptions = std::next(std::begin(args)); // Skip the command name
+        const auto itAllOptions = std::begin(args); // Skip the command name
 
         // Find the first matching argument in the command line
         const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
@@ -107,7 +107,8 @@ struct Command
         if (argIt != std::end(args))
         {
             // If a match is found, set the corresponding argument value
-            const auto &argValueString = *std::next(argIt);
+            const auto itArgValueString = std::next(argIt);
+            const auto &argValueString = *itArgValueString;
             std::basic_istringstream<CharT> iss(argValueString);
             ArgumentType argument;
             iss >> argument;
@@ -115,6 +116,7 @@ struct Command
             {
                 throw std::runtime_error("argument to option " + std::basic_string<CharT>(option.labels[0]) + " could not be parsed: '" + argValueString + "'");
             }
+            args.erase(argIt, std::next(itArgValueString));
             return argument;
         }
         else
@@ -135,29 +137,34 @@ struct Command
      * \retval true in case command was found and handler called
      * @return false in case command was not found
      */
-    // TODO add bool as return value to indicate success
-    // TODO add pointer as parameter to return the return value of the handler is appropriate
     bool execute(const CharT *const commandLine, ReturnType *const pRetVal = nullptr) const
     {
-        const auto args = tokenizeQuoted(std::basic_string<CharT>(commandLine));
-        if (args.empty())
+        auto tokens = tokenizeQuoted(std::basic_string<CharT>(commandLine));
+        if (tokens.empty())
         {
             throw std::runtime_error("Invalid command line format.");
             return false;
         }
-        else if (args[0].compare(commandName) != 0)
+        else if (tokens[0].compare(commandName) != 0)
         {
             return false;
         }
+        tokens.erase(std::begin(tokens)); // remove command name token, as not necessary any more
 
         // Iterate over each option and compare it against the full range of args (except the first one)
         const auto arguments = std::apply(
             [&](const auto &...option) {
-                return std::make_tuple(getArgument(*option, args)...);
+                return std::make_tuple(extractArgument(*option, tokens)...);
             },
             options);
 
-        // TODO: remove extracted arguments from list and check at the and if some token has not been evaluated
+        if (tokens.size() != 0) // some tokens have not been evaluated
+        {
+            std::ostringstream oss;
+            std::copy(std::begin(tokens), std::prev(std::end(tokens)), std::ostream_iterator<std::string>(oss, " "));
+            oss << tokens.back();
+            throw std::runtime_error("Not all tokens could be evaluated; invalid command line. Remainder: '" + oss.str() + "'");
+        }
 
         // Call the command handler with the extracted arguments
         const auto function = [this, &arguments]() { return std::apply(
