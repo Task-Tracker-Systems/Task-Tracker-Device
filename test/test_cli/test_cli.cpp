@@ -89,7 +89,7 @@ void test_command_argStringInt()
     const Option<int> number = {.labels = {"number"}, 0};
     const auto myCommand3 = makeCommand("two", std::make_tuple(&object, &number), std::function(two));
     myCommand3.execute("two");
-    myCommand3.execute("two thing=tree number 15");
+    myCommand3.execute("two thing \"tree in the woods\" number 15");
     myCommand3.execute("two number -1 thing car");
 }
 
