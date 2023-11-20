@@ -104,7 +104,12 @@ void test_command_argStringInt()
         TEST_ASSERT_EQUAL_STRING("nothing", twoData.s.c_str());
         TEST_ASSERT_EQUAL_INT(0, twoData.n);
     }
-    myCommand3.execute("two thing \"tree in the woods\" number 15");
+    {
+        twoData = {};
+        myCommand3.execute("two thing \"tree in the woods\" number 15");
+        TEST_ASSERT_EQUAL_STRING("tree in the woods", twoData.s.c_str());
+        TEST_ASSERT_EQUAL_INT(15, twoData.n);
+    }
     myCommand3.execute("two number -1 thing car");
 }
 
