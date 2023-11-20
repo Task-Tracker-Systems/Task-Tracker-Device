@@ -109,12 +109,19 @@ struct Command
             // If a match is found, set the corresponding argument value
             const auto itArgValueString = std::next(argIt);
             const auto &argValueString = *itArgValueString;
-            std::basic_istringstream<CharT> iss(argValueString);
             ArgumentType argument;
-            iss >> argument;
-            if (iss.fail())
+            if constexpr (std::is_same_v<decltype(argument), std::basic_string<CharT>>)
             {
-                throw std::runtime_error("argument to option " + std::basic_string<CharT>(option.labels[0]) + " could not be parsed: '" + argValueString + "'");
+                argument = argValueString;
+            }
+            else
+            {
+                std::basic_istringstream<CharT> iss(argValueString);
+                iss >> argument;
+                if (iss.fail())
+                {
+                    throw std::runtime_error("argument to option " + std::basic_string<CharT>(option.labels[0]) + " could not be parsed: '" + argValueString + "'");
+                }
             }
             args.erase(argIt, std::next(itArgValueString));
             return argument;
