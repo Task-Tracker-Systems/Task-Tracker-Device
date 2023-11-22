@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <string_helpers.hpp>
 #include <tuple>
+#include <utility>
 
 namespace command_line_interpreter
 {
@@ -157,6 +158,26 @@ struct Command
             function();
         }
         return true;
+    }
+
+    std::basic_string<CharT> generateHelpMessage() const
+    {
+        std::basic_ostringstream<CharT> messageStream;
+        messageStream << "Call: " << commandName << " [OPTION]..." << std::endl;
+        if constexpr (std::tuple_size_v<decltype(options)> > 0)
+        {
+            messageStream << "Options:" << std::endl;
+            std::apply([&messageStream](const auto &option) {
+                messageStream << "\t ";
+                for (const auto label : option->labels)
+                {
+                    messageStream << label << " ";
+                }
+                messageStream << "\tdefault value: " << option->defaultValue << std::endl;
+            },
+                       options);
+        }
+        return messageStream.str();
     }
 };
 
