@@ -18,6 +18,6 @@ var searchData=
   ['test_5ftrimrvalue_15',['test_trimRValue',['../test__trim_8cpp.xhtml#a350d34972e4519ca4f0b31d1cc5e7044',1,'test_trim.cpp']]],
   ['test_5ftrimsuffix_16',['test_trimSuffix',['../test__trim_8cpp.xhtml#a632b892b23872bf98f6800a640cd201f',1,'test_trim.cpp']]],
   ['test_5ftrimwhitespaceonly_17',['test_trimWhitespaceOnly',['../test__trim_8cpp.xhtml#ab0a0c35f7d9cbe9e4f00bb2bcdb389ee',1,'test_trim.cpp']]],
-  ['tokenizequoted_18',['tokenizeQuoted',['../command__line__interpreter_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'command_line_interpreter.hpp']]],
+  ['tokenizequoted_18',['tokenizeQuoted',['../string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'string_helpers.hpp']]],
   ['trim_19',['trim',['../trim_8hpp.xhtml#a51e90fc0f7ac1010844cd8dbf25f9752',1,'trim(SequenceT &amp;&amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp'],['../trim_8hpp.xhtml#a6613daf5c9de3e67c5143669406d3d06',1,'trim(SequenceT &amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp']]]
 ];

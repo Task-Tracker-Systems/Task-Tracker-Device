@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['chart_0',['CharT',['../structOption.xhtml#af616e273c894d55aea4f1d99e4aa1586',1,'Option::CharT()'],['../structCommand.xhtml#aaf9339bf1c86918161c0f6413b0b546e',1,'Command::CharT()']]],
-  ['chartype_1',['CharType',['../namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e',1,'serial_port']]]
+  ['argumenttype_0',['ArgumentType',['../structcommand__line__interpreter_1_1Option.xhtml#ae66a42a72e328312c048ce953d020bd6',1,'command_line_interpreter::Option']]]
 ];

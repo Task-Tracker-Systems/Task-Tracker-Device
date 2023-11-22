@@ -31,7 +31,7 @@ var searchData=
   ['test_5ftrimwhitespaceonly_28',['test_trimWhitespaceOnly',['../test__trim_8cpp.xhtml#ab0a0c35f7d9cbe9e4f00bb2bcdb389ee',1,'test_trim.cpp']]],
   ['time_2dtracker_2eino_29',['time-tracker.ino',['../time-tracker_8ino.xhtml',1,'']]],
   ['timescalled_30',['timesCalled',['../test__cli_8cpp.xhtml#a24180c35a9154b6f537b4026c455ac53',1,'test_cli.cpp']]],
-  ['tokenizequoted_31',['tokenizeQuoted',['../command__line__interpreter_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'command_line_interpreter.hpp']]],
+  ['tokenizequoted_31',['tokenizeQuoted',['../string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'string_helpers.hpp']]],
   ['trim_32',['trim',['../trim_8hpp.xhtml#a51e90fc0f7ac1010844cd8dbf25f9752',1,'trim(SequenceT &amp;&amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp'],['../trim_8hpp.xhtml#a6613daf5c9de3e67c5143669406d3d06',1,'trim(SequenceT &amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp']]],
   ['trim_2ehpp_33',['trim.hpp',['../trim_8hpp.xhtml',1,'']]]
 ];
