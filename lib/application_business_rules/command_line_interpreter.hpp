@@ -36,16 +36,16 @@ struct Option
                }) != labels.end();
     }
 
-    ArgumentType extractArgument(std::vector<std::basic_string<CharT>> &args) const
+    ArgumentType extractArgument(std::vector<std::basic_string<CharT>> &labelValuePairs) const
     {
-        const auto itAllOptions = std::begin(args); // Skip the command name
+        const auto itAllOptions = std::begin(labelValuePairs); // Skip the command name
 
         // Find the first matching argument in the command line
-        const auto argIt = std::find_if(itAllOptions, std::end(args), [this](const auto &arg) {
+        const auto argIt = std::find_if(itAllOptions, std::end(labelValuePairs), [this](const auto &arg) {
             return doesMatchName(arg.c_str());
         });
 
-        if (argIt != std::end(args))
+        if (argIt != std::end(labelValuePairs))
         {
             // If a match is found, set the corresponding argument value
             const auto itArgValueString = std::next(argIt);
@@ -64,7 +64,7 @@ struct Option
                     throw std::runtime_error("argument to option " + std::basic_string<CharT>(labels[0]) + " could not be parsed: '" + argValueString + "'");
                 }
             }
-            args.erase(argIt, std::next(itArgValueString));
+            labelValuePairs.erase(argIt, std::next(itArgValueString));
             return argument;
         }
         else
