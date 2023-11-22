@@ -24,6 +24,9 @@ int strcmp_g(const wchar_t *const lhs, const wchar_t *const rhs)
     return std::wcscmp(lhs, rhs);
 }
 
+namespace command_line_interpreter
+{
+
 /**
  * Combines a command option with an argument.
  * \tparam T is the type of the argument
@@ -224,3 +227,4 @@ Command<CharType, ReturnType, ArgTypes...> makeCommand(
     };
     return command;
 }
+} // namespace command_line_interpreter

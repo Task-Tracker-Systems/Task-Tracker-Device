@@ -5,6 +5,7 @@
 #include <unity.h>
 
 using namespace fakeit;
+namespace cli = command_line_interpreter;
 
 void setUp()
 {
@@ -26,7 +27,7 @@ static void foo()
 
 void test_command_argVoid()
 {
-    const auto myCommand = makeCommand("operate", std::make_tuple(), std::function(foo));
+    const auto myCommand = cli::makeCommand("operate", std::make_tuple(), std::function(foo));
     myCommand.execute("operate");
 
     TEST_ASSERT_EQUAL_UINT(1, fooData.timesCalled);
@@ -46,8 +47,8 @@ static void bar(const int n)
 
 void test_command_argInt()
 {
-    const Option<int> barArg = {.labels = {"drinks"}, .defaultValue = -42};
-    const auto myCommand2 = makeCommand("bar", std::make_tuple(&barArg), std::function(bar));
+    const cli::Option<int> barArg = {.labels = {"drinks"}, .defaultValue = -42};
+    const auto myCommand2 = cli::makeCommand("bar", std::make_tuple(&barArg), std::function(bar));
     {
         barData = {};
         constexpr auto command = "bar drinks 3";
@@ -94,9 +95,9 @@ static void two(const std::string s, const int n)
 
 void test_command_argStringInt()
 {
-    const Option<std::string> object = {.labels = {"thing"}, "nothing"};
-    const Option<int> number = {.labels = {"number"}, 0};
-    const auto myCommand3 = makeCommand("two", std::make_tuple(&object, &number), std::function(two));
+    const cli::Option<std::string> object = {.labels = {"thing"}, "nothing"};
+    const cli::Option<int> number = {.labels = {"number"}, 0};
+    const auto myCommand3 = cli::makeCommand("two", std::make_tuple(&object, &number), std::function(two));
 
     {
         twoData = {};
