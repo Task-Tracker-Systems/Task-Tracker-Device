@@ -16,6 +16,7 @@ template <class T, typename CharType = char>
 struct Option
 {
     typedef CharType CharT;
+    typedef T ArgumentType;
 
     /**
      * Accepts a variety of notations for a command option.
@@ -33,6 +34,44 @@ struct Option
         return std::find_if(std::begin(labels), std::end(labels), [&optionName](const auto candidate) {
                    return strcmp_g(candidate, optionName) == 0;
                }) != labels.end();
+    }
+
+    ArgumentType extractArgument(std::vector<std::basic_string<CharT>> &args) const
+    {
+        const auto itAllOptions = std::begin(args); // Skip the command name
+
+        // Find the first matching argument in the command line
+        const auto argIt = std::find_if(itAllOptions, std::end(args), [this](const auto &arg) {
+            return doesMatchName(arg.c_str());
+        });
+
+        if (argIt != std::end(args))
+        {
+            // If a match is found, set the corresponding argument value
+            const auto itArgValueString = std::next(argIt);
+            const auto &argValueString = *itArgValueString;
+            ArgumentType argument;
+            if constexpr (std::is_same_v<decltype(argument), std::basic_string<CharT>>)
+            {
+                argument = argValueString;
+            }
+            else
+            {
+                std::basic_istringstream<CharT> iss(argValueString);
+                iss >> argument;
+                if (iss.fail())
+                {
+                    throw std::runtime_error("argument to option " + std::basic_string<CharT>(labels[0]) + " could not be parsed: '" + argValueString + "'");
+                }
+            }
+            args.erase(argIt, std::next(itArgValueString));
+            return argument;
+        }
+        else
+        {
+            // If no match is found, set the default value
+            return defaultValue;
+        }
     }
 
     T defaultValue;
@@ -55,46 +94,6 @@ struct Command
     // TODO check if we can use objects or reference_wrapper instead of pointers
     std::tuple<const Option<ArgTypes, CharT> *...> options;
     std::function<ReturnType(ArgTypes...)> handler;
-
-    template <class ArgumentType>
-    static ArgumentType extractArgument(const Option<ArgumentType, CharT> &option,
-                                        std::vector<std::basic_string<CharT>> &args)
-    {
-        const auto itAllOptions = std::begin(args); // Skip the command name
-
-        // Find the first matching argument in the command line
-        const auto argIt = std::find_if(itAllOptions, std::end(args), [&option](const auto &arg) {
-            return option.doesMatchName(arg.c_str());
-        });
-
-        if (argIt != std::end(args))
-        {
-            // If a match is found, set the corresponding argument value
-            const auto itArgValueString = std::next(argIt);
-            const auto &argValueString = *itArgValueString;
-            ArgumentType argument;
-            if constexpr (std::is_same_v<decltype(argument), std::basic_string<CharT>>)
-            {
-                argument = argValueString;
-            }
-            else
-            {
-                std::basic_istringstream<CharT> iss(argValueString);
-                iss >> argument;
-                if (iss.fail())
-                {
-                    throw std::runtime_error("argument to option " + std::basic_string<CharT>(option.labels[0]) + " could not be parsed: '" + argValueString + "'");
-                }
-            }
-            args.erase(argIt, std::next(itArgValueString));
-            return argument;
-        }
-        else
-        {
-            // If no match is found, set the default value
-            return option.defaultValue;
-        }
-    }
 
     // TODO add function to generate helper message.
     // This message can print the labels and tell the user which default value is used instead
@@ -124,7 +123,7 @@ struct Command
         // Iterate over each option and compare it against the full range of args (except the first one)
         const auto arguments = std::apply(
             [&](const auto &...option) {
-                return std::make_tuple(extractArgument(*option, tokens)...);
+                return std::make_tuple(option->extractArgument(tokens)...);
             },
             options);
 
