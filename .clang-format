@@ -2,4 +2,5 @@
 BasedOnStyle: Microsoft
 ReflowComments: false
 ColumnLimit: 0
+Standard: c++17
 
