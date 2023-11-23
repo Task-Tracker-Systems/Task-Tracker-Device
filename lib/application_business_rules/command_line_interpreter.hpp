@@ -10,8 +10,14 @@ namespace command_line_interpreter
 {
 
 /**
- * Combines a command option with an argument.
+ * Extracts data from string options.
+ * 
+ * Has the definition of variants of option labels.
+ * Provides a way to extract data from strings.
+ * Contains the default value in case option was not part of strings.
+ * 
  * \tparam T is the type of the argument
+ * \tparam CharType is the character type to work with
  */
 template <class T, typename CharType = char>
 struct Option
@@ -20,15 +26,18 @@ struct Option
     typedef T ArgumentType;
 
     /**
-     * Accepts a variety of notations for a command option.
+     * A variety of notations for an option label.
+     * 
+     * For example "tasks", "--tasks", or "-t".
      */
     std::vector<const CharT *> labels;
 
     /**
      * Checks if the name matches one of the labels valid for this option.
-     * @param optionName the string to compare against
-     * @return true in case it matches one of the valid labels
-     * @return false else
+     * 
+     * \param optionName the string to compare against
+     * \retval true in case it matches one of the valid labels
+     * \retval false else
      */
     bool doesMatchName(const CharT *const optionName) const
     {
@@ -37,6 +46,18 @@ struct Option
                }) != labels.end();
     }
 
+    /**
+     * Searches for the definition of this option and extracts it.
+     * 
+     * The pair of label and value is removed from the sequence.
+     * 
+     * Interpretation of non-string output data is done via `std::basic_istringstream::operator>>()`.
+     * 
+     * \param labelValuePairs a sequence of (option labels and option values)
+     * \returns either the value found in the sequence or the default value for this option
+     * \throws std::runtime_error in case a label for this option is found but interpreting the value failed.
+     *         This can happen in case the value is given in an incompatible format.
+     */
     ArgumentType extractArgument(std::vector<std::basic_string<CharT>> &labelValuePairs) const
     {
         const auto itAllOptions = std::begin(labelValuePairs); // Skip the command name
@@ -84,6 +105,7 @@ struct Option
  * The order of the argument parsers must match the order of the 
  * parameters of the handler.
  * 
+ * \tparam CharType is the underlying character type of the command line
  * \tparam ReturnType return type of the handler
  * \tparam ArgTypes parameter types of the handler
  */
@@ -91,21 +113,47 @@ template <typename CharType, typename ReturnType, typename... ArgTypes>
 struct Command
 {
     typedef CharType CharT;
+
+    /**
+     * Identifier for the command.
+     */
     const CharT *commandName;
+
+    /**
+     * A set of options used to retrieve the arguments for the handler.
+     */
     // TODO check if we can use objects or reference_wrapper instead of pointers
     std::tuple<const Option<ArgTypes, CharT> *...> options;
-    std::function<ReturnType(ArgTypes...)> handler;
 
-    // TODO add function to generate helper message.
-    // This message can print the labels and tell the user which default value is used instead
+    /**
+     * The function to be called.
+     */
+    std::function<ReturnType(ArgTypes...)> handler;
 
     /**
      * Executes the command with the provided arguments.
      * 
      * The order of the arguments in the string does not matter.
+     * Does not attempt to extract arguments in case the command was not identified.
+     * 
+     * In case the command line does contain more than white spaces
+     * but the first word does not identify the command, `false` is returned
+     * and no handler is called.
+     * 
+     * In case the first word in the command line identifies the command but 
+     * interpreting the options fails, an exception is thrown.
+     * 
+     * Else the handler is called.
      * 
      * \retval true in case command was found and handler called
-     * @return false in case command was not found
+     * \retval false in case command was not found
+     * \param commandLine is the command line to be interpreted
+     * \param pRetVal is an optional pointer to an object where to store the return value of the handler
+     *                if the pointer equals nullptr, the return value will be omitted
+     * \throws `std::runtime_error` in case 
+     *         - the command line contains no data
+     *         - not all options could be interpreted
+     *         - extracting data from an option failed
      */
     bool execute(const CharT *const commandLine, ReturnType *const pRetVal = nullptr) const
     {
@@ -160,6 +208,12 @@ struct Command
         return true;
     }
 
+    /**
+     * Generates a message explaining how to use this command.
+     * 
+     * This message is intended to be read by human users.
+     * \returns a short list of the possible options
+     */
     std::basic_string<CharT> generateHelpMessage() const
     {
         std::basic_ostringstream<CharT> messageStream;
@@ -187,11 +241,12 @@ struct Command
  * This is a helper function to deduce the type of the created object using the
  * types of the arguments to this function.
  * 
+ * \tparam CharType is the underlying type of the command line string
  * \tparam ReturnType is the return type of the handler to be called
- * \tparam ArgTypes  are the parameters of the handler to be called
+ * \tparam ArgTypes are the parameters of the handler to be called
  * \param commandName is a string representing the name of the command
  * \param options is a collection of parsers for extracting the arguments
- * \param handler is the handler to be called
+ * \param handler is the function to be called
  * \returns an object of \ref Command
  */
 template <typename CharType, typename ReturnType, typename... ArgTypes>
