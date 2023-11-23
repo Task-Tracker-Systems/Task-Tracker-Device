@@ -153,6 +153,46 @@ void test_command_argStringInt()
     }
 }
 
+static struct
+{
+    std::size_t timesCalled;
+    int n;
+} threeData;
+
+static int inv(const int n)
+{
+    threeData.timesCalled++;
+    threeData.n = n;
+    return -n;
+}
+
+void test_command_intRetInt()
+{
+    const cli::Option<int> number = {.labels = {"number"}, 0};
+    const auto myCommand3 = cli::makeCommand("three", std::make_tuple(&number), std::function(inv));
+
+    {
+        threeData = {};
+        int retVal;
+        myCommand3.execute("three number 55", &retVal);
+        TEST_ASSERT_EQUAL_INT(1, threeData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(55, threeData.n);
+        TEST_ASSERT_EQUAL_INT(-55, retVal);
+    }
+    {
+        threeData = {};
+        myCommand3.execute("three number 55", nullptr);
+        TEST_ASSERT_EQUAL_INT(1, threeData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(55, threeData.n);
+    }
+    {
+        threeData = {};
+        myCommand3.execute("three number 55");
+        TEST_ASSERT_EQUAL_INT(1, threeData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(55, threeData.n);
+    }
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
@@ -160,6 +200,7 @@ int main(int argc, char **argv)
     RUN_TEST(test_command_argVoid);
     RUN_TEST(test_command_argInt);
     RUN_TEST(test_command_argStringInt);
+    RUN_TEST(test_command_intRetInt);
 
     UNITY_END();
 }
