@@ -63,11 +63,45 @@ void test_command_argInt()
         TEST_ASSERT_EQUAL_UINT(1, barData.timesCalled);
         TEST_ASSERT_EQUAL_INT(-42, barData.n);
     }
-    {
+    { // Test non-matching command name
+        barData = {};
+        myCommand2.execute("foo drinks 4");
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    { // test invalid option label
         barData = {};
         try
         {
             myCommand2.execute("bar drins 3");
+            TEST_FAIL_MESSAGE("exception has not been thrown for invalid label");
+        }
+        catch (const std::runtime_error &)
+        {
+        }
+
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    { // test invalid option value
+        barData = {};
+        try
+        {
+            myCommand2.execute("bar drinks tree");
+            TEST_FAIL_MESSAGE("exception has not been thrown for 3.4");
+        }
+        catch (const std::runtime_error &)
+        {
+        }
+
+        TEST_ASSERT_EQUAL_UINT(0, barData.timesCalled);
+        TEST_ASSERT_EQUAL_INT(0, barData.n);
+    }
+    { // Test empty command line
+        barData = {};
+        try
+        {
+            myCommand2.execute("");
             TEST_FAIL_MESSAGE("exception has not been thrown");
         }
         catch (const std::runtime_error &)
@@ -111,7 +145,12 @@ void test_command_argStringInt()
         TEST_ASSERT_EQUAL_STRING("tree in the woods", twoData.s.c_str());
         TEST_ASSERT_EQUAL_INT(15, twoData.n);
     }
-    myCommand3.execute("two number -1 thing car");
+    {
+        twoData = {};
+        myCommand3.execute("two number -1 thing car");
+        TEST_ASSERT_EQUAL_STRING("car", twoData.s.c_str());
+        TEST_ASSERT_EQUAL_INT(-1, twoData.n);
+    }
 }
 
 int main(int argc, char **argv)
