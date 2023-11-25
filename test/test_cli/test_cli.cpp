@@ -193,6 +193,24 @@ void test_command_intRetInt()
     }
 }
 
+void test_overallInterpreter()
+{
+    // command for list
+    const auto list = []() { std::cout << "this is a list: a, b, c, ..." << std::endl; };
+    const auto listCmd = cli::makeCommand("list", std::make_tuple(), std::function(list));
+    // command for edit
+    const auto edit = [](const int id, const std::string label, const int duration) {
+        std::cout << "Edit id(" << id << ") label('" << label << "') duration(" << duration << ")" << std::endl;
+    };
+    const cli::Option<int> id = {.labels = {"--id"}, .defaultValue = 0};
+    const cli::Option<std::string> label = {.labels = {"--name"}, .defaultValue = "foo"};
+    const cli::Option<int> duration = {.labels = {"--duration"}, .defaultValue = 0};
+    const auto editCmd = cli::makeCommand("edit", std::make_tuple(&id, &label, &duration), std::function(edit));
+    // cli::handleCommandLine();
+    listCmd.execute("list");
+    editCmd.execute("edit --id 42 --name \"first task\" --duration 1337");
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
@@ -201,6 +219,7 @@ int main(int argc, char **argv)
     RUN_TEST(test_command_argInt);
     RUN_TEST(test_command_argStringInt);
     RUN_TEST(test_command_intRetInt);
+    RUN_TEST(test_overallInterpreter);
 
     UNITY_END();
 }
