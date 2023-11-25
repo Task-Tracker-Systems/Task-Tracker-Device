@@ -99,6 +99,13 @@ struct Option
     T defaultValue;
 };
 
+template <typename CharType>
+struct BaseCommand
+{
+    typedef CharType CharT;
+    virtual bool execute(const CharT *const commandLine) const = 0;
+};
+
 /**
  * Combines a command with a function.
  * 
@@ -110,10 +117,9 @@ struct Option
  * \tparam ArgTypes parameter types of the handler
  */
 template <typename CharType, typename ReturnType, typename... ArgTypes>
-struct Command
+struct Command : public BaseCommand<CharType>
 {
-    typedef CharType CharT;
-
+    typedef typename BaseCommand<CharType>::CharT CharT;
     /**
      * Identifier for the command.
      */
@@ -129,6 +135,11 @@ struct Command
      * The function to be called.
      */
     std::function<ReturnType(ArgTypes...)> handler;
+
+    virtual bool execute(const CharT *const commandLine) const override
+    {
+        return execute(commandLine, nullptr);
+    }
 
     /**
      * Executes the command with the provided arguments.
@@ -155,7 +166,7 @@ struct Command
      *         - not all options could be interpreted
      *         - extracting data from an option failed
      */
-    bool execute(const CharT *const commandLine, ReturnType *const pRetVal = nullptr) const
+    bool execute(const CharT *const commandLine, ReturnType *const pRetVal) const
     {
         auto tokens = tokenizeQuoted(std::basic_string<CharT>(commandLine));
         if (tokens.empty())
@@ -233,6 +244,16 @@ struct Command
         }
         return messageStream.str();
     }
+
+    Command(
+        const CharType *const commandName,
+        const std::function<ReturnType(ArgTypes...)> &handler,
+        const std::tuple<const Option<ArgTypes, CharType> *...> &options = std::make_tuple())
+        : commandName(commandName),
+          options(options),
+          handler(handler)
+    {
+    }
 };
 
 /**
@@ -255,11 +276,6 @@ Command<CharType, ReturnType, ArgTypes...> makeCommand(
     const std::function<ReturnType(ArgTypes...)> &handler,
     const std::tuple<const Option<ArgTypes, CharType> *...> &options = std::make_tuple())
 {
-    Command<CharType, ReturnType, ArgTypes...> command = {
-        .commandName = commandName,
-        .options = options,
-        .handler = handler,
-    };
-    return command;
+    return Command<CharType, ReturnType, ArgTypes...>(commandName, handler, options);
 }
 } // namespace command_line_interpreter
