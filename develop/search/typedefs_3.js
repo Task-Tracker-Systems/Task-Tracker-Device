@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['string_0',['String',['../classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a',1,'Task']]],
-  ['stringhandler_1',['StringHandler',['../namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735',1,'serial_port']]]
+  ['pintype_0',['PinType',['../framework__config_8hpp.xhtml#a8f084eabb88c2ccfb8dd92c6361befe6',1,'framework_config.hpp']]]
 ];

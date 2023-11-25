@@ -91,10 +91,11 @@ $(function() {
 <code>#include &quot;<a class="el" href="SerialOutputStreamBuffer_8hpp_source.xhtml">SerialOutputStreamBuffer.hpp</a>&quot;</code><br />
 <code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for serial_port.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8cpp__incl.svg" width="754" height="198"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8cpp__incl.svg" width="740" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -108,12 +109,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af033b97544f5d1bba48bf19f2a336608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">serial_port::initialize</a> ()</td></tr>
 <tr class="memdesc:af033b97544f5d1bba48bf19f2a336608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and initializes serial port.  <a href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">More...</a><br /></td></tr>
 <tr class="separator:af033b97544f5d1bba48bf19f2a336608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cdebd7f35f262ff9dbbe728722b6973"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a6cdebd7f35f262ff9dbbe728722b6973">serial_port::readLine</a> ()</td></tr>
-<tr class="memdesc:a6cdebd7f35f262ff9dbbe728722b6973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line from serial port.  <a href="namespaceserial__port.xhtml#a6cdebd7f35f262ff9dbbe728722b6973">More...</a><br /></td></tr>
-<tr class="separator:a6cdebd7f35f262ff9dbbe728722b6973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">serial_port::getLine</a> ()</td></tr>
-<tr class="memdesc:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a line from serial port.  <a href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">More...</a><br /></td></tr>
-<tr class="separator:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21848272232e3474b209f5cffe5f142"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142">serial_port::readLine</a> ()</td></tr>
+<tr class="memdesc:af21848272232e3474b209f5cffe5f142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line from serial port.  <a href="namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142">More...</a><br /></td></tr>
+<tr class="separator:af21848272232e3474b209f5cffe5f142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf89672a6ce72254d025e0c116a6c25"><td class="memItemLeft" align="right" valign="top">std::optional&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#acbf89672a6ce72254d025e0c116a6c25">serial_port::getLine</a> ()</td></tr>
+<tr class="memdesc:acbf89672a6ce72254d025e0c116a6c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a line from serial port.  <a href="namespaceserial__port.xhtml#acbf89672a6ce72254d025e0c116a6c25">More...</a><br /></td></tr>
+<tr class="separator:acbf89672a6ce72254d025e0c116a6c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed4fda662b92bd35c8ecfb6521edb4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c">serial_port::setCallbackForLineReception</a> (const StringHandler &amp;callback)</td></tr>
 <tr class="memdesc:a8ed4fda662b92bd35c8ecfb6521edb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the handler to be called when a full line has been received via <a class="el" href="namespaceserial__port.xhtml">serial_port</a>.  <a href="namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c">More...</a><br /></td></tr>
 <tr class="separator:a8ed4fda662b92bd35c8ecfb6521edb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,9 +123,9 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aff084dc54fbe3b3e2fe93631562c34c4"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">serial_port::cout</a> = serialOutputStream</td></tr>
-<tr class="memdesc:aff084dc54fbe3b3e2fe93631562c34c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output stream for characters to serial port.  <a href="namespaceserial__port.xhtml#aff084dc54fbe3b3e2fe93631562c34c4">More...</a><br /></td></tr>
-<tr class="separator:aff084dc54fbe3b3e2fe93631562c34c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c3f7f8728a750d9fa97277cb10378f"><td class="memItemLeft" align="right" valign="top">std::basic_ostream&lt; CharType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a93c3f7f8728a750d9fa97277cb10378f">serial_port::cout</a> = serialOutputStream</td></tr>
+<tr class="memdesc:a93c3f7f8728a750d9fa97277cb10378f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output stream for characters to serial port.  <a href="namespaceserial__port.xhtml#a93c3f7f8728a750d9fa97277cb10378f">More...</a><br /></td></tr>
+<tr class="separator:a93c3f7f8728a750d9fa97277cb10378f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aa11606a63bbe57842b51321e714a8daf" name="aa11606a63bbe57842b51321e714a8daf"></a>
@@ -147,7 +148,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2023 16:52:58 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Nov 25 2023 10:43:08 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

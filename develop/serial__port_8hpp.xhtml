@@ -101,7 +101,7 @@ Include dependency graph for serial_port.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8hpp__dep__incl.svg" width="443" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8hpp__dep__incl.svg" width="606" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -114,42 +114,48 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a839d45b607d3bc6cf84065572f0cb735"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const std::string &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">serial_port::StringHandler</a></td></tr>
-<tr class="memdesc:a839d45b607d3bc6cf84065572f0cb735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback which can handle strings.  <a href="namespaceserial__port.xhtml#a839d45b607d3bc6cf84065572f0cb735">More...</a><br /></td></tr>
-<tr class="separator:a839d45b607d3bc6cf84065572f0cb735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765887628af12493cbc5a2a5476efe3e"><td class="memItemLeft" align="right" valign="top">typedef char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e">serial_port::CharType</a></td></tr>
+<tr class="memdesc:a765887628af12493cbc5a2a5476efe3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Character type used by serial port.  <a href="namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e">More...</a><br /></td></tr>
+<tr class="separator:a765887628af12493cbc5a2a5476efe3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a572553df2c28c025df5775458684cb92"><td class="memItemLeft" align="right" valign="top">typedef std::basic_string&lt; CharType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a572553df2c28c025df5775458684cb92">serial_port::String</a></td></tr>
+<tr class="memdesc:a572553df2c28c025df5775458684cb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">String type provided by serial port.  <a href="namespaceserial__port.xhtml#a572553df2c28c025df5775458684cb92">More...</a><br /></td></tr>
+<tr class="separator:a572553df2c28c025df5775458684cb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a105fbf17cff58df0ed4281de8ae0926a"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const String &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a105fbf17cff58df0ed4281de8ae0926a">serial_port::StringHandler</a></td></tr>
+<tr class="memdesc:a105fbf17cff58df0ed4281de8ae0926a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback which can handle strings.  <a href="namespaceserial__port.xhtml#a105fbf17cff58df0ed4281de8ae0926a">More...</a><br /></td></tr>
+<tr class="separator:a105fbf17cff58df0ed4281de8ae0926a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af033b97544f5d1bba48bf19f2a336608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">serial_port::initialize</a> ()</td></tr>
 <tr class="memdesc:af033b97544f5d1bba48bf19f2a336608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and initializes serial port.  <a href="namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608">More...</a><br /></td></tr>
 <tr class="separator:af033b97544f5d1bba48bf19f2a336608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cdebd7f35f262ff9dbbe728722b6973"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a6cdebd7f35f262ff9dbbe728722b6973">serial_port::readLine</a> ()</td></tr>
-<tr class="memdesc:a6cdebd7f35f262ff9dbbe728722b6973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line from serial port.  <a href="namespaceserial__port.xhtml#a6cdebd7f35f262ff9dbbe728722b6973">More...</a><br /></td></tr>
-<tr class="separator:a6cdebd7f35f262ff9dbbe728722b6973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">serial_port::getLine</a> ()</td></tr>
-<tr class="memdesc:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a line from serial port.  <a href="namespaceserial__port.xhtml#ab6c8af59bd81882c7b16c860ce5fdf52">More...</a><br /></td></tr>
-<tr class="separator:ab6c8af59bd81882c7b16c860ce5fdf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21848272232e3474b209f5cffe5f142"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142">serial_port::readLine</a> ()</td></tr>
+<tr class="memdesc:af21848272232e3474b209f5cffe5f142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line from serial port.  <a href="namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142">More...</a><br /></td></tr>
+<tr class="separator:af21848272232e3474b209f5cffe5f142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf89672a6ce72254d025e0c116a6c25"><td class="memItemLeft" align="right" valign="top">std::optional&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#acbf89672a6ce72254d025e0c116a6c25">serial_port::getLine</a> ()</td></tr>
+<tr class="memdesc:acbf89672a6ce72254d025e0c116a6c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a line from serial port.  <a href="namespaceserial__port.xhtml#acbf89672a6ce72254d025e0c116a6c25">More...</a><br /></td></tr>
+<tr class="separator:acbf89672a6ce72254d025e0c116a6c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed4fda662b92bd35c8ecfb6521edb4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c">serial_port::setCallbackForLineReception</a> (const StringHandler &amp;callback)</td></tr>
 <tr class="memdesc:a8ed4fda662b92bd35c8ecfb6521edb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the handler to be called when a full line has been received via <a class="el" href="namespaceserial__port.xhtml">serial_port</a>.  <a href="namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c">More...</a><br /></td></tr>
 <tr class="separator:a8ed4fda662b92bd35c8ecfb6521edb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d2d6c41844a0f8067674f6088c3d05"><td class="memTemplParams" colspan="2">template&lt;std::size_t BITS&gt; </td></tr>
-<tr class="memitem:a49d2d6c41844a0f8067674f6088c3d05"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">operator&lt;&lt;</a> (std::ostream &amp;os, const std::array&lt; bool, BITS &gt; &amp;bitArray)</td></tr>
-<tr class="memdesc:a49d2d6c41844a0f8067674f6088c3d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes formatted bits to <code>ostream</code>.  <a href="serial__port_8hpp.xhtml#a49d2d6c41844a0f8067674f6088c3d05">More...</a><br /></td></tr>
-<tr class="separator:a49d2d6c41844a0f8067674f6088c3d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75694147f57e39239699e0288d9c81ad"><td class="memTemplParams" colspan="2">template&lt;std::size_t BITS, typename CharType  = char&gt; </td></tr>
+<tr class="memitem:a75694147f57e39239699e0288d9c81ad"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="serial__port_8hpp.xhtml#a75694147f57e39239699e0288d9c81ad">operator&lt;&lt;</a> (std::basic_ostream&lt; CharType &gt; &amp;os, const std::array&lt; bool, BITS &gt; &amp;bitArray)</td></tr>
+<tr class="memdesc:a75694147f57e39239699e0288d9c81ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes formatted bits to <code>ostream</code>.  <a href="serial__port_8hpp.xhtml#a75694147f57e39239699e0288d9c81ad">More...</a><br /></td></tr>
+<tr class="separator:a75694147f57e39239699e0288d9c81ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a49d2d6c41844a0f8067674f6088c3d05" name="a49d2d6c41844a0f8067674f6088c3d05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49d2d6c41844a0f8067674f6088c3d05">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+<a id="a75694147f57e39239699e0288d9c81ad" name="a75694147f57e39239699e0288d9c81ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75694147f57e39239699e0288d9c81ad">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t BITS&gt; </div>
+template&lt;std::size_t BITS, typename CharType  = char&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramtype">std::basic_ostream&lt; CharType &gt; &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
         </tr>
         <tr>
@@ -187,7 +193,7 @@ template&lt;std::size_t BITS&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2023 16:52:58 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Nov 25 2023 10:43:08 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

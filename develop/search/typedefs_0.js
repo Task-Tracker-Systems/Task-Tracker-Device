@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['duration_0',['Duration',['../classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0',1,'Task']]]
+  ['chartype_0',['CharType',['../namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e',1,'serial_port']]]
 ];
