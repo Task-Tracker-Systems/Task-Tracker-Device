@@ -114,6 +114,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcommand__line__interpreter_1_1Option.xhtml">command_line_interpreter::Option&lt; T, CharType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts data from string options.  <a href="structcommand__line__interpreter_1_1Option.xhtml#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcommand__line__interpreter_1_1BaseCommand.xhtml">command_line_interpreter::BaseCommand&lt; CharType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcommand__line__interpreter_1_1Command.xhtml">command_line_interpreter::Command&lt; CharType, ReturnType, ArgTypes &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combines a command with a function.  <a href="structcommand__line__interpreter_1_1Command.xhtml#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,15 +127,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a131597e1a33196104fa2adc049a80247"><td class="memTemplParams" colspan="2">template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </td></tr>
-<tr class="memitem:a131597e1a33196104fa2adc049a80247"><td class="memTemplItemLeft" align="right" valign="top">Command&lt; CharType, ReturnType, ArgTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecommand__line__interpreter.xhtml#a131597e1a33196104fa2adc049a80247">command_line_interpreter::makeCommand</a> (const CharType *const commandName, const std::tuple&lt; const Option&lt; ArgTypes, CharType &gt; *... &gt; &amp;options, const std::function&lt; ReturnType(ArgTypes...)&gt; &amp;handler)</td></tr>
-<tr class="memdesc:a131597e1a33196104fa2adc049a80247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structcommand__line__interpreter_1_1Command.xhtml">Command</a> object while deducing template arguments for its type.  <a href="namespacecommand__line__interpreter.xhtml#a131597e1a33196104fa2adc049a80247">More...</a><br /></td></tr>
-<tr class="separator:a131597e1a33196104fa2adc049a80247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a435058140ae2374155f83c6aee5d0b03"><td class="memTemplParams" colspan="2">template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </td></tr>
+<tr class="memitem:a435058140ae2374155f83c6aee5d0b03"><td class="memTemplItemLeft" align="right" valign="top">Command&lt; CharType, ReturnType, ArgTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecommand__line__interpreter.xhtml#a435058140ae2374155f83c6aee5d0b03">command_line_interpreter::makeCommand</a> (const CharType *const commandName, const std::function&lt; ReturnType(ArgTypes...)&gt; &amp;handler, const std::tuple&lt; const Option&lt; ArgTypes, CharType &gt; *... &gt; &amp;options=std::make_tuple())</td></tr>
+<tr class="memdesc:a435058140ae2374155f83c6aee5d0b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structcommand__line__interpreter_1_1Command.xhtml">Command</a> object while deducing template arguments for its type.  <a href="namespacecommand__line__interpreter.xhtml#a435058140ae2374155f83c6aee5d0b03">More...</a><br /></td></tr>
+<tr class="separator:a435058140ae2374155f83c6aee5d0b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 25 2023 10:46:00 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Nov 25 2023 22:00:54 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
