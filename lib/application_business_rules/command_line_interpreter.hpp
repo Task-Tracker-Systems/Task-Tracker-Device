@@ -252,8 +252,8 @@ struct Command
 template <typename CharType, typename ReturnType, typename... ArgTypes>
 Command<CharType, ReturnType, ArgTypes...> makeCommand(
     const CharType *const commandName,
-    const std::tuple<const Option<ArgTypes, CharType> *...> &options,
-    const std::function<ReturnType(ArgTypes...)> &handler)
+    const std::function<ReturnType(ArgTypes...)> &handler,
+    const std::tuple<const Option<ArgTypes, CharType> *...> &options = std::make_tuple())
 {
     Command<CharType, ReturnType, ArgTypes...> command = {
         .commandName = commandName,

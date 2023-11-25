@@ -27,7 +27,7 @@ static void foo()
 
 void test_command_argVoid()
 {
-    const auto myCommand = cli::makeCommand("operate", std::make_tuple(), std::function(foo));
+    const auto myCommand = cli::makeCommand("operate", std::function(foo));
     myCommand.execute("operate");
 
     TEST_ASSERT_EQUAL_UINT(1, fooData.timesCalled);
@@ -48,7 +48,7 @@ static void bar(const int n)
 void test_command_argInt()
 {
     const cli::Option<int> barArg = {.labels = {"drinks"}, .defaultValue = -42};
-    const auto myCommand2 = cli::makeCommand("bar", std::make_tuple(&barArg), std::function(bar));
+    const auto myCommand2 = cli::makeCommand("bar", std::function(bar), std::make_tuple(&barArg));
     {
         barData = {};
         constexpr auto command = "bar drinks 3";
@@ -131,7 +131,7 @@ void test_command_argStringInt()
 {
     const cli::Option<std::string> object = {.labels = {"thing"}, "nothing"};
     const cli::Option<int> number = {.labels = {"number"}, 0};
-    const auto myCommand3 = cli::makeCommand("two", std::make_tuple(&object, &number), std::function(two));
+    const auto myCommand3 = cli::makeCommand("two", std::function(two), std::make_tuple(&object, &number));
 
     {
         twoData = {};
@@ -169,7 +169,7 @@ static int inv(const int n)
 void test_command_intRetInt()
 {
     const cli::Option<int> number = {.labels = {"number"}, 0};
-    const auto myCommand3 = cli::makeCommand("three", std::make_tuple(&number), std::function(inv));
+    const auto myCommand3 = cli::makeCommand("three", std::function(inv), std::make_tuple(&number));
 
     {
         threeData = {};
@@ -197,7 +197,7 @@ void test_overallInterpreter()
 {
     // command for list
     const auto list = []() { std::cout << "this is a list: a, b, c, ..." << std::endl; };
-    const auto listCmd = cli::makeCommand("list", std::make_tuple(), std::function(list));
+    const auto listCmd = cli::makeCommand("list", std::function(list));
     // command for edit
     const auto edit = [](const int id, const std::string label, const int duration) {
         std::cout << "Edit id(" << id << ") label('" << label << "') duration(" << duration << ")" << std::endl;
@@ -205,7 +205,7 @@ void test_overallInterpreter()
     const cli::Option<int> id = {.labels = {"--id"}, .defaultValue = 0};
     const cli::Option<std::string> label = {.labels = {"--name"}, .defaultValue = "foo"};
     const cli::Option<int> duration = {.labels = {"--duration"}, .defaultValue = 0};
-    const auto editCmd = cli::makeCommand("edit", std::make_tuple(&id, &label, &duration), std::function(edit));
+    const auto editCmd = cli::makeCommand("edit", std::function(edit), std::make_tuple(&id, &label, &duration));
     // cli::handleCommandLine();
     listCmd.execute("list");
     editCmd.execute("edit --id 42 --name \"first task\" --duration 1337");
