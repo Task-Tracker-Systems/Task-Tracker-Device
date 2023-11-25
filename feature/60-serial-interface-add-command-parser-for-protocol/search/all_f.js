@@ -5,6 +5,5 @@ var searchData=
   ['readme_2emd_2',['README.md',['../hardware_2README_8md.xhtml',1,'(Global Namespace)'],['../README_8md.xhtml',1,'(Global Namespace)'],['../lib_2enterprise__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2board__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2application__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_23rd__party__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../doc_2decisions_2README_8md.xhtml',1,'(Global Namespace)']]],
   ['refresh_5fdisplay_3',['refresh_display',['../display_8cpp.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp'],['../display_8h.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp']]],
   ['res_4',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]],
-  ['resetoutputpointers_5',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727',1,'SerialOutputStreamBuffer']]],
-  ['rtrim_6',['rtrim',['../trim_8hpp.xhtml#a26d7ea94667b2c7bdb92f9f7266be0d5',1,'rtrim(SequenceT &amp;&amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp'],['../trim_8hpp.xhtml#a7ece08d3d1ffe60149ab652e5cdd8bc8',1,'rtrim(SequenceT &amp;input, const std::locale &amp;locale=std::locale()):&#160;trim.hpp']]]
+  ['resetoutputpointers_5',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727',1,'SerialOutputStreamBuffer']]]
 ];
