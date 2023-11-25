@@ -206,9 +206,17 @@ void test_overallInterpreter()
     const cli::Option<std::string> label = {.labels = {"--name"}, .defaultValue = "foo"};
     const cli::Option<int> duration = {.labels = {"--duration"}, .defaultValue = 0};
     const auto editCmd = cli::makeCommand("edit", std::function(edit), std::make_tuple(&id, &label, &duration));
-    // cli::handleCommandLine();
-    listCmd.execute("list");
-    editCmd.execute("edit --id 42 --name \"first task\" --duration 1337");
+    const auto commands = std::make_tuple(listCmd, editCmd);
+    constexpr const char *commandLines[] = {
+        "list",
+        "edit --id 42 --name \"first task\" --duration 1337"};
+    for (const auto line : commandLines)
+    {
+        std::apply([&line](const auto &...command) {
+            return (command.execute(line) || ...);
+        },
+                   commands);
+    }
 }
 
 int main(int argc, char **argv)
