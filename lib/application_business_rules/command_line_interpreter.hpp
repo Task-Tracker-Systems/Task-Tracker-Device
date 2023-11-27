@@ -116,6 +116,18 @@ struct BaseCommand
     const CharT *commandName;
 };
 
+template <class Option, typename CharT>
+void writeOptionHelperToStream(std::basic_ostringstream<CharT> &messageStream,
+                               const Option &option)
+{
+    messageStream << "\t ";
+    for (const auto label : option->labels)
+    {
+        messageStream << label << " ";
+    }
+    messageStream << "\tdefault value: " << option->defaultValue << std::endl;
+}
+
 /**
  * Combines a command with a function.
  * 
@@ -238,13 +250,8 @@ struct Command : public BaseCommand<CharType>
         if constexpr (std::tuple_size_v<decltype(options)> > 0)
         {
             messageStream << "Options:" << std::endl;
-            std::apply([&messageStream](const auto &option) {
-                messageStream << "\t ";
-                for (const auto label : option->labels)
-                {
-                    messageStream << label << " ";
-                }
-                messageStream << "\tdefault value: " << option->defaultValue << std::endl;
+            std::apply([&messageStream](const auto &...option) {
+                ((writeOptionHelperToStream(messageStream, option)), ...);
             },
                        options);
         }
