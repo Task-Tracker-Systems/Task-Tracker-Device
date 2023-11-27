@@ -4,6 +4,7 @@
 #include "pitches.hpp"
 #include "serial_port.hpp"
 #include <Arduino.h>
+#include <Protocol.hpp>
 #include <cstdint>
 
 /**
@@ -66,6 +67,9 @@ void setup(char const *programIdentificationString)
     setup_display();
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
+    serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
+        ProtocolHandler::execute(commandLine.c_str());
+    });
 }
 void loop()
 {
