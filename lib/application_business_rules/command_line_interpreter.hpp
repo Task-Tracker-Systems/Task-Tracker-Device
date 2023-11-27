@@ -103,7 +103,17 @@ template <typename CharType>
 struct BaseCommand
 {
     typedef CharType CharT;
+    BaseCommand(const CharT *const commandName)
+        : commandName(commandName)
+    {
+    }
     virtual bool execute(const CharT *const commandLine) const = 0;
+    virtual std::basic_string<CharT> generateHelpMessage() const = 0;
+
+    /**
+     * Identifier for the command.
+     */
+    const CharT *commandName;
 };
 
 /**
@@ -120,10 +130,6 @@ template <typename CharType, typename ReturnType, typename... ArgTypes>
 struct Command : public BaseCommand<CharType>
 {
     typedef typename BaseCommand<CharType>::CharT CharT;
-    /**
-     * Identifier for the command.
-     */
-    const CharT *commandName;
 
     /**
      * A set of options used to retrieve the arguments for the handler.
@@ -225,7 +231,7 @@ struct Command : public BaseCommand<CharType>
      * This message is intended to be read by human users.
      * \returns a short list of the possible options
      */
-    std::basic_string<CharT> generateHelpMessage() const
+    std::basic_string<CharT> generateHelpMessage() const override
     {
         std::basic_ostringstream<CharT> messageStream;
         messageStream << "Call: " << commandName << " [OPTION]..." << std::endl;
@@ -249,7 +255,7 @@ struct Command : public BaseCommand<CharType>
         const CharType *const commandName,
         const std::function<ReturnType(ArgTypes...)> &handler,
         const std::tuple<const Option<ArgTypes, CharType> *...> &options = std::make_tuple())
-        : commandName(commandName),
+        : BaseCommand<CharT>(commandName),
           options(options),
           handler(handler)
     {
