@@ -46,7 +46,7 @@ bool ProtocolHandler::execute(const CharType *const commandLine)
     if (!commands.empty())
     {
         serial_port::cout << "No command has been executed!" << std::endl
-                          << "possible commands are:" << std::endl;
+                          << "Possible commands are:" << std::endl;
         for (const auto command : commands)
         {
             serial_port::cout << "\t " << command->commandName << std::endl;
