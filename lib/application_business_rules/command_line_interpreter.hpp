@@ -180,7 +180,7 @@ struct Command : public BaseCommand<CharType>
             throw std::runtime_error("Invalid command line format.");
             return false;
         }
-        else if (tokens[0].compare(commandName) != 0)
+        else if (tokens[0].compare(this->commandName) != 0)
         {
             return false;
         }
@@ -234,7 +234,7 @@ struct Command : public BaseCommand<CharType>
     std::basic_string<CharT> generateHelpMessage() const override
     {
         std::basic_ostringstream<CharT> messageStream;
-        messageStream << "Call: " << commandName << " [OPTION]..." << std::endl;
+        messageStream << "Call: " << this->commandName << " [OPTION]..." << std::endl;
         if constexpr (std::tuple_size_v<decltype(options)> > 0)
         {
             messageStream << "Options:" << std::endl;
