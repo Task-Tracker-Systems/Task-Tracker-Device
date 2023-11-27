@@ -10,18 +10,6 @@
 template <typename CharType>
 int strcmp_g(const CharType *const lhs, const CharType *const rhs);
 
-template <>
-int strcmp_g(const char *const lhs, const char *const rhs)
-{
-    return std::strcmp(lhs, rhs);
-}
-
-template <>
-int strcmp_g(const wchar_t *const lhs, const wchar_t *const rhs)
-{
-    return std::wcscmp(lhs, rhs);
-}
-
 // Tokenize a string using std::quoted
 template <typename CharType>
 std::vector<std::basic_string<CharType>> tokenizeQuoted(const std::basic_string<CharType> &input)
