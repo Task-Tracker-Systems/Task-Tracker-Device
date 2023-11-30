@@ -17,9 +17,9 @@ std::vector<std::basic_string<CharType>> tokenizeQuoted(const std::basic_string<
     std::basic_istringstream<CharType> iss(input);
     std::vector<std::basic_string<CharType>> tokens;
 
-    std::basic_string<CharType> token;
-    while (!iss.eof())
+    while (!(iss >> std::ws).eof())
     {
+        std::basic_string<CharType> token;
         iss >> std::quoted(token);
         if (iss.fail())
         {
