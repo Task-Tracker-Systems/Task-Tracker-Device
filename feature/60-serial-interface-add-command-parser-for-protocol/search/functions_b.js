@@ -1,17 +1,15 @@
 var searchData=
 [
-  ['task_0',['Task',['../classTask.xhtml#aebed5ce57997c5b3039cbd1b53bf12f4',1,'Task']]],
-  ['teardown_1',['tearDown',['../test__cli_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;test_cli.cpp'],['../test__serial__port_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;test_serial_port.cpp'],['../task_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;task.cpp']]],
-  ['test_5fcommand_5fargint_2',['test_command_argInt',['../test__cli_8cpp.xhtml#ae5f9d617b24fe516d388de7fec698433',1,'test_cli.cpp']]],
-  ['test_5fcommand_5fargstringint_3',['test_command_argStringInt',['../test__cli_8cpp.xhtml#a93f2cb9a3c5a925643042d53fed930ed',1,'test_cli.cpp']]],
-  ['test_5fcommand_5fargvoid_4',['test_command_argVoid',['../test__cli_8cpp.xhtml#a766a61d4eb9def0ea1690a47bce2381f',1,'test_cli.cpp']]],
-  ['test_5fcommand_5fintretint_5',['test_command_intRetInt',['../test__cli_8cpp.xhtml#a1dfecc802f8486000805e39fc7e1e5ec',1,'test_cli.cpp']]],
-  ['test_5fget_5flabel_6',['test_get_label',['../task_8cpp.xhtml#a7af579ba1b72f5a4634c9df196aa5c8f',1,'task.cpp']]],
-  ['test_5fgetline_7',['test_getLine',['../test__serial__port_8cpp.xhtml#a492639c9436263009f893f9731b32aca',1,'test_serial_port.cpp']]],
-  ['test_5finitialize_8',['test_initialize',['../test__serial__port_8cpp.xhtml#a2b5bfbda327faaefb6221f74ea7f53d0',1,'test_serial_port.cpp']]],
-  ['test_5foverallinterpreter_9',['test_overallInterpreter',['../test__cli_8cpp.xhtml#a57e7695ac5a94bad8a7bb9c0e2a04414',1,'test_cli.cpp']]],
-  ['test_5fsubscribetoline_10',['test_subscribeToLine',['../test__serial__port_8cpp.xhtml#a2ff85ede4d563d84b05459e8b71f153a',1,'test_serial_port.cpp']]],
-  ['test_5ftask_5fid_11',['test_task_id',['../task_8cpp.xhtml#ac4e4e791bac9eefd3691d9b0dca2805f',1,'task.cpp']]],
-  ['test_5ftime_5felapses_12',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
-  ['tokenizequoted_13',['tokenizeQuoted',['../string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'string_helpers.hpp']]]
+  ['serialevent_0',['serialEvent',['../serial__port_8cpp.xhtml#aa11606a63bbe57842b51321e714a8daf',1,'serialEvent():&#160;serial_port.cpp'],['../test__serial__port_8cpp.xhtml#aa11606a63bbe57842b51321e714a8daf',1,'serialEvent():&#160;serial_port.cpp']]],
+  ['serialoutputstreambuffer_1',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml#a4a0c30964625e5259156a76c6d62fcad',1,'SerialOutputStreamBuffer']]],
+  ['setcallbackforlinereception_2',['setCallbackForLineReception',['../namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c',1,'serial_port']]],
+  ['setlabel_3',['setLabel',['../classTask.xhtml#ac503952d3049aede0a5427faea94ceb1',1,'Task']]],
+  ['setup_4',['setUp',['../test__serial__port_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'test_serial_port.cpp']]],
+  ['setup_5',['setup',['../time-tracker_8ino.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;time-tracker.ino'],['../namespacemain.xhtml#ace1a84b1871a86fa3e10a6b2e44d4042',1,'main::setup()']]],
+  ['setup_6',['setUp',['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;task.cpp'],['../test__string__helpers_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_string_helpers.cpp'],['../test__cli_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_cli.cpp']]],
+  ['setup_5fdisplay_7',['setup_display',['../display_8cpp.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp'],['../display_8h.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp']]],
+  ['start_8',['start',['../classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed',1,'Task']]],
+  ['stop_9',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]],
+  ['strcmp_5fg_10',['strcmp_g',['../string__helpers_8cpp.xhtml#ac4a6f86ecaee2491d0f1379530174743',1,'strcmp_g(const char *const lhs, const char *const rhs):&#160;string_helpers.cpp'],['../string__helpers_8cpp.xhtml#a6b5394467e877a8a29e0479d49a0034b',1,'strcmp_g(const wchar_t *const lhs, const wchar_t *const rhs):&#160;string_helpers.cpp'],['../string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b',1,'strcmp_g(const CharType *const lhs, const CharType *const rhs):&#160;string_helpers.hpp']]],
+  ['sync_11',['sync',['../classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0',1,'SerialOutputStreamBuffer']]]
 ];

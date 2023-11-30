@@ -9,7 +9,7 @@ var searchData=
   ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
   ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
   ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
-  ['basecommand_9',['BaseCommand',['../structcommand__line__interpreter_1_1BaseCommand.xhtml',1,'command_line_interpreter']]],
+  ['basecommand_9',['BaseCommand',['../structcommand__line__interpreter_1_1BaseCommand.xhtml#a5408441a60a0535b20d902591e70f9a5',1,'command_line_interpreter::BaseCommand::BaseCommand()'],['../structcommand__line__interpreter_1_1BaseCommand.xhtml',1,'command_line_interpreter::BaseCommand&lt; CharType &gt;']]],
   ['bibliography_10',['Bibliography',['../citelist.xhtml',1,'']]],
   ['board_11',['board',['../namespaceboard.xhtml',1,'']]],
   ['board_20adapters_12',['Board Adapters',['../board_adapters.xhtml',1,'md_doc_software_architecture']]],

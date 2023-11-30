@@ -96,6 +96,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a68cb71af6ea2aec23cce8037d1519b57"><td class="memTemplParams" colspan="2">template&lt;class <a class="el" href="structcommand__line__interpreter_1_1Option.xhtml">Option</a> , typename CharT &gt; </td></tr>
+<tr class="memitem:a68cb71af6ea2aec23cce8037d1519b57"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecommand__line__interpreter.xhtml#a68cb71af6ea2aec23cce8037d1519b57">writeOptionHelperToStream</a> (std::basic_ostringstream&lt; CharT &gt; &amp;messageStream, const <a class="el" href="structcommand__line__interpreter_1_1Option.xhtml">Option</a> &amp;option)</td></tr>
+<tr class="separator:a68cb71af6ea2aec23cce8037d1519b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a435058140ae2374155f83c6aee5d0b03"><td class="memTemplParams" colspan="2">template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; </td></tr>
 <tr class="memitem:a435058140ae2374155f83c6aee5d0b03"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcommand__line__interpreter_1_1Command.xhtml">Command</a>&lt; CharType, ReturnType, ArgTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecommand__line__interpreter.xhtml#a435058140ae2374155f83c6aee5d0b03">makeCommand</a> (const CharType *const commandName, const std::function&lt; ReturnType(ArgTypes...)&gt; &amp;handler, const std::tuple&lt; const <a class="el" href="structcommand__line__interpreter_1_1Option.xhtml">Option</a>&lt; ArgTypes, CharType &gt; *... &gt; &amp;options=std::make_tuple())</td></tr>
 <tr class="memdesc:a435058140ae2374155f83c6aee5d0b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structcommand__line__interpreter_1_1Command.xhtml">Command</a> object while deducing template arguments for its type.  <a href="namespacecommand__line__interpreter.xhtml#a435058140ae2374155f83c6aee5d0b03">More...</a><br /></td></tr>
@@ -158,10 +161,40 @@ template&lt;typename CharType , typename ReturnType , typename... ArgTypes&gt; <
 
 </div>
 </div>
+<a id="a68cb71af6ea2aec23cce8037d1519b57" name="a68cb71af6ea2aec23cce8037d1519b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68cb71af6ea2aec23cce8037d1519b57">&#9670;&#160;</a></span>writeOptionHelperToStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class <a class="el" href="structcommand__line__interpreter_1_1Option.xhtml">Option</a> , typename CharT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_line_interpreter::writeOptionHelperToStream </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_ostringstream&lt; CharT &gt; &amp;&#160;</td>
+          <td class="paramname"><em>messageStream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structcommand__line__interpreter_1_1Option.xhtml">Option</a> &amp;&#160;</td>
+          <td class="paramname"><em>option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 25 2023 22:00:54 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Thu Nov 30 2023 12:05:44 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
