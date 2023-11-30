@@ -69,7 +69,10 @@ void serialEvent()
             // if the incoming character is a newline, call handler
             if (inChar == '\n' || inChar == '\r')
             {
-                serial_port::incomingStringHandler(inputBuffer);
+                if (!inputBuffer.empty())
+                {
+                    serial_port::incomingStringHandler(inputBuffer);
+                }
                 inputBuffer.clear();
             }
             else
