@@ -100,23 +100,78 @@ struct Option
     T defaultValue;
 };
 
+/**
+ * Interface for all \ref Command.
+ * \tparam CharType character type to be used
+ */
 template <typename CharType>
 struct BaseCommand
 {
+    /**
+     * Character type to be used.
+     */
     typedef CharType CharT;
+
+    /**
+     * Stores configuration.
+     * \param commandName is the label for the command
+     */
     BaseCommand(const CharT *const commandName)
         : commandName(commandName)
     {
     }
+
+    /**
+     * Executes the command with the provided arguments.
+     *
+     * The order of the arguments in the string does not matter.
+     * Does not attempt to extract arguments in case the command was not identified.
+     *
+     * In case the command line does contain more than white spaces
+     * but the first word does not identify the command, `false` is returned
+     * and no handler is called.
+     *
+     * In case the first word in the command line identifies the command but
+     * interpreting the options fails, an exception is thrown.
+     *
+     * Else the handler is called.
+     *
+     * \retval true in case command was found and handler called
+     * \retval false in case command was not found
+     * \param commandLine is the command line to be interpreted
+     * \throws `std::runtime_error` in case
+     *         - the command line contains no data
+     *         - not all options could be interpreted
+     *         - extracting data from an option failed
+     */
     virtual bool execute(const CharT *const commandLine) const = 0;
+
+    /**
+     * Generates a message explaining how to use this command.
+     *
+     * This message is intended to be read by human users.
+     * \returns a short list of the possible options
+     */
     virtual std::basic_string<CharT> generateHelpMessage() const = 0;
 
     /**
      * Identifier for the command.
      */
     const CharT *commandName;
+
+    virtual ~BaseCommand()
+    {
+    }
 };
 
+/**
+ * Writes a description for an \ref Option to a string stream.
+ *
+ * \tparam Option template specialization of \ref Option
+ * \tparam CharT the character type to be used
+ * \param messageStream a stream to write to
+ * \param option the option to be described
+ */
 template <class Option, typename CharT>
 void writeOptionHelperToStream(std::basic_ostringstream<CharT> &messageStream,
                                const Option &option)
@@ -155,35 +210,19 @@ struct Command : public BaseCommand<CharType>
      */
     std::function<ReturnType(ArgTypes...)> handler;
 
-    virtual bool execute(const CharT *const commandLine) const override
+    /**
+     * \copydoc BaseCommand::execute()
+     */
+    bool execute(const CharT *const commandLine) const override
     {
         return execute(commandLine, nullptr);
     }
 
     /**
-     * Executes the command with the provided arguments.
+     * \copydoc BaseCommand::execute()
      * 
-     * The order of the arguments in the string does not matter.
-     * Does not attempt to extract arguments in case the command was not identified.
-     * 
-     * In case the command line does contain more than white spaces
-     * but the first word does not identify the command, `false` is returned
-     * and no handler is called.
-     * 
-     * In case the first word in the command line identifies the command but 
-     * interpreting the options fails, an exception is thrown.
-     * 
-     * Else the handler is called.
-     * 
-     * \retval true in case command was found and handler called
-     * \retval false in case command was not found
-     * \param commandLine is the command line to be interpreted
      * \param pRetVal is an optional pointer to an object where to store the return value of the handler
      *                if the pointer equals nullptr, the return value will be omitted
-     * \throws `std::runtime_error` in case 
-     *         - the command line contains no data
-     *         - not all options could be interpreted
-     *         - extracting data from an option failed
      */
     bool execute(const CharT *const commandLine, ReturnType *const pRetVal) const
     {
@@ -239,16 +278,13 @@ struct Command : public BaseCommand<CharType>
     }
 
     /**
-     * Generates a message explaining how to use this command.
-     * 
-     * This message is intended to be read by human users.
-     * \returns a short list of the possible options
+     * \copydoc BaseCommand::generateHelpMessage()
      */
     std::basic_string<CharT> generateHelpMessage() const override
     {
         std::basic_ostringstream<CharT> messageStream;
         messageStream << "Call: " << this->commandName << " [OPTION]..." << std::endl;
-        if constexpr (std::tuple_size_v<decltype(options)> > 0)
+        if constexpr (std::tuple_size_v < decltype(options) >> 0)
         {
             messageStream << "Options:" << std::endl;
             std::apply([&messageStream](const auto &...option) {
@@ -259,6 +295,12 @@ struct Command : public BaseCommand<CharType>
         return messageStream.str();
     }
 
+    /**
+     * Stores its configuration.
+     * \param commandName label for the command
+     * \param handler the function to be called
+     * \param options the \ref Option objects to the command arguments
+     */
     Command(
         const CharType *const commandName,
         const std::function<ReturnType(ArgTypes...)> &handler,
