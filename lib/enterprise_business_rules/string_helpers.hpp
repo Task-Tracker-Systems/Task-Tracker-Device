@@ -1,6 +1,4 @@
 #pragma once
-#include <cstring>
-#include <cwchar>
 #include <iomanip>
 #include <sstream>
 #include <stdexcept>
@@ -23,7 +21,6 @@
 template <typename CharType>
 int strcmp_g(const CharType *const lhs, const CharType *const rhs);
 
-// Tokenize a string using std::quoted
 /**
  * Tokenize a string while considering quoted sequences.
  * 

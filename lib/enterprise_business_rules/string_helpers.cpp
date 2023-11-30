@@ -1,4 +1,6 @@
 #include "string_helpers.hpp"
+#include <cstring>
+#include <cwchar>
 
 template <>
 int strcmp_g(const char *const lhs, const char *const rhs)
