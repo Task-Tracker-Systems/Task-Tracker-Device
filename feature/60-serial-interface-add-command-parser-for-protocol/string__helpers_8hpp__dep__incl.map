@@ -1,10 +1,8 @@
 <map id="lib/enterprise_business_rules/string_helpers.hpp" name="lib/enterprise_business_rules/string_helpers.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="385,5,551,45"/>
-<area shape="rect" id="node2" href="$command__line__interpreter_8hpp.xhtml" title=" " alt="" coords="125,93,360,133"/>
-<area shape="rect" id="node7" href="$string__helpers_8cpp.xhtml" title=" " alt="" coords="385,93,551,133"/>
-<area shape="rect" id="node8" href="$test__string__helpers_8cpp.xhtml" title=" " alt="" coords="576,93,736,133"/>
-<area shape="rect" id="node3" href="$Protocol_8hpp.xhtml" title=" " alt="" coords="81,181,241,221"/>
-<area shape="rect" id="node6" href="$test__cli_8cpp.xhtml" title=" " alt="" coords="266,181,382,221"/>
-<area shape="rect" id="node4" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="5,269,165,309"/>
-<area shape="rect" id="node5" href="$main_8cpp.xhtml" title=" " alt="" coords="189,277,285,302"/>
+<area shape="rect" id="node1" title=" " alt="" coords="309,5,475,45"/>
+<area shape="rect" id="node2" href="$command__line__interpreter_8hpp.xhtml" title=" " alt="" coords="49,93,284,133"/>
+<area shape="rect" id="node5" href="$string__helpers_8cpp.xhtml" title=" " alt="" coords="309,93,475,133"/>
+<area shape="rect" id="node6" href="$test__string__helpers_8cpp.xhtml" title=" " alt="" coords="500,93,660,133"/>
+<area shape="rect" id="node3" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="5,181,165,221"/>
+<area shape="rect" id="node4" href="$test__cli_8cpp.xhtml" title=" " alt="" coords="190,181,306,221"/>
 </map>
