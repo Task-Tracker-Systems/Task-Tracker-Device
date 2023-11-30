@@ -84,43 +84,40 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="string__helpers_8hpp.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;cstring&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;cwchar&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> CharType&gt;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">   24</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">strcmp_g</a>(<span class="keyword">const</span> CharType *<span class="keyword">const</span> lhs, <span class="keyword">const</span> CharType *<span class="keyword">const</span> rhs);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">// Tokenize a string using std::quoted</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> CharType&gt;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">   42</a></span>std::vector&lt;std::basic_string&lt;CharType&gt;&gt; <a class="code hl_function" href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">tokenizeQuoted</a>(<span class="keyword">const</span> std::basic_string&lt;CharType&gt; &amp;input)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::basic_istringstream&lt;CharType&gt; iss(input);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::vector&lt;std::basic_string&lt;CharType&gt;&gt; tokens;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">while</span> (!(iss &gt;&gt; std::ws).eof())</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        std::basic_string&lt;CharType&gt; token;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        iss &gt;&gt; std::quoted(token);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">if</span> (iss.fail())</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;failed to tokenize string: &#39;&quot;</span> + input + <span class="stringliteral">&quot;&#39;&quot;</span>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        tokens.push_back(token);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> tokens;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
-<div class="ttc" id="astring__helpers_8hpp_xhtml_a2b46ef4e90ce4e0ab9dc22bf43851874"><div class="ttname"><a href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">tokenizeQuoted</a></div><div class="ttdeci">std::vector&lt; std::basic_string&lt; CharType &gt; &gt; tokenizeQuoted(const std::basic_string&lt; CharType &gt; &amp;input)</div><div class="ttdoc">Tokenize a string while considering quoted sequences.</div><div class="ttdef"><b>Definition:</b> string_helpers.hpp:42</div></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> CharType&gt;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">   22</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">strcmp_g</a>(<span class="keyword">const</span> CharType *<span class="keyword">const</span> lhs, <span class="keyword">const</span> CharType *<span class="keyword">const</span> rhs);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> CharType&gt;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">   39</a></span>std::vector&lt;std::basic_string&lt;CharType&gt;&gt; <a class="code hl_function" href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">tokenizeQuoted</a>(<span class="keyword">const</span> std::basic_string&lt;CharType&gt; &amp;input)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::basic_istringstream&lt;CharType&gt; iss(input);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::vector&lt;std::basic_string&lt;CharType&gt;&gt; tokens;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">while</span> (!(iss &gt;&gt; std::ws).eof())</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        std::basic_string&lt;CharType&gt; token;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        iss &gt;&gt; std::quoted(token);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (iss.fail())</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;failed to tokenize string: &#39;&quot;</span> + input + <span class="stringliteral">&quot;&#39;&quot;</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        tokens.push_back(token);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> tokens;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="ttc" id="astring__helpers_8hpp_xhtml_a2b46ef4e90ce4e0ab9dc22bf43851874"><div class="ttname"><a href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">tokenizeQuoted</a></div><div class="ttdeci">std::vector&lt; std::basic_string&lt; CharType &gt; &gt; tokenizeQuoted(const std::basic_string&lt; CharType &gt; &amp;input)</div><div class="ttdoc">Tokenize a string while considering quoted sequences.</div><div class="ttdef"><b>Definition:</b> string_helpers.hpp:39</div></div>
 <div class="ttc" id="astring__helpers_8hpp_xhtml_afc97060fbec316a3d888fb5e90f97e7b"><div class="ttname"><a href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">strcmp_g</a></div><div class="ttdeci">int strcmp_g(const CharType *const lhs, const CharType *const rhs)</div><div class="ttdoc">Compares two null-terminated byte strings lexicographically.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 30 2023 19:18:43 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Thu Nov 30 2023 19:28:27 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
