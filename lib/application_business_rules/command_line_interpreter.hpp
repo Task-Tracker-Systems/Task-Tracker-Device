@@ -7,6 +7,34 @@
 #include <tuple>
 #include <utility>
 
+/**
+ * Provides class templates to define command line commands.
+ *
+ * \ref Command allows to define a command line command and attach a function to it.
+ * Objects will be able to interpret a command line string and call the function ("handler") with the appropriate arguments.
+ *
+ * A command consists of a name ("label") and a set of options.
+ *
+ * \ref Option defines options for \ref Command objects.
+ * An option consists of a set of alternative labels (strings) and a default value.
+ * It can be used to extract arguments from a set of strings.
+ *
+ * Options to commands must be given as two tokens: The label and the actual argument.
+ *
+ * In total a command line looks as follows:
+ *
+ * ```
+ * command name   value of 1st option      value of 2nd option
+ * ┏━━━━┷━━━━┓         ┏┷━┓         ┏━━━━━━━┷━┓
+ * PRINT_FILES --PAGES 1337 --TITLE "ALL FILES"
+ *             ┗━━┯━━┛      ┗━━━━┯┛
+ *  a label of 1st option       a label of 2nd option
+ * ```
+ *
+ * The options may be given in any order on the command line.
+ * Each option must have a label.
+ * The order of the options given to the \ref Command must be the same as the parameters of the function.
+ */
 namespace command_line_interpreter
 {
 
