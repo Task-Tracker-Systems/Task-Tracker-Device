@@ -66,12 +66,15 @@ void serialEvent()
         {
             static serial_port::String inputBuffer{};
             const serial_port::String::value_type inChar = inData;
-            inputBuffer += inChar;
             // if the incoming character is a newline, call handler
             if (inChar == '\n' || inChar == '\r')
             {
                 serial_port::incomingStringHandler(inputBuffer);
                 inputBuffer.clear();
+            }
+            else
+            {
+                inputBuffer += inChar;
             }
         }
     }
