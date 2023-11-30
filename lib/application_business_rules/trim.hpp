@@ -27,8 +27,7 @@ SequenceT rtrim(SequenceT &&input, const std::locale &locale = std::locale())
         std::rbegin(input),
         std::rend(input),
         [&](const auto ch) { return !std::isspace(ch, locale); });
-    input = SequenceT(std::begin(input), end_trimmed.base());
-    return input;
+    return SequenceT(std::begin(input), end_trimmed.base());
 }
 
 template <typename SequenceT>
