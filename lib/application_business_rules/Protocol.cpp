@@ -1,4 +1,5 @@
 #include "Protocol.hpp"
+#include "command_line_interpreter.hpp"
 #include "serial_port.hpp"
 #include <array>
 
@@ -14,13 +15,14 @@ static const auto list = []() { serial_port::cout << "this is a list: a, b, c, .
 static const auto listCmd = cli::makeCommand("list", std::function(list));
 
 // command for edit
-static const auto edit = [](const int id, const std::string label, const int duration) {
+static const auto edit = [](const int id, const std::basic_string<ProtocolHandler::CharType> label, const int duration) {
     serial_port::cout << "Edit id(" << id << ") label('" << label << "') duration(" << duration << ")" << std::endl;
 };
 static const cli::Option<int> id = {.labels = {"--id"}, .defaultValue = 0};
-static const cli::Option<std::string> label = {.labels = {"--name"}, .defaultValue = "foo"};
+static const cli::Option<std::basic_string<ProtocolHandler::CharType>> label = {.labels = {"--name"}, .defaultValue = "foo"};
 static const cli::Option<int> duration = {.labels = {"--duration"}, .defaultValue = 0};
 static const auto editCmd = cli::makeCommand("edit", std::function(edit), std::make_tuple(&id, &label, &duration));
+
 static const std::array<const cli::BaseCommand<char> *, 2> commands = {&listCmd, &editCmd};
 
 bool ProtocolHandler::execute(const CharType *const commandLine)
