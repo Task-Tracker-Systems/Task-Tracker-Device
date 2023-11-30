@@ -111,9 +111,11 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:afc97060fbec316a3d888fb5e90f97e7b"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
 <tr class="memitem:afc97060fbec316a3d888fb5e90f97e7b"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">strcmp_g</a> (const CharType *const lhs, const CharType *const rhs)</td></tr>
+<tr class="memdesc:afc97060fbec316a3d888fb5e90f97e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two null-terminated byte strings lexicographically.  <a href="string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b">More...</a><br /></td></tr>
 <tr class="separator:afc97060fbec316a3d888fb5e90f97e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="memTemplParams" colspan="2">template&lt;typename CharType &gt; </td></tr>
 <tr class="memitem:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::basic_string&lt; CharType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">tokenizeQuoted</a> (const std::basic_string&lt; CharType &gt; &amp;input)</td></tr>
+<tr class="memdesc:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize a string while considering quoted sequences.  <a href="string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874">More...</a><br /></td></tr>
 <tr class="separator:a2b46ef4e90ce4e0ab9dc22bf43851874"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -145,6 +147,30 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Compares two null-terminated byte strings lexicographically. </p>
+<p >This is a wrapper to std::wcscmp() and std::strcmp() specialized for the character types.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CharType</td><td>is the type of character to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>pointer to the null-terminated byte strings to compare </td></tr>
+    <tr><td class="paramname">rhs</td><td>pointer to the null-terminated byte strings to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Negative</td><td>value if lhs appears before rhs in lexicographical order. </td></tr>
+    <tr><td class="paramname">Zero</td><td>if lhs and rhs compare equal. </td></tr>
+    <tr><td class="paramname">Positive</td><td>value if lhs appears after rhs in lexicographical order. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2b46ef4e90ce4e0ab9dc22bf43851874" name="a2b46ef4e90ce4e0ab9dc22bf43851874"></a>
@@ -165,12 +191,35 @@ template&lt;typename CharType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Tokenize a string while considering quoted sequences. </p>
+<p >The input is analyzed and for each sub-sequence which is separated by whitespaces, a token is extracted. With exception of sub-sequences which are quoted. Those are extracted as a whole.</p>
+<p >Quotes are according to <code>std::quoted</code>: '"' and escape characters <code>\</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CharType</td><td>is the type of character to be used (for example <code>char</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>is the string to be analyzed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>in case the extraction of a sub-sequence failed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a set of strings </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 30 2023 12:05:44 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Thu Nov 30 2023 18:53:20 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
