@@ -15,7 +15,7 @@ static const auto listCmd = cli::makeCommand("list", std::function(list));
 
 // command for edit
 static const auto edit = [](const int id, const std::string label, const int duration) {
-    std::cout << "Edit id(" << id << ") label('" << label << "') duration(" << duration << ")" << std::endl;
+    serial_port::cout << "Edit id(" << id << ") label('" << label << "') duration(" << duration << ")" << std::endl;
 };
 static const cli::Option<int> id = {.labels = {"--id"}, .defaultValue = 0};
 static const cli::Option<std::string> label = {.labels = {"--name"}, .defaultValue = "foo"};
