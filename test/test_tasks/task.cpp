@@ -47,10 +47,8 @@ void test_task_manager()
     TEST_ASSERT_FALSE(tasks.emplace(42, L"hello venus").second); // same id as before
     TEST_ASSERT_EQUAL_UINT(2, tasks.size());
 
-    for (auto taskPair : tasks)
+    for (auto [id, task] : tasks)
     {
-        const auto &id = taskPair.first;
-        auto &task = taskPair.second;
         std::wcout << "Task id(" << id << ") label("
                    << task.getLabel() << ") duration("
                    << task.getRecordedDuration().count() << "s)" << std::endl;
