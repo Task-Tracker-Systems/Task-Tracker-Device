@@ -1,4 +1,5 @@
 #include "Task.hpp"
+#include <TaskManager.hpp>
 #include <thread>
 #include <unity.h>
 
@@ -43,6 +44,12 @@ void test_task_id()
     TEST_ASSERT_EQUAL_UINT(idToTest, task.getId());
 }
 
+void test_task_manager()
+{
+    TaskManager manager;
+    TEST_ASSERT_EQUAL_UINT(0, manager.getNumberOfTasks());
+}
+
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
@@ -50,6 +57,7 @@ int main(int argc, char **argv)
     RUN_TEST(test_get_label);
     RUN_TEST(test_time_elapses);
     RUN_TEST(test_task_id);
+    RUN_TEST(test_task_manager);
 
     UNITY_END();
 }
