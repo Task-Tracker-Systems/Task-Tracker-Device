@@ -45,7 +45,12 @@ void test_task_id()
 
 void test_task_manager()
 {
-    TEST_ASSERT_EQUAL_UINT(0, device::tasks.size());
+    using namespace device;
+    TEST_ASSERT_EQUAL_UINT(0, tasks.size());
+    tasks.emplace_back(31, L"hello earth");
+    tasks.emplace_back(42, L"hello mars");
+    tasks.emplace_back(42, L"hello venus"); // same id as before
+    TEST_ASSERT_EQUAL_UINT(2, tasks.size());
 }
 
 int main(int argc, char **argv)
