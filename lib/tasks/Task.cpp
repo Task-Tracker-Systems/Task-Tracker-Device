@@ -51,3 +51,5 @@ Task::ID Task::getId() const
 {
     return id;
 }
+
+std::vector<Task> device::tasks;

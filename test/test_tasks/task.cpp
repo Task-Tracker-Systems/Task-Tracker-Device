@@ -1,5 +1,4 @@
 #include "Task.hpp"
-#include <TaskManager.hpp>
 #include <thread>
 #include <unity.h>
 
@@ -46,8 +45,7 @@ void test_task_id()
 
 void test_task_manager()
 {
-    TaskManager manager;
-    TEST_ASSERT_EQUAL_UINT(0, manager.getNumberOfTasks());
+    TEST_ASSERT_EQUAL_UINT(0, device::tasks.size());
 }
 
 int main(int argc, char **argv)

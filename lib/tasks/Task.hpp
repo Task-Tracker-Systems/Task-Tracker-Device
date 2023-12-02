@@ -4,6 +4,7 @@
 #pragma once
 #include <chrono>
 #include <string>
+#include <vector>
 
 /**
  * Manages a task.
@@ -85,3 +86,11 @@ class Task
     typedef std::chrono::system_clock Clock;
     std::chrono::time_point<Clock, DurationFraction> timestampStart;
 };
+
+namespace device
+{
+/**
+ * *The* collection of tasks to be used by the device application.
+ */
+extern std::vector<Task> tasks;
+} // namespace device
