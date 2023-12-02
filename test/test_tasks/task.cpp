@@ -53,6 +53,9 @@ void test_task_manager()
                    << task.getLabel() << ") duration("
                    << task.getRecordedDuration().count() << "s)" << std::endl;
     }
+
+    tasks.clear();
+    TEST_ASSERT_EQUAL_UINT(0, tasks.size());
 }
 
 int main(int argc, char **argv)
