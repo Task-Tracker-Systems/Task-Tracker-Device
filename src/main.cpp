@@ -1,4 +1,3 @@
-#include "main.hpp"
 #include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
@@ -45,9 +44,7 @@ static std::uint8_t getEvent()
     return result;
 }
 
-namespace main
-{
-void setup(char const *programIdentificationString)
+void setup()
 {
     serial_port::initialize();
     pinMode(board::button::pin::up, INPUT_PULLUP);
@@ -64,6 +61,7 @@ void setup(char const *programIdentificationString)
     pinMode(board::led::pin::task4, OUTPUT);
     pinMode(board::buzzer::pin::on_off, OUTPUT);
     setup_display();
+    static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
 }
@@ -100,4 +98,3 @@ void loop()
     delay(loopDurationMs);
     refresh_display(); // Animate bitmaps
 }
-} // namespace main

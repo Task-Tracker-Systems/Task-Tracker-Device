@@ -3,7 +3,14 @@
  * Provides named objects for the pins provided by the board.
  */
 #pragma once
-#include "framework_config.hpp"
+#include <cstdint>
+
+/**
+ * Type expected by HAL for accessing pins.
+ *
+ * This depends on the used framework.
+ */
+typedef std::uint8_t PinType;
 
 namespace board
 {
