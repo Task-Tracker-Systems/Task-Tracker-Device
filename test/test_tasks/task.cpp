@@ -1,4 +1,5 @@
 #include "Task.hpp"
+#include <iostream>
 #include <thread>
 #include <unity.h>
 
@@ -14,13 +15,13 @@ void tearDown()
 
 void test_get_label()
 {
-    const Task task(0, label);
+    const Task task(label);
     TEST_ASSERT_EQUAL_STRING(label.c_str(), task.getLabel().c_str());
 }
 
 void test_time_elapses()
 {
-    Task task(1, label);
+    Task task(label);
     constexpr unsigned int durationToTest = 2;
     TEST_ASSERT_FALSE(task.isRunning());
     TEST_ASSERT_EQUAL_UINT(0U, task.getRecordedDuration().count());
@@ -36,21 +37,24 @@ void test_time_elapses()
     TEST_ASSERT_EQUAL_UINT(durationToTest, task.getRecordedDuration().count());
 }
 
-void test_task_id()
-{
-    const Task::ID idToTest = 2;
-    Task task(idToTest, L"test");
-    TEST_ASSERT_EQUAL_UINT(idToTest, task.getId());
-}
-
 void test_task_manager()
 {
     using namespace device;
     TEST_ASSERT_EQUAL_UINT(0, tasks.size());
-    tasks.emplace_back(31, L"hello earth");
-    tasks.emplace_back(42, L"hello mars");
-    tasks.emplace_back(42, L"hello venus"); // same id as before
+
+    TEST_ASSERT_TRUE(tasks.emplace(31, L"hello earth").second);
+    TEST_ASSERT_TRUE(tasks.emplace(42, L"hello mars").second);
+    TEST_ASSERT_FALSE(tasks.emplace(42, L"hello venus").second); // same id as before
     TEST_ASSERT_EQUAL_UINT(2, tasks.size());
+
+    for (auto taskPair : tasks)
+    {
+        const auto &id = taskPair.first;
+        auto &task = taskPair.second;
+        std::wcout << "Task id(" << id << ") label("
+                   << task.getLabel() << ") duration("
+                   << task.getRecordedDuration().count() << "s)" << std::endl;
+    }
 }
 
 int main(int argc, char **argv)
@@ -59,7 +63,6 @@ int main(int argc, char **argv)
 
     RUN_TEST(test_get_label);
     RUN_TEST(test_time_elapses);
-    RUN_TEST(test_task_id);
     RUN_TEST(test_task_manager);
 
     UNITY_END();

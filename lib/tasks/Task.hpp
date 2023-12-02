@@ -3,8 +3,13 @@
  */
 #pragma once
 #include <chrono>
+#include <map>
 #include <string>
-#include <vector>
+
+/**
+ * Task ID.
+ */
+typedef unsigned int TaskId;
 
 /**
  * Manages a task.
@@ -26,11 +31,6 @@ class Task
     typedef std::chrono::seconds Duration;
 
     /**
-     * Task ID.
-     */
-    typedef unsigned int ID;
-
-    /**
      * String type used for labels of the task.
      *
      * \internal
@@ -38,7 +38,7 @@ class Task
      * \endinternal
      */
     typedef std::wstring String;
-    Task(const ID id, const String &newLabel, const Duration elapsedTime = Duration::zero());
+    Task(const String &newLabel, const Duration elapsedTime = Duration::zero());
 
     /**
      * Starts/continues capturing duration
@@ -66,10 +66,8 @@ class Task
      */
     Duration getRecordedDuration();
     bool isRunning() const;
-    ID getId() const;
 
   private:
-    const ID id;
     String label;
     enum class State
     {
@@ -92,5 +90,5 @@ namespace device
 /**
  * *The* collection of tasks to be used by the device application.
  */
-extern std::vector<Task> tasks;
+extern std::map<TaskId, Task> tasks;
 } // namespace device
