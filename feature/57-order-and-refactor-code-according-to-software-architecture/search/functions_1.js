@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['display_0',['Display',['../classDisplay.xhtml#aee386246a254610f92a64567c556f96d',1,'Display']]]
+  ['flush_0',['flush',['../classSerialOutputStreamBuffer.xhtml#a0d5019e06b17e122399ca38bb9b16409',1,'SerialOutputStreamBuffer']]],
+  ['flushssd1306adafruit_1',['flushSSD1306Adafruit',['../display_8cpp.xhtml#a4e36773439af3b252f4913461e9afa12',1,'display.cpp']]]
 ];

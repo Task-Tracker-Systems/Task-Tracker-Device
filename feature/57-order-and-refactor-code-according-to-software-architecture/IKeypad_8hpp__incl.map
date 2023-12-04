@@ -1,7 +1,0 @@
-<map id="lib/layer2_hmi/include/IKeypad.hpp" name="lib/layer2_hmi/include/IKeypad.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,151,46"/>
-<area shape="rect" id="Node000002" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="35,94,121,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,46,81,78,75,78,75,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="44,168,112,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,120,81,152,75,152,75,120"/>
-</map>

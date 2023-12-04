@@ -8,7 +8,5 @@ var searchData=
   ['b5_5',['b5',['../namespacenote.xhtml#a9c41d46609094680a567b83b863ace1b',1,'note']]],
   ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
   ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
-  ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
-  ['bit_9',['bit',['../classShiftRegisterStatusIndicator.xhtml#abec92394b5335226d3592cca8f3d0aee',1,'ShiftRegisterStatusIndicator']]],
-  ['buffer_10',['buffer',['../classSerialOutputStreamBuffer.xhtml#ac8176ef6c9062845ad817401039b5504',1,'SerialOutputStreamBuffer']]]
+  ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]]
 ];

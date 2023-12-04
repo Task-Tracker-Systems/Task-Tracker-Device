@@ -1,5 +1,4 @@
-<map id="SerialOutputStreamBuffer&lt; BufferSize &gt;" name="SerialOutputStreamBuffer&lt; BufferSize &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,119,185,279"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="48,5,143,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,86,98,119,93,119,93,86"/>
+<map id="SerialOutputStreamBuffer" name="SerialOutputStreamBuffer">
+<area shape="rect" id="node1" title="Controls output of a character sequence to serial port." alt="" coords="5,108,200,221"/>
+<area shape="rect" id="node2" title=" " alt="" coords="20,5,185,60"/>
 </map>

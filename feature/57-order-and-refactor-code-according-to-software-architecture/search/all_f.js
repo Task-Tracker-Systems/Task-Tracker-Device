@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['readme_0',['readme',['../md_hardware_2README.xhtml',1,'README'],['../md_lib_2layer3__board_2README.xhtml',1,'README']]],
-  ['readme_2emd_1',['readme.md',['../hardware_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2layer3__board_2README_8md.xhtml',1,'(Global Namespace)'],['../README_8md.xhtml',1,'(Global Namespace)']]],
-  ['readregister_2',['readregister',['../classIInputShiftRegister.xhtml#ae377eeb10ce6ec097d240fa36e3b60cc',1,'IInputShiftRegister::readRegister()'],['../classInputShiftRegister.xhtml#a1c00c0cd022ae0a7d6a38557a9df9f9c',1,'InputShiftRegister::readRegister()']]],
-  ['requests_3',['Pull requests',['../md_CONTRIBUTING.xhtml#autotoc_md2',1,'']]],
-  ['resetoutputpointers_4',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#ab6733e1e2ca93d24c41016558f576ede',1,'SerialOutputStreamBuffer']]],
-  ['right_5',['RIGHT',['../KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33da21507b40c80068eda19865706fdc2403',1,'KeyIds.hpp']]]
+  ['readline_0',['readLine',['../namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142',1,'serial_port']]],
+  ['readme_1',['README',['../md_doc_decisions_README.xhtml',1,'(Global Namespace)'],['../md_hardware_README.xhtml',1,'(Global Namespace)'],['../md_lib_3rd_party_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_application_business_rules_README.xhtml',1,'(Global Namespace)'],['../md_lib_board_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_enterprise_business_rules_README.xhtml',1,'(Global Namespace)']]],
+  ['readme_2emd_2',['README.md',['../hardware_2README_8md.xhtml',1,'(Global Namespace)'],['../README_8md.xhtml',1,'(Global Namespace)'],['../lib_2enterprise__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2board__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2application__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_23rd__party__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../doc_2decisions_2README_8md.xhtml',1,'(Global Namespace)']]],
+  ['refresh_5fdisplay_3',['refresh_display',['../display_8h.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp'],['../display_8cpp.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp']]],
+  ['res_4',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]],
+  ['resetoutputpointers_5',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727',1,'SerialOutputStreamBuffer']]]
 ];

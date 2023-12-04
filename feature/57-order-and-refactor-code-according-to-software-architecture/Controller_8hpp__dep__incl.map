@@ -1,9 +1,0 @@
-<map id="lib/layer2_hmi/src/Controller.hpp" name="lib/layer2_hmi/src/Controller.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="153,5,276,46"/>
-<area shape="rect" id="Node000002" href="$Controller_8cpp.xhtml" title=" " alt="" coords="5,102,128,142"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,57,99,103,96,99,170,52"/>
-<area shape="rect" id="Node000003" href="$controller__factory__interface_8cpp.xhtml" title=" " alt="" coords="152,94,277,150"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,61,217,93,212,93,212,61"/>
-<area shape="rect" id="Node000004" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="301,102,424,142"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="259,52,333,99,330,103,257,57"/>
-</map>

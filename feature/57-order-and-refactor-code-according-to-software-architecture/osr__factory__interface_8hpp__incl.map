@@ -1,9 +1,0 @@
-<map id="lib/layer3_board/include/osr_factory_interface.hpp" name="lib/layer3_board/include/osr_factory_interface.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="70,5,240,46"/>
-<area shape="rect" id="Node000002" href="$IOutputShiftRegister_8hpp.xhtml" title=" " alt="" coords="5,94,169,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,48,109,84,105,80,136,45"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="193,94,253,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,45,205,80,201,84,170,48"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="55,168,119,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,120,90,152,84,152,84,120"/>
-</map>

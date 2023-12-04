@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hmi_5fconfiguration_2ehpp_0',['hmi_configuration.hpp',['../hmi__configuration_8hpp.xhtml',1,'']]]
+  ['license_2emd_0',['LICENSE.md',['../LICENSE_8md.xhtml',1,'']]],
+  ['lv_5fconf_2eh_1',['lv_conf.h',['../lv__conf_8h.xhtml',1,'']]]
 ];

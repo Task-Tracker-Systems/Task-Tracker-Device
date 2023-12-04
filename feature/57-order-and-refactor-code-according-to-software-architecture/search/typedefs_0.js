@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['base_0',['Base',['../classInputShiftRegister.xhtml#a883eaa05d10160b2ec67f5de2b3fc822',1,'InputShiftRegister']]],
-  ['bitnumber_1',['BitNumber',['../classIOutputShiftRegister.xhtml#a27369c4518ac87b4462e63ebafe7311f',1,'IOutputShiftRegister']]]
+  ['chartype_0',['CharType',['../namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e',1,'serial_port']]]
 ];

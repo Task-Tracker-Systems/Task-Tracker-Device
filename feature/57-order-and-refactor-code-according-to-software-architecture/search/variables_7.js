@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['high_5flevel_0',['high_level',['../framework__config_8hpp.xhtml#a54b3a74b39e4a3409b33c7c4b237d166',1,'framework_config.hpp']]]
+  ['on_5foff_0',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]]
 ];

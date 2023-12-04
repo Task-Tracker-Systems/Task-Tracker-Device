@@ -1,7 +1,0 @@
-<map id="IStatusIndicator" name="IStatusIndicator">
-<area shape="rect" id="Node000001" title=" " alt="" coords="107,5,237,111"/>
-<area shape="rect" id="Node000002" href="$classLedStatusIndicator.xhtml" title=" " alt="" coords="5,169,147,274"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,125,109,171,104,168,131,122"/>
-<area shape="rect" id="Node000003" href="$classShiftRegisterStatusIndicator.xhtml" title=" " alt="" coords="171,159,365,284"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,122,234,158,229,160,208,125"/>
-</map>

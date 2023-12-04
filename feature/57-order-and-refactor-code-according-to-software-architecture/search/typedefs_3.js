@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pintype_0',['PinType',['../namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c',1,'board']]]
+  ['pintype_0',['PinType',['../board__pins_8hpp.xhtml#a18293678246befbae5727aa3a8709b75',1,'board_pins.hpp']]]
 ];

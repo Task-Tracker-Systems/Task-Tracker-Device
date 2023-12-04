@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_0',['Data',['../classIInputShiftRegister.xhtml#abfff20bba0063df4ffba75a50044243f',1,'IInputShiftRegister']]]
+  ['duration_0',['Duration',['../classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0',1,'Task']]]
 ];
