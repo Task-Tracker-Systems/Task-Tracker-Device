@@ -1,9 +1,9 @@
 #include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
-#include "serial_port.hpp"
 #include <Arduino.h>
 #include <cstdint>
+#include <serial_port_interface.hpp>
 
 /**
  * Events are the beginning of a pressed button.
