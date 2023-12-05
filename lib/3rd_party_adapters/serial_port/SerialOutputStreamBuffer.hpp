@@ -1,7 +1,7 @@
 #pragma once
 
-#include <streambuf>
 #include "serial_port.hpp"
+#include <streambuf>
 
 /**
  * Controls output of a character sequence to serial port.
