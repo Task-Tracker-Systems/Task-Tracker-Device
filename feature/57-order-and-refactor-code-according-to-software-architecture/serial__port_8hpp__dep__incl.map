@@ -1,8 +1,7 @@
-<map id="lib/application_business_rules/serial_port.hpp" name="lib/application_business_rules/serial_port.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="266,5,426,45"/>
-<area shape="rect" id="node2" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="67,93,265,133"/>
-<area shape="rect" id="node4" href="$serial__port_8cpp.xhtml" title=" " alt="" coords="229,181,378,221"/>
-<area shape="rect" id="node5" href="$main_8cpp.xhtml" title=" " alt="" coords="341,101,437,126"/>
-<area shape="rect" id="node6" href="$test__serial__port_8cpp.xhtml" title=" " alt="" coords="461,93,599,133"/>
-<area shape="rect" id="node3" href="$SerialOutputStreamBuffer_8cpp.xhtml" title=" " alt="" coords="5,181,204,221"/>
+<map id="lib/3rd_party_adapters/serial_port/serial_port.hpp" name="lib/3rd_party_adapters/serial_port/serial_port.hpp">
+<area shape="rect" id="node1" title="This files serves as hint to the PlatformIO Library Dependency Finder to find the corresponding sourc..." alt="" coords="233,5,408,45"/>
+<area shape="rect" id="node2" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="79,93,283,148"/>
+<area shape="rect" id="node4" href="$serial__port_8cpp.xhtml" title=" " alt="" coords="233,203,408,243"/>
+<area shape="rect" id="node5" href="$test__serial__port_8cpp.xhtml" title=" " alt="" coords="358,101,497,141"/>
+<area shape="rect" id="node3" href="$SerialOutputStreamBuffer_8cpp.xhtml" title=" " alt="" coords="5,196,209,251"/>
 </map>

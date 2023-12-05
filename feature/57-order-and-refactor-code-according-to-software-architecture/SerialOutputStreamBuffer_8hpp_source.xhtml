@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Task Tracker: lib/3rd_party_adapters/SerialOutputStreamBuffer.hpp Source File</title>
+<title>Task Tracker: lib/3rd_party_adapters/serial_port/SerialOutputStreamBuffer.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml">lib</a></li><li class="navelem"><a class="el" href="dir_e75212beacfa7863df067e044f07f232.xhtml">3rd_party_adapters</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml">lib</a></li><li class="navelem"><a class="el" href="dir_e75212beacfa7863df067e044f07f232.xhtml">3rd_party_adapters</a></li><li class="navelem"><a class="el" href="dir_c58b28a92266e1fed59ac669fdc9a732.xhtml">serial_port</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,8 +85,8 @@ $(function() {
 <div class="contents">
 <a href="SerialOutputStreamBuffer_8hpp.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="serial__port_8hpp.xhtml">serial_port.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;streambuf&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;streambuf&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="serial__port_8hpp.xhtml">serial_port.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classSerialOutputStreamBuffer.xhtml">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classSerialOutputStreamBuffer.xhtml">SerialOutputStreamBuffer</a> : <span class="keyword">public</span> std::basic_streambuf&lt;serial_port::CharType&gt;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
@@ -110,11 +110,11 @@ $(function() {
 <div class="ttc" id="aclassSerialOutputStreamBuffer_xhtml_a0d5019e06b17e122399ca38bb9b16409"><div class="ttname"><a href="classSerialOutputStreamBuffer.xhtml#a0d5019e06b17e122399ca38bb9b16409">SerialOutputStreamBuffer::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">Writes the put area before the current character to serial interface.</div><div class="ttdef"><b>Definition:</b> SerialOutputStreamBuffer.cpp:24</div></div>
 <div class="ttc" id="aclassSerialOutputStreamBuffer_xhtml_a387b04682764977dd126aba02582a5f0"><div class="ttname"><a href="classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0">SerialOutputStreamBuffer::sync</a></div><div class="ttdeci">int sync() override</div><div class="ttdef"><b>Definition:</b> SerialOutputStreamBuffer.cpp:18</div></div>
 <div class="ttc" id="aclassSerialOutputStreamBuffer_xhtml_a999cf28821157276e86c7b1c63c32727"><div class="ttname"><a href="classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727">SerialOutputStreamBuffer::resetOutputPointers</a></div><div class="ttdeci">void resetOutputPointers()</div><div class="ttdoc">Sets the pointers to the extend of the buffer.</div><div class="ttdef"><b>Definition:</b> SerialOutputStreamBuffer.cpp:32</div></div>
-<div class="ttc" id="aserial__port_8hpp_xhtml"><div class="ttname"><a href="serial__port_8hpp.xhtml">serial_port.hpp</a></div></div>
+<div class="ttc" id="aserial__port_8hpp_xhtml"><div class="ttname"><a href="serial__port_8hpp.xhtml">serial_port.hpp</a></div><div class="ttdoc">This files serves as hint to the PlatformIO Library Dependency Finder to find the corresponding sourc...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 4 2023 12:26:48 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Tue Dec 5 2023 12:48:35 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
