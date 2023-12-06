@@ -1,3 +1,22 @@
+/**
+ * \file
+ *
+ * - get event
+ *   - read pins
+ *   - identify/generate event
+ * - setup
+ *   - configure hardware (pins)
+ *   - initialize
+ *     - serial port
+ *     - display
+ *   - send "hello" over serial port (could be in serial port initialization)
+ * - loop
+ *   - fetches event
+ *   - print event
+ *   - play note
+ *   - (todo) forward event to (tasks)
+ */
+
 #include "board_pins.hpp"
 #include "display.h"
 #include "pitches.hpp"
