@@ -66,19 +66,6 @@ static std::uint8_t getEvent()
 void setup()
 {
     serial_port::initialize();
-    pinMode(board::button::pin::up, INPUT_PULLUP);
-    pinMode(board::button::pin::down, INPUT_PULLUP);
-    pinMode(board::button::pin::enter, INPUT_PULLUP);
-    pinMode(board::button::pin::back, INPUT_PULLUP);
-    pinMode(board::button::pin::task1, INPUT_PULLUP);
-    pinMode(board::button::pin::task2, INPUT_PULLUP);
-    pinMode(board::button::pin::task3, INPUT_PULLUP);
-    pinMode(board::button::pin::task4, INPUT_PULLUP);
-    pinMode(board::led::pin::task1, OUTPUT);
-    pinMode(board::led::pin::task2, OUTPUT);
-    pinMode(board::led::pin::task3, OUTPUT);
-    pinMode(board::led::pin::task4, OUTPUT);
-    pinMode(board::buzzer::pin::on_off, OUTPUT);
     setup_display();
     static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
     serial_port::cout << std::endl
