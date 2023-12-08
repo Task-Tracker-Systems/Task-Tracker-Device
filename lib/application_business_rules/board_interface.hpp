@@ -17,6 +17,14 @@ enum class HmiSelection
     BACK,
 };
 
+enum class StatusIndicatorId
+{
+    TASK1,
+    TASK2,
+    TASK3,
+    TASK4,
+};
+
 typedef std::function<void(HmiSelection)> HmiHandler;
 
 void setHmiHandler(const HmiHandler callbackFunction);
@@ -24,5 +32,7 @@ void setHmiHandler(const HmiHandler callbackFunction);
 void setup();
 
 void playTone(const unsigned int frequency, const std::chrono::milliseconds duration);
+
+void setStatusIndicator(const StatusIndicatorId indicatorId, const bool toActive);
 
 } // namespace board

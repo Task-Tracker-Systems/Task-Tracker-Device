@@ -1,7 +1,8 @@
 /** \file */
 #pragma once
 #include "board_interface.hpp"
-#include "tasks/Task.hpp"
+
+class Task;
 
 class Controller
 {
@@ -10,6 +11,6 @@ class Controller
 
   private:
     void handleHmiSelection(const board::HmiSelection selection);
-    Task::ID mapTaskSelectionToTaskId(const board::HmiSelection taskSelection);
+    Task &mapTaskSelectionToTask(const board::HmiSelection taskSelection);
     unsigned int mapSelectionToFrequency(const board::HmiSelection selection);
 };
