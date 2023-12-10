@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hmicoordinator_0',['HmiCoordinator',['../classHmiCoordinator.xhtml',1,'']]]
+  ['serialoutputstreambuffer_0',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml',1,'']]]
 ];

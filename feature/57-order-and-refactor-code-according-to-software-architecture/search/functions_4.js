@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['initialize_0',['initialize',['../namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608',1,'serial_port']]],
-  ['isrunning_1',['isRunning',['../classTask.xhtml#ad6abe9097628c64d57347c1657e518c8',1,'Task']]]
+  ['loop_0',['loop',['../main_8cpp.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]]
 ];

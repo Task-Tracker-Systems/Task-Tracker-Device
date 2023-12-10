@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="This files serves as hint to the PlatformIO Library Dependency Finder to find the corresponding sourc...">
+<g id="a_node1"><a xlink:title="This is a Proxy header.">
 <polygon fill="#999999" stroke="#666666" points="224.5,-140 93.5,-140 93.5,-110 224.5,-110 224.5,-140"/>
 <text text-anchor="start" x="101.5" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">lib/3rd_party_adapters</text>
 <text text-anchor="middle" x="159" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">/serial_port/serial_port.hpp</text>

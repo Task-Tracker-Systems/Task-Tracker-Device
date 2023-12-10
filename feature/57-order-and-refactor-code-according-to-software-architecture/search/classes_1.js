@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['serialoutputstreambuffer_0',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml',1,'']]]
+  ['task_0',['Task',['../classTask.xhtml',1,'']]]
 ];

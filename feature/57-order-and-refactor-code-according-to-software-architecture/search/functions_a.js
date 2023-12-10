@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['serialevent_0',['serialEvent',['../serial__port_8cpp.xhtml#aa11606a63bbe57842b51321e714a8daf',1,'serialEvent():&#160;serial_port.cpp'],['../test__serial__port_8cpp.xhtml#aa11606a63bbe57842b51321e714a8daf',1,'serialEvent():&#160;serial_port.cpp']]],
-  ['serialoutputstreambuffer_1',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml#a4a0c30964625e5259156a76c6d62fcad',1,'SerialOutputStreamBuffer']]],
-  ['setcallbackforlinereception_2',['setCallbackForLineReception',['../namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c',1,'serial_port']]],
-  ['sethmihandler_3',['setHmiHandler',['../namespaceboard.xhtml#a6acf4ae6d322d06f2701442cfc2eca46',1,'board']]],
-  ['setlabel_4',['setLabel',['../classTask.xhtml#ac503952d3049aede0a5427faea94ceb1',1,'Task']]],
-  ['setstatusindicator_5',['setStatusIndicator',['../namespaceboard.xhtml#acfc376d6590c6f31e7095aa348202ef8',1,'board']]],
-  ['setup_6',['setup',['../namespaceboard.xhtml#a5b99237eb4ddb891ace213be9cd40bfb',1,'board::setup()'],['../main_8cpp.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp']]],
-  ['setup_7',['setUp',['../test__serial__port_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_serial_port.cpp'],['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;task.cpp']]],
-  ['setup_5fdisplay_8',['setup_display',['../display_8h.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp'],['../display_8cpp.xhtml#a98d68beab431566434b2775d48097ec9',1,'setup_display():&#160;display.cpp']]],
-  ['start_9',['start',['../classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed',1,'Task']]],
-  ['stop_10',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]],
-  ['sync_11',['sync',['../classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0',1,'SerialOutputStreamBuffer']]]
+  ['task_0',['Task',['../classTask.xhtml#aadaa1e97886b53d7aa2353460da713bc',1,'Task']]],
+  ['teardown_1',['tearDown',['../test__serial__port_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;test_serial_port.cpp'],['../task_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;task.cpp']]],
+  ['test_5fget_5flabel_2',['test_get_label',['../task_8cpp.xhtml#a7af579ba1b72f5a4634c9df196aa5c8f',1,'task.cpp']]],
+  ['test_5fgetline_3',['test_getLine',['../test__serial__port_8cpp.xhtml#a492639c9436263009f893f9731b32aca',1,'test_serial_port.cpp']]],
+  ['test_5finitialize_4',['test_initialize',['../test__serial__port_8cpp.xhtml#a2b5bfbda327faaefb6221f74ea7f53d0',1,'test_serial_port.cpp']]],
+  ['test_5fsubscribetoline_5',['test_subscribeToLine',['../test__serial__port_8cpp.xhtml#a2ff85ede4d563d84b05459e8b71f153a',1,'test_serial_port.cpp']]],
+  ['test_5ftask_5fmanager_6',['test_task_manager',['../task_8cpp.xhtml#affcbe78f66ce2b85d27e8aef9831d2a6',1,'task.cpp']]],
+  ['test_5ftime_5felapses_7',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]]
 ];

@@ -125,10 +125,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6acf4ae6d322d06f2701442cfc2eca46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a6acf4ae6d322d06f2701442cfc2eca46">setHmiHandler</a> (const <a class="el" href="namespaceboard.xhtml#a58657f5dd8f15b76f3336832b9a49dd4">HmiHandler</a> callbackFunction)</td></tr>
-<tr class="separator:a6acf4ae6d322d06f2701442cfc2eca46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b99237eb4ddb891ace213be9cd40bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a5b99237eb4ddb891ace213be9cd40bfb">setup</a> ()</td></tr>
-<tr class="separator:a5b99237eb4ddb891ace213be9cd40bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9995e21790caa5b0072b5a77616f884"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#aa9995e21790caa5b0072b5a77616f884">setup</a> (const <a class="el" href="namespaceboard.xhtml#a58657f5dd8f15b76f3336832b9a49dd4">HmiHandler</a> callbackFunction)</td></tr>
+<tr class="separator:aa9995e21790caa5b0072b5a77616f884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af761c14d2fbd04a7d86a6cad113d6702"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#af761c14d2fbd04a7d86a6cad113d6702">playTone</a> (const unsigned int frequency, const std::chrono::milliseconds duration)</td></tr>
 <tr class="separator:af761c14d2fbd04a7d86a6cad113d6702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc376d6590c6f31e7095aa348202ef8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#acfc376d6590c6f31e7095aa348202ef8">setStatusIndicator</a> (const <a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34">StatusIndicatorId</a> indicatorId, const bool toActive)</td></tr>
@@ -239,24 +237,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6acf4ae6d322d06f2701442cfc2eca46" name="a6acf4ae6d322d06f2701442cfc2eca46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6acf4ae6d322d06f2701442cfc2eca46">&#9670;&#160;</a></span>setHmiHandler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void board::setHmiHandler </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceboard.xhtml#a58657f5dd8f15b76f3336832b9a49dd4">HmiHandler</a>&#160;</td>
-          <td class="paramname"><em>callbackFunction</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="acfc376d6590c6f31e7095aa348202ef8" name="acfc376d6590c6f31e7095aa348202ef8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfc376d6590c6f31e7095aa348202ef8">&#9670;&#160;</a></span>setStatusIndicator()</h2>
 
@@ -285,8 +265,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b99237eb4ddb891ace213be9cd40bfb" name="a5b99237eb4ddb891ace213be9cd40bfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b99237eb4ddb891ace213be9cd40bfb">&#9670;&#160;</a></span>setup()</h2>
+<a id="aa9995e21790caa5b0072b5a77616f884" name="aa9995e21790caa5b0072b5a77616f884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9995e21790caa5b0072b5a77616f884">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,7 +274,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void board::setup </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="namespaceboard.xhtml#a58657f5dd8f15b76f3336832b9a49dd4">HmiHandler</a>&#160;</td>
+          <td class="paramname"><em>callbackFunction</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -305,7 +286,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 10 2023 10:24:43 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Dec 10 2023 14:10:41 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
