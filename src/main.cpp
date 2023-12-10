@@ -26,13 +26,12 @@ void setup()
 {
     serial_port::initialize();
     hmi_coordinator::setup();
-    setup_display();
+    display::setup_display();
     static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
 }
 void loop()
 {
-    constexpr unsigned long loopDurationMs = 250;
-    refresh_display(); // Animate bitmaps
+    display::refresh_display(); // Animate bitmaps
 }
