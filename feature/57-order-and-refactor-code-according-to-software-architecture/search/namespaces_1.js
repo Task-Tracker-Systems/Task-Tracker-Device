@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['note_0',['note',['../namespacenote.xhtml',1,'']]]
+  ['device_0',['device',['../namespacedevice.xhtml',1,'']]]
 ];
