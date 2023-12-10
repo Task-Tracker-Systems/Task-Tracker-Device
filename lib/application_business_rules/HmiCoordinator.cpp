@@ -1,5 +1,6 @@
 #include "HmiCoordinator.hpp"
 #include "board_interface.hpp"
+#include "serial_port_interface.hpp"
 #include "tasks/Task.hpp"
 #include <cstddef>
 #include <iterator>
@@ -42,6 +43,7 @@ static board::StatusIndicatorId mapTaskToStatusIndicator(const board::HmiSelecti
 
 static void handleHmiSelection(const board::HmiSelection selection)
 {
+    serial_port::cout << "Handle event nr. " << selection << std::endl;
     using namespace std::chrono_literals;
     board::playTone(mapSelectionToFrequency(selection), 1s);
     switch (selection)
@@ -66,7 +68,7 @@ static void handleHmiSelection(const board::HmiSelection selection)
     }
 }
 
-void HmiCoordinator::setup()
+void hmi_coordinator::setup()
 {
     board::setup(std::bind(&handleHmiSelection, std::placeholders::_1));
 }
