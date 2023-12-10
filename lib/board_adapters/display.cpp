@@ -41,7 +41,7 @@ void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_col
     lv_disp_flush_ready(disp_drv);
 }
 
-void display::setup_display()
+void display::setup()
 {
 #if LV_USE_LOG != 0
     lv_log_register_print_cb(lvgl_log_to_serial); /* register print function for debugging */
@@ -94,7 +94,7 @@ void display::setup_display()
     lv_timer_handler();
 }
 
-void display::refresh_display()
+void display::loop()
 {
     lv_timer_handler();
 }

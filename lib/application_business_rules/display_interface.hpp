@@ -1,7 +1,8 @@
-#include <stdint.h>
-
 namespace display
 {
-void setup_display();
-void refresh_display();
+void setup();
+/**
+ * Will redraw the screen if required, handle input devices, animation etc.
+ */
+void loop();
 } // namespace display
