@@ -61,6 +61,7 @@ static PinType mapIndicatorIdToPin(const board::StatusIndicatorId id)
         break;
     default:
         throw std::runtime_error();
+        break;
     }
 }
 
