@@ -15,12 +15,12 @@
  */
 
 #include "board_pins.hpp"
-#include "display.h"
 #include "pitches.hpp"
 #include <Arduino.h>
 #include <HmiCoordinator.hpp>
 #include <cstdint>
 #include <serial_port_interface.hpp>
+#include "../lib/application_business_rules/display_interface.hpp"
 
 void setup()
 {
