@@ -7,10 +7,10 @@ class Task;
 /**
  * Is responsible to delegate events from the board to the application layer and vice versa.
  */
-class Controller
+class HmiCoordinator
 {
   public:
-    Controller();
+    HmiCoordinator();
 
   private:
     void handleHmiSelection(const board::HmiSelection selection);

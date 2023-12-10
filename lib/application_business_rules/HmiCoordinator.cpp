@@ -1,15 +1,16 @@
-#include "Controller.hpp"
+#include "HmiCoordinator.hpp"
+
 #include "tasks/Task.hpp"
 #include <cstddef>
 #include <iterator>
 #include <pitches.hpp>
 
-Controller::Controller()
+HmiCoordinator::HmiCoordinator()
 {
-    board::setHmiHandler(std::bind(&Controller::handleHmiSelection, this, std::placeholders::_1));
+    board::setHmiHandler(std::bind(&HmiCoordinator::handleHmiSelection, this, std::placeholders::_1));
 }
 
-void Controller::handleHmiSelection(const board::HmiSelection selection)
+void HmiCoordinator::handleHmiSelection(const board::HmiSelection selection)
 {
     using namespace std::chrono_literals;
     board::playTone(mapSelectionToFrequency(selection), 1s);
@@ -34,13 +35,13 @@ void Controller::handleHmiSelection(const board::HmiSelection selection)
     }
 }
 
-Task &Controller::mapTaskSelectionToTask(const board::HmiSelection taskSelection)
+Task &HmiCoordinator::mapTaskSelectionToTask(const board::HmiSelection taskSelection)
 {
     const std::size_t taskIndex = taskSelection - board::HmiSelection::TASK1;
     return *std::next(std::begin(device::tasks), taskIndex);
 }
 
-unsigned int Controller::mapSelectionToFrequency(const board::HmiSelection selection)
+unsigned int HmiCoordinator::mapSelectionToFrequency(const board::HmiSelection selection)
 {
     constexpr auto notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
     return notes[selection];
