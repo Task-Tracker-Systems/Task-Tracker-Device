@@ -1,7 +1,6 @@
 /** \file
  *
- * This files serves as hint to the PlatformIO Library Dependency Finder to find the corresponding source file.
- * The actual interface is defined where it is required/used.
+ * This is a \ref proxy_header.
  */
 
 #pragma once

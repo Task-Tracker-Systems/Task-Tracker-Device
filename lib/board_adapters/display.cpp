@@ -1,4 +1,4 @@
-
+#include "display.hpp"
 #include "board_pins.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
