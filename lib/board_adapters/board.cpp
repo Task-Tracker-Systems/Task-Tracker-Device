@@ -1,24 +1,13 @@
 #include "board.hpp"
 #include "board_pins.hpp"
 #include <Arduino.h>
+#include <functional>
 #include <iterator>
 #include <stdexcept>
 #include <utility>
 
-static board::HmiHandler hmiHandler;
-
-void board::setHmiHandler(const HmiHandler callbackFunction)
+void board::setup(const HmiHandler callbackFunction)
 {
-    hmiHandler = callbackFunction;
-}
-
-static void inputIsr()
-{
-    if (!hmiHandler)
-    {
-        return;
-    }
-    /* loop through inputs, evaluate and call handler if appropriate */
     constexpr std::pair<PinType, board::HmiSelection> selectionForPins[] = {
         {board::button::pin::task1, board::HmiSelection::TASK1},
         {board::button::pin::task2, board::HmiSelection::TASK2},
@@ -29,33 +18,6 @@ static void inputIsr()
         {board::button::pin::enter, board::HmiSelection::ENTER},
         {board::button::pin::back, board::HmiSelection::BACK},
     };
-    static bool pinsAlreadyActive[std::size(selectionForPins)] = {false};
-    auto it_pinAlreadyActive = std::begin(pinsAlreadyActive);
-    for (const auto &selectionForPin : selectionForPins)
-    {
-        constexpr auto activeState = LOW; // buttons are active low
-        const bool isActiveNow = digitalRead(selectionForPin.first) == activeState;
-        if (!(*it_pinAlreadyActive) && isActiveNow) // react only on activation
-        {
-            (*hmiHandler)(selectionForPin.second);
-        }
-        *it_pinAlreadyActive = isActiveNow;
-        it_pinAlreadyActive++;
-    }
-}
-
-void board::setup()
-{
-    constexpr PinType inputPins[] = {
-        board::button::pin::task1,
-        board::button::pin::task2,
-        board::button::pin::task3,
-        board::button::pin::task4,
-        board::button::pin::up,
-        board::button::pin::down,
-        board::button::pin::enter,
-        board::button::pin::back,
-    };
     constexpr PinType outputPins[] = {
         board::led::pin::task1,
         board::led::pin::task2,
@@ -63,10 +25,12 @@ void board::setup()
         board::led::pin::task4,
         board::buzzer::pin::on_off,
     };
-    for (const auto inputPin : inputPins)
+    for (const auto &selectionForPin : selectionForPins)
     {
-        pinMode(inputPin, INPUT_PULLUP);
-        attachInterrupt(digitalPinToInterrupt(inputPin), &inputIsr, CHANGE);
+        pinMode(selectionForPin.first, INPUT_PULLUP);
+        attachInterrupt(digitalPinToInterrupt(selectionForPin.first),
+                        std::bind(callbackFunction, selectionForPin.second),
+                        FALLING);
     }
     for (const auto outputPin : outputPins)
     {

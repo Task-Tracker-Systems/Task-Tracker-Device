@@ -27,9 +27,7 @@ enum class StatusIndicatorId
 
 typedef std::function<void(HmiSelection)> HmiHandler;
 
-void setHmiHandler(const HmiHandler callbackFunction);
-
-void setup();
+void setup(const HmiHandler callbackFunction);
 
 void playTone(const unsigned int frequency, const std::chrono::milliseconds duration);
 

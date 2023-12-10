@@ -7,7 +7,7 @@
 
 HmiCoordinator::HmiCoordinator()
 {
-    board::setHmiHandler(std::bind(&HmiCoordinator::handleHmiSelection, this, std::placeholders::_1));
+    board::setup(std::bind(&HmiCoordinator::handleHmiSelection, this, std::placeholders::_1));
 }
 
 void HmiCoordinator::handleHmiSelection(const board::HmiSelection selection)
@@ -29,6 +29,7 @@ void HmiCoordinator::handleHmiSelection(const board::HmiSelection selection)
         {
             task.start();
         }
+        board::setStatusIndicator(mapTaskToStatusIndicator(selection), task.isRunning());
         break;
     default:
         break;
