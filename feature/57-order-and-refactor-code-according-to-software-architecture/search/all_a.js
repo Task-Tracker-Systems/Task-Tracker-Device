@@ -2,7 +2,7 @@ var searchData=
 [
   ['license_0',['LICENSE',['../md_LICENSE.xhtml',1,'']]],
   ['license_2emd_1',['LICENSE.md',['../LICENSE_8md.xhtml',1,'']]],
-  ['loop_2',['loop',['../main_8cpp.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]],
+  ['loop_2',['loop',['../main_8cpp.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;main.cpp'],['../namespacedisplay.xhtml#a5d85562a1787152aa39f192ae305867e',1,'display::loop()']]],
   ['lv_5fassert_5fhandler_3',['LV_ASSERT_HANDLER',['../lv__conf_8h.xhtml#a7f89929bee5e1d1f3047b6fc57723602',1,'lv_conf.h']]],
   ['lv_5fassert_5fhandler_5finclude_4',['LV_ASSERT_HANDLER_INCLUDE',['../lv__conf_8h.xhtml#aa4d75719785838a72b61c58e920fc8f8',1,'lv_conf.h']]],
   ['lv_5fattribute_5fdma_5',['LV_ATTRIBUTE_DMA',['../lv__conf_8h.xhtml#ad75bbb40b927ad7efa7231d3625672b1',1,'lv_conf.h']]],

@@ -16,14 +16,13 @@ var searchData=
   ['setlabel_13',['setLabel',['../classTask.xhtml#ac503952d3049aede0a5427faea94ceb1',1,'Task']]],
   ['setstatusindicator_14',['setStatusIndicator',['../namespaceboard.xhtml#acfc376d6590c6f31e7095aa348202ef8',1,'board']]],
   ['setup_15',['setUp',['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;task.cpp'],['../test__serial__port_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_serial_port.cpp']]],
-  ['setup_16',['setup',['../main_8cpp.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp'],['../namespaceboard.xhtml#aa9995e21790caa5b0072b5a77616f884',1,'board::setup()'],['../namespacehmi__coordinator.xhtml#a74fd5ce9fa28f05bfdbe6e231c08f442',1,'hmi_coordinator::setup()']]],
-  ['setup_5fdisplay_17',['setup_display',['../namespacedisplay.xhtml#a130201785b5d1a244537009fea104ef2',1,'display']]],
-  ['software_20architecture_18',['Software Architecture',['../md_doc_software_architecture.xhtml',1,'']]],
-  ['software_2darchitecture_2emd_19',['software-architecture.md',['../software-architecture_8md.xhtml',1,'']]],
-  ['start_20',['start',['../classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed',1,'Task']]],
-  ['statusindicatorid_21',['StatusIndicatorId',['../namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34',1,'board']]],
-  ['stop_22',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]],
-  ['string_23',['String',['../classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a',1,'Task::String()'],['../namespaceserial__port.xhtml#a572553df2c28c025df5775458684cb92',1,'serial_port::String()']]],
-  ['stringhandler_24',['StringHandler',['../namespaceserial__port.xhtml#a105fbf17cff58df0ed4281de8ae0926a',1,'serial_port']]],
-  ['sync_25',['sync',['../classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0',1,'SerialOutputStreamBuffer']]]
+  ['setup_16',['setup',['../main_8cpp.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp'],['../namespacehmi__coordinator.xhtml#a74fd5ce9fa28f05bfdbe6e231c08f442',1,'hmi_coordinator::setup()'],['../namespaceboard.xhtml#aa9995e21790caa5b0072b5a77616f884',1,'board::setup()'],['../namespacedisplay.xhtml#a89929f45fe247d59d5ad7b5453920bf2',1,'display::setup()']]],
+  ['software_20architecture_17',['Software Architecture',['../md_doc_software_architecture.xhtml',1,'']]],
+  ['software_2darchitecture_2emd_18',['software-architecture.md',['../software-architecture_8md.xhtml',1,'']]],
+  ['start_19',['start',['../classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed',1,'Task']]],
+  ['statusindicatorid_20',['StatusIndicatorId',['../namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34',1,'board']]],
+  ['stop_21',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]],
+  ['string_22',['String',['../classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a',1,'Task::String()'],['../namespaceserial__port.xhtml#a572553df2c28c025df5775458684cb92',1,'serial_port::String()']]],
+  ['stringhandler_23',['StringHandler',['../namespaceserial__port.xhtml#a105fbf17cff58df0ed4281de8ae0926a',1,'serial_port']]],
+  ['sync_24',['sync',['../classSerialOutputStreamBuffer.xhtml#a387b04682764977dd126aba02582a5f0',1,'SerialOutputStreamBuffer']]]
 ];
