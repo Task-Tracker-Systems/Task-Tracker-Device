@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['task_0',['Task',['../classTask.xhtml#aebed5ce57997c5b3039cbd1b53bf12f4',1,'Task']]],
+  ['task_0',['Task',['../classTask.xhtml#aadaa1e97886b53d7aa2353460da713bc',1,'Task']]],
   ['teardown_1',['tearDown',['../test__cli_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;test_cli.cpp'],['../test__serial__port_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;test_serial_port.cpp'],['../test__string__helpers_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;test_string_helpers.cpp'],['../task_8cpp.xhtml#ab804e0f66def63262c1d6b4e3d2a2bd7',1,'tearDown():&#160;task.cpp']]],
   ['test_5fcommand_5fargint_2',['test_command_argInt',['../test__cli_8cpp.xhtml#ae5f9d617b24fe516d388de7fec698433',1,'test_cli.cpp']]],
   ['test_5fcommand_5fargstringint_3',['test_command_argStringInt',['../test__cli_8cpp.xhtml#a93f2cb9a3c5a925643042d53fed930ed',1,'test_cli.cpp']]],
@@ -11,7 +11,7 @@ var searchData=
   ['test_5finitialize_8',['test_initialize',['../test__serial__port_8cpp.xhtml#a2b5bfbda327faaefb6221f74ea7f53d0',1,'test_serial_port.cpp']]],
   ['test_5foverallinterpreter_9',['test_overallInterpreter',['../test__cli_8cpp.xhtml#a57e7695ac5a94bad8a7bb9c0e2a04414',1,'test_cli.cpp']]],
   ['test_5fsubscribetoline_10',['test_subscribeToLine',['../test__serial__port_8cpp.xhtml#a2ff85ede4d563d84b05459e8b71f153a',1,'test_serial_port.cpp']]],
-  ['test_5ftask_5fid_11',['test_task_id',['../task_8cpp.xhtml#ac4e4e791bac9eefd3691d9b0dca2805f',1,'task.cpp']]],
+  ['test_5ftask_5fmanager_11',['test_task_manager',['../task_8cpp.xhtml#affcbe78f66ce2b85d27e8aef9831d2a6',1,'task.cpp']]],
   ['test_5ftime_5felapses_12',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
   ['test_5ftokenizestring1_13',['test_tokenizeString1',['../test__string__helpers_8cpp.xhtml#a471a182a9bfe06e2193fad2f9c51baf9',1,'test_string_helpers.cpp']]],
   ['test_5ftokenizestringendingquote_14',['test_tokenizeStringEndingQuote',['../test__string__helpers_8cpp.xhtml#a2c60b6469ba935ac73412310762b7649',1,'test_string_helpers.cpp']]],
