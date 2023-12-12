@@ -61,6 +61,21 @@ static constexpr std::pair<PinType, board::HmiSelection> selectionForPins[] = {
 
 void board::setup(const HmiHandler callbackFunction)
 {
+    // input pins
+    callBack = callbackFunction;
+    constexpr auto functionPointers = makeH(selectionForPins).aH1<selectionForPins>();
+    std::size_t index = 0;
+    for (const auto selectionForPin : selectionForPins)
+    {
+        pinMode(selectionForPin.first, INPUT_PULLUP);
+        attachInterrupt(
+            digitalPinToInterrupt(selectionForPin.first),
+            functionPointers.at(index),
+            FALLING);
+        index++;
+    }
+
+    // output pins
     constexpr PinType outputPins[] = {
         board::led::pin::task1,
         board::led::pin::task2,
@@ -68,7 +83,6 @@ void board::setup(const HmiHandler callbackFunction)
         board::led::pin::task4,
         board::buzzer::pin::on_off,
     };
-    constexpr auto functionPointers = makeH(selectionForPins).aH1<selectionForPins>();
     for (const auto outputPin : outputPins)
     {
         pinMode(outputPin, OUTPUT);
