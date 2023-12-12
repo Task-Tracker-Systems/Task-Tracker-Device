@@ -17,15 +17,6 @@ static void isr()
 template <class T, std::size_t N>
 struct H
 {
-    static void constexpr configureOutput(const T &selectionForPin)
-    {
-        pinMode(selectionForPin.first, INPUT_PULLUP);
-        attachInterrupt(
-            digitalPinToInterrupt(selectionForPin.first),
-            (isr<selectionForPin.second>),
-            FALLING);
-    }
-
     template <T (&A)[N]>
     constexpr static void aH1()
     {
@@ -35,7 +26,12 @@ struct H
     template <T (&A)[N], std::size_t... Is>
     constexpr static void aH2(const std::index_sequence<Is...>)
     {
-        ((configureOutput(A[Is])), ...);
+        ((
+             attachInterrupt(
+                 digitalPinToInterrupt(A[Is].first),
+                 (isr<A[Is].second>),
+                 FALLING)),
+         ...);
     }
 };
 
