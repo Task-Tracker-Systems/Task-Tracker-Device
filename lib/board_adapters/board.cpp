@@ -15,6 +15,10 @@ static void isr()
     callBack(SELECTION);
 }
 
+/**
+ * This stores the array time and size.
+ * 
+ */
 template <class T, std::size_t N>
 struct H
 {
@@ -24,6 +28,10 @@ struct H
         return aH2<A>(std::make_index_sequence<N>());
     }
 
+    /**
+     * We must get the array as template argument. 
+     * Else the resolution of the template argument to isr<>() would not be at compile time.
+     */
     template <T (&A)[N], std::size_t... Is>
     constexpr static std::array<void (*)(), N> aH2(const std::index_sequence<Is...>)
     {
@@ -31,6 +39,9 @@ struct H
     }
 };
 
+/**
+ * Helps to deduce the array type and size.
+ */
 template <class T, std::size_t N>
 static constexpr H<T, N> makeH(T (&)[N])
 {
