@@ -1,6 +1,7 @@
 #include "board.hpp"
 #include "board_pins.hpp"
 #include <Arduino.h>
+#include <array>
 #include <functional>
 #include <iterator>
 #include <stdexcept>
@@ -18,25 +19,20 @@ template <class T, std::size_t N>
 struct H
 {
     template <T (&A)[N]>
-    constexpr static void aH1()
+    constexpr static auto aH1()
     {
-        aH2<A>(std::make_index_sequence<N>());
+        return aH2<A>(std::make_index_sequence<N>());
     }
 
     template <T (&A)[N], std::size_t... Is>
-    constexpr static void aH2(const std::index_sequence<Is...>)
+    constexpr static std::array<void (*)(), N> aH2(const std::index_sequence<Is...>)
     {
-        ((
-             attachInterrupt(
-                 digitalPinToInterrupt(A[Is].first),
-                 (isr<A[Is].second>),
-                 FALLING)),
-         ...);
+        return {isr<A[Is].second>...};
     }
 };
 
 template <class T, std::size_t N>
-static H<T, N> makeH(T (&)[N])
+static constexpr H<T, N> makeH(T (&)[N])
 {
     return H<T, N>();
 }
@@ -61,7 +57,7 @@ void board::setup(const HmiHandler callbackFunction)
         board::led::pin::task4,
         board::buzzer::pin::on_off,
     };
-    makeH(selectionForPins).aH1<selectionForPins>();
+    constexpr auto functionPointers = makeH(selectionForPins).aH1<selectionForPins>();
     for (const auto outputPin : outputPins)
     {
         pinMode(outputPin, OUTPUT);
