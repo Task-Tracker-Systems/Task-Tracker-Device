@@ -9,7 +9,7 @@
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, board::i2c_1::pin::res);
+Adafruit_SSD1306 displayDriver(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, board::i2c_1::pin::res);
 
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[SCREEN_WIDTH * 16];
@@ -33,11 +33,11 @@ void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_col
     {
         for (uint16_t col = 0; col < width; col++)
         {
-            display.drawPixel(area->x1 + col, area->y1 + row, (color_p->full) ? SSD1306_WHITE : SSD1306_BLACK);
+            displayDriver.drawPixel(area->x1 + col, area->y1 + row, (color_p->full) ? SSD1306_WHITE : SSD1306_BLACK);
             color_p++;
         }
     }
-    display.display();
+    displayDriver.display();
     lv_disp_flush_ready(disp_drv);
 }
 
@@ -50,7 +50,7 @@ void display::setup()
     delay(100); // maybe this delay can be replaced by using a reset signal for the display (requires hardware modifications)
     Wire.begin(board::i2c_1::pin::sda, board::i2c_1::pin::scl);
     // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3D))
+    if (!displayDriver.begin(SSD1306_SWITCHCAPVCC, 0x3D))
     {
         Serial.println("SSD1306 allocation failed");
         for (;;)
@@ -59,15 +59,15 @@ void display::setup()
 
     // Show initial display buffer contents on the screen --
     // the library initializes this with an Adafruit splash screen.
-    display.display();
+    displayDriver.display();
     delay(500); // Pause for short time
 
     // Clear the buffer
-    display.clearDisplay();
+    displayDriver.clearDisplay();
 
     // Show the display buffer on the screen. You MUST call display() after
     // drawing commands to make them visible on screen!
-    display.display();
+    displayDriver.display();
 
     // Initialize lvgl library
     lv_init();
