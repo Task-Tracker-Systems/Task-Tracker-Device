@@ -16,38 +16,67 @@ static void isr()
 }
 
 /**
- * This stores the array time and size.
+ * Generator for ISR function pointers.
+ *
+ * Uses an array to instantiate function templates and assembles an array of function pointers to those instances.
+ * This is used to attach a value to the ISRs which can not accept any argument.
+ * Instead the value is provided as non-type template argument to the ISR function template.
  * 
+ * @tparam T type of the array elements
+ * @tparam N number of the array elements
  */
 template <class T, std::size_t N>
-struct H
+struct FunctionPointerGenerator
 {
-    template <T (&A)[N]>
-    constexpr static auto aH1()
+    /**
+     * Creates an array of function pointers to interrupt functions.
+     *
+     * Passing the values as template argument is necessary as they will be evaluated at compile time
+     * for instantiating the function templates.
+     *
+     * @tparam VALUES array containing the values used for ISR function template instantiation
+     * @returns an array with the same number of function pointers as the number of elements of the input values array
+     */
+    template <T (&VALUES)[N]>
+    constexpr static auto createIsrPointers()
     {
-        return aH2<A>(std::make_index_sequence<N>());
+        return aH2<VALUES>(std::make_index_sequence<N>());
     }
 
     /**
-     * We must get the array as template argument. 
-     * Else the resolution of the template argument to isr<>() would not be at compile time.
+     * \copydoc
+     * @tparam VALUES
+     * @tparam Is
+     * @param
+     * @return
      */
-    template <T (&A)[N], std::size_t... Is>
+    template <T (&VALUES)[N], std::size_t... Is>
     constexpr static std::array<void (*)(), N> aH2(const std::index_sequence<Is...>)
     {
-        return {isr<A[Is].second>...};
+        return {isr<VALUES[Is].second>...};
     }
 };
 
 /**
- * Helps to deduce the array type and size.
+ * Creates generator for function pointers.
+ *
+ * This function automatically deduces the template arguments for the generator.
+ *
+ * @param array of the same type and size to be used with the generator.
+ *        Argument is used for template argument deduction only.
+ * @tparam T the type of the array elements
+ * @tparam N the number of array elements
+ * @return generator which can be used to generate function pointers
  */
 template <class T, std::size_t N>
-static constexpr H<T, N> makeH(T (&)[N])
+static constexpr FunctionPointerGenerator<T, N> createFPG([[maybe_unused]] T (&array)[N])
 {
-    return H<T, N>();
+    return FunctionPointerGenerator<T, N>();
 }
 
+/**
+ * Maps HMI buttons to events.
+ */
 static constexpr std::pair<PinType, board::HmiSelection> selectionForPins[] = {
     {board::button::pin::task1, board::HmiSelection::TASK1},
     {board::button::pin::task2, board::HmiSelection::TASK2},
@@ -63,7 +92,7 @@ void board::setup(const HmiHandler callbackFunction)
 {
     // input pins
     callBack = callbackFunction;
-    constexpr auto functionPointers = makeH(selectionForPins).aH1<selectionForPins>();
+    constexpr auto functionPointers = createFPG(selectionForPins).createIsrPointers<selectionForPins>();
     std::size_t index = 0;
     for (const auto selectionForPin : selectionForPins)
     {
