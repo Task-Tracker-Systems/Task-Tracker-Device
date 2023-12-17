@@ -86,32 +86,32 @@ $(function() {
 <a href="ProcessHmiInputs_8hpp.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Controller_8hpp.xhtml">Controller.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="IPresenter_8hpp.xhtml">IPresenter.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="Presenter_8hpp.xhtml">Presenter.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classProcessHmiInputs.xhtml">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classProcessHmiInputs.xhtml">ProcessHmiInputs</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="classProcessHmiInputs.xhtml">ProcessHmiInputs</a>(<a class="code hl_class" href="classController.xhtml">Controller</a> &amp;userInputProvider, <a class="code hl_class" href="classIPresenter.xhtml">IPresenter</a> &amp;stateVisualizer);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="classProcessHmiInputs.xhtml">ProcessHmiInputs</a>(<a class="code hl_class" href="classController.xhtml">Controller</a> &amp;userInputProvider, <a class="code hl_class" href="classPresenter.xhtml">Presenter</a> &amp;stateVisualizer);</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classProcessHmiInputs.xhtml#a35691fc7255d8ad9e423a59f4bde9831">loop</a>();</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a> event2TaskEvent(<span class="keyword">const</span> <a class="code hl_enumeration" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">Controller::EventType</a> event);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="Presenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a> event2TaskEvent(<span class="keyword">const</span> <a class="code hl_enumeration" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">Controller::EventType</a> event);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="classController.xhtml">Controller</a> &amp;userInputProvider;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="classIPresenter.xhtml">IPresenter</a> &amp;stateVisualizer;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="classPresenter.xhtml">Presenter</a> &amp;stateVisualizer;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> isEventTask(<span class="keyword">const</span> <a class="code hl_enumeration" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">Controller::EventType</a> event);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
 <div class="ttc" id="aController_8hpp_xhtml"><div class="ttname"><a href="Controller_8hpp.xhtml">Controller.hpp</a></div></div>
-<div class="ttc" id="aIPresenter_8hpp_xhtml"><div class="ttname"><a href="IPresenter_8hpp.xhtml">IPresenter.hpp</a></div></div>
-<div class="ttc" id="aIPresenter_8hpp_xhtml_a70d8f6873793c75aaff54fda6f2b0bac"><div class="ttname"><a href="IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a></div><div class="ttdeci">std::size_t TaskIndex</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:10</div></div>
 <div class="ttc" id="aKeyIds_8hpp_xhtml_a251d5d8935f1af4cb86e18f962d9d33d"><div class="ttname"><a href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a></div><div class="ttdeci">KeyId</div><div class="ttdef"><b>Definition:</b> KeyIds.hpp:5</div></div>
+<div class="ttc" id="aPresenter_8hpp_xhtml"><div class="ttname"><a href="Presenter_8hpp.xhtml">Presenter.hpp</a></div></div>
+<div class="ttc" id="aPresenter_8hpp_xhtml_a70d8f6873793c75aaff54fda6f2b0bac"><div class="ttname"><a href="Presenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a></div><div class="ttdeci">std::size_t TaskIndex</div><div class="ttdef"><b>Definition:</b> Presenter.hpp:13</div></div>
 <div class="ttc" id="aclassController_xhtml"><div class="ttname"><a href="classController.xhtml">Controller</a></div><div class="ttdef"><b>Definition:</b> Controller.hpp:8</div></div>
-<div class="ttc" id="aclassIPresenter_xhtml"><div class="ttname"><a href="classIPresenter.xhtml">IPresenter</a></div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:13</div></div>
+<div class="ttc" id="aclassPresenter_xhtml"><div class="ttname"><a href="classPresenter.xhtml">Presenter</a></div><div class="ttdef"><b>Definition:</b> Presenter.hpp:16</div></div>
 <div class="ttc" id="aclassProcessHmiInputs_xhtml"><div class="ttname"><a href="classProcessHmiInputs.xhtml">ProcessHmiInputs</a></div><div class="ttdef"><b>Definition:</b> ProcessHmiInputs.hpp:7</div></div>
 <div class="ttc" id="aclassProcessHmiInputs_xhtml_a35691fc7255d8ad9e423a59f4bde9831"><div class="ttname"><a href="classProcessHmiInputs.xhtml#a35691fc7255d8ad9e423a59f4bde9831">ProcessHmiInputs::loop</a></div><div class="ttdeci">void loop()</div><div class="ttdef"><b>Definition:</b> ProcessHmiInputs.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 17 2023 21:03:54 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Dec 17 2023 21:15:09 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

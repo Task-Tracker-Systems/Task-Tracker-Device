@@ -1,5 +1,5 @@
 <map id="lib/application_business_rules/include/display_factory_interface.hpp" name="lib/application_business_rules/include/display_factory_interface.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="143,5,303,60"/>
-<area shape="rect" id="node2" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,115,220,155"/>
-<area shape="rect" id="node3" href="$presenter__factory__interface_8cpp.xhtml" title=" " alt="" coords="244,108,427,163"/>
+<area shape="rect" id="node1" title=" " alt="" coords="122,5,282,60"/>
+<area shape="rect" id="node2" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,108,220,148"/>
+<area shape="rect" id="node3" href="$main_8cpp.xhtml" title=" " alt="" coords="245,115,341,141"/>
 </map>

@@ -1,8 +1,10 @@
 <map id="lib/application_business_rules/include/hmi_configuration.hpp" name="lib/application_business_rules/include/hmi_configuration.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="158,5,389,45"/>
-<area shape="rect" id="node2" href="$statusindicators__factory__interface_8hpp.xhtml" title=" " alt="" coords="71,93,270,148"/>
-<area shape="rect" id="node5" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="295,101,457,141"/>
-<area shape="rect" id="node3" href="$presenter__factory__interface_8cpp.xhtml" title=" " alt="" coords="179,196,362,251"/>
-<area shape="rect" id="node4" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,196,155,251"/>
-<area shape="rect" id="node6" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="387,203,549,243"/>
+<area shape="rect" id="node1" title=" " alt="" coords="179,5,410,45"/>
+<area shape="rect" id="node2" href="$statusindicators__factory__interface_8hpp.xhtml" title=" " alt="" coords="93,93,291,148"/>
+<area shape="rect" id="node5" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="317,101,480,141"/>
+<area shape="rect" id="node3" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,196,155,251"/>
+<area shape="rect" id="node4" href="$main_8cpp.xhtml" title=" " alt="" coords="183,306,279,331"/>
+<area shape="rect" id="node6" href="$ProcessHmiInputs_8hpp.xhtml" title=" " alt="" coords="281,203,519,243"/>
+<area shape="rect" id="node8" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="544,203,707,243"/>
+<area shape="rect" id="node7" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="303,299,518,339"/>
 </map>

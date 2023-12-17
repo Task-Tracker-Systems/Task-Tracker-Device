@@ -16,7 +16,7 @@ var searchData=
   ['serialoutputstreambuffer_2ehpp_13',['SerialOutputStreamBuffer.hpp',['../SerialOutputStreamBuffer_8hpp.xhtml',1,'']]],
   ['setcallbackforlinereception_14',['setCallbackForLineReception',['../namespaceserial__port.xhtml#a8ed4fda662b92bd35c8ecfb6521edb4c',1,'serial_port']]],
   ['setlabel_15',['setLabel',['../classTask.xhtml#ac503952d3049aede0a5427faea94ceb1',1,'Task']]],
-  ['settaskstatusindicator_16',['setTaskStatusIndicator',['../classIPresenter.xhtml#a1893a475692cdf84d1bc29c3f92423bf',1,'IPresenter::setTaskStatusIndicator()'],['../classPresenter.xhtml#ae540f968374809588c839dada017d366',1,'Presenter::setTaskStatusIndicator()']]],
+  ['settaskstatusindicator_16',['setTaskStatusIndicator',['../classPresenter.xhtml#a376b8c5c462f7fceb38b2c6d413a3531',1,'Presenter']]],
   ['setup_17',['setUp',['../test__cli_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'test_cli.cpp']]],
   ['setup_18',['setup',['../namespacemain.xhtml#ace1a84b1871a86fa3e10a6b2e44d4042',1,'main::setup()'],['../time-tracker_8ino.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;time-tracker.ino']]],
   ['setup_19',['setUp',['../test__board_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_board.cpp'],['../test__hmi_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_hmi.cpp'],['../test__serial__port_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_serial_port.cpp'],['../test__string__helpers_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_string_helpers.cpp'],['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;task.cpp']]],

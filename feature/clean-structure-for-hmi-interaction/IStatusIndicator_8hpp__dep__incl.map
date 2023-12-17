@@ -1,10 +1,12 @@
 <map id="lib/application_business_rules/include/IStatusIndicator.hpp" name="lib/application_business_rules/include/IStatusIndicator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="259,5,482,45"/>
-<area shape="rect" id="node2" href="$statusindicators__factory__interface_8hpp.xhtml" title=" " alt="" coords="271,93,470,148"/>
-<area shape="rect" id="node5" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="84,101,247,141"/>
-<area shape="rect" id="node7" href="$LedStatusIndicator_8hpp.xhtml" title=" " alt="" coords="494,101,677,141"/>
-<area shape="rect" id="node3" href="$presenter__factory__interface_8cpp.xhtml" title=" " alt="" coords="193,196,375,251"/>
-<area shape="rect" id="node4" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="400,196,549,251"/>
-<area shape="rect" id="node6" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,203,168,243"/>
-<area shape="rect" id="node8" href="$LedStatusIndicator_8cpp.xhtml" title=" " alt="" coords="574,203,757,243"/>
+<area shape="rect" id="node1" title=" " alt="" coords="288,5,511,45"/>
+<area shape="rect" id="node2" href="$statusindicators__factory__interface_8hpp.xhtml" title=" " alt="" coords="300,93,499,148"/>
+<area shape="rect" id="node5" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="525,101,687,141"/>
+<area shape="rect" id="node9" href="$LedStatusIndicator_8hpp.xhtml" title=" " alt="" coords="93,101,276,141"/>
+<area shape="rect" id="node3" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="213,196,362,251"/>
+<area shape="rect" id="node4" href="$main_8cpp.xhtml" title=" " alt="" coords="390,306,486,331"/>
+<area shape="rect" id="node6" href="$ProcessHmiInputs_8hpp.xhtml" title=" " alt="" coords="488,203,727,243"/>
+<area shape="rect" id="node8" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="751,203,914,243"/>
+<area shape="rect" id="node7" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="511,299,725,339"/>
+<area shape="rect" id="node10" href="$LedStatusIndicator_8cpp.xhtml" title=" " alt="" coords="5,203,188,243"/>
 </map>
