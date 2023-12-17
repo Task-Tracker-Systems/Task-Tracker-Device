@@ -64,6 +64,30 @@ Note, that you must build the software (using the default build configuration) b
 
 Please refer to the documentation of the simulator for instructions on how to simulate the device.
 
+### Debugging
+
+For debugging you need to use the `debug` [configuration](https://docs.platformio.org/en/latest/projectconf/build_configurations.html#build-configurations) for building. One can achieve this via:
+
+- command line: `pio run --target debug`
+- PlatformIO IDE: select as project task 'Advanced' → 'Pre-Debug'
+
+#### Interpreting runtime exceptions
+
+The ESP32 does output a backtrace to serial interface in case of fatal runtime exceptions.
+The backtrace is hard to read, but using a backtrace interpreter it can give valuable hints for error analysis.
+
+##### Backtrace interpreter for PlatformIO
+
+[A filter to the serial monitor of PlatformIO IDE](https://github.com/platformio/platform-espressif32/issues/105#issuecomment-945158769) has been [configured](https://github.com/Task-Tracker-Systems/Task-Tracker-Device/pull/35).
+It is a [built-in filter to PlatformIO](https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#built-in-filters).
+This way input on the PlatformIO serial monitor will be interpreted live.
+
+##### Separate backtrace interpreter
+
+In case the serial interface input is not read by PlatformIO serial monitor one can use [this python script](https://github.com/me21/EspArduinoExceptionDecoder).
+
+This is especially useful when simulating the microcontroller or device.
+
 ## Contribute
 
 Please refer to [`CONTRIBUTING.md`](CONTRIBUTING.md).
