@@ -1,15 +1,23 @@
 #pragma once
-#include "IPresenter.hpp"
 #include "IStatusIndicator.hpp"
 #include "Menu.hpp"
 #include "hmi_configuration.hpp"
+#include <cstddef>
 
-class Presenter : public IPresenter
+enum class TaskIndicatorState
+{
+    ACTIVE,
+    INACTIVE,
+};
+
+using TaskIndex = std::size_t;
+
+class Presenter
 {
   public:
     Presenter(Menu &, IStatusIndicator *const (&)[hmi::numberOfStatusIndicators]);
-    virtual void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState) override;
-    virtual void loop() override;
+    void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState);
+    void loop();
 
   private:
     Menu &menu;

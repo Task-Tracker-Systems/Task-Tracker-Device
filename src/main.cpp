@@ -1,10 +1,13 @@
 #include "main.hpp"
 #include "Controller.hpp"
 #include "Display.hpp"
+#include "Menu.hpp"
+#include "Presenter.hpp"
 #include "ProcessHmiInputs.hpp"
+#include "display_factory_interface.hpp"
 #include "keypad_factory_interface.hpp"
-#include "presenter_factory_interface.hpp"
 #include "serial_port.hpp"
+#include "statusindicators_factory_interface.hpp"
 #include <Arduino.h>
 #include <Protocol.hpp>
 
@@ -23,7 +26,8 @@ void loop()
 {
     constexpr unsigned long loopDurationMs = 250;
     static Controller controller(board::getKeypad());
-    static auto &presenter = hmi::getPresenter();
+    static Menu singleMenu(board::getDisplay());
+    static Presenter presenter(singleMenu, board::getStatusIndicators());
     static ProcessHmiInputs processHmiInputs(controller, presenter);
     processHmiInputs.loop();
     delay(loopDurationMs);

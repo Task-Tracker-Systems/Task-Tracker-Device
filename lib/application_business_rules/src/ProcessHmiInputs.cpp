@@ -3,7 +3,7 @@
 #include <cassert>
 #include <type_traits>
 
-ProcessHmiInputs::ProcessHmiInputs(Controller &controller, IPresenter &presenter)
+ProcessHmiInputs::ProcessHmiInputs(Controller &controller, Presenter &presenter)
     : userInputProvider(controller), stateVisualizer(presenter)
 {
 }
