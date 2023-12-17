@@ -85,17 +85,17 @@ $(function() {
 <div class="contents">
 <a href="Controller_8hpp.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="IController_8hpp.xhtml">IController.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="IKeypad_8hpp.xhtml">IKeypad.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="KeyIds_8hpp.xhtml">KeyIds.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classController.xhtml">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classController.xhtml">Controller</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIController.xhtml">IController</a></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="IKeypad_8hpp.xhtml">IKeypad.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="KeyIds_8hpp.xhtml">KeyIds.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classController.xhtml">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classController.xhtml">Controller</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classController.xhtml#a98737bead9919be5fd0c8da044cab5b8">   10</a></span>    <span class="keyword">typedef</span> <a class="code hl_enumeration" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a> <a class="code hl_typedef" href="classController.xhtml#a98737bead9919be5fd0c8da044cab5b8">EventType</a>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="classController.xhtml">Controller</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIKeypad.xhtml">IKeypad</a> &amp;);</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">virtual</span> std::optional&lt;IController::EventType&gt; <a class="code hl_function" href="classController.xhtml#a927a1bb765f78ca7f23f9e37411403bc">checkHmiInput</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::optional&lt;EventType&gt; <a class="code hl_function" href="classController.xhtml#accecab49505990277c8176e6de735842">checkHmiInput</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classController.xhtml#a867c1b386aa6e63d986a01ddaeccea5a">   19</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classController.xhtml#a867c1b386aa6e63d986a01ddaeccea5a">~Controller</a>()</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
@@ -103,18 +103,18 @@ $(function() {
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <a class="code hl_class" href="classIKeypad.xhtml">IKeypad</a> &amp;keypad;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
-<div class="ttc" id="aIController_8hpp_xhtml"><div class="ttname"><a href="IController_8hpp.xhtml">IController.hpp</a></div></div>
 <div class="ttc" id="aIKeypad_8hpp_xhtml"><div class="ttname"><a href="IKeypad_8hpp.xhtml">IKeypad.hpp</a></div></div>
 <div class="ttc" id="aKeyIds_8hpp_xhtml"><div class="ttname"><a href="KeyIds_8hpp.xhtml">KeyIds.hpp</a></div></div>
-<div class="ttc" id="aclassController_xhtml"><div class="ttname"><a href="classController.xhtml">Controller</a></div><div class="ttdef"><b>Definition:</b> Controller.hpp:9</div></div>
+<div class="ttc" id="aKeyIds_8hpp_xhtml_a251d5d8935f1af4cb86e18f962d9d33d"><div class="ttname"><a href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a></div><div class="ttdeci">KeyId</div><div class="ttdef"><b>Definition:</b> KeyIds.hpp:5</div></div>
+<div class="ttc" id="aclassController_xhtml"><div class="ttname"><a href="classController.xhtml">Controller</a></div><div class="ttdef"><b>Definition:</b> Controller.hpp:8</div></div>
 <div class="ttc" id="aclassController_xhtml_a867c1b386aa6e63d986a01ddaeccea5a"><div class="ttname"><a href="classController.xhtml#a867c1b386aa6e63d986a01ddaeccea5a">Controller::~Controller</a></div><div class="ttdeci">virtual ~Controller()</div><div class="ttdef"><b>Definition:</b> Controller.hpp:19</div></div>
-<div class="ttc" id="aclassController_xhtml_a927a1bb765f78ca7f23f9e37411403bc"><div class="ttname"><a href="classController.xhtml#a927a1bb765f78ca7f23f9e37411403bc">Controller::checkHmiInput</a></div><div class="ttdeci">virtual std::optional&lt; IController::EventType &gt; checkHmiInput() const override</div><div class="ttdoc">Checks if the state of the HMI has changed and generates an event.</div><div class="ttdef"><b>Definition:</b> Controller.cpp:3</div></div>
-<div class="ttc" id="aclassIController_xhtml"><div class="ttname"><a href="classIController.xhtml">IController</a></div><div class="ttdef"><b>Definition:</b> IController.hpp:7</div></div>
+<div class="ttc" id="aclassController_xhtml_a98737bead9919be5fd0c8da044cab5b8"><div class="ttname"><a href="classController.xhtml#a98737bead9919be5fd0c8da044cab5b8">Controller::EventType</a></div><div class="ttdeci">KeyId EventType</div><div class="ttdef"><b>Definition:</b> Controller.hpp:10</div></div>
+<div class="ttc" id="aclassController_xhtml_accecab49505990277c8176e6de735842"><div class="ttname"><a href="classController.xhtml#accecab49505990277c8176e6de735842">Controller::checkHmiInput</a></div><div class="ttdeci">std::optional&lt; EventType &gt; checkHmiInput() const</div><div class="ttdoc">Checks if the state of the HMI has changed and generates an event.</div><div class="ttdef"><b>Definition:</b> Controller.cpp:3</div></div>
 <div class="ttc" id="aclassIKeypad_xhtml"><div class="ttname"><a href="classIKeypad.xhtml">IKeypad</a></div><div class="ttdef"><b>Definition:</b> IKeypad.hpp:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 17 2023 20:45:39 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Dec 17 2023 20:57:29 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
