@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hmi_5fcoordinator_0',['hmi_coordinator',['../namespacehmi__coordinator.xhtml',1,'']]]
+  ['device_0',['device',['../namespacedevice.xhtml',1,'']]],
+  ['display_1',['display',['../namespacedisplay.xhtml',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['up_0',['up',['../namespaceboard_1_1button_1_1pin.xhtml#ad6d1c567741414da0d6b0ecdae4d425d',1,'board::button::pin']]]
+  ['res_0',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hmihandler_0',['HmiHandler',['../namespaceboard.xhtml#a58657f5dd8f15b76f3336832b9a49dd4',1,'board']]]
+  ['duration_0',['Duration',['../classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0',1,'Task']]]
 ];

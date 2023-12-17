@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pintype_0',['PinType',['../board__pins_8hpp.xhtml#a18293678246befbae5727aa3a8709b75',1,'board_pins.hpp']]]
+  ['hmihandler_0',['HmiHandler',['../namespaceboard.xhtml#a58657f5dd8f15b76f3336832b9a49dd4',1,'board']]]
 ];

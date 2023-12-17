@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['res_0',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]]
+  ['labels_0',['labels',['../structcommand__line__interpreter_1_1Option.xhtml#a433bc06f0277125316abdebf4acf37fc',1,'command_line_interpreter::Option']]]
 ];
