@@ -1,5 +1,5 @@
-<map id="lib/board_adapters/src/board_config.hpp" name="lib/board_adapters/src/board_config.hpp">
-<area shape="rect" id="node1" title="Provides named objects for the pins provided by the board." alt="" coords="287,5,432,45"/>
+<map id="lib/board_adapters/include/board_config.hpp" name="lib/board_adapters/include/board_config.hpp">
+<area shape="rect" id="node1" title="Provides named objects for the pins provided by the board." alt="" coords="275,5,443,45"/>
 <area shape="rect" id="node2" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,101,220,141"/>
 <area shape="rect" id="node3" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="245,101,373,141"/>
 <area shape="rect" id="node5" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="371,196,505,251"/>
