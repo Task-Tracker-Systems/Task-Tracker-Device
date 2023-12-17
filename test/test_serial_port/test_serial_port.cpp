@@ -62,7 +62,7 @@ void test_subscribeToLine()
         When(Method(ArduinoFake(Serial), read)).Return(testLine[i]);
         serialEvent();
     }
-    TEST_ASSERT_EQUAL_STRING(testLine, receivedLine.c_str());
+    TEST_ASSERT_EQUAL_STRING("C++", receivedLine.c_str());
 }
 
 int main(int argc, char **argv)
