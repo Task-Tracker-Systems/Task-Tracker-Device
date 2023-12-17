@@ -1,7 +1,8 @@
 #include "main.hpp"
+#include "Controller.hpp"
 #include "Display.hpp"
 #include "ProcessHmiInputs.hpp"
-#include "controller_factory_interface.hpp"
+#include "keypad_factory_interface.hpp"
 #include "presenter_factory_interface.hpp"
 #include "serial_port.hpp"
 #include <Arduino.h>
@@ -21,8 +22,9 @@ void setup(char const *programIdentificationString)
 void loop()
 {
     constexpr unsigned long loopDurationMs = 250;
-    auto &presenter = hmi::getPresenter();
-    static ProcessHmiInputs processHmiInputs(hmi::getController(), presenter);
+    static Controller controller(board::getKeypad());
+    static auto &presenter = hmi::getPresenter();
+    static ProcessHmiInputs processHmiInputs(controller, presenter);
     processHmiInputs.loop();
     delay(loopDurationMs);
     presenter.loop();

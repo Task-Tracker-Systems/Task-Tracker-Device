@@ -3,7 +3,7 @@
 #include <cassert>
 #include <type_traits>
 
-ProcessHmiInputs::ProcessHmiInputs(IController &controller, IPresenter &presenter)
+ProcessHmiInputs::ProcessHmiInputs(Controller &controller, IPresenter &presenter)
     : userInputProvider(controller), stateVisualizer(presenter)
 {
 }
@@ -28,7 +28,7 @@ void ProcessHmiInputs::loop()
     }
 }
 
-TaskIndex ProcessHmiInputs::event2TaskEvent(const IController::EventType event)
+TaskIndex ProcessHmiInputs::event2TaskEvent(const Controller::EventType event)
 {
     switch (event)
     {
@@ -51,7 +51,7 @@ TaskIndex ProcessHmiInputs::event2TaskEvent(const IController::EventType event)
     }
 }
 
-bool ProcessHmiInputs::isEventTask(const IController::EventType event)
+bool ProcessHmiInputs::isEventTask(const Controller::EventType event)
 {
     return event == KeyId::TASK1 || event == KeyId::TASK2 || event == KeyId::TASK3 || event == KeyId::TASK4;
 }
