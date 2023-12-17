@@ -98,21 +98,23 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classIPresenter.xhtml#a1893a475692cdf84d1bc29c3f92423bf">   15</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIPresenter.xhtml#a1893a475692cdf84d1bc29c3f92423bf">setTaskStatusIndicator</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a>, <span class="keyword">const</span> <a class="code hl_enumeration" href="IPresenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201">TaskIndicatorState</a>) = 0;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classIPresenter.xhtml#aacbf688b1ff038ee6cf858a48e2ff0ee">   16</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classIPresenter.xhtml#aacbf688b1ff038ee6cf858a48e2ff0ee">~IPresenter</a>()</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classIPresenter.xhtml#abea3bddd1e26ae13aa73477e0c550e7a">   16</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIPresenter.xhtml#abea3bddd1e26ae13aa73477e0c550e7a">loop</a>() = 0;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classIPresenter.xhtml#aacbf688b1ff038ee6cf858a48e2ff0ee">   17</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classIPresenter.xhtml#aacbf688b1ff038ee6cf858a48e2ff0ee">~IPresenter</a>()</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml_a70d8f6873793c75aaff54fda6f2b0bac"><div class="ttname"><a href="IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a></div><div class="ttdeci">std::size_t TaskIndex</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:10</div></div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml_aeacea60d6729d1dbf3009c9d65448201"><div class="ttname"><a href="IPresenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201">TaskIndicatorState</a></div><div class="ttdeci">TaskIndicatorState</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:5</div></div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml_aeacea60d6729d1dbf3009c9d65448201a18ff74f43da410c5529f7d6fca84f115"><div class="ttname"><a href="IPresenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201a18ff74f43da410c5529f7d6fca84f115">TaskIndicatorState::ACTIVE</a></div><div class="ttdeci">@ ACTIVE</div></div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml_aeacea60d6729d1dbf3009c9d65448201a6b273343c454f9c53dcfc9c4ccf171d2"><div class="ttname"><a href="IPresenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201a6b273343c454f9c53dcfc9c4ccf171d2">TaskIndicatorState::INACTIVE</a></div><div class="ttdeci">@ INACTIVE</div></div>
 <div class="ttc" id="aclassIPresenter_xhtml"><div class="ttname"><a href="classIPresenter.xhtml">IPresenter</a></div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:13</div></div>
 <div class="ttc" id="aclassIPresenter_xhtml_a1893a475692cdf84d1bc29c3f92423bf"><div class="ttname"><a href="classIPresenter.xhtml#a1893a475692cdf84d1bc29c3f92423bf">IPresenter::setTaskStatusIndicator</a></div><div class="ttdeci">virtual void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState)=0</div></div>
-<div class="ttc" id="aclassIPresenter_xhtml_aacbf688b1ff038ee6cf858a48e2ff0ee"><div class="ttname"><a href="classIPresenter.xhtml#aacbf688b1ff038ee6cf858a48e2ff0ee">IPresenter::~IPresenter</a></div><div class="ttdeci">virtual ~IPresenter()</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:16</div></div>
+<div class="ttc" id="aclassIPresenter_xhtml_aacbf688b1ff038ee6cf858a48e2ff0ee"><div class="ttname"><a href="classIPresenter.xhtml#aacbf688b1ff038ee6cf858a48e2ff0ee">IPresenter::~IPresenter</a></div><div class="ttdeci">virtual ~IPresenter()</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:17</div></div>
+<div class="ttc" id="aclassIPresenter_xhtml_abea3bddd1e26ae13aa73477e0c550e7a"><div class="ttname"><a href="classIPresenter.xhtml#abea3bddd1e26ae13aa73477e0c550e7a">IPresenter::loop</a></div><div class="ttdeci">virtual void loop()=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 17 2023 12:16:01 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Dec 17 2023 17:31:49 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

@@ -94,11 +94,12 @@ $(function() {
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="classPresenter.xhtml">Presenter</a>(<a class="code hl_class" href="classMenu.xhtml">Menu</a> &amp;, <a class="code hl_class" href="classIStatusIndicator.xhtml">IStatusIndicator</a> *<span class="keyword">const</span> (&amp;)[<a class="code hl_variable" href="namespacehmi.xhtml#af42cee0e11a141c0b5f706851efe4650">hmi::numberOfStatusIndicators</a>]);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPresenter.xhtml#ae540f968374809588c839dada017d366">setTaskStatusIndicator</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a>, <span class="keyword">const</span> <a class="code hl_enumeration" href="IPresenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201">TaskIndicatorState</a>) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="classMenu.xhtml">Menu</a> &amp;menu;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="classIStatusIndicator.xhtml">IStatusIndicator</a> *<span class="keyword">const</span> (&amp;statusIndicators)[<a class="code hl_variable" href="namespacehmi.xhtml#af42cee0e11a141c0b5f706851efe4650">hmi::numberOfStatusIndicators</a>];</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPresenter.xhtml#a5d52be7e7d90bd31dc87a0067c582431">loop</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="classMenu.xhtml">Menu</a> &amp;menu;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="classIStatusIndicator.xhtml">IStatusIndicator</a> *<span class="keyword">const</span> (&amp;statusIndicators)[<a class="code hl_variable" href="namespacehmi.xhtml#af42cee0e11a141c0b5f706851efe4650">hmi::numberOfStatusIndicators</a>];</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml"><div class="ttname"><a href="IPresenter_8hpp.xhtml">IPresenter.hpp</a></div></div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml_a70d8f6873793c75aaff54fda6f2b0bac"><div class="ttname"><a href="IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac">TaskIndex</a></div><div class="ttdeci">std::size_t TaskIndex</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:10</div></div>
 <div class="ttc" id="aIPresenter_8hpp_xhtml_aeacea60d6729d1dbf3009c9d65448201"><div class="ttname"><a href="IPresenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201">TaskIndicatorState</a></div><div class="ttdeci">TaskIndicatorState</div><div class="ttdef"><b>Definition:</b> IPresenter.hpp:5</div></div>
@@ -108,13 +109,14 @@ $(function() {
 <div class="ttc" id="aclassIStatusIndicator_xhtml"><div class="ttname"><a href="classIStatusIndicator.xhtml">IStatusIndicator</a></div><div class="ttdef"><b>Definition:</b> IStatusIndicator.hpp:4</div></div>
 <div class="ttc" id="aclassMenu_xhtml"><div class="ttname"><a href="classMenu.xhtml">Menu</a></div><div class="ttdef"><b>Definition:</b> Menu.hpp:5</div></div>
 <div class="ttc" id="aclassPresenter_xhtml"><div class="ttname"><a href="classPresenter.xhtml">Presenter</a></div><div class="ttdef"><b>Definition:</b> Presenter.hpp:8</div></div>
+<div class="ttc" id="aclassPresenter_xhtml_a5d52be7e7d90bd31dc87a0067c582431"><div class="ttname"><a href="classPresenter.xhtml#a5d52be7e7d90bd31dc87a0067c582431">Presenter::loop</a></div><div class="ttdeci">virtual void loop() override</div><div class="ttdef"><b>Definition:</b> Presenter.cpp:32</div></div>
 <div class="ttc" id="aclassPresenter_xhtml_ae540f968374809588c839dada017d366"><div class="ttname"><a href="classPresenter.xhtml#ae540f968374809588c839dada017d366">Presenter::setTaskStatusIndicator</a></div><div class="ttdeci">virtual void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState) override</div><div class="ttdef"><b>Definition:</b> Presenter.cpp:7</div></div>
 <div class="ttc" id="ahmi__configuration_8hpp_xhtml"><div class="ttname"><a href="hmi__configuration_8hpp.xhtml">hmi_configuration.hpp</a></div></div>
 <div class="ttc" id="anamespacehmi_xhtml_af42cee0e11a141c0b5f706851efe4650"><div class="ttname"><a href="namespacehmi.xhtml#af42cee0e11a141c0b5f706851efe4650">hmi::numberOfStatusIndicators</a></div><div class="ttdeci">static constexpr std::size_t numberOfStatusIndicators</div><div class="ttdef"><b>Definition:</b> hmi_configuration.hpp:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 17 2023 12:16:01 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Dec 17 2023 17:31:49 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

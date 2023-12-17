@@ -8,8 +8,8 @@ var searchData=
   ['b5_5',['b5',['../namespacenote.xhtml#a9c41d46609094680a567b83b863ace1b',1,'note']]],
   ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
   ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
-  ['back_8',['BACK',['../KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33da1dd26f1f1790f0b56d5752fb0fbecef0',1,'KeyIds.hpp']]],
-  ['back_9',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
+  ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
+  ['back_9',['BACK',['../KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33da1dd26f1f1790f0b56d5752fb0fbecef0',1,'KeyIds.hpp']]],
   ['bar_10',['bar',['../test__cli_8cpp.xhtml#aacc1226bc49e95ada6662aaf9e4eca50',1,'test_cli.cpp']]],
   ['bardata_11',['BarData',['../structBarData.xhtml',1,'']]],
   ['bardata_12',['barData',['../test__cli_8cpp.xhtml#a20a17a8661fa203ad444601bdbb8c607',1,'test_cli.cpp']]],
@@ -19,10 +19,9 @@ var searchData=
   ['board_20adapters_16',['Board Adapters',['../board_adapters.xhtml',1,'md_doc_software_architecture']]],
   ['board_5fconfig_2ehpp_17',['board_config.hpp',['../board__config_8hpp.xhtml',1,'']]],
   ['board_5ftypes_2ehpp_18',['board_types.hpp',['../board__types_8hpp.xhtml',1,'']]],
-  ['buf_19',['buf',['../Display_8cpp.xhtml#adf6199be6d24d3694688fb3cc9629250',1,'Display.cpp']]],
-  ['button_20',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
-  ['buzzer_21',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
-  ['i2c_5f1_22',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
-  ['led_23',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
-  ['pin_24',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button::pin'],['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led::pin']]]
+  ['button_19',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
+  ['buzzer_20',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
+  ['i2c_5f1_21',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
+  ['led_22',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
+  ['pin_23',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button::pin'],['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led::pin']]]
 ];

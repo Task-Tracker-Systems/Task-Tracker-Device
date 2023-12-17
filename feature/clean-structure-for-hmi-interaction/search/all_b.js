@@ -11,7 +11,7 @@ var searchData=
   ['linehandler_8',['lineHandler',['../test__serial__port_8cpp.xhtml#ae130579175b5cb1f6359a4306c2b241a',1,'test_serial_port.cpp']]],
   ['list_9',['list',['../Protocol_8cpp.xhtml#a2bf6dea54b124ec11c84992bdf95539a',1,'Protocol.cpp']]],
   ['listcmd_10',['listCmd',['../Protocol_8cpp.xhtml#ac637a1d9e3afd1ca839afe51140a4bbc',1,'Protocol.cpp']]],
-  ['loop_11',['loop',['../classProcessHmiInputs.xhtml#a35691fc7255d8ad9e423a59f4bde9831',1,'ProcessHmiInputs::loop()'],['../time-tracker_8ino.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;time-tracker.ino'],['../namespacemain.xhtml#aa018644f5f4d7111540bb4777634ec42',1,'main::loop()']]],
+  ['loop_11',['loop',['../classPresenter.xhtml#a5d52be7e7d90bd31dc87a0067c582431',1,'Presenter::loop()'],['../time-tracker_8ino.xhtml#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;time-tracker.ino'],['../namespacemain.xhtml#aa018644f5f4d7111540bb4777634ec42',1,'main::loop()'],['../classIPresenter.xhtml#abea3bddd1e26ae13aa73477e0c550e7a',1,'IPresenter::loop()'],['../classMenu.xhtml#a23bb40aa976a2d694d5fcce7180fc53c',1,'Menu::loop()'],['../classProcessHmiInputs.xhtml#a35691fc7255d8ad9e423a59f4bde9831',1,'ProcessHmiInputs::loop()']]],
   ['low_5flevel_12',['low_level',['../framework__config_8hpp.xhtml#a2632f0f902852309453cf2e958312a60',1,'framework_config.hpp']]],
   ['lv_5fassert_5fhandler_13',['LV_ASSERT_HANDLER',['../lv__conf_8h.xhtml#a7f89929bee5e1d1f3047b6fc57723602',1,'lv_conf.h']]],
   ['lv_5fassert_5fhandler_5finclude_14',['LV_ASSERT_HANDLER_INCLUDE',['../lv__conf_8h.xhtml#aa4d75719785838a72b61c58e920fc8f8',1,'lv_conf.h']]],

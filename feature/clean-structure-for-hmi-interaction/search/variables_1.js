@@ -9,6 +9,5 @@ var searchData=
   ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
   ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
   ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]],
-  ['bardata_9',['barData',['../test__cli_8cpp.xhtml#a20a17a8661fa203ad444601bdbb8c607',1,'test_cli.cpp']]],
-  ['buf_10',['buf',['../Display_8cpp.xhtml#adf6199be6d24d3694688fb3cc9629250',1,'Display.cpp']]]
+  ['bardata_9',['barData',['../test__cli_8cpp.xhtml#a20a17a8661fa203ad444601bdbb8c607',1,'test_cli.cpp']]]
 ];
