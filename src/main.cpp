@@ -1,6 +1,5 @@
 #include "main.hpp"
 #include "Controller.hpp"
-#include "Display.hpp"
 #include "Menu.hpp"
 #include "Presenter.hpp"
 #include "ProcessHmiInputs.hpp"
