@@ -1,5 +1,4 @@
-<map id="lib/layer4_drivers_libraries_adapters/src/framework_config.hpp" name="lib/layer4_drivers_libraries_adapters/src/framework_config.hpp">
-<area shape="rect" id="Node000001" title="Framework adapters." alt="" coords="5,5,179,61"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="54,109,130,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,61,95,93,89,93,89,61"/>
+<map id="lib/3rd_party_adapters/src/framework_config.hpp" name="lib/3rd_party_adapters/src/framework_config.hpp">
+<area shape="rect" id="node1" title="Framework adapters." alt="" coords="5,5,180,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="55,93,131,119"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['your_20code_0',['Document your code',['../md_CONTRIBUTING.xhtml#autotoc_md3',1,'']]]
+  ['writeoptionhelpertostream_0',['writeOptionHelperToStream',['../namespacecommand__line__interpreter.xhtml#a68cb71af6ea2aec23cce8037d1519b57',1,'command_line_interpreter']]]
 ];

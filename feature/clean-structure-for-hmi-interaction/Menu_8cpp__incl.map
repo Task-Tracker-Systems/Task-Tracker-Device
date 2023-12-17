@@ -1,7 +1,5 @@
-<map id="lib/layer2_hmi/src/Menu.cpp" name="lib/layer2_hmi/src/Menu.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,128,46"/>
-<area shape="rect" id="Node000002" href="$Menu_8hpp.xhtml" title=" " alt="" coords="28,94,105,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,46,69,78,64,78,64,46"/>
-<area shape="rect" id="Node000003" href="$IDisplay_8hpp.xhtml" title=" " alt="" coords="21,168,112,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,120,69,152,64,152,64,120"/>
+<map id="lib/application_business_rules/src/Menu.cpp" name="lib/application_business_rules/src/Menu.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,165,45"/>
+<area shape="rect" id="node2" href="$Menu_8hpp.xhtml" title=" " alt="" coords="46,93,125,119"/>
+<area shape="rect" id="node3" href="$IDisplay_8hpp.xhtml" title=" " alt="" coords="39,167,131,192"/>
 </map>

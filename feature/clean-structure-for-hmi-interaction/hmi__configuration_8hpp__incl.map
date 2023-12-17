@@ -1,5 +1,4 @@
-<map id="lib/layer2_hmi/include/hmi_configuration.hpp" name="lib/layer2_hmi/include/hmi_configuration.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="48,94,113,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,46,83,78,78,78,78,46"/>
+<map id="lib/application_business_rules/include/hmi_configuration.hpp" name="lib/application_business_rules/include/hmi_configuration.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,236,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="88,93,153,119"/>
 </map>

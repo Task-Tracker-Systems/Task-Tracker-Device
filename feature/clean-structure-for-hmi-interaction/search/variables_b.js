@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['menu_0',['menu',['../classPresenter.xhtml#acb3fbb718a545fcba36829526556b984',1,'Presenter']]]
+  ['on_5foff_0',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]],
+  ['options_1',['options',['../structcommand__line__interpreter_1_1Command.xhtml#a2575f5a632e565c473fd31cbcf69e30b',1,'command_line_interpreter::Command']]]
 ];

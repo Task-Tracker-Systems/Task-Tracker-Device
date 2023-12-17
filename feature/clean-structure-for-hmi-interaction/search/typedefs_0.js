@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['base_0',['Base',['../classInputShiftRegister.xhtml#a883eaa05d10160b2ec67f5de2b3fc822',1,'InputShiftRegister']]],
-  ['bitnumber_1',['BitNumber',['../classIOutputShiftRegister.xhtml#a27369c4518ac87b4462e63ebafe7311f',1,'IOutputShiftRegister']]]
+  ['argumenttype_0',['ArgumentType',['../structcommand__line__interpreter_1_1Option.xhtml#ae66a42a72e328312c048ce953d020bd6',1,'command_line_interpreter::Option']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eventtype_0',['EventType',['../classIController.xhtml#a459d5c1d842a4f6a01bd75ed4509a1ae',1,'IController']]]
+  ['duration_0',['Duration',['../classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0',1,'Task']]]
 ];

@@ -1,7 +1,5 @@
-<map id="lib/layer1_use_cases/include/presenter_factory_interface.hpp" name="lib/layer1_use_cases/include/presenter_factory_interface.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="110,5,280,61"/>
-<area shape="rect" id="Node000002" href="$presenter__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,109,212,150"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,74,128,111,124,107,158,71"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.xhtml" title=" " alt="" coords="236,117,331,142"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,71,274,114,270,118,229,74"/>
+<map id="lib/application_business_rules/include/presenter_factory_interface.hpp" name="lib/application_business_rules/include/presenter_factory_interface.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="98,5,258,60"/>
+<area shape="rect" id="node2" href="$presenter__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,108,188,163"/>
+<area shape="rect" id="node3" href="$main_8cpp.xhtml" title=" " alt="" coords="213,123,309,148"/>
 </map>

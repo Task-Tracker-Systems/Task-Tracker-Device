@@ -1,9 +1,0 @@
-<map id="ShiftRegisterStatusIndicator" name="ShiftRegisterStatusIndicator">
-<area shape="rect" id="Node000001" title=" " alt="" coords="141,174,336,279"/>
-<area shape="rect" id="Node000002" href="$classIStatusIndicator.xhtml" title=" " alt="" coords="5,5,136,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,119,189,172,185,176,131,123"/>
-<area shape="rect" id="Node000003" href="$classIOutputShiftRegister.xhtml" title=" " alt="" coords="161,15,317,101"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,100,241,157,236,157,236,100"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="341,25,416,91"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="365,92,348,122,326,151,315,164,311,160,322,148,343,119,361,89"/>
-</map>

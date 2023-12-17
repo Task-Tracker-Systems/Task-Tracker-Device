@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['taskindex_0',['TaskIndex',['../IPresenter_8hpp.xhtml#a70d8f6873793c75aaff54fda6f2b0bac',1,'IPresenter.hpp']]]
+  ['pintype_0',['PinType',['../namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c',1,'board']]]
 ];

@@ -1,22 +1,12 @@
-<map id="lib/layer2_hmi/src/Presenter.cpp" name="lib/layer2_hmi/src/Presenter.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="337,5,459,46"/>
-<area shape="rect" id="Node000002" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="235,94,337,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="372,49,317,87,314,82,369,44"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="360,94,436,120"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="401,46,401,78,395,78,395,46"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="459,94,524,120"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="423,44,467,82,464,86,419,48"/>
-<area shape="rect" id="Node000003" href="$IPresenter_8hpp.xhtml" title=" " alt="" coords="5,168,111,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,123,112,165,111,160,247,118"/>
-<area shape="rect" id="Node000005" href="$IStatusIndicator_8hpp.xhtml" title=" " alt="" coords="135,168,272,193"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="274,122,230,159,227,155,270,118"/>
-<area shape="rect" id="Node000006" href="$Menu_8hpp.xhtml" title=" " alt="" coords="466,168,543,193"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="324,118,454,160,452,165,322,123"/>
-<area shape="rect" id="Node000008" href="$hmi__configuration_8hpp.xhtml" title=" " alt="" coords="296,168,442,193"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="302,118,345,155,342,159,298,122"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="182,241,246,267"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="86,191,175,232,173,237,83,196"/>
-<area shape="rect" id="Node000007" href="$IDisplay_8hpp.xhtml" title=" " alt="" coords="459,241,550,267"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="507,194,507,226,502,226,502,194"/>
-<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="344,196,255,237,253,232,341,191"/>
+<map id="lib/application_business_rules/src/Presenter.cpp" name="lib/application_business_rules/src/Presenter.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="320,5,483,45"/>
+<area shape="rect" id="node2" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="237,93,339,119"/>
+<area shape="rect" id="node9" title=" " alt="" coords="363,93,439,119"/>
+<area shape="rect" id="node10" title=" " alt="" coords="463,93,529,119"/>
+<area shape="rect" id="node3" href="$IPresenter_8hpp.xhtml" title=" " alt="" coords="5,167,112,192"/>
+<area shape="rect" id="node5" href="$IStatusIndicator_8hpp.xhtml" title=" " alt="" coords="136,167,275,192"/>
+<area shape="rect" id="node6" href="$Menu_8hpp.xhtml" title=" " alt="" coords="470,167,549,192"/>
+<area shape="rect" id="node8" href="$hmi__configuration_8hpp.xhtml" title=" " alt="" coords="299,167,445,192"/>
+<area shape="rect" id="node4" title=" " alt="" coords="183,240,249,265"/>
+<area shape="rect" id="node7" href="$IDisplay_8hpp.xhtml" title=" " alt="" coords="463,240,555,265"/>
 </map>

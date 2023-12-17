@@ -1,23 +1,11 @@
 var searchData=
 [
-  ['scl_0',['scl',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a2dfac9ab10badf6651271f3e6ab27da8',1,'board::i2c_1::pin']]],
-  ['screen_5fheight_1',['screen_height',['../structDisplay_1_1Configuration.xhtml#a7f8eef2291762d67698dbfd33798d14e',1,'Display::Configuration']]],
-  ['screen_5fwidth_2',['screen_width',['../structDisplay_1_1Configuration.xhtml#ae12e54535c51ddaa33fec5ec2a03194d',1,'Display::Configuration']]],
-  ['sda_3',['sda',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a2b99fb8347cb0b5a5921ae85256110b2',1,'board::i2c_1::pin']]],
-  ['serialoutputstreambuffer_4',['serialoutputstreambuffer',['../classSerialOutputStreamBuffer.xhtml',1,'SerialOutputStreamBuffer&lt; BufferSize &gt;'],['../classSerialOutputStreamBuffer.xhtml#a561a93fa872da99ecbeadba8d771c888',1,'SerialOutputStreamBuffer::SerialOutputStreamBuffer()'],['../logging_8cpp.xhtml#a06a8f97ebe95ce9eeadbb83ff48ae001',1,'serialOutputStreamBuffer:&#160;logging.cpp']]],
-  ['serialoutputstreambuffer_2ehpp_5',['SerialOutputStreamBuffer.hpp',['../SerialOutputStreamBuffer_8hpp.xhtml',1,'']]],
-  ['settaskstatusindicator_6',['settaskstatusindicator',['../classIPresenter.xhtml#a1893a475692cdf84d1bc29c3f92423bf',1,'IPresenter::setTaskStatusIndicator()'],['../classPresenter.xhtml#ae540f968374809588c839dada017d366',1,'Presenter::setTaskStatusIndicator()']]],
-  ['setup_7',['setup',['../time-tracker_8ino.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;time-tracker.ino'],['../namespacemain.xhtml#ace1a84b1871a86fa3e10a6b2e44d4042',1,'main::setup()'],['../test__hmi_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_hmi.cpp'],['../test__board_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_board.cpp']]],
-  ['shiftregister_8',['shiftRegister',['../classShiftRegisterStatusIndicator.xhtml#a0dfaacb66cb05b1d36f792f661ed3746',1,'ShiftRegisterStatusIndicator']]],
-  ['shiftregisterstatusindicator_9',['shiftregisterstatusindicator',['../classShiftRegisterStatusIndicator.xhtml',1,'ShiftRegisterStatusIndicator'],['../classShiftRegisterStatusIndicator.xhtml#a93793b4d557c96cb4d321b3ee14420c3',1,'ShiftRegisterStatusIndicator::ShiftRegisterStatusIndicator()']]],
-  ['shiftregisterstatusindicator_2ecpp_10',['ShiftRegisterStatusIndicator.cpp',['../ShiftRegisterStatusIndicator_8cpp.xhtml',1,'']]],
-  ['shiftregisterstatusindicator_2ehpp_11',['ShiftRegisterStatusIndicator.hpp',['../ShiftRegisterStatusIndicator_8hpp.xhtml',1,'']]],
-  ['simulate_12',['Simulate',['../index.xhtml#autotoc_md12',1,'']]],
-  ['software_13',['Build and Upload the Software',['../index.xhtml#autotoc_md11',1,'']]],
-  ['source_20code_14',['C/C++ source code',['../md_CONTRIBUTING.xhtml#autotoc_md4',1,'']]],
-  ['statevisualizer_15',['stateVisualizer',['../classProcessHmiInputs.xhtml#a98a37e631448349ca549f950ddd70be2',1,'ProcessHmiInputs']]],
-  ['statusindicators_16',['statusIndicators',['../classPresenter.xhtml#a85ef593ec724f3a11e355b0cbf0258e6',1,'Presenter']]],
-  ['statusindicators_5ffactory_5finterface_2ecpp_17',['statusindicators_factory_interface.cpp',['../statusindicators__factory__interface_8cpp.xhtml',1,'']]],
-  ['statusindicators_5ffactory_5finterface_2ehpp_18',['statusindicators_factory_interface.hpp',['../statusindicators__factory__interface_8hpp.xhtml',1,'']]],
-  ['sync_19',['sync',['../classSerialOutputStreamBuffer.xhtml#a40f8770d76ef5ef8c48fbf8a15d3cc10',1,'SerialOutputStreamBuffer']]]
+  ['readline_0',['readLine',['../namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142',1,'serial_port']]],
+  ['readme_1',['README',['../md_doc_decisions_README.xhtml',1,'(Global Namespace)'],['../md_hardware_README.xhtml',1,'(Global Namespace)'],['../md_lib_3rd_party_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_application_business_rules_README.xhtml',1,'(Global Namespace)'],['../md_lib_board_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_enterprise_business_rules_README.xhtml',1,'(Global Namespace)']]],
+  ['readme_2emd_2',['README.md',['../README_8md.xhtml',1,'(Global Namespace)'],['../lib_2enterprise__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2board__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2application__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_23rd__party__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../hardware_2README_8md.xhtml',1,'(Global Namespace)'],['../doc_2decisions_2README_8md.xhtml',1,'(Global Namespace)']]],
+  ['receivedline_3',['receivedLine',['../test__serial__port_8cpp.xhtml#a96de3728a6995b7705cd2cf3e6badfc9',1,'test_serial_port.cpp']]],
+  ['refresh_4',['refresh',['../classDisplay.xhtml#a963a8272e76d836e10b5e8a048105526',1,'Display::refresh()'],['../classIDisplay.xhtml#a8cc9f8accacc848a86305c6909097a75',1,'IDisplay::refresh()']]],
+  ['res_5',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]],
+  ['resetoutputpointers_6',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727',1,'SerialOutputStreamBuffer']]],
+  ['right_7',['RIGHT',['../KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33da21507b40c80068eda19865706fdc2403',1,'KeyIds.hpp']]]
 ];

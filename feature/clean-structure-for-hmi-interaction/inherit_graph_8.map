@@ -1,7 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classIStatusIndicator.xhtml" title=" " alt="" coords="5,31,119,56"/>
-<area shape="rect" id="Node000001" href="$classLedStatusIndicator.xhtml" title=" " alt="" coords="193,5,325,31"/>
-<area shape="poly" id="edge7_Node000000_Node000001" title=" " alt="" coords="134,32,192,24,193,29,134,37"/>
-<area shape="rect" id="Node000002" href="$classShiftRegisterStatusIndicator.xhtml" title=" " alt="" coords="167,55,351,80"/>
-<area shape="poly" id="edge8_Node000000_Node000002" title=" " alt="" coords="134,50,167,54,166,59,134,55"/>
+<area shape="rect" id="node1" href="$classIPresenter.xhtml" title=" " alt="" coords="5,5,88,31"/>
+<area shape="rect" id="node2" href="$classPresenter.xhtml" title=" " alt="" coords="136,5,215,31"/>
 </map>

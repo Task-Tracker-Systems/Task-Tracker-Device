@@ -1,5 +1,4 @@
 <map id="Controller" name="Controller">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,119,125,224"/>
-<area shape="rect" id="Node000002" href="$classIController.xhtml" title=" " alt="" coords="5,5,125,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,85,68,119,63,119,63,85"/>
+<area shape="rect" id="node1" title=" " alt="" coords="8,108,137,192"/>
+<area shape="rect" id="node2" href="$classIController.xhtml" title=" " alt="" coords="5,5,140,60"/>
 </map>
