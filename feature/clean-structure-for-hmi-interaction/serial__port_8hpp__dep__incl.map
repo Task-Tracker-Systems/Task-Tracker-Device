@@ -1,10 +1,10 @@
 <map id="lib/application_business_rules/include/serial_port.hpp" name="lib/application_business_rules/include/serial_port.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="431,5,621,45"/>
-<area shape="rect" id="node2" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="67,93,265,133"/>
-<area shape="rect" id="node4" href="$serial__port_8cpp.xhtml" title=" " alt="" coords="229,181,378,221"/>
-<area shape="rect" id="node5" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="341,93,501,133"/>
-<area shape="rect" id="node6" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="525,93,740,133"/>
-<area shape="rect" id="node7" href="$main_8cpp.xhtml" title=" " alt="" coords="765,101,861,126"/>
-<area shape="rect" id="node8" href="$test__serial__port_8cpp.xhtml" title=" " alt="" coords="885,93,1023,133"/>
-<area shape="rect" id="node3" href="$SerialOutputStreamBuffer_8cpp.xhtml" title=" " alt="" coords="5,181,204,221"/>
+<area shape="rect" id="node1" title=" " alt="" coords="480,5,671,45"/>
+<area shape="rect" id="node2" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="67,93,287,133"/>
+<area shape="rect" id="node4" href="$serial__port_8cpp.xhtml" title=" " alt="" coords="250,181,399,221"/>
+<area shape="rect" id="node5" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="363,93,577,133"/>
+<area shape="rect" id="node6" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="602,93,762,133"/>
+<area shape="rect" id="node7" href="$main_8cpp.xhtml" title=" " alt="" coords="786,101,882,126"/>
+<area shape="rect" id="node8" href="$test__serial__port_8cpp.xhtml" title=" " alt="" coords="906,93,1045,133"/>
+<area shape="rect" id="node3" href="$SerialOutputStreamBuffer_8cpp.xhtml" title=" " alt="" coords="5,181,225,221"/>
 </map>
