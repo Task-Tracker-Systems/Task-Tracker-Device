@@ -1,6 +1,5 @@
 #include "keypad_factory_interface.hpp"
 #include "Keypad.hpp"
-#include "isr_factory_interface.hpp"
 #include <board_config.hpp>
 
 namespace board

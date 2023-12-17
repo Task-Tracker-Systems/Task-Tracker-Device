@@ -28,3 +28,8 @@ Presenter::Presenter(Menu &menuToUse, IStatusIndicator *const (&statusIndicators
 {
     // pinMode(board::buzzer::pin::on_off, OUTPUT);
 }
+
+void Presenter::loop()
+{
+    menu.loop();
+}

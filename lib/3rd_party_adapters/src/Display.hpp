@@ -3,6 +3,8 @@
 #include "IDisplay.hpp"
 #include <Adafruit_SSD1306.h>
 #include <cstdint>
+#include <lvgl.h>
+#include <memory>
 
 class Display : public IDisplay
 {
@@ -17,6 +19,8 @@ class Display : public IDisplay
     Display(const Configuration &configuration, TwoWire &i2c);
     virtual void refresh() override;
 
-  private:
     Adafruit_SSD1306 display;
+
+  private:
+    const std::unique_ptr<lv_color_t[]> buf;
 };

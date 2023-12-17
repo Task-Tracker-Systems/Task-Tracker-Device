@@ -13,6 +13,7 @@ class IPresenter
 {
   public:
     virtual void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState) = 0;
+    virtual void loop() = 0;
     virtual ~IPresenter()
     {
     }

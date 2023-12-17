@@ -9,6 +9,7 @@ class Presenter : public IPresenter
   public:
     Presenter(Menu &, IStatusIndicator *const (&)[hmi::numberOfStatusIndicators]);
     virtual void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState) override;
+    virtual void loop() override;
 
   private:
     Menu &menu;

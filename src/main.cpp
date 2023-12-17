@@ -1,7 +1,7 @@
 #include "main.hpp"
+#include "Display.hpp"
 #include "ProcessHmiInputs.hpp"
 #include "controller_factory_interface.hpp"
-#include "display.h"
 #include "presenter_factory_interface.hpp"
 #include "serial_port.hpp"
 #include <Arduino.h>
@@ -12,7 +12,6 @@ namespace main
 void setup(char const *programIdentificationString)
 {
     serial_port::initialize();
-    setup_display();
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
     serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
@@ -22,9 +21,10 @@ void setup(char const *programIdentificationString)
 void loop()
 {
     constexpr unsigned long loopDurationMs = 250;
-    static ProcessHmiInputs processHmiInputs(hmi::getController(), hmi::getPresenter());
+    auto &presenter = hmi::getPresenter();
+    static ProcessHmiInputs processHmiInputs(hmi::getController(), presenter);
     processHmiInputs.loop();
     delay(loopDurationMs);
-    refresh_display(); // Animate bitmaps
+    presenter.loop();
 }
 } // namespace main

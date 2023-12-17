@@ -1,10 +1,6 @@
 #include "Display.hpp"
 #include <Adafruit_SSD1306.h>
 #include <cassert>
-#include <lvgl.h>
-
-static lv_disp_draw_buf_t draw_buf;
-static lv_color_t buf[SCREEN_WIDTH * 16];
 
 #if LV_USE_LOG != 0
 #include <Arduino.h>
@@ -19,6 +15,8 @@ static void lvgl_log_to_serial(const char *buf)
 /* Display flushing */
 static void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p)
 {
+    const auto displayAdapter = reinterpret_cast<Display *>(disp_drv->user_data);
+    auto &display = displayAdapter->display;
     uint32_t width = (area->x2 - area->x1 + 1);
     uint32_t height = (area->y2 - area->y1 + 1);
 
@@ -35,7 +33,8 @@ static void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area,
 }
 
 Display::Display(const Configuration &configuration, TwoWire &i2c)
-    : display(configuration.screen_width, configuration.screen_height, &i2c)
+    : display(configuration.screen_width, configuration.screen_height, &i2c),
+      buf(std::make_unique<lv_color_t[]>(configuration.screen_width * 16))
 {
 #if LV_USE_LOG != 0
     lv_log_register_print_cb(lvgl_log_to_serial); /* register print function for debugging */
@@ -57,16 +56,18 @@ Display::Display(const Configuration &configuration, TwoWire &i2c)
     display.display();
 
     // Initialize lvgl library
+    static lv_disp_draw_buf_t draw_buf;
     lv_init();
-    lv_disp_draw_buf_init(&draw_buf, buf, NULL, SCREEN_WIDTH * 16);
+    lv_disp_draw_buf_init(&draw_buf, buf.get(), NULL, configuration.screen_width * 16);
 
     // Initialize the display driver for lvgl
     static lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
-    disp_drv.hor_res = SCREEN_WIDTH;
-    disp_drv.ver_res = SCREEN_HEIGHT;
+    disp_drv.hor_res = configuration.screen_width;
+    disp_drv.ver_res = configuration.screen_height;
     disp_drv.flush_cb = flushSSD1306Adafruit;
     disp_drv.draw_buf = &draw_buf;
+    disp_drv.user_data = this;
 
     // Register display driver to lvgl
     lv_disp_drv_register(&disp_drv);

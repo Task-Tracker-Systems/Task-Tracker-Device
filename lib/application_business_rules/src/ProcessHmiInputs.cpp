@@ -13,7 +13,7 @@ void ProcessHmiInputs::loop()
     const auto event = userInputProvider.checkHmiInput();
     if (event)
     {
-        logging << "Process event '" << event.value() << "'." << std::endl;
+        serial_port::cout << "Process event '" << event.value() << "'." << std::endl;
         if (isEventTask(event.value()))
         {
             stateVisualizer.setTaskStatusIndicator(event2TaskEvent(event.value()), TaskIndicatorState::ACTIVE);
