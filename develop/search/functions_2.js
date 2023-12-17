@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['getlabel_0',['getLabel',['../classTask.xhtml#ada97787ea9e1d67d6708eb6c306629dc',1,'Task']]],
-  ['getline_1',['getLine',['../namespaceserial__port.xhtml#acbf89672a6ce72254d025e0c116a6c25',1,'serial_port']]],
-  ['getrecordedduration_2',['getRecordedDuration',['../classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d',1,'Task']]]
+  ['display_0',['display',['../display_8cpp.xhtml#a4d6bc3d09f81150805f553df3e34fa11',1,'display.cpp']]],
+  ['doesmatchname_1',['doesMatchName',['../structcommand__line__interpreter_1_1Option.xhtml#ae1858de91ff7e5d3c9b7fd1fe0e92f19',1,'command_line_interpreter::Option']]]
 ];

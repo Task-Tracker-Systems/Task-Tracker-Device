@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['programidentificationstring_0',['programIdentificationString',['../time-tracker_8ino.xhtml#a2b95c44e365489a256863888655ac8f8',1,'time-tracker.ino']]]
+  ['labels_0',['labels',['../structcommand__line__interpreter_1_1Option.xhtml#a433bc06f0277125316abdebf4acf37fc',1,'command_line_interpreter::Option']]]
 ];

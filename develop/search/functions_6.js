@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../serial__port_8hpp.xhtml#a75694147f57e39239699e0288d9c81ad',1,'serial_port.hpp']]],
-  ['overflow_1',['overflow',['../classSerialOutputStreamBuffer.xhtml#a013018e29f8d955cf5b0ab6b35e07a80',1,'SerialOutputStreamBuffer']]]
+  ['initialize_0',['initialize',['../namespaceserial__port.xhtml#af033b97544f5d1bba48bf19f2a336608',1,'serial_port']]],
+  ['isrunning_1',['isRunning',['../classTask.xhtml#ad6abe9097628c64d57347c1657e518c8',1,'Task']]]
 ];

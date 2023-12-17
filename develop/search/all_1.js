@@ -8,11 +8,12 @@ var searchData=
   ['a6_5',['a6',['../namespacenote.xhtml#a7908e15aee357f4c333934adbad799b4',1,'note']]],
   ['a7_6',['a7',['../namespacenote.xhtml#a589257150b2dec4774a514f2a55cb00a',1,'note']]],
   ['application_20business_20rules_7',['Application Business Rules',['../application_business_rules.xhtml',1,'md_doc_software_architecture']]],
-  ['as1_8',['as1',['../namespacenote.xhtml#a4270dbc8083790d4920c3230f12d0878',1,'note']]],
-  ['as2_9',['as2',['../namespacenote.xhtml#a98d7e8ce52208bc463bff371308a8299',1,'note']]],
-  ['as3_10',['as3',['../namespacenote.xhtml#ae1060e02f67b2249bb17b957ec5415ce',1,'note']]],
-  ['as4_11',['as4',['../namespacenote.xhtml#acde4c1b2d3a57ef54420164115f386b1',1,'note']]],
-  ['as5_12',['as5',['../namespacenote.xhtml#a10652fef50867e9bafc7e18b86eb9e52',1,'note']]],
-  ['as6_13',['as6',['../namespacenote.xhtml#a531ef10428436cb75ab3ae671f17c40b',1,'note']]],
-  ['as7_14',['as7',['../namespacenote.xhtml#a7516d494fbc136e65ce1dae977ad9c3b',1,'note']]]
+  ['argumenttype_8',['ArgumentType',['../structcommand__line__interpreter_1_1Option.xhtml#ae66a42a72e328312c048ce953d020bd6',1,'command_line_interpreter::Option']]],
+  ['as1_9',['as1',['../namespacenote.xhtml#a4270dbc8083790d4920c3230f12d0878',1,'note']]],
+  ['as2_10',['as2',['../namespacenote.xhtml#a98d7e8ce52208bc463bff371308a8299',1,'note']]],
+  ['as3_11',['as3',['../namespacenote.xhtml#ae1060e02f67b2249bb17b957ec5415ce',1,'note']]],
+  ['as4_12',['as4',['../namespacenote.xhtml#acde4c1b2d3a57ef54420164115f386b1',1,'note']]],
+  ['as5_13',['as5',['../namespacenote.xhtml#a10652fef50867e9bafc7e18b86eb9e52',1,'note']]],
+  ['as6_14',['as6',['../namespacenote.xhtml#a531ef10428436cb75ab3ae671f17c40b',1,'note']]],
+  ['as7_15',['as7',['../namespacenote.xhtml#a7516d494fbc136e65ce1dae977ad9c3b',1,'note']]]
 ];
