@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writeoptionhelpertostream_0',['writeOptionHelperToStream',['../namespacecommand__line__interpreter.xhtml#a68cb71af6ea2aec23cce8037d1519b57',1,'command_line_interpreter']]]
+  ['_7ebasecommand_0',['~BaseCommand',['../structcommand__line__interpreter_1_1BaseCommand.xhtml#a0159850c132ea4496ebf77fbff5512f9',1,'command_line_interpreter::BaseCommand']]]
 ];

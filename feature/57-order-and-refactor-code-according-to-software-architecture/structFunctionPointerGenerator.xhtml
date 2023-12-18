@@ -98,9 +98,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a74775f17117f114bbdb68940c73c7113"><td class="memTemplItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structFunctionPointerGenerator.xhtml#a74775f17117f114bbdb68940c73c7113">createIsrPointers</a> ()</td></tr>
 <tr class="memdesc:a74775f17117f114bbdb68940c73c7113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array of function pointers to interrupt functions.  <a href="structFunctionPointerGenerator.xhtml#a74775f17117f114bbdb68940c73c7113">More...</a><br /></td></tr>
 <tr class="separator:a74775f17117f114bbdb68940c73c7113"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ccc3c387087a9f221ebfd9ee4c43121"><td class="memTemplParams" colspan="2">template&lt;T(&amp;) VALUES, std::size_t... Is&gt; </td></tr>
-<tr class="memitem:a0ccc3c387087a9f221ebfd9ee4c43121"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::array&lt; void(*)(), N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structFunctionPointerGenerator.xhtml#a0ccc3c387087a9f221ebfd9ee4c43121">aH2</a> (const std::index_sequence&lt; Is... &gt;)</td></tr>
-<tr class="separator:a0ccc3c387087a9f221ebfd9ee4c43121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5637e14fb7be137157a6840e04e02603"><td class="memTemplParams" colspan="2">template&lt;T(&amp;) VALUES, std::size_t... Is&gt; </td></tr>
+<tr class="memitem:a5637e14fb7be137157a6840e04e02603"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::array&lt; void(*)(), N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structFunctionPointerGenerator.xhtml#a5637e14fb7be137157a6840e04e02603">createIsrPointers</a> (const std::index_sequence&lt; Is... &gt; indices)</td></tr>
+<tr class="memdesc:a5637e14fb7be137157a6840e04e02603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array of function pointers to interrupt functions.   <a href="structFunctionPointerGenerator.xhtml#a5637e14fb7be137157a6840e04e02603">More...</a><br /></td></tr>
+<tr class="separator:a5637e14fb7be137157a6840e04e02603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T, std::size_t N&gt;<br />
@@ -114,54 +115,8 @@ struct FunctionPointerGenerator&lt; T, N &gt;</div><p >Generator for ISR functio
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0ccc3c387087a9f221ebfd9ee4c43121" name="a0ccc3c387087a9f221ebfd9ee4c43121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ccc3c387087a9f221ebfd9ee4c43121">&#9670;&#160;</a></span>aH2()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , std::size_t N&gt; </div>
-<div class="memtemplate">
-template&lt;T(&amp;) VALUES, std::size_t... Is&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr std::array&lt; void(*)(), N &gt; <a class="el" href="structFunctionPointerGenerator.xhtml">FunctionPointerGenerator</a>&lt; T, N &gt;::aH2 </td>
-          <td>(</td>
-          <td class="paramtype">const std::index_sequence&lt; Is... &gt;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p></p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">VALUES</td><td></td></tr>
-    <tr><td class="paramname">Is</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>return </p>
-
-</div>
-</div>
 <a id="a74775f17117f114bbdb68940c73c7113" name="a74775f17117f114bbdb68940c73c7113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74775f17117f114bbdb68940c73c7113">&#9670;&#160;</a></span>createIsrPointers()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a74775f17117f114bbdb68940c73c7113">&#9670;&#160;</a></span>createIsrPointers() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,13 +154,65 @@ template&lt;T(&amp;) VALUES&gt; </div>
 
 </div>
 </div>
+<a id="a5637e14fb7be137157a6840e04e02603" name="a5637e14fb7be137157a6840e04e02603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5637e14fb7be137157a6840e04e02603">&#9670;&#160;</a></span>createIsrPointers() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t N&gt; </div>
+<div class="memtemplate">
+template&lt;T(&amp;) VALUES, std::size_t... Is&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr std::array&lt; void(*)(), N &gt; <a class="el" href="structFunctionPointerGenerator.xhtml">FunctionPointerGenerator</a>&lt; T, N &gt;::createIsrPointers </td>
+          <td>(</td>
+          <td class="paramtype">const std::index_sequence&lt; Is... &gt;&#160;</td>
+          <td class="paramname"><em>indices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an array of function pointers to interrupt functions.  </p>
+<p >Passing the values as template argument is necessary as they will be evaluated at compile time for instantiating the function templates.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">VALUES</td><td>array containing the values used for ISR function template instantiation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an array with the same number of function pointers as the number of elements of the input values array  </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Is</td><td>is a sequence of the indices to be used to access the array elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indices</td><td>is an object to derive <code>Is</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>lib/board_adapters/<a class="el" href="board_8cpp.xhtml">board.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 17 2023 08:04:16 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Dec 18 2023 07:56:21 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
