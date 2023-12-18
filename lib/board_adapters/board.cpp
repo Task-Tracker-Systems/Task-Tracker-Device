@@ -40,18 +40,16 @@ struct FunctionPointerGenerator
     template <T (&VALUES)[N]>
     constexpr static auto createIsrPointers()
     {
-        return aH2<VALUES>(std::make_index_sequence<N>());
+        return createIsrPointers<VALUES>(std::make_index_sequence<N>());
     }
 
     /**
-     * \copydoc
-     * @tparam VALUES
-     * @tparam Is
-     * @param
-     * @return
+     * \copydoc createIsrPointers()
+     * @tparam Is is a sequence of the indices to be used to access the array elements
+     * @param indices is an object to derive `Is`
      */
     template <T (&VALUES)[N], std::size_t... Is>
-    constexpr static std::array<void (*)(), N> aH2(const std::index_sequence<Is...>)
+    constexpr static std::array<void (*)(), N> createIsrPointers([[maybe_unused]] const std::index_sequence<Is...> indices)
     {
         return {isr<VALUES[Is].second>...};
     }
