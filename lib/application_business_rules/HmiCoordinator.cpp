@@ -49,9 +49,9 @@ static board::StatusIndicatorId mapTaskToStatusIndicator(const board::HmiSelecti
 
 static void handleHmiSelection(const board::HmiSelection selection)
 {
-    serial_port::cout << "Handle event nr. " << enumToInteger(selection) << std::endl;
+    // serial_port::cout << "Handle event nr. " << enumToInteger(selection) << std::endl;
     using namespace std::chrono_literals;
-    board::playTone(mapSelectionToFrequency(selection), 1s);
+    // board::playTone(mapSelectionToFrequency(selection), 1s);
     switch (selection)
     {
     case board::HmiSelection::TASK1:
