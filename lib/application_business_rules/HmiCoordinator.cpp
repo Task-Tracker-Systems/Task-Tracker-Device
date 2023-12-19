@@ -77,5 +77,5 @@ static void handleHmiSelection(const board::HmiSelection selection)
 
 void hmi_coordinator::setup()
 {
-    board::setup(std::bind(&handleHmiSelection, std::placeholders::_1));
+    board::setup(&handleHmiSelection);
 }
