@@ -2,9 +2,11 @@
 #include "board_pins.hpp"
 #include <Arduino.h>
 #include <array>
+#include <chrono>
 #include <functional>
 #include <iterator>
 #include <stdexcept>
+#include <type_traits>
 #include <utility>
 
 static board::HmiHandler callBack;
@@ -12,7 +14,16 @@ static board::HmiHandler callBack;
 template <board::HmiSelection SELECTION>
 static void isr()
 {
-    callBack(SELECTION);
+    typedef std::chrono::milliseconds Timebase;
+    const auto now = std::chrono::round<Timebase>(std::chrono::system_clock::now());
+    static std::remove_const_t<decltype(now)> lastCall;
+    using namespace std::literals::chrono_literals;
+    constexpr auto debouncePeriod = 100ms;
+    if (now - lastCall > debouncePeriod)
+    {
+        lastCall = now;
+        callBack(SELECTION);
+    }
 }
 
 /**
