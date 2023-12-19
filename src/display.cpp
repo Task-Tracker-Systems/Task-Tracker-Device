@@ -1,4 +1,5 @@
 
+#include "HMI_Menu.hpp"
 #include "board_pins.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
@@ -7,6 +8,8 @@
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+static menu mainMenu;
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, board::i2c_1::pin::res);
@@ -90,11 +93,19 @@ void setup_display()
     lv_label_set_text(label, "LVGL is up");
     lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 0);
 
+    Serial.print("blub");
     // display lvgl screen
     lv_timer_handler();
+
+    delay(2000);
+    lv_obj_clean(lv_scr_act());
+
+    mainMenu.initialize();
+    Serial.print("init done");
 }
 
 void refresh_display()
 {
+    mainMenu.cyclic();
     lv_timer_handler();
 }
