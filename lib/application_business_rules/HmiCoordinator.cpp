@@ -13,10 +13,18 @@ static constexpr auto enumToInteger(const Enum enumerator)
     return static_cast<std::underlying_type_t<Enum>>(enumerator);
 }
 
-static Task &mapTaskSelectionToTask(const board::HmiSelection taskSelection)
+static Task *mapTaskSelectionToTask(const board::HmiSelection taskSelection)
 {
+    // TODO lookup which task selection belongs to which task object
     const std::size_t taskIndex = enumToInteger(taskSelection) - enumToInteger(board::HmiSelection::TASK1);
-    return std::next(std::begin(device::tasks), taskIndex)->second;
+    if (taskIndex < device::tasks.size())
+    {
+        return &(std::next(std::begin(device::tasks), taskIndex)->second);
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 static unsigned int mapSelectionToFrequency(const board::HmiSelection selection)
@@ -58,16 +66,24 @@ static void handleHmiSelection(const board::HmiSelection selection)
     case board::HmiSelection::TASK2:
     case board::HmiSelection::TASK3:
     case board::HmiSelection::TASK4: {
-        auto &task = mapTaskSelectionToTask(selection);
-        if (task.isRunning())
+        Task *const optTask = mapTaskSelectionToTask(selection);
+        if (optTask)
         {
-            task.stop();
+            Task &task = *optTask;
+            if (task.isRunning())
+            {
+                task.stop();
+            }
+            else
+            {
+                task.start();
+            }
+            board::setStatusIndicator(mapTaskToStatusIndicator(selection), task.isRunning());
         }
         else
         {
-            task.start();
+            serial_port::cout << "No task assigned to selection " << enumToInteger(selection) << std::endl;
         }
-        board::setStatusIndicator(mapTaskToStatusIndicator(selection), task.isRunning());
         break;
     }
     default:
@@ -75,7 +91,16 @@ static void handleHmiSelection(const board::HmiSelection selection)
     }
 }
 
+template <class CONTAINER>
+static void initializeTasks(CONTAINER &tasks)
+{
+    // TODO get tasks from storage
+
+    // workaround for missing storage: initialize dummy tasks
+}
+
 void hmi_coordinator::setup()
 {
     board::setup(&handleHmiSelection);
+    initializeTasks(device::tasks);
 }
