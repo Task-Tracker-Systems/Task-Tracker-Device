@@ -24,7 +24,7 @@ var searchData=
   ['statusindicatorid_21',['StatusIndicatorId',['../namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34',1,'board']]],
   ['stop_22',['stop',['../classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4',1,'Task']]],
   ['strcmp_5fg_23',['strcmp_g',['../string__helpers_8cpp.xhtml#ac4a6f86ecaee2491d0f1379530174743',1,'strcmp_g(const char *const lhs, const char *const rhs):&#160;string_helpers.cpp'],['../string__helpers_8cpp.xhtml#a6b5394467e877a8a29e0479d49a0034b',1,'strcmp_g(const wchar_t *const lhs, const wchar_t *const rhs):&#160;string_helpers.cpp'],['../string__helpers_8hpp.xhtml#afc97060fbec316a3d888fb5e90f97e7b',1,'strcmp_g(const CharType *const lhs, const CharType *const rhs):&#160;string_helpers.hpp']]],
-  ['string_24',['String',['../classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a',1,'Task::String()'],['../namespaceserial__port.xhtml#a572553df2c28c025df5775458684cb92',1,'serial_port::String()']]],
+  ['string_24',['String',['../classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6',1,'Task::String()'],['../namespaceserial__port.xhtml#a572553df2c28c025df5775458684cb92',1,'serial_port::String()']]],
   ['string_5fhelpers_2ecpp_25',['string_helpers.cpp',['../string__helpers_8cpp.xhtml',1,'']]],
   ['string_5fhelpers_2ehpp_26',['string_helpers.hpp',['../string__helpers_8hpp.xhtml',1,'']]],
   ['stringhandler_27',['StringHandler',['../namespaceserial__port.xhtml#a105fbf17cff58df0ed4281de8ae0926a',1,'serial_port']]],
