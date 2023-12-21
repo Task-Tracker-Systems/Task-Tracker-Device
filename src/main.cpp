@@ -2,6 +2,7 @@
  * \file
  */
 
+#include "tasks/Task.hpp"
 #include <HmiCoordinator.hpp>
 #include <Protocol.hpp>
 #include <display_interface.hpp>
@@ -23,4 +24,13 @@ void setup()
 void loop()
 {
     display::loop();
+
+    for (auto task : device::tasks)
+    {
+        serial_port::cout << task.second.getLabel() << " : " << std::boolalpha << task.second.isRunning()
+                          << std::noboolalpha << "   with " << task.second.getRecordedDuration().count() << " s" << std::endl;
+    }
+    serial_port::cout << "_\r" << std::endl;
+
+    sleep(1);
 }

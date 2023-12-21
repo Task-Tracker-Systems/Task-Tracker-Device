@@ -97,6 +97,10 @@ static void initializeTasks(CONTAINER &tasks)
     // TODO get tasks from storage
 
     // workaround for missing storage: initialize dummy tasks
+    device::tasks.emplace(31, "Task 1");
+    device::tasks.emplace(32, "Task 2");
+    device::tasks.emplace(33, "Task 3");
+    device::tasks.emplace(34, "Task 4");
 }
 
 void hmi_coordinator::setup()
