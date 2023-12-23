@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['how_20to_20contribute_0',['How to contribute',['../md_CONTRIBUTING.xhtml',1,'']]]
+  ['license_0',['LICENSE',['../md_LICENSE.xhtml',1,'']]]
 ];
