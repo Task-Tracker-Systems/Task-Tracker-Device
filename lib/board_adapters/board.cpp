@@ -18,7 +18,7 @@ static void isr()
     const auto now = std::chrono::round<Timebase>(std::chrono::system_clock::now());
     static std::remove_const_t<decltype(now)> lastCall;
     using namespace std::literals::chrono_literals;
-    constexpr auto debouncePeriod = 100ms;
+    constexpr auto debouncePeriod = 200ms;
     if (now - lastCall > debouncePeriod)
     {
         lastCall = now;
