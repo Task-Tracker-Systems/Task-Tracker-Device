@@ -4,6 +4,7 @@
 #include <array>
 #include <chrono>
 #include <functional>
+#include <future>
 #include <iterator>
 #include <stdexcept>
 #include <type_traits>
@@ -21,8 +22,25 @@ static void isr()
     constexpr auto debouncePeriod = 100ms;
     if (now - lastCall > debouncePeriod)
     {
-        lastCall = now;
-        callBack(SELECTION);
+        const auto createAsync = [&]() {
+            lastCall = now;
+            return std::async(std::launch::async, callBack, SELECTION);
+        };
+        // static decltype(createAsync()) callbackThread; // runtime exception
+        // static auto callbackThread = createAsync();  // runtime exception
+        auto callbackThread = createAsync(); // runtime exception
+        //     if (!callbackThread.valid())
+        //     {
+        //         callbackThread = createAsync();
+        //     }
+        //     else if (callbackThread.wait_for(0ms) == std::future_status::ready)
+        //     {
+        //         callbackThread = createAsync();
+        //     }
+        //     else
+        //     {
+        //         // wait until current thread is finished, ignore this ISR call
+        //     }
     }
 }
 

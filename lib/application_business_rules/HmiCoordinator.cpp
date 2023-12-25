@@ -6,6 +6,7 @@
 #include <iterator>
 #include <pitches.hpp>
 #include <stdexcept>
+#include <thread>
 
 template <class Enum>
 static constexpr auto enumToInteger(const Enum enumerator)
@@ -57,8 +58,11 @@ static board::StatusIndicatorId mapTaskToStatusIndicator(const board::HmiSelecti
 
 static void handleHmiSelection(const board::HmiSelection selection)
 {
+    return;
+    std::this_thread::yield();
     serial_port::cout << "Handle event nr. " << enumToInteger(selection) << std::endl;
     using namespace std::chrono_literals;
+    std::this_thread::yield();
     board::playTone(mapSelectionToFrequency(selection), 1s);
     switch (selection)
     {
@@ -82,6 +86,7 @@ static void handleHmiSelection(const board::HmiSelection selection)
         }
         else
         {
+            std::this_thread::yield();
             serial_port::cout << "No task assigned to selection " << enumToInteger(selection) << std::endl;
         }
         break;
