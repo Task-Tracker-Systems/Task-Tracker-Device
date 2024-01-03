@@ -65,6 +65,7 @@ void setup(char const *programIdentificationString)
     pinMode(board::led::pin::task4, OUTPUT);
     pinMode(board::buzzer::pin::on_off, OUTPUT);
     setup_display();
+    serial_port::cout << "\x1b[20h"; // Tell the terminal to use CR/LF for newlines instead of just CR.
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
     serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
