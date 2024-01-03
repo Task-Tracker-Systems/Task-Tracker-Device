@@ -2,3 +2,4 @@
 version = 1
 elf = "../.pio/build/esp32-s3-devkitc-1/firmware.elf"
 firmware = "../.pio/build/esp32-s3-devkitc-1/firmware.bin"
+gdbServerPort = 3333
