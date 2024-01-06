@@ -26,6 +26,7 @@ Keypad::Keypad(const KeyId (&inputPinToKeyId)[numberOfPins])
 std::optional<std::size_t> Keypad::getFirstPressedKeyIndex() const
 {
     static board::PinType oldValue = 0U;
+    const board::PinType currentValue = oldValue;
     board::PinType newValue = 0U;
 
     std::uint8_t candidateEvent = 1;
@@ -40,9 +41,9 @@ std::optional<std::size_t> Keypad::getFirstPressedKeyIndex() const
     }
 
     oldValue = newValue;
-    if (newValue != 0 && oldValue == 0)
+    if (newValue != 0 && currentValue == 0)
     {
-        return newValue;
+        return newValue-1;
     }
     else
     {

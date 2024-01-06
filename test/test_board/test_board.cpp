@@ -14,16 +14,16 @@ void tearDown()
 
 void test_Keypad()
 {
-    Mock<Keypad::InputShiftRegister> isr;
-    constexpr Keypad::InputMapping inputPinToKeyId{KeyId::BACK, KeyId::ENTER, KeyId::LEFT, KeyId::RIGHT, KeyId::TASK1, KeyId::TASK2, KeyId::TASK3, KeyId::TASK4};
-    Keypad keypad(isr.get(), inputPinToKeyId);
+    constexpr KeyId inputPinToKeyId[]{KeyId::BACK, KeyId::ENTER, KeyId::LEFT, KeyId::RIGHT, KeyId::TASK1, KeyId::TASK2, KeyId::TASK3, KeyId::TASK4};
+    When(Method(ArduinoFake(), pinMode)).AlwaysReturn();
+    Keypad keypad(inputPinToKeyId);
 
     // no key is pressed
-    When(Method(isr, readRegister)).Return({0});
+    When(Method(ArduinoFake(), digitalRead)).AlwaysReturn(HIGH); // buttons are active low
     TEST_ASSERT_EQUAL(KeyId::NONE, keypad.getCurrentlyPressedKey());
 
     // second key is pressed
-    When(Method(isr, readRegister)).Return({0, 1});
+    When(Method(ArduinoFake(), digitalRead)).Return(HIGH, LOW, 6_Times(HIGH)); // buttons are active low
     TEST_ASSERT_EQUAL(KeyId::ENTER, keypad.getCurrentlyPressedKey());
 }
 
