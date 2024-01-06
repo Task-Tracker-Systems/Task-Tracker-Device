@@ -64,6 +64,18 @@ Note, that you must build the software (using the default build configuration) b
 
 Please refer to the documentation of the simulator for instructions on how to simulate the device.
 
+#### Using serial port with the simulator
+
+Before version 2.1.0 the Wokwi extension provided an integrated serial monitor.
+Since version 2.1.0 it uses VS Code's built-in terminal instead.
+That terminal does not provide a prompt for entering, reviewing and modifying a message before sending it.
+See also [this issue report](https://github.com/wokwi/wokwi-features/issues/698).
+
+Serial port forwarding is enabled for the simulator.
+Thus a Telnet client can be used to connect to the serial port of the simulator.
+
+For example one can use the [PuTTY](https://www.putty.org/) SSH Client in Telnet mode with `localhost` as host and `4000` as port.
+
 ### Debugging
 
 For debugging you need to use the `debug` [configuration](https://docs.platformio.org/en/latest/projectconf/build_configurations.html#build-configurations) for building. One can achieve this via:
