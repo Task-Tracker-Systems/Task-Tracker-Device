@@ -79,13 +79,13 @@ $(function() {
   <div class="headertitle"><div class="title">Proxy header </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_doc_proxy_header"></a> Proxy headers serves as hint to the PlatformIO Library Dependency Finder to find the corresponding source file. The actual interface is defined where it is required/used.</p>
+<div class="textblock"><p ><a class="anchor" id="md_doc_proxy_header"></a> Proxy headers serve as hint to the PlatformIO Library Dependency Finder (LDF) to find the corresponding source file (see LDF <a href="https://docs.platformio.org/en/latest/librarymanager/ldf.html#dependency-finder-mode" title="PlatformIO Dependency Finder Modes">mode</a> <code>chain</code>). The actual interface is defined in the package where it is used. This is necessary for cases where the PlatformIO build environment does not use <code>deep</code> as LDF mode. Typically unit tests can not use LDF mode <code>deep</code> as this would prevent mocking source code which is not part of the unit under test.</p>
 <p >This is used in case an interface is not inherited but instead forwarded to the actual implementation. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 6 2024 15:29:51 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Jan 6 2024 16:16:10 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
