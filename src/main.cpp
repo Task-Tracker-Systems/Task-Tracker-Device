@@ -2,11 +2,13 @@
  * \file
  */
 
-#include "tasks/Task.hpp"
 #include <HmiCoordinator.hpp>
 #include <Protocol.hpp>
+#include <chrono>
 #include <display_interface.hpp>
 #include <serial_port_interface.hpp>
+#include <tasks/Task.hpp>
+#include <thread>
 
 void setup()
 {
@@ -33,5 +35,7 @@ void loop()
     }
     serial_port::cout << "_\r" << std::endl;
 
-    sleep(1);
+    std::this_thread::yield();
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(1s);
 }
