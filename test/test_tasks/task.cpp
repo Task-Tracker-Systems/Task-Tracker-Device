@@ -3,7 +3,7 @@
 #include <thread>
 #include <unity.h>
 
-static const Task::String label(L"äüöß");
+static const Task::String label("äüöß");
 
 void setUp()
 {
@@ -42,16 +42,16 @@ void test_task_manager()
     using namespace device;
     TEST_ASSERT_EQUAL_UINT(0, tasks.size());
 
-    TEST_ASSERT_TRUE(tasks.emplace(31, L"hello earth").second);
-    TEST_ASSERT_TRUE(tasks.emplace(42, L"hello mars").second);
-    TEST_ASSERT_FALSE(tasks.emplace(42, L"hello venus").second); // same id as before
+    TEST_ASSERT_TRUE(tasks.emplace(31, "hello earth").second);
+    TEST_ASSERT_TRUE(tasks.emplace(42, "hello mars").second);
+    TEST_ASSERT_FALSE(tasks.emplace(42, "hello venus").second); // same id as before
     TEST_ASSERT_EQUAL_UINT(2, tasks.size());
 
     for (auto [id, task] : tasks)
     {
-        std::wcout << "Task id(" << id << ") label("
-                   << task.getLabel() << ") duration("
-                   << task.getRecordedDuration().count() << "s)" << std::endl;
+        std::cout << "Task id(" << id << ") label("
+                  << task.getLabel() << ") duration("
+                  << task.getRecordedDuration().count() << "s)" << std::endl;
     }
 
     tasks.clear();
