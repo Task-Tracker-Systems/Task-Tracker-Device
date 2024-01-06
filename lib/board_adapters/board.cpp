@@ -5,6 +5,7 @@
 #include <functional>
 #include <iterator>
 #include <stdexcept>
+#include <thread>
 #include <type_traits>
 #include <utility>
 
@@ -13,13 +14,19 @@ static board::HmiHandler callBack;
 template <board::HmiSelection SELECTION>
 static void isr()
 {
+    static std::thread *p_callbackThread = nullptr;
     const auto now = millis(); /* warning: `now()` from <chrono>/libc can not be used in ISRs */
     static std::remove_const_t<decltype(now)> lastCall;
     constexpr decltype(lastCall) debouncePeriod = 200; /* milliseconds */
     if (now - lastCall > debouncePeriod)
     {
         lastCall = now;
-        callBack(SELECTION);
+        if (p_callbackThread)
+        {
+            p_callbackThread->join();
+            delete p_callbackThread;
+        }
+        p_callbackThread = new std::thread(callBack, SELECTION);
     }
 }
 
