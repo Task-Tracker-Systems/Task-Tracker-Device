@@ -13,6 +13,7 @@ void setup()
     serial_port::initialize();
     hmi_coordinator::setup();
     display::setup();
+    serial_port::cout << "\x1b[20h"; // Tell the terminal to use CR/LF for newlines instead of just CR.
     static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
