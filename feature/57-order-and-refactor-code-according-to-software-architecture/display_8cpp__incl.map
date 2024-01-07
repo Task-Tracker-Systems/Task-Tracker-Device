@@ -1,11 +1,10 @@
 <map id="lib/board_adapters/display_interface/display.cpp" name="lib/board_adapters/display_interface/display.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="320,5,511,45"/>
-<area shape="rect" id="node2" href="$display_8hpp.xhtml" title="This is a Proxy header." alt="" coords="35,93,121,119"/>
-<area shape="rect" id="node4" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="147,93,257,119"/>
-<area shape="rect" id="node6" title=" " alt="" coords="281,93,419,119"/>
-<area shape="rect" id="node7" title=" " alt="" coords="444,93,520,119"/>
-<area shape="rect" id="node8" title=" " alt="" coords="545,93,603,119"/>
-<area shape="rect" id="node9" title=" " alt="" coords="628,93,680,119"/>
-<area shape="rect" id="node3" href="$display__interface_8hpp.xhtml" title=" " alt="" coords="5,167,148,192"/>
-<area shape="rect" id="node5" title=" " alt="" coords="173,167,234,192"/>
+<area shape="rect" id="node1" title=" " alt="" coords="257,5,447,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,101,144,126"/>
+<area shape="rect" id="node3" title=" " alt="" coords="169,101,245,126"/>
+<area shape="rect" id="node4" title=" " alt="" coords="269,101,328,126"/>
+<area shape="rect" id="node5" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="352,101,461,126"/>
+<area shape="rect" id="node7" title=" " alt="" coords="486,101,538,126"/>
+<area shape="rect" id="node8" href="$display__interface_8hpp.xhtml" title=" " alt="" coords="562,93,721,133"/>
+<area shape="rect" id="node6" title=" " alt="" coords="376,181,437,207"/>
 </map>

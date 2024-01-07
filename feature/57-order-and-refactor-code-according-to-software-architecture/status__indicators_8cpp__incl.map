@@ -1,10 +1,10 @@
 <map id="lib/board_adapters/status_indicators/status_indicators.cpp" name="lib/board_adapters/status_indicators/status_indicators.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="211,5,377,60"/>
-<area shape="rect" id="node2" href="$status__indicators_8hpp.xhtml" title=" " alt="" coords="5,108,151,133"/>
-<area shape="rect" id="node3" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="175,108,293,133"/>
-<area shape="rect" id="node5" title=" " alt="" coords="317,108,393,133"/>
-<area shape="rect" id="node6" href="$board__interface_8hpp.xhtml" title=" " alt="" coords="417,108,552,133"/>
-<area shape="rect" id="node4" title=" " alt="" coords="203,181,265,207"/>
-<area shape="rect" id="node7" title=" " alt="" coords="406,181,467,207"/>
-<area shape="rect" id="node8" title=" " alt="" coords="492,181,571,207"/>
+<area shape="rect" id="node1" title=" " alt="" coords="189,5,354,60"/>
+<area shape="rect" id="node2" href="$status__indicators_8hpp.xhtml" title=" " alt="" coords="5,115,151,141"/>
+<area shape="rect" id="node3" title=" " alt="" coords="175,115,251,141"/>
+<area shape="rect" id="node4" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="275,115,385,141"/>
+<area shape="rect" id="node6" href="$board__interface_8hpp.xhtml" title=" " alt="" coords="409,108,560,148"/>
+<area shape="rect" id="node5" title=" " alt="" coords="299,196,361,221"/>
+<area shape="rect" id="node7" title=" " alt="" coords="419,196,481,221"/>
+<area shape="rect" id="node8" title=" " alt="" coords="505,196,584,221"/>
 </map>
