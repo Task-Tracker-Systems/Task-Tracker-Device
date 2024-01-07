@@ -1,9 +1,9 @@
-#include "display.hpp"
-#include "board_pins.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include <Wire.h>
+#include <board_pins.hpp>
 #include <lvgl.h>
+#include <user_interaction/display_interface.hpp>
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels

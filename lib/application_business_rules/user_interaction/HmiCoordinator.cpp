@@ -1,10 +1,10 @@
 #include "HmiCoordinator.hpp"
 #include "board_interface.hpp"
-#include "serial_port_interface.hpp"
 #include "tasks/Task.hpp"
 #include <cstddef>
 #include <iterator>
 #include <pitches.hpp>
+#include <serial_interface/serial_port_interface.hpp>
 #include <stdexcept>
 
 template <class Enum>

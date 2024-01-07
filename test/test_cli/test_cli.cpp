@@ -1,7 +1,7 @@
-#include <command_line_interpreter.hpp>
 #include <cstddef>
 #include <fakeit.hpp>
 #include <iostream>
+#include <serial_interface/command_line_interpreter.hpp>
 #include <unity.h>
 
 using namespace fakeit;

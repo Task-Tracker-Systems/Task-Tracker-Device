@@ -1,5 +1,5 @@
 #pragma once
-#include <board_interface.hpp>
+#include <user_interaction/board_interface.hpp>
 
 namespace board
 {

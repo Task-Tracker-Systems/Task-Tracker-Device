@@ -1,7 +1,7 @@
 #include "status_indicators.hpp"
-#include "../board_pins.hpp"
 #include <Arduino.h>
-#include <board_interface.hpp>
+#include <board_pins.hpp>
+#include <user_interaction/board_interface.hpp>
 
 void board::setup_status_indicators()
 {

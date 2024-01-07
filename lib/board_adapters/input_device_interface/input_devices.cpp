@@ -1,7 +1,7 @@
 #include "input_devices.hpp"
-#include "../board_pins.hpp"
 #include <Arduino.h>
 #include <array>
+#include <board_pins.hpp>
 #include <cstddef>
 #include <thread>
 #include <type_traits>

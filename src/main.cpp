@@ -2,13 +2,13 @@
  * \file
  */
 
-#include <HmiCoordinator.hpp>
-#include <Protocol.hpp>
 #include <chrono>
-#include <display_interface.hpp>
-#include <serial_port_interface.hpp>
+#include <serial_interface/Protocol.hpp>
+#include <serial_interface/serial_port_interface.hpp>
 #include <tasks/Task.hpp>
 #include <thread>
+#include <user_interaction/HmiCoordinator.hpp>
+#include <user_interaction/display_interface.hpp>
 
 void setup()
 {
