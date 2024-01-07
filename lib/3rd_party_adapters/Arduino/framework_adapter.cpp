@@ -5,4 +5,4 @@
 /**
  * Makes sure that the defined pin type matches to the framework.
  */
-static_assert(std::is_same_v<PinType, std::remove_cv_t<decltype(MOSI)>>);
+static_assert(std::is_same_v<board::PinType, std::remove_cv_t<std::remove_reference_t<decltype(MOSI)>>>);

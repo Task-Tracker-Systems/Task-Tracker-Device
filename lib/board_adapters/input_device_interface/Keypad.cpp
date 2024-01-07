@@ -1,4 +1,4 @@
-#include "input_devices.hpp"
+#include "Keypad.hpp"
 #include <Arduino.h>
 #include <array>
 #include <board_pins.hpp>
@@ -7,9 +7,9 @@
 #include <type_traits>
 #include <utility>
 
-static board::HmiHandler callBack;
+static HmiHandler callBack;
 
-template <board::HmiSelection SELECTION>
+template <KeyId SELECTION>
 static void isr()
 {
     static std::thread *p_callbackThread = nullptr;
@@ -88,18 +88,18 @@ static constexpr FunctionPointerGenerator<T, N> createFPG([[maybe_unused]] T (&a
 /**
  * Maps HMI buttons to events.
  */
-static constexpr std::pair<PinType, board::HmiSelection> selectionForPins[] = {
-    {board::button::pin::task1, board::HmiSelection::TASK1},
-    {board::button::pin::task2, board::HmiSelection::TASK2},
-    {board::button::pin::task3, board::HmiSelection::TASK3},
-    {board::button::pin::task4, board::HmiSelection::TASK4},
-    {board::button::pin::up, board::HmiSelection::UP},
-    {board::button::pin::down, board::HmiSelection::DOWN},
-    {board::button::pin::enter, board::HmiSelection::ENTER},
-    {board::button::pin::back, board::HmiSelection::BACK},
+static constexpr std::pair<board::PinType, KeyId> selectionForPins[] = {
+    {board::button::pin::task1, KeyId::TASK1},
+    {board::button::pin::task2, KeyId::TASK2},
+    {board::button::pin::task3, KeyId::TASK3},
+    {board::button::pin::task4, KeyId::TASK4},
+    {board::button::pin::up, KeyId::LEFT},
+    {board::button::pin::down, KeyId::RIGHT},
+    {board::button::pin::enter, KeyId::ENTER},
+    {board::button::pin::back, KeyId::BACK},
 };
 
-void board::setup_input_devices(const HmiHandler callbackFunction)
+Keypad::Keypad(const HmiHandler callbackFunction)
 {
     // input pins
     callBack = callbackFunction;

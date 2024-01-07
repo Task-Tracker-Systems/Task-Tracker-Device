@@ -7,14 +7,15 @@
 #include <serial_interface/serial_port_interface.hpp>
 #include <tasks/Task.hpp>
 #include <thread>
-#include <user_interaction/HmiCoordinator.hpp>
-#include <user_interaction/display_interface.hpp>
+#include <user_interaction/Menu.hpp>
+#include <user_interaction/Presenter.hpp>
+#include <user_interaction/ProcessHmiInputs.hpp>
+#include <user_interaction/display_factory_interface.hpp>
+#include <user_interaction/statusindicators_factory_interface.hpp>
 
 void setup()
 {
     serial_port::initialize();
-    hmi_coordinator::setup();
-    display::setup();
     serial_port::cout << "\x1b[20h"; // Tell the terminal to use CR/LF for newlines instead of just CR.
     static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
     serial_port::cout << std::endl
@@ -26,7 +27,9 @@ void setup()
 
 void loop()
 {
-    display::loop();
+    static Menu singleMenu(board::getDisplay());
+    static Presenter presenter(singleMenu, board::getStatusIndicators());
+    static ProcessHmiInputs processHmiInputs(presenter);
 
     for (auto task : device::tasks)
     {
@@ -38,4 +41,6 @@ void loop()
     std::this_thread::yield();
     using namespace std::chrono_literals;
     std::this_thread::sleep_for(1s);
+
+    presenter.loop();
 }
