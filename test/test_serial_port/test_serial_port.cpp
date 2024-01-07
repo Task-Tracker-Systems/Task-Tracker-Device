@@ -1,6 +1,6 @@
+#include <Arduino/serial_port.hpp>
 #include <ArduinoFake.h>
 #include <cstring>
-#include <serial_port/serial_port.hpp>
 #include <unity.h>
 
 using namespace fakeit;
