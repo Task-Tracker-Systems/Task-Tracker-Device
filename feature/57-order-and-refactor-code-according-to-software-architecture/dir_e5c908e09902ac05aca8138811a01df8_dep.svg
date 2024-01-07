@@ -49,7 +49,7 @@
 <g id="node3" class="node">
 <title>dir_b49365647f74dff1c8dd1e88d29293e4</title>
 <g id="a_node3"><a xlink:href="dir_b49365647f74dff1c8dd1e88d29293e4.xhtml" target="_top" xlink:title="Package Board Adapters.">
-<polygon fill="#edf0f7" stroke="#7f7f7f" points="208,-24.5 125,-24.5 125,-5.5 208,-5.5 208,-24.5"/>
+<polygon fill="#edf0f7" stroke="red" stroke-dasharray="5,2" points="208,-24.5 125,-24.5 125,-5.5 208,-5.5 208,-24.5"/>
 <text text-anchor="middle" x="166.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">board_adapters</text>
 </a>
 </g>
