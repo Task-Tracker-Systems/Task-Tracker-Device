@@ -15,12 +15,11 @@ var searchData=
   ['board_12',['board',['../namespaceboard.xhtml',1,'']]],
   ['board_20adapters_13',['Board Adapters',['../board_adapters.xhtml',1,'md_doc_software_architecture']]],
   ['board_2ecpp_14',['board.cpp',['../board_8cpp.xhtml',1,'']]],
-  ['board_2ehpp_15',['board.hpp',['../board_8hpp.xhtml',1,'']]],
-  ['board_5finterface_2ehpp_16',['board_interface.hpp',['../board__interface_8hpp.xhtml',1,'']]],
-  ['board_5fpins_2ehpp_17',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
-  ['button_18',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
-  ['buzzer_19',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
-  ['i2c_5f1_20',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
-  ['led_21',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
-  ['pin_22',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button::pin'],['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led::pin']]]
+  ['board_5finterface_2ehpp_15',['board_interface.hpp',['../board__interface_8hpp.xhtml',1,'']]],
+  ['board_5fpins_2ehpp_16',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
+  ['button_17',['button',['../namespaceboard_1_1button.xhtml',1,'board']]],
+  ['buzzer_18',['buzzer',['../namespaceboard_1_1buzzer.xhtml',1,'board']]],
+  ['i2c_5f1_19',['i2c_1',['../namespaceboard_1_1i2c__1.xhtml',1,'board']]],
+  ['led_20',['led',['../namespaceboard_1_1led.xhtml',1,'board']]],
+  ['pin_21',['pin',['../namespaceboard_1_1button_1_1pin.xhtml',1,'board::button::pin'],['../namespaceboard_1_1buzzer_1_1pin.xhtml',1,'board::buzzer::pin'],['../namespaceboard_1_1i2c__1_1_1pin.xhtml',1,'board::i2c_1::pin'],['../namespaceboard_1_1led_1_1pin.xhtml',1,'board::led::pin']]]
 ];

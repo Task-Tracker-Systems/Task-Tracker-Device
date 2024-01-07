@@ -1,6 +1,9 @@
 <map id="lib/application_business_rules/board_interface.hpp" name="lib/application_business_rules/board_interface.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="93,5,268,45"/>
-<area shape="rect" id="node2" href="$HmiCoordinator_8cpp.xhtml" title=" " alt="" coords="5,93,180,133"/>
-<area shape="rect" id="node3" href="$board_8hpp.xhtml" title="This is a Proxy header." alt="" coords="205,93,333,133"/>
-<area shape="rect" id="node4" href="$board_8cpp.xhtml" title=" " alt="" coords="205,181,333,221"/>
+<area shape="rect" id="node1" title=" " alt="" coords="247,5,421,45"/>
+<area shape="rect" id="node2" href="$HmiCoordinator_8cpp.xhtml" title=" " alt="" coords="5,101,180,141"/>
+<area shape="rect" id="node3" href="$board_8cpp.xhtml" title=" " alt="" coords="154,203,282,243"/>
+<area shape="rect" id="node4" href="$input__devices_8hpp.xhtml" title=" " alt="" coords="256,93,412,148"/>
+<area shape="rect" id="node6" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="436,93,597,148"/>
+<area shape="rect" id="node7" href="$status__indicators_8cpp.xhtml" title=" " alt="" coords="622,93,787,148"/>
+<area shape="rect" id="node5" href="$input__devices_8cpp.xhtml" title=" " alt="" coords="307,196,463,251"/>
 </map>
