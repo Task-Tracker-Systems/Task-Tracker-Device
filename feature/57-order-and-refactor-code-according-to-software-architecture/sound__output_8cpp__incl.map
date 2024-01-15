@@ -3,8 +3,11 @@
 <area shape="rect" id="node2" href="$sound__output_8hpp.xhtml" title=" " alt="" coords="5,115,129,141"/>
 <area shape="rect" id="node3" title=" " alt="" coords="153,115,229,141"/>
 <area shape="rect" id="node4" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="254,115,363,141"/>
-<area shape="rect" id="node6" href="$board__interface_8hpp.xhtml" title=" " alt="" coords="388,108,539,148"/>
-<area shape="rect" id="node5" title=" " alt="" coords="278,196,339,221"/>
-<area shape="rect" id="node7" title=" " alt="" coords="398,196,459,221"/>
-<area shape="rect" id="node8" title=" " alt="" coords="484,196,563,221"/>
+<area shape="rect" id="node7" href="$board__interface_8hpp.xhtml" title=" " alt="" coords="423,108,573,148"/>
+<area shape="rect" id="node5" href="$board__types_8hpp.xhtml" title=" " alt="" coords="233,196,349,221"/>
+<area shape="rect" id="node6" title=" " alt="" coords="261,269,322,295"/>
+<area shape="rect" id="node8" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="373,196,460,221"/>
+<area shape="rect" id="node10" title=" " alt="" coords="485,196,546,221"/>
+<area shape="rect" id="node11" title=" " alt="" coords="571,196,649,221"/>
+<area shape="rect" id="node9" title=" " alt="" coords="382,269,451,295"/>
 </map>

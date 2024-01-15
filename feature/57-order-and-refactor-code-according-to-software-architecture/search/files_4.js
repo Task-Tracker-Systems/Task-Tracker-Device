@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hmicoordinator_2ecpp_0',['HmiCoordinator.cpp',['../HmiCoordinator_8cpp.xhtml',1,'']]],
-  ['hmicoordinator_2ehpp_1',['HmiCoordinator.hpp',['../HmiCoordinator_8hpp.xhtml',1,'']]]
+  ['hmi_5fconfiguration_2ehpp_0',['hmi_configuration.hpp',['../hmi__configuration_8hpp.xhtml',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['back_0',['BACK',['../namespaceboard.xhtml#a7ea5fbeae4f85d4a1eaf8d601497816ea1dd26f1f1790f0b56d5752fb0fbecef0',1,'board']]]
+  ['active_0',['ACTIVE',['../Presenter_8hpp.xhtml#aeacea60d6729d1dbf3009c9d65448201a18ff74f43da410c5529f7d6fca84f115',1,'Presenter.hpp']]]
 ];

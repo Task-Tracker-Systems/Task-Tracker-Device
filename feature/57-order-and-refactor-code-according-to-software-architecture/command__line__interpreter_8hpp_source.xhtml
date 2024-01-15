@@ -177,9 +177,9 @@ $(function() {
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                               <span class="keyword">const</span> <a class="code hl_struct" href="structcommand__line__interpreter_1_1Option.xhtml">Option</a> &amp;option)</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>{</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    messageStream &lt;&lt; <span class="stringliteral">&quot;\t &quot;</span>;</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> label : option-&gt;<a class="code hl_variable" href="structcommand__line__interpreter_1_1Option.xhtml#a433bc06f0277125316abdebf4acf37fc">labels</a>)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_variable" href="Protocol_8cpp.xhtml#abc14b7721aad8b82ca16d71de603499c">label</a> : option-&gt;<a class="code hl_variable" href="structcommand__line__interpreter_1_1Option.xhtml#a433bc06f0277125316abdebf4acf37fc">labels</a>)</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    {</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        messageStream &lt;&lt; label &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        messageStream &lt;&lt; <a class="code hl_variable" href="Protocol_8cpp.xhtml#abc14b7721aad8b82ca16d71de603499c">label</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    messageStream &lt;&lt; <span class="stringliteral">&quot;\tdefault value: &quot;</span> &lt;&lt; option-&gt;<a class="code hl_variable" href="structcommand__line__interpreter_1_1Option.xhtml#a4a6cb7889b429ef7805043848b19cacc">defaultValue</a> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>}</div>
@@ -287,6 +287,7 @@ $(function() {
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structcommand__line__interpreter_1_1Command.xhtml">Command</a>&lt;CharType, ReturnType, ArgTypes...&gt;(commandName, handler, options);</div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>}</div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>} <span class="comment">// namespace command_line_interpreter</span></div>
+<div class="ttc" id="aProtocol_8cpp_xhtml_abc14b7721aad8b82ca16d71de603499c"><div class="ttname"><a href="Protocol_8cpp.xhtml#abc14b7721aad8b82ca16d71de603499c">label</a></div><div class="ttdeci">static const cli::Option&lt; std::basic_string&lt; ProtocolHandler::CharType &gt; &gt; label</div><div class="ttdef"><b>Definition:</b> Protocol.cpp:22</div></div>
 <div class="ttc" id="anamespacecommand__line__interpreter_xhtml"><div class="ttname"><a href="namespacecommand__line__interpreter.xhtml">command_line_interpreter</a></div><div class="ttdoc">Provides class templates to define command line commands.</div><div class="ttdef"><b>Definition:</b> command_line_interpreter.hpp:39</div></div>
 <div class="ttc" id="anamespacecommand__line__interpreter_xhtml_a435058140ae2374155f83c6aee5d0b03"><div class="ttname"><a href="namespacecommand__line__interpreter.xhtml#a435058140ae2374155f83c6aee5d0b03">command_line_interpreter::makeCommand</a></div><div class="ttdeci">Command&lt; CharType, ReturnType, ArgTypes... &gt; makeCommand(const CharType *const commandName, const std::function&lt; ReturnType(ArgTypes...)&gt; &amp;handler, const std::tuple&lt; const Option&lt; ArgTypes, CharType &gt; *... &gt; &amp;options=std::make_tuple())</div><div class="ttdoc">Creates Command object while deducing template arguments for its type.</div><div class="ttdef"><b>Definition:</b> command_line_interpreter.hpp:358</div></div>
 <div class="ttc" id="anamespacecommand__line__interpreter_xhtml_a68cb71af6ea2aec23cce8037d1519b57"><div class="ttname"><a href="namespacecommand__line__interpreter.xhtml#a68cb71af6ea2aec23cce8037d1519b57">command_line_interpreter::writeOptionHelperToStream</a></div><div class="ttdeci">void writeOptionHelperToStream(std::basic_ostringstream&lt; CharT &gt; &amp;messageStream, const Option &amp;option)</div><div class="ttdoc">Writes a description for an Option to a string stream.</div><div class="ttdef"><b>Definition:</b> command_line_interpreter.hpp:204</div></div>
@@ -318,7 +319,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 7 2024 16:40:24 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Jan 15 2024 21:11:08 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

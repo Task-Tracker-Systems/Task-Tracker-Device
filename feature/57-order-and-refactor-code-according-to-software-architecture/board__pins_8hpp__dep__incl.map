@@ -1,8 +1,9 @@
 <map id="lib/board_adapters/board_pins.hpp" name="lib/board_adapters/board_pins.hpp">
-<area shape="rect" id="node1" title="Provides named objects for the pins provided by the board." alt="" coords="467,5,595,45"/>
+<area shape="rect" id="node1" title="Provides named objects for the pins provided by the board." alt="" coords="527,5,655,45"/>
 <area shape="rect" id="node2" href="$framework__adapter_8cpp.xhtml" title=" " alt="" coords="5,101,215,141"/>
-<area shape="rect" id="node3" href="$display_8cpp.xhtml" title=" " alt="" coords="239,101,429,141"/>
-<area shape="rect" id="node4" href="$input__devices_8cpp.xhtml" title=" " alt="" coords="453,93,609,148"/>
-<area shape="rect" id="node5" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="633,93,795,148"/>
-<area shape="rect" id="node6" href="$status__indicators_8cpp.xhtml" title=" " alt="" coords="819,93,985,148"/>
+<area shape="rect" id="node3" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="239,93,389,148"/>
+<area shape="rect" id="node4" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="413,93,569,148"/>
+<area shape="rect" id="node5" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="594,93,789,148"/>
+<area shape="rect" id="node6" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="813,93,975,148"/>
+<area shape="rect" id="node7" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="999,93,1221,148"/>
 </map>
