@@ -1,5 +1,5 @@
 #include "sound_output.hpp"
-#include <Arduino.h>
+#include <Arduino-wrapper.h>
 #include <board_pins.hpp>
 #include <user_interaction/board_interface.hpp>
 

@@ -1,5 +1,5 @@
 #include "Keypad.hpp"
-#include <Arduino.h>
+#include <Arduino-wrapper.h>
 #include <array>
 #include <board_pins.hpp>
 #include <cstddef>
