@@ -1,6 +1,5 @@
 #include "Presenter.hpp"
 #include "board_interface.hpp"
-#include <Arduino.h>
 #include <cassert>
 #include <chrono>
 #include <pitches.hpp>
@@ -33,7 +32,7 @@ void Presenter::setTaskStatusIndicator(const TaskIndex index, const TaskIndicato
 Presenter::Presenter(Menu &menuToUse, IStatusIndicator *const (&statusIndicatorsToUse)[hmi::numberOfStatusIndicators])
     : menu(menuToUse), statusIndicators(statusIndicatorsToUse)
 {
-    // pinMode(board::buzzer::pin::on_off, OUTPUT);
+    board::setup();
 }
 
 void Presenter::loop()

@@ -97,6 +97,5 @@ ProcessHmiInputs::ProcessHmiInputs(Presenter &stateVisualizer, IKeypad &keypad)
 {
     using namespace std::placeholders;
     keypad.setCallback(std::bind(&ProcessHmiInputs::handleHmiSelection, this, _1));
-    board::setup();
     initializeTasks(device::tasks);
 }
