@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hmi_5fconfiguration_2ehpp_0',['hmi_configuration.hpp',['../hmi__configuration_8hpp.xhtml',1,'']]]
+  ['framework_5fadapter_2ecpp_0',['framework_adapter.cpp',['../framework__adapter_8cpp.xhtml',1,'']]]
 ];
