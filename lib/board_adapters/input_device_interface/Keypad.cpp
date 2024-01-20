@@ -99,10 +99,9 @@ static constexpr std::pair<board::PinType, KeyId> selectionForPins[] = {
     {board::button::pin::back, KeyId::BACK},
 };
 
-Keypad::Keypad(const HmiHandler callbackFunction)
+Keypad::Keypad()
 {
     // input pins
-    callBack = callbackFunction;
     constexpr auto functionPointers = createFPG(selectionForPins).createIsrPointers<selectionForPins>();
     std::size_t index = 0;
     for (const auto selectionForPin : selectionForPins)
@@ -114,4 +113,9 @@ Keypad::Keypad(const HmiHandler callbackFunction)
             FALLING);
         index++;
     }
+}
+
+void Keypad::setCallback(std::function<void(KeyId)> callbackFunction)
+{
+    callBack = callbackFunction;
 }

@@ -1,7 +1,7 @@
 #include "ProcessHmiInputs.hpp"
+#include "IKeypad.hpp"
 #include "Presenter.hpp"
 #include "board_interface.hpp"
-#include "keypad_factory_interface.hpp"
 #include <functional>
 #include <serial_interface/serial_port_interface.hpp>
 #include <stdexcept>
@@ -92,11 +92,11 @@ static void initializeTasks(CONTAINER &tasks)
     device::tasks.emplace(34, "Task 4");
 }
 
-ProcessHmiInputs::ProcessHmiInputs(Presenter &stateVisualizer)
+ProcessHmiInputs::ProcessHmiInputs(Presenter &stateVisualizer, IKeypad &keypad)
     : stateVisualizer(stateVisualizer)
 {
     using namespace std::placeholders;
-    static auto keypad = board::getKeypad(std::bind(&ProcessHmiInputs::handleHmiSelection, this, _1));
+    keypad.setCallback(std::bind(&ProcessHmiInputs::handleHmiSelection, this, _1));
     board::setup();
     initializeTasks(device::tasks);
 }

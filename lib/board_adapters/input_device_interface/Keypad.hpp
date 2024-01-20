@@ -5,5 +5,6 @@
 class Keypad : public IKeypad
 {
   public:
-    Keypad(const HmiHandler callbackFunction);
+    Keypad();
+    virtual void setCallback(const HmiHandler callbackFunction) override;
 };

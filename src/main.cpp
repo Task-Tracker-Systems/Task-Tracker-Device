@@ -11,6 +11,7 @@
 #include <user_interaction/Presenter.hpp>
 #include <user_interaction/ProcessHmiInputs.hpp>
 #include <user_interaction/display_factory_interface.hpp>
+#include <user_interaction/keypad_factory_interface.hpp>
 #include <user_interaction/statusindicators_factory_interface.hpp>
 
 void setup()
@@ -29,7 +30,7 @@ void loop()
 {
     static Menu singleMenu(board::getDisplay());
     static Presenter presenter(singleMenu, board::getStatusIndicators());
-    static ProcessHmiInputs processHmiInputs(presenter);
+    static ProcessHmiInputs processHmiInputs(presenter, board::getKeypad());
 
     for (auto task : device::tasks)
     {
