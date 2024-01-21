@@ -11,3 +11,10 @@
 #if defined(abs)
 #undef abs // else it conflicts with std::abs
 #endif
+#if defined(ArduinoFake)
+#if defined(digitalPinToInterrupt)
+// the definition in ArduinoFake is too primitive
+#undef digitalPinToInterrupt
+#define digitalPinToInterrupt(pinNumber) pinNumber
+#endif
+#endif
