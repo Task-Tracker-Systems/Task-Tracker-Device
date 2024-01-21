@@ -1,4 +1,5 @@
 
+#include "HMI_Menu.hpp"
 #include "board_pins.hpp"
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
@@ -7,6 +8,8 @@
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+static menu mainMenu;
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, board::i2c_1::pin::res);
@@ -18,7 +21,7 @@ static lv_color_t buf[SCREEN_WIDTH * 16];
 /* Serial debugging */
 void lvgl_log_to_serial(const char *buf)
 {
-    Serial.printf(buf);
+    Serial.printf("%s\r", buf);
     Serial.flush();
 }
 #endif
@@ -40,6 +43,47 @@ void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_col
     display.display();
     lv_disp_flush_ready(disp_drv);
 }
+
+extern uint8_t KEYID;
+
+static void keypad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data)
+{
+    static uint32_t last_key = 0;
+
+    /*Get whether the a key is pressed and save the pressed key*/
+    uint32_t act_key = KEYID;
+    if (act_key != 0)
+    {
+        data->state = LV_INDEV_STATE_PR;
+
+        /*Translate the keys to LVGL control characters according to your key definitions*/
+        switch (act_key)
+        {
+        case 5:
+            act_key = LV_KEY_LEFT;
+            break;
+        case 6:
+            act_key = LV_KEY_RIGHT;
+            break;
+        case 7:
+            act_key = LV_KEY_ENTER;
+            break;
+        case 8:
+            act_key = LV_KEY_ESC;
+            break;
+        }
+
+        last_key = act_key;
+    }
+    else
+    {
+        data->state = LV_INDEV_STATE_REL;
+    }
+
+    data->key = last_key;
+}
+
+lv_indev_t *my_indev;
 
 void setup_display()
 {
@@ -83,7 +127,18 @@ void setup_display()
 
     // Register display driver to lvgl
     lv_disp_drv_register(&disp_drv);
+    lv_theme_t *mono_theme = lv_theme_mono_init(0, false, &lv_font_unscii_8);
+    lv_disp_set_theme(0, mono_theme);
+
     delay(200);
+
+    /*Register at least one display before you register any input devices*/
+    static lv_indev_drv_t indev_drv;
+    lv_indev_drv_init(&indev_drv); /*Basic initialization*/
+    indev_drv.type = LV_INDEV_TYPE_ENCODER;
+    indev_drv.read_cb = keypad_read;
+    /*Register the driver in LVGL and save the created input device object*/
+    my_indev = lv_indev_drv_register(&indev_drv);
 
     // create first text in lvgl
     lv_obj_t *label = lv_label_create(lv_scr_act());
@@ -92,9 +147,16 @@ void setup_display()
 
     // display lvgl screen
     lv_timer_handler();
+
+    delay(2000);
+    lv_obj_clean(lv_scr_act());
+
+    mainMenu.initialize();
+    Serial.print("init done");
 }
 
 void refresh_display()
 {
+    mainMenu.cyclic();
     lv_timer_handler();
 }

@@ -38,13 +38,15 @@ static std::uint8_t getEvent()
         candidateEvent++;
     }
 
-    if (newValue != 0 && oldValue == 0)
+    if (newValue != 0) //&& oldValue == 0)
     {
         result = newValue;
     }
     oldValue = newValue;
     return result;
 }
+
+uint8_t KEYID = 0;
 
 namespace main
 {
@@ -71,6 +73,7 @@ void setup(char const *programIdentificationString)
         ProtocolHandler::execute(commandLine.c_str());
     });
 }
+
 void loop()
 {
     constexpr unsigned long loopDurationMs = 250;
@@ -91,6 +94,14 @@ void loop()
             constexpr int minBrightness = 0;
             analogWrite(outputPins[event - 1], minBrightness);
         }
+        if (event >= sizeof(outputPins) / sizeof(outputPins[0]) + 1)
+        {
+            KEYID = event;
+        }
+        else
+        {
+            KEYID = 0;
+        }
     }
     else
     {
@@ -100,6 +111,7 @@ void loop()
             constexpr int brightness = maxBrightness * 25 / 100.0;
             analogWrite(pin, brightness);
         }
+        KEYID = 0;
     }
     delay(loopDurationMs);
     refresh_display(); // Animate bitmaps
