@@ -74,11 +74,15 @@ void test_Controller()
     TEST_ASSERT_NOT_EQUAL(std::end(isr_collection), isrTask1);
     When(Method(ArduinoFake(), millis)).Return(700); // assume the processor is already running for some time
     isrTask1->second();                              // start task
+    std::this_thread::yield();                       // give the task handler time to finish before the test interferes
     using namespace std::chrono_literals;
     std::this_thread::sleep_for(1000ms);
     When(Method(ArduinoFake(), millis)).Return(700 + 1337); // used in ISR for debouncing
-    isrTask1->second();                                     // stop task
+    // TODO it would be better to explicitly check for the "start" task to be finished
+    isrTask1->second();        // stop task
+    std::this_thread::yield(); // give the task handler time to finish before the test interferes
     const auto measured = std::chrono::duration_cast<std::chrono::milliseconds>(std::begin(device::tasks)->second.getRecordedDuration());
+    // TODO it would be better to explicitly check for the "stop" task to be finished
     TEST_ASSERT_INT_WITHIN(10, 1000, measured.count());
 }
 
