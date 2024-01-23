@@ -1,7 +1,6 @@
 <map id="lib/3rd_party_adapters/Arduino/serial_port.hpp" name="lib/3rd_party_adapters/Arduino/serial_port.hpp">
-<area shape="rect" id="node1" title="This is a Proxy header." alt="" coords="276,5,435,45"/>
+<area shape="rect" id="node1" title="This is a Proxy header." alt="" coords="195,5,353,45"/>
 <area shape="rect" id="node2" href="$SerialOutputStreamBuffer_8hpp.xhtml" title=" " alt="" coords="71,93,317,133"/>
 <area shape="rect" id="node4" href="$serial__port_8cpp.xhtml" title=" " alt="" coords="276,181,435,221"/>
-<area shape="rect" id="node5" href="$test__serial__port_8cpp.xhtml" title=" " alt="" coords="393,93,531,133"/>
 <area shape="rect" id="node3" href="$SerialOutputStreamBuffer_8cpp.xhtml" title=" " alt="" coords="5,181,252,221"/>
 </map>
