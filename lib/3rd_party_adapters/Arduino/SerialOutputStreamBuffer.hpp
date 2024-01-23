@@ -1,6 +1,6 @@
 #pragma once
 
-#include "serial_port.hpp"
+#include <serial_interface/serial_port.hpp>
 #include <streambuf>
 
 /**

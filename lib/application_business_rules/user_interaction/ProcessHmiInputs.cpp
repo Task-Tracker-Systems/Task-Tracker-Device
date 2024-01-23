@@ -3,7 +3,7 @@
 #include "Presenter.hpp"
 #include "board_interface.hpp"
 #include <functional>
-#include <serial_interface/serial_port_interface.hpp>
+#include <serial_interface/serial_port.hpp>
 #include <stdexcept>
 #include <tasks/Task.hpp>
 #include <type_traits.hpp>

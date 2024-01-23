@@ -4,7 +4,7 @@
 
 #include <chrono>
 #include <serial_interface/Protocol.hpp>
-#include <serial_interface/serial_port_interface.hpp>
+#include <serial_interface/serial_port.hpp>
 #include <tasks/Task.hpp>
 #include <thread>
 #include <user_interaction/Menu.hpp>

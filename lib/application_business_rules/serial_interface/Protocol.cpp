@@ -1,6 +1,6 @@
 #include "Protocol.hpp"
 #include "command_line_interpreter.hpp"
-#include "serial_port_interface.hpp"
+#include "serial_port.hpp"
 #include <array>
 
 namespace cli = command_line_interpreter;
