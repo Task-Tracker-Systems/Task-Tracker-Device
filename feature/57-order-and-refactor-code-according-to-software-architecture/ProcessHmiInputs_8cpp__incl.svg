@@ -97,10 +97,10 @@
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="serial__port__interface_8hpp.xhtml" target="_top" xlink:title=" ">
+<g id="a_node15"><a xlink:href="serial__port_8hpp.xhtml" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="489.5,-140 380.5,-140 380.5,-110 489.5,-110 489.5,-140"/>
 <text text-anchor="start" x="388.5" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">serial_interface/serial</text>
-<text text-anchor="middle" x="435" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">_port_interface.hpp</text>
+<text text-anchor="middle" x="435" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">_port.hpp</text>
 </a>
 </g>
 </g>

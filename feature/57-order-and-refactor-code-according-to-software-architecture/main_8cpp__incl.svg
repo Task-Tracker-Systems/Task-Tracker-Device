@@ -50,10 +50,10 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="serial__port__interface_8hpp.xhtml" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="serial__port_8hpp.xhtml" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="383.87,-195 274.87,-195 274.87,-165 383.87,-165 383.87,-195"/>
 <text text-anchor="start" x="282.87" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">serial_interface/serial</text>
-<text text-anchor="middle" x="329.37" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">_port_interface.hpp</text>
+<text text-anchor="middle" x="329.37" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">_port.hpp</text>
 </a>
 </g>
 </g>
