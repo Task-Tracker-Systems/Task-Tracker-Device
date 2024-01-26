@@ -1,3 +1,10 @@
+/**
+ * \file .
+ * Dependency injection for the keypad.
+ *
+ * \see \ref dependency_injection
+ */
+
 #pragma once
 
 #include "IStatusIndicator.hpp"

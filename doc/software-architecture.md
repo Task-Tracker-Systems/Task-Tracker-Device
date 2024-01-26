@@ -54,7 +54,7 @@ Implementing a Plug-in Architecture
 For this software architecture the Dependency Rule (see \cite CleanArchitecture p. 203) is applied on source code dependencies between *packages*.
 That means that source code may only depend on source code within its own package or on source code in packages of higher-level policies.
 
-### Dependency Injection
+### Dependency Injection {#dependency_injection}
 
 For a higher level package to use an implementation from a lower level, interfaces shall be used.
 At runtime the higher level package needs to use the actual object realizing the interface.
