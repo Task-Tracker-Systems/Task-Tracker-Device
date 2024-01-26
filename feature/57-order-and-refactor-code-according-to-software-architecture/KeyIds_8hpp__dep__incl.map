@@ -5,7 +5,7 @@
 <area shape="rect" id="node11" href="$ProcessHmiInputs_8hpp.xhtml" title=" " alt="" coords="631,108,791,163"/>
 <area shape="rect" id="node12" href="$board__interface_8hpp.xhtml" title=" " alt="" coords="815,108,975,163"/>
 <area shape="rect" id="node3" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="522,211,682,265"/>
-<area shape="rect" id="node4" href="$keypad__factory__interface_8hpp.xhtml" title=" " alt="" coords="303,211,498,265"/>
+<area shape="rect" id="node4" href="$keypad__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="303,211,498,265"/>
 <area shape="rect" id="node7" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="405,321,529,361"/>
 <area shape="rect" id="node8" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="72,211,228,265"/>
 <area shape="rect" id="node5" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="186,313,381,368"/>

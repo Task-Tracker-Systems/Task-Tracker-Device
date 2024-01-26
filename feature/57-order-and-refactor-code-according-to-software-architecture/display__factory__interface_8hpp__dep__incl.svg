@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Dependency injection for the display.">
 <polygon fill="#999999" stroke="#666666" points="240,-118 95,-118 95,-77 240,-77 240,-118"/>
 <text text-anchor="start" x="103" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">lib/application_business</text>
 <text text-anchor="start" x="103" y="-95" font-family="Helvetica,sans-Serif" font-size="10.00">_rules/user_interaction</text>

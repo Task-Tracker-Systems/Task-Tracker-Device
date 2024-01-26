@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="288,5,448,60"/>
 <area shape="rect" id="node2" href="$Display_8hpp.xhtml" title=" " alt="" coords="97,115,247,155"/>
 <area shape="rect" id="node5" href="$Menu_8hpp.xhtml" title=" " alt="" coords="489,108,649,163"/>
-<area shape="rect" id="node12" href="$display__factory__interface_8hpp.xhtml" title=" " alt="" coords="271,108,465,163"/>
+<area shape="rect" id="node12" href="$display__factory__interface_8hpp.xhtml" title="Dependency injection for the display." alt="" coords="271,108,465,163"/>
 <area shape="rect" id="node3" href="$Display_8cpp.xhtml" title=" " alt="" coords="5,218,155,258"/>
 <area shape="rect" id="node4" href="$display__factory__interface_8cpp.xhtml" title=" " alt="" coords="179,211,330,265"/>
 <area shape="rect" id="node6" href="$Menu_8cpp.xhtml" title=" " alt="" coords="691,211,851,265"/>

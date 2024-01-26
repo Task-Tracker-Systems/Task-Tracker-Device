@@ -8,9 +8,9 @@
 <area shape="rect" id="node13" href="$Menu_8hpp.xhtml" title=" " alt="" coords="1381,167,1556,192"/>
 <area shape="rect" id="node15" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="1234,86,1433,111"/>
 <area shape="rect" id="node19" href="$ProcessHmiInputs_8hpp.xhtml" title=" " alt="" coords="808,79,974,119"/>
-<area shape="rect" id="node21" href="$display__factory__interface_8hpp.xhtml" title=" " alt="" coords="1513,79,1672,119"/>
-<area shape="rect" id="node22" href="$keypad__factory__interface_8hpp.xhtml" title=" " alt="" coords="625,79,784,119"/>
-<area shape="rect" id="node24" href="$statusindicators__factory__interface_8hpp.xhtml" title=" " alt="" coords="999,79,1210,119"/>
+<area shape="rect" id="node21" href="$display__factory__interface_8hpp.xhtml" title="Dependency injection for the display." alt="" coords="1513,79,1672,119"/>
+<area shape="rect" id="node22" href="$keypad__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="625,79,784,119"/>
+<area shape="rect" id="node24" href="$statusindicators__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="999,79,1210,119"/>
 <area shape="rect" id="node5" title=" " alt="" coords="452,167,503,192"/>
 <area shape="rect" id="node6" title=" " alt="" coords="578,240,657,265"/>
 <area shape="rect" id="node7" title=" " alt="" coords="362,167,428,192"/>

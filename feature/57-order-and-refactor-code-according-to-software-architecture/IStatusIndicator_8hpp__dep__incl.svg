@@ -39,7 +39,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="statusindicators__factory__interface_8hpp.xhtml" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="statusindicators__factory__interface_8hpp.xhtml" target="_top" xlink:title="Dependency injection for the keypad.">
 <polygon fill="white" stroke="#666666" points="477.5,-129 354.5,-129 354.5,-77 477.5,-77 477.5,-129"/>
 <text text-anchor="start" x="362.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">lib/application_business</text>
 <text text-anchor="start" x="362.5" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">_rules/user_interaction</text>

@@ -1,7 +1,7 @@
 <map id="lib/application_business_rules/user_interaction/hmi_configuration.hpp" name="lib/application_business_rules/user_interaction/hmi_configuration.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="397,5,557,60"/>
 <area shape="rect" id="node2" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="304,115,464,170"/>
-<area shape="rect" id="node7" href="$statusindicators__factory__interface_8hpp.xhtml" title=" " alt="" coords="489,108,653,177"/>
+<area shape="rect" id="node7" href="$statusindicators__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="489,108,653,177"/>
 <area shape="rect" id="node3" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="189,225,349,280"/>
 <area shape="rect" id="node4" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="5,225,165,280"/>
 <area shape="rect" id="node5" href="$main_8cpp.xhtml" title=" " alt="" coords="523,240,619,265"/>

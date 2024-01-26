@@ -67,7 +67,7 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="display__factory__interface_8hpp.xhtml" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="display__factory__interface_8hpp.xhtml" target="_top" xlink:title="Dependency injection for the display.">
 <polygon fill="white" stroke="#666666" points="425.5,-140 306.5,-140 306.5,-110 425.5,-110 425.5,-140"/>
 <text text-anchor="start" x="314.5" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">user_interaction/display</text>
 <text text-anchor="middle" x="366" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">_factory_interface.hpp</text>
