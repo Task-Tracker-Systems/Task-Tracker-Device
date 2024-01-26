@@ -109,6 +109,7 @@ All components in this diagram are exemplarily.
 
 The components are described in further detail in their respective pages:
 
+ - \subpage utilities
  - \subpage enterprise_business_rules
  - \subpage application_business_rules
  - \subpage board_adapters
