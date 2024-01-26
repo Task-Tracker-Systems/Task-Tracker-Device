@@ -12,7 +12,7 @@ IDisplay &getDisplay()
         .screen_width = 128,
         .screen_height = 64,
         .generateDisplayVoltageInternally = true,
-        .display_i2c_address = 0x3C,
+        .display_i2c_address = 0x3D,
     };
     static Display singleton(configuration, Wire);
     return singleton;
