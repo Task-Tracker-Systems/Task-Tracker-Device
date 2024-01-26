@@ -3,9 +3,8 @@
 
 void LedStatusIndicator::off()
 {
-    constexpr int maxBrightness = 255;
-    constexpr int brightness = maxBrightness * 25 / 100.0;
-    analogWrite(pin, brightness);
+    constexpr int minBrightness = 0;
+    analogWrite(pin, minBrightness);
 }
 
 LedStatusIndicator::LedStatusIndicator(const board::PinType pinToUse)
@@ -16,6 +15,7 @@ LedStatusIndicator::LedStatusIndicator(const board::PinType pinToUse)
 
 void LedStatusIndicator::on()
 {
-    constexpr int minBrightness = 0;
-    analogWrite(pin, minBrightness);
+    constexpr int maxBrightness = 255;
+    constexpr int brightness = maxBrightness * 25 / 100.0;
+    analogWrite(pin, brightness);
 }
