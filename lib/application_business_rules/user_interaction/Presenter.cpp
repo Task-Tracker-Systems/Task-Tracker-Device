@@ -17,8 +17,6 @@ void Presenter::setTaskStatusIndicator(const TaskIndex index, const TaskIndicato
     {
     case TaskIndicatorState::ACTIVE:
         statusIndicators[index]->on();
-        using namespace std::chrono_literals;
-        board::playTone(mapSelectionToFrequency(index), 1s);
         break;
     case TaskIndicatorState::INACTIVE:
         statusIndicators[index]->off();
@@ -27,6 +25,8 @@ void Presenter::setTaskStatusIndicator(const TaskIndex index, const TaskIndicato
         assert(false);
         break;
     }
+    using namespace std::chrono_literals;
+    board::playTone(mapSelectionToFrequency(index), 250ms);
 }
 
 Presenter::Presenter(Menu &menuToUse, IStatusIndicator *const (&statusIndicatorsToUse)[hmi::numberOfStatusIndicators])
