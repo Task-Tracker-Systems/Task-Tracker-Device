@@ -14,7 +14,7 @@ var searchData=
   ['getlabel_11',['getLabel',['../classTask.xhtml#ada97787ea9e1d67d6708eb6c306629dc',1,'Task']]],
   ['getline_12',['getLine',['../namespaceserial__port.xhtml#acbf89672a6ce72254d025e0c116a6c25',1,'serial_port']]],
   ['getrecordedduration_13',['getRecordedDuration',['../classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d',1,'Task']]],
-  ['getstatusindicators_14',['getStatusIndicators',['../namespaceboard.xhtml#ae2c5dae1da5c5b89474a16f2fbcda616',1,'board']]],
+  ['getstatusindicators_14',['getStatusIndicators',['../namespaceboard.xhtml#a5898e6d262ab4dc0be1e8b3a24a3790c',1,'board']]],
   ['gs1_15',['gs1',['../namespacenote.xhtml#a4a0532c6cfa8775dd979bdf248120040',1,'note']]],
   ['gs2_16',['gs2',['../namespacenote.xhtml#a7c6877490c4b3c86d8721bde91320baf',1,'note']]],
   ['gs3_17',['gs3',['../namespacenote.xhtml#ad2d04136970998928d8da89c010a1c8c',1,'note']]],
