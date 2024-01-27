@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Arduino-wrapper_8h.xhtml" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="Arduino-wrapper_8h.xhtml" target="_top" xlink:title="Circumvents problematic processor macros defined by Arduino framework.">
 <polygon fill="white" stroke="#666666" points="95,-200.5 0,-200.5 0,-181.5 95,-181.5 95,-200.5"/>
 <text text-anchor="middle" x="47.5" y="-188.5" font-family="Helvetica,sans-Serif" font-size="10.00">Arduino&#45;wrapper.h</text>
 </a>

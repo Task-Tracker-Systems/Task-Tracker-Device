@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Circumvents problematic processor macros defined by Arduino framework.">
 <polygon fill="#999999" stroke="#666666" points="96,-85 0,-85 0,-55 96,-55 96,-85"/>
 <text text-anchor="start" x="8" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">lib/utilities/Arduino</text>
 <text text-anchor="middle" x="48" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;wrapper.h</text>

@@ -37,7 +37,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="Arduino-wrapper_8h.xhtml" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="Arduino-wrapper_8h.xhtml" target="_top" xlink:title="Circumvents problematic processor macros defined by Arduino framework.">
 <polygon fill="white" stroke="#666666" points="233,-184 138,-184 138,-165 233,-165 233,-184"/>
 <text text-anchor="middle" x="185.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Arduino&#45;wrapper.h</text>
 </a>

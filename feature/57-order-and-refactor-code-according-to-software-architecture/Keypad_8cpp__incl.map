@@ -1,7 +1,7 @@
 <map id="lib/board_adapters/input_device_interface/Keypad.cpp" name="lib/board_adapters/input_device_interface/Keypad.cpp">
 <area shape="rect" id="node1" title=" " alt="" coords="448,5,604,60"/>
 <area shape="rect" id="node2" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="69,108,159,133"/>
-<area shape="rect" id="node7" href="$Arduino-wrapper_8h.xhtml" title=" " alt="" coords="189,108,316,133"/>
+<area shape="rect" id="node7" href="$Arduino-wrapper_8h.xhtml" title="Circumvents problematic processor macros defined by Arduino framework." alt="" coords="189,108,316,133"/>
 <area shape="rect" id="node9" title=" " alt="" coords="341,108,391,133"/>
 <area shape="rect" id="node10" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="415,108,525,133"/>
 <area shape="rect" id="node13" title=" " alt="" coords="549,108,615,133"/>

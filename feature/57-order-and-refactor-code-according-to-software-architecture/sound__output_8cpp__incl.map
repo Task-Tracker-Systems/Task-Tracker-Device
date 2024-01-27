@@ -1,7 +1,7 @@
 <map id="lib/board_adapters/sound_output_interface/sound_output.cpp" name="lib/board_adapters/sound_output_interface/sound_output.cpp">
 <area shape="rect" id="node1" title=" " alt="" coords="207,5,368,60"/>
 <area shape="rect" id="node2" href="$sound__output_8hpp.xhtml" title=" " alt="" coords="5,115,129,141"/>
-<area shape="rect" id="node3" href="$Arduino-wrapper_8h.xhtml" title=" " alt="" coords="153,115,280,141"/>
+<area shape="rect" id="node3" href="$Arduino-wrapper_8h.xhtml" title="Circumvents problematic processor macros defined by Arduino framework." alt="" coords="153,115,280,141"/>
 <area shape="rect" id="node5" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="305,115,414,141"/>
 <area shape="rect" id="node8" href="$board__interface_8hpp.xhtml" title=" " alt="" coords="467,108,617,148"/>
 <area shape="rect" id="node4" title=" " alt="" coords="179,196,255,221"/>
