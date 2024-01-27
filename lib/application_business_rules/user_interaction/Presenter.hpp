@@ -1,8 +1,8 @@
 #pragma once
 #include "IStatusIndicator.hpp"
 #include "Menu.hpp"
-#include "hmi_configuration.hpp"
 #include <cstddef>
+#include <vector>
 
 enum class TaskIndicatorState
 {
@@ -26,11 +26,11 @@ using TaskIndex = std::size_t;
 class Presenter
 {
   public:
-    Presenter(Menu &, IStatusIndicator *const (&)[hmi::numberOfStatusIndicators]);
+    Presenter(Menu &, const std::vector<IStatusIndicator *> &);
     void setTaskStatusIndicator(const TaskIndex, const TaskIndicatorState);
     void loop();
 
   private:
     Menu &menu;
-    IStatusIndicator *const (&statusIndicators)[hmi::numberOfStatusIndicators];
+    const std::vector<IStatusIndicator *> statusIndicators;
 };

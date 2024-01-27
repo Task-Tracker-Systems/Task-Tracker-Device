@@ -2,6 +2,7 @@
 #include "board_interface.hpp"
 #include <cassert>
 #include <chrono>
+#include <iterator>
 #include <pitches.hpp>
 
 static unsigned int mapSelectionToFrequency(const TaskIndex index)
@@ -12,7 +13,7 @@ static unsigned int mapSelectionToFrequency(const TaskIndex index)
 
 void Presenter::setTaskStatusIndicator(const TaskIndex index, const TaskIndicatorState state)
 {
-    assert(index <= hmi::numberOfStatusIndicators);
+    assert(index <= std::size(statusIndicators));
     switch (state)
     {
     case TaskIndicatorState::ACTIVE:
@@ -29,7 +30,7 @@ void Presenter::setTaskStatusIndicator(const TaskIndex index, const TaskIndicato
     board::playTone(mapSelectionToFrequency(index), 250ms);
 }
 
-Presenter::Presenter(Menu &menuToUse, IStatusIndicator *const (&statusIndicatorsToUse)[hmi::numberOfStatusIndicators])
+Presenter::Presenter(Menu &menuToUse, const std::vector<IStatusIndicator *> &statusIndicatorsToUse)
     : menu(menuToUse), statusIndicators(statusIndicatorsToUse)
 {
     board::setup();

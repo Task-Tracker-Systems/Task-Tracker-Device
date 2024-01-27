@@ -8,9 +8,9 @@
 #pragma once
 
 #include "IStatusIndicator.hpp"
-#include "hmi_configuration.hpp"
+#include <vector>
 
 namespace board
 {
-IStatusIndicator *const (&getStatusIndicators())[hmi::numberOfStatusIndicators];
+std::vector<IStatusIndicator *> getStatusIndicators();
 }
