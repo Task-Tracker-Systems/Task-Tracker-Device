@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * Interface to an indicator capable to visualize a state.
+ *
+ * This is used to implement the \ref plugin_architecture.
+ */
 class IStatusIndicator
 {
   public:
