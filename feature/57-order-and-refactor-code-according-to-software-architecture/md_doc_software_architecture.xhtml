@@ -82,14 +82,14 @@ $(function() {
 <div class="toc"><h3>Table of Contents</h3>
 <ul><li class="level1"><a href="#autotoc_md25">Objectives of the Software Architecture</a></li>
 <li class="level1"><a href="#autotoc_md26">Achieving a Flexible Structure</a></li>
-<li class="level1"><a href="#autotoc_md27">Implementing a Plug-in Architecture</a><ul><li class="level2"><a href="#interpretation_dependency_rule">Interpretation of the Dependency Rule</a></li>
+<li class="level1"><a href="#plugin_architecture">Implementing a Plug-in Architecture</a><ul><li class="level2"><a href="#interpretation_dependency_rule">Interpretation of the Dependency Rule</a></li>
 <li class="level2"><a href="#dependency_injection">Dependency Injection</a></li>
-<li class="level2"><a href="#autotoc_md28">Interface Adapters</a></li>
-<li class="level2"><a href="#autotoc_md29">Components</a></li>
+<li class="level2"><a href="#autotoc_md27">Interface Adapters</a></li>
+<li class="level2"><a href="#autotoc_md28">Components</a></li>
 </ul>
 </li>
 <li class="level1"><a href="#component_architecture">Component Architecture</a></li>
-<li class="level1"><a href="#autotoc_md30">Further References</a></li>
+<li class="level1"><a href="#autotoc_md29">Further References</a></li>
 </ul>
 </div>
 <div class="textblock"><h1><a class="anchor" id="autotoc_md25"></a>
@@ -128,7 +128,7 @@ Achieving a Flexible Structure</h1>
 <li>The code may depend on a compiler which is capable to compile C++17 as defined in ISO/IEC 14882:2017.</li>
 <li>The code may depend on an implementation of the C++ Standard Library as defined in ISO/IEC 14882:2017.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="plugin_architecture"></a>
 Implementing a Plug-in Architecture</h1>
 <dl class="section note"><dt>Note</dt><dd>The description will use the term '<em>package</em>'. In this context a package groups related implementation of functionality of a common policy level. It does not refer to a specific artifact type in a programming language.</dd></dl>
 <h2><a class="anchor" id="interpretation_dependency_rule"></a>
@@ -138,7 +138,7 @@ Interpretation of the Dependency Rule</h2>
 Dependency Injection</h2>
 <p >For a higher level package to use an implementation from a lower level, interfaces shall be used. At runtime the higher level package needs to use the actual object realizing the interface. But this shall be done without revealing the implementation details to the higher level package. For this, non-member "getter"- or "factory"- functions (Dependency Injector Function; DIF) shall be declared in the higher level package. Using functions as dependency injector allows to call the constructor of the implementation with run-time arguments. The actual object is created by the DIF which is defined in the lower layer package. The DIF provides the object to the caller, for example by returning a reference to it.</p>
 <p >The declaration of a DIF must reside in the (highest) level which calls it. Its definition must reside at the level which implements the dependency or at a lower level. But it should not reside in the same unit as the dependency. As the definition of the DIF depends on its usage it should not pollute the implementation's unit. This simplifies reusability and testability of the implementation.</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Interface Adapters</h2>
 <p >In case an implementation detail can not be changed: For example because it is a stable software part, or 3rd-party or otherwise immutable. Then interface adapters must be implemented. Those interface adapters realize the higher layer interface while using the stable component. The usage may for example be realized using the delegation pattern.</p>
 <p ><div class="dotgraph">
@@ -146,7 +146,7 @@ Interface Adapters</h2>
 example of dependency injection and interface adapter</div>
 </div>
 </p>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Components</h2>
 <p >Components are parts of the software which may be exchanged or changed as a whole. For example a library (including any interface adapters) can be considered as one component. Another example of a component is the software for adapting to the board (the device's hardware used by the software). As a different board may be used for the same application.</p>
 <p >Also this definition of <em>components</em> from the <a href="https://c4model.com/">C4 software architecture model</a> by Simon Brown applies (<a class="el" href="citelist.xhtml#CITEREF_CleanArchitecture">[2]</a> p. 314) applies:</p>
@@ -171,7 +171,7 @@ component architecture for this software</div>
 <li><a class="el" href="board_adapters.xhtml">Board Adapters</a></li>
 <li><a class="el" href="third_party_adapters.xhtml">3rd Party Adapters</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 Further References</h1>
 <ul>
 <li><a class="el" href="citelist.xhtml#CITEREF_TheCleanArchitecture">[1]</a> </li>
@@ -180,7 +180,7 @@ Further References</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 26 2024 22:53:14 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Jan 27 2024 14:49:35 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

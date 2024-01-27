@@ -24,7 +24,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classIDisplay.xhtml" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classIDisplay.xhtml" target="_top" xlink:title="Interface to a display capable of displaying various information to a human.">
 <polygon fill="white" stroke="#666666" points="65,-140 0,-140 0,-99 65,-99 65,-140"/>
 <text text-anchor="middle" x="32.5" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">{IDisplay</text>
 <text text-anchor="start" x="8" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">||+ refresh()</text>

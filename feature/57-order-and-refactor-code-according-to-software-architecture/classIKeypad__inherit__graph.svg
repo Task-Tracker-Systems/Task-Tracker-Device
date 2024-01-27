@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Interface to an human input device.">
 <polygon fill="#999999" stroke="#666666" points="86,-140 0,-140 0,-88 86,-88 86,-140"/>
 <text text-anchor="middle" x="43" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">{IKeypad</text>
 <text text-anchor="start" x="8" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">||+ setCallback()</text>
