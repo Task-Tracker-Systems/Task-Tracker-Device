@@ -1,9 +1,13 @@
+/**
+ * \file .
+ *
+ * Circumvents problematic processor macros defined by Arduino framework.
+ *
+ * Some of these problems may not occur in all Arduino framework implementations.
+ */
+
 #pragma once
 #include <Arduino.h>
-
-// this is only relevant for Arduino from ArduinoFake
-// problem: https://github.com/esp8266/Arduino/issues/5787
-// not-esp32 problem: https://github.com/espressif/arduino-esp32/blob/114965010529c004ce914fea773095274ea2ce4d/cores/esp32/Arduino.h#L200
 
 #if defined(round)
 #undef round //see https://github.com/esp8266/Arduino/issues/5787#issuecomment-465852231
@@ -11,9 +15,10 @@
 #if defined(abs)
 #undef abs // else it conflicts with std::abs
 #endif
+
 #if defined(ArduinoFake)
 #if defined(digitalPinToInterrupt)
-// the definition in ArduinoFake is too primitive
+// the definition in ArduinoFake is too primitive for testing
 #undef digitalPinToInterrupt
 #define digitalPinToInterrupt(pinNumber) pinNumber
 #endif
