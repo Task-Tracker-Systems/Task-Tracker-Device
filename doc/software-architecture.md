@@ -42,7 +42,7 @@ In contrast the software will commit to the following dependencies:
 
 [PIO_FRAMEWORK]: https://github.com/platformio/platformio-docs/blob/5ae4fa7e895f5d3a04514314b1af31b37469d274/frameworks/index.rst "List of frameworks written by PlatformIO."
 
-Implementing a Plug-in Architecture
+Implementing a Plug-in Architecture {#plugin_architecture}
 -----------------------------------
 
 \note The description will use the term '*package*'.
