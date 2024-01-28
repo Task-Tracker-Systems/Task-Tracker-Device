@@ -41,7 +41,7 @@ In contrast the software will commit to the following dependencies:
  - The code may depend on an implementation of the C++ Standard Library as defined in ISO/IEC 14882:2017.
  - The *hardware related* code may depend on an implementation of the [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API).
 
-Implementing a Plug-in Architecture
+Implementing a Plug-in Architecture {#plugin_architecture}
 -----------------------------------
 
 \note The description will use the term '*package*'.
