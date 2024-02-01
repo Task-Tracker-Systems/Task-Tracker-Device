@@ -28,23 +28,19 @@ void HMI::ScreenMenu::draw() const
     lv_obj_t *swth;
     lv_obj_t *lab;
 
-    static lv_style_t style_scr;
-    lv_style_init(&style_scr);
-    lv_style_set_pad_left(&style_scr, 1);
-    lv_style_set_pad_top(&style_scr, 1);
-    lv_style_set_pad_bottom(&style_scr, 1);
-    lv_style_set_pad_right(&style_scr, 1);
+    static lv_style_t style_small_padding;
+    lv_style_init(&style_small_padding);
+    lv_style_set_pad_left(&style_small_padding, 1);
+    lv_style_set_pad_top(&style_small_padding, 1);
+    lv_style_set_pad_bottom(&style_small_padding, 1);
+    lv_style_set_pad_right(&style_small_padding, 1);
 
     lv_obj_t *screen = lv_obj_create(NULL);
-    lv_obj_add_style(screen, &style_scr, 0);
+    lv_obj_add_style(screen, &style_small_padding, 0);
     lv_obj_set_flex_flow(screen, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_style_pad_row(screen, 2, 0);
     lv_obj_set_flex_align(screen, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER);
     lv_obj_set_scrollbar_mode(screen, LV_SCROLLBAR_MODE_OFF);
-
-    static lv_style_t style_small_padding;
-    lv_style_init(&style_small_padding);
-    lv_style_set_pad_left(&style_small_padding, 0);
 
     for (auto const &item : this->_List)
     {
