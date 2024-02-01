@@ -70,11 +70,6 @@ void HMI::ScreenMenu::draw() const
             lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
             lv_obj_set_width(lab, lv_pct(100));
             lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-            // lab = lv_label_create(btn);
-            // lv_label_set_text_fmt(lab, "%d min", 120);
-            // lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-            // lv_obj_set_width(lab, lv_pct(25));
-            // lv_obj_set_align(lab, LV_ALIGN_RIGHT_MID);
             break;
         }
         case HMI::MenuItemType::SWITCH: {
@@ -95,6 +90,26 @@ void HMI::ScreenMenu::draw() const
             lv_obj_set_size(swth, 18, 12);
             lv_obj_add_event_cb(swth, HMI::ScreenMenu::_switch_cb, LV_EVENT_ALL, (void *)swtItem->getPtrBool());
             lv_obj_set_align(swth, LV_ALIGN_RIGHT_MID);
+            break;
+        }
+        case HMI::MenuItemType::VALUE: {
+            /* draw value */
+            auto valItem = reinterpret_cast<const HMI::MenuItemValue *const>(item);
+            btn = lv_btn_create(screen);
+            lv_obj_set_size(btn, lv_pct(100), 12);
+            lv_obj_add_event_cb(btn, HMI::ScreenMenu::_value_cb, LV_EVENT_ALL, (void *)valItem);
+            lv_obj_add_style(btn, &style_small_padding, 0);
+            lab = lv_label_create(btn);
+            lv_label_set_text(lab, item->getText().c_str());
+            lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
+            lv_obj_set_width(lab, lv_pct(70));
+            lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
+            lab = lv_label_create(btn);
+            lv_label_set_text_fmt(lab, "%d", 120);
+            lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
+            lv_obj_set_style_text_align(lab, LV_TEXT_ALIGN_RIGHT, 0);
+            lv_obj_set_width(lab, lv_pct(25));
+            lv_obj_set_align(lab, LV_ALIGN_RIGHT_MID);
             break;
         }
         }
@@ -143,8 +158,32 @@ void HMI::ScreenMenu::_switch_cb(lv_event_t *e)
 
     if (code == LV_EVENT_VALUE_CHANGED)
     {
-        LV_LOG_USER("State: %s\n", lv_obj_has_state(obj, LV_STATE_CHECKED) ? "On" : "Off");
         *var = lv_obj_has_state(obj, LV_STATE_CHECKED) ? 1 : 0;
+    }
+    else if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+
+        if (key == LV_KEY_ESC)
+        {
+            HMI::IScreen::exit();
+        }
+    }
+}
+
+void HMI::ScreenMenu::_value_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    lv_obj_t *obj = lv_event_get_target(e);
+
+    auto valItem = reinterpret_cast<const HMI::MenuItemValue *const>(lv_event_get_user_data(e));
+
+    if ((code == LV_EVENT_SHORT_CLICKED) && (valItem != NULL))
+    {
+        static HMI::ScreenValueModifier ValModifyScreen;
+        ValModifyScreen.set(valItem->PtrDouble, valItem->Decimals, valItem->Min, valItem->Max);
+        lv_obj_clean(lv_scr_act());
+        ValModifyScreen.draw();
     }
     else if (code == LV_EVENT_KEY)
     {
@@ -167,4 +206,152 @@ void HMI::IScreen::exit()
     screenHistory.pop();
     screenHistory.top()->draw();
     LV_LOG_USER("exit end history has %u", screenHistory.size());
+}
+
+void HMI::ScreenValueModifier::draw() const
+{
+    lv_obj_t *btn;
+    lv_obj_t *lab;
+    lv_obj_t *spinbox;
+
+    static lv_style_t style_scr;
+    lv_style_init(&style_scr);
+    lv_style_set_pad_left(&style_scr, 1);
+    lv_style_set_pad_top(&style_scr, 1);
+    lv_style_set_pad_bottom(&style_scr, 1);
+    lv_style_set_pad_right(&style_scr, 1);
+
+    lv_obj_t *screen = lv_obj_create(NULL);
+    lv_obj_add_style(screen, &style_scr, 0);
+
+    spinbox = lv_spinbox_create(screen);
+    int32_t min = ((_min) * (10 ^ _decimals));
+    int32_t max = ((_max) * (10 ^ _decimals));
+    lv_spinbox_set_range(spinbox, min, max);
+    int32_t val = ((*_ptrDouble) * (10 ^ _decimals));
+    lv_spinbox_set_value(spinbox, val);
+    lv_spinbox_set_digit_format(spinbox, (7 - _decimals), _decimals);
+    lv_obj_set_width(spinbox, lv_pct(55));
+    lv_obj_add_style(spinbox, &style_scr, 0);
+    lv_obj_center(spinbox);
+    lv_group_remove_obj(spinbox);
+
+    lv_coord_t h = lv_obj_get_height(spinbox);
+
+    btn = lv_btn_create(screen);
+    lv_obj_add_style(btn, &style_scr, 0);
+    lv_obj_set_size(btn, h, h);
+    lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_RIGHT_MID, 2, 0);
+    lv_obj_add_event_cb(btn, _button_inc_cb, LV_EVENT_ALL, spinbox);
+    lab = lv_label_create(btn);
+    lv_label_set_text_static(lab, "+");
+    lv_obj_set_align(lab, LV_ALIGN_CENTER);
+
+    btn = lv_btn_create(screen);
+    lv_obj_add_style(btn, &style_scr, 0);
+    lv_obj_set_size(btn, h, h);
+    lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_LEFT_MID, -2, 0);
+    lv_obj_add_event_cb(btn, _button_dec_cb, LV_EVENT_ALL, spinbox);
+    lab = lv_label_create(btn);
+    lv_label_set_text_static(lab, "-");
+    lv_obj_set_align(lab, LV_ALIGN_CENTER);
+
+    btn = lv_btn_create(screen);
+    lv_obj_add_style(btn, &style_scr, 0);
+    lv_obj_set_size(btn, 10, 10);
+    lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
+    lv_obj_add_event_cb(btn, _button_step_cb, LV_EVENT_ALL, spinbox);
+    lab = lv_label_create(btn);
+    lv_label_set_text_static(lab, "*");
+    lv_obj_set_align(lab, LV_ALIGN_CENTER);
+
+    lv_scr_load(screen);
+}
+
+void HMI::ScreenValueModifier::set(double *ptrDouble, uint8_t decimals, double min, double max)
+{
+    _ptrDouble = ptrDouble;
+    _decimals = decimals;
+    _min = min;
+    _max = max;
+}
+
+void HMI::ScreenValueModifier::_button_inc_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+
+    auto spinbox = reinterpret_cast<lv_obj_t *>(lv_event_get_user_data(e));
+
+    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
+    {
+        static uint32_t key = LV_KEY_ESC;
+        lv_event_send(spinbox, LV_EVENT_KEY, &key);
+    }
+    else if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+
+        if (key == LV_KEY_ESC)
+        {
+            HMI::IScreen::exit();
+        }
+    }
+}
+
+void HMI::ScreenValueModifier::_button_dec_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+
+    auto spinbox = reinterpret_cast<lv_obj_t *>(lv_event_get_user_data(e));
+
+    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
+    {
+        static uint32_t key = LV_KEY_ESC;
+        lv_event_send(spinbox, LV_EVENT_KEY, &key);
+    }
+    else if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+
+        if (key == LV_KEY_ESC)
+        {
+            HMI::IScreen::exit();
+        }
+    }
+}
+
+void HMI::ScreenValueModifier::_button_step_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+
+    auto spinbox = reinterpret_cast<lv_obj_t *>(lv_event_get_user_data(e));
+
+    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
+    {
+        static uint32_t key = LV_KEY_ESC;
+        lv_event_send(spinbox, LV_EVENT_KEY, &key);
+    }
+    else if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+        if (key == LV_KEY_ESC)
+        {
+            HMI::IScreen::exit();
+        }
+    }
+}
+
+HMI::MenuItemValue::MenuItemValue(std::string text, double *ptrDouble, uint8_t decimals, double min, double max)
+    : _text{text}, PtrDouble{ptrDouble}, Decimals{decimals}, Min{min}, Max{max}
+{
+}
+
+std::string HMI::MenuItemValue::getText() const
+{
+    return _text;
+}
+
+double *HMI::MenuItemValue::getPtrDouble() const
+{
+    return PtrDouble;
 }

@@ -19,6 +19,7 @@ enum class MenuItemType
 {
     BUTTON,
     SWITCH,
+    VALUE,
 };
 
 struct IMenuItem
@@ -67,6 +68,28 @@ struct MenuItemSwitch final : public IMenuItem
     bool *_ptrBool;
 };
 
+struct MenuItemValue final : public IMenuItem
+{
+    MenuItemValue(std::string text, double *ptrDouble, uint8_t decimals, double min, double max);
+    ~MenuItemValue() override = default;
+
+    std::string getText() const override;
+    inline MenuItemType getType() const override
+    {
+        return MenuItemType::VALUE;
+    };
+
+    double *getPtrDouble() const;
+
+    double *PtrDouble;
+    uint8_t Decimals;
+    double Min;
+    double Max;
+
+  protected:
+    const std::string _text;
+};
+
 struct ScreenMenu final : public IScreen
 {
     ScreenMenu() = default;
@@ -81,6 +104,27 @@ struct ScreenMenu final : public IScreen
 
     static void _button_cb(lv_event_t *e);
     static void _switch_cb(lv_event_t *e);
+    static void _value_cb(lv_event_t *e);
+};
+
+struct ScreenValueModifier final : public IScreen
+{
+    ScreenValueModifier() = default;
+    ~ScreenValueModifier() override = default;
+
+    void draw() const override;
+
+    void set(double *_ptrDouble, uint8_t _decimals, double _min, double _max);
+
+  private:
+    double *_ptrDouble;
+    uint8_t _decimals;
+    double _min;
+    double _max;
+
+    static void _button_inc_cb(lv_event_t *e);
+    static void _button_dec_cb(lv_event_t *e);
+    static void _button_step_cb(lv_event_t *e);
 };
 
 } // namespace HMI

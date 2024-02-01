@@ -65,62 +65,6 @@ static void btn_spinbox_step_event_cb(lv_event_t *e)
     }
 }
 
-static void drawValueModifier()
-{
-    lv_obj_t *btn;
-    lv_obj_t *lab;
-
-    static lv_style_t style_scr;
-    lv_style_init(&style_scr);
-    lv_style_set_pad_left(&style_scr, 1);
-    lv_style_set_pad_top(&style_scr, 1);
-    lv_style_set_pad_bottom(&style_scr, 1);
-    lv_style_set_pad_right(&style_scr, 1);
-
-    lv_obj_t *screen = lv_obj_create(NULL);
-    lv_obj_add_style(screen, &style_scr, 0);
-
-    spinbox = lv_spinbox_create(screen);
-    lv_spinbox_set_range(spinbox, -1000, 25000);
-    lv_spinbox_set_digit_format(spinbox, 5, 0);
-    lv_spinbox_step_prev(spinbox);
-    lv_obj_set_width(spinbox, lv_pct(55));
-    lv_obj_add_style(spinbox, &style_scr, 0);
-    lv_obj_center(spinbox);
-    lv_group_remove_obj(spinbox);
-
-    lv_coord_t h = lv_obj_get_height(spinbox);
-
-    btn = lv_btn_create(screen);
-    lv_obj_add_style(btn, &style_scr, 0);
-    lv_obj_set_size(btn, h, h);
-    lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_RIGHT_MID, 2, 0);
-    lv_obj_add_event_cb(btn, btn_spinbox_inc_event_cb, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text_static(lab, "+");
-    lv_obj_set_align(lab, LV_ALIGN_CENTER);
-
-    btn = lv_btn_create(screen);
-    lv_obj_add_style(btn, &style_scr, 0);
-    lv_obj_set_size(btn, h, h);
-    lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_LEFT_MID, -2, 0);
-    lv_obj_add_event_cb(btn, btn_spinbox_dec_event_cb, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text_static(lab, "-");
-    lv_obj_set_align(lab, LV_ALIGN_CENTER);
-
-    btn = lv_btn_create(screen);
-    lv_obj_add_style(btn, &style_scr, 0);
-    lv_obj_set_size(btn, 10, 10);
-    lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
-    lv_obj_add_event_cb(btn, btn_spinbox_step_event_cb, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text_static(lab, "*");
-    lv_obj_set_align(lab, LV_ALIGN_CENTER);
-
-    lv_scr_load(screen);
-}
-
 void my_focus_cb(lv_group_t *group)
 {
     lv_obj_t *focusedObject = lv_group_get_focused(group);
@@ -128,6 +72,7 @@ void my_focus_cb(lv_group_t *group)
 
 bool TestBool1;
 bool TestBool2 = true;
+double TestDouble = 1.23;
 
 /// @brief build basic menu structure
 void menu::initialize()
@@ -145,11 +90,13 @@ void menu::initialize()
     static auto screenBtn3 = HMI::ScreenMenu{};
 
     static auto ListButton1 = HMI::MenuItemButton{"ListButton1 Text", &screenBtn1};
+    static auto ListValue = HMI::MenuItemValue("ListValue", &TestDouble, 2, 1.4, 0.9);
     static auto ListButton2 = HMI::MenuItemButton{"ListButton2 Text", &screenBtn2};
     static auto ListButton3 = HMI::MenuItemButton{"ListButton3 Text", &screenBtn3};
     static auto ListSwitch1 = HMI::MenuItemSwitch{"ListSwitch1 Text", &TestBool1};
     static auto ListSwitch2 = HMI::MenuItemSwitch{"ListSwitch2 Text", &TestBool2};
     screen.addItem(&ListButton1);
+    screen.addItem(&ListValue);
     screen.addItem(&ListButton2);
     screen.addItem(&ListSwitch1);
     screen.addItem(&ListSwitch2);
