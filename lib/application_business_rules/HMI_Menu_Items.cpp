@@ -1,5 +1,8 @@
 #include "HMI_Menu_Items.hpp"
 #include "lvgl.h"
+#include <stack>
+
+static std::stack<const HMI::IScreen *> screenHistory;
 
 HMI::MenuItemButton::MenuItemButton(std::string text, const IScreen *screenOnClick)
     : _text{text}, _screenOnClick{screenOnClick}
@@ -86,9 +89,20 @@ void HMI::ScreenMenu::draw() const
     }
 
     lv_scr_load(screen);
+    screenHistory.push(this);
 }
 
 void HMI::ScreenMenu::addItem(const IMenuItem *newItem)
 {
     _List.push_back(newItem);
+}
+
+void HMI::IScreen::exit()
+{
+    if (screenHistory.size() <= 1)
+        return;
+
+    lv_obj_clean(lv_scr_act());
+    screenHistory.pop();
+    screenHistory.top()->draw();
 }

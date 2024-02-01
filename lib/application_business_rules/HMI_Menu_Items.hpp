@@ -10,6 +10,8 @@ struct IScreen
     virtual ~IScreen() = default;
 
     virtual void draw() const = 0;
+    
+    void exit();
 };
 
 enum class MenuItemType
