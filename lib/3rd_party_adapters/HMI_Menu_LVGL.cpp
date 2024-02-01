@@ -1,171 +1,69 @@
 #ifdef LV_CONF_INCLUDE_SIMPLE //use this buildflag to check if we actually include LVGL or not
 
 #include "HMI_Menu.hpp"
+#include "HMI_Menu_Items.hpp"
 #include <lvgl.h>
 
 extern lv_indev_t *my_indev;
 
-static void btn_event_handler(lv_event_t *e);
-static void swth_event_handler(lv_event_t *e);
-static void btn_spinbox_inc_event_cb(lv_event_t *e);
-static void btn_spinbox_dec_event_cb(lv_event_t *e);
-static void btn_spinbox_step_event_cb(lv_event_t *e);
-
-static void drawMainMenu();
-static void drawValueModifier();
-static void drawSubMenu();
-
-static void drawMainMenu()
-{
-    lv_obj_t *btn;
-    lv_obj_t *lab;
-
-    lv_obj_t *cont;
-    lv_obj_t *swth;
-
-    static lv_style_t style_scr;
-    lv_style_init(&style_scr);
-    lv_style_set_pad_left(&style_scr, 1);
-    lv_style_set_pad_top(&style_scr, 1);
-    lv_style_set_pad_bottom(&style_scr, 1);
-    lv_style_set_pad_right(&style_scr, 1);
-
-    lv_obj_t *screen = lv_obj_create(NULL);
-    lv_obj_add_style(screen, &style_scr, 0);
-    lv_obj_set_flex_flow(screen, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_style_pad_row(screen, 2, 0);
-    lv_obj_set_flex_align(screen, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER);
-    lv_obj_set_scrollbar_mode(screen, LV_SCROLLBAR_MODE_OFF);
-
-    static lv_style_t style_btn;
-    lv_style_init(&style_btn);
-    lv_style_set_pad_left(&style_btn, 0);
-
-    /* draw first button */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, (void *)drawSubMenu);
-    lv_obj_add_style(btn, &style_btn, 0);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "Button 1");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(70));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-    lab = lv_label_create(btn);
-    lv_label_set_text_fmt(lab, "%d min", 120);
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(25));
-    lv_obj_set_align(lab, LV_ALIGN_RIGHT_MID);
-
-    /* draw second button */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, (void *)drawValueModifier);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "Button 2");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(70));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "was anderes");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(25));
-    lv_obj_set_align(lab, LV_ALIGN_RIGHT_MID);
-
-    /* draw switch */
-    cont = lv_obj_create(screen);
-    lv_obj_set_size(cont, lv_pct(100), 12);
-    lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
-    lv_obj_add_flag(cont, LV_OBJ_FLAG_OVERFLOW_VISIBLE);
-    lab = lv_label_create(cont);
-    lv_label_set_text(lab, "Switch");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(70));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-    swth = lv_switch_create(cont);
-    lv_obj_set_size(swth, 18, 12);
-    lv_obj_add_event_cb(swth, swth_event_handler, LV_EVENT_ALL, NULL);
-    lv_obj_set_align(swth, LV_ALIGN_RIGHT_MID);
-
-    /* draw third button */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "Button 3");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(100));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-
-    /* draw fourth button */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "Button 4");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(100));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-
-    /* draw fifth button */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "Button 5");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(100));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-
-    lv_scr_load(screen);
-}
-
-static void drawSubMenu()
-{
-    lv_obj_t *btn;
-    lv_obj_t *lab;
-
-    lv_obj_t *cont;
-    lv_obj_t *swth;
-
-    static lv_style_t style_scr;
-    lv_style_init(&style_scr);
-    lv_style_set_pad_left(&style_scr, 1);
-    lv_style_set_pad_top(&style_scr, 1);
-    lv_style_set_pad_bottom(&style_scr, 1);
-    lv_style_set_pad_right(&style_scr, 1);
-
-    lv_obj_t *screen = lv_obj_create(NULL);
-    lv_obj_add_style(screen, &style_scr, 0);
-    lv_obj_set_flex_flow(screen, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_style_pad_row(screen, 2, 0);
-    lv_obj_set_flex_align(screen, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER);
-    lv_obj_set_scrollbar_mode(screen, LV_SCROLLBAR_MODE_OFF);
-
-    /* draw sub button 1 */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, (void *)drawValueModifier);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "SubButton 1");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(100));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-
-    /* draw sub button 2 */
-    btn = lv_btn_create(screen);
-    lv_obj_set_size(btn, lv_pct(100), 12);
-    lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, NULL);
-    lab = lv_label_create(btn);
-    lv_label_set_text(lab, "SubButton 2");
-    lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
-    lv_obj_set_width(lab, lv_pct(100));
-    lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
-
-    lv_scr_load(screen);
-}
-
 static lv_obj_t *spinbox;
+
+static void btn_spinbox_inc_event_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
+    {
+        // lv_spinbox_increment(spinbox);
+    }
+
+    if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+        if (key == LV_KEY_ESC)
+        {
+            // lv_obj_clean(lv_scr_act());
+            // drawMainMenu();
+        }
+    }
+}
+
+static void btn_spinbox_dec_event_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
+    {
+        // lv_spinbox_decrement(spinbox);
+    }
+
+    if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+        if (key == LV_KEY_ESC)
+        {
+            // lv_obj_clean(lv_scr_act());
+            // drawMainMenu();
+        }
+    }
+}
+
+static void btn_spinbox_step_event_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
+    {
+        lv_spinbox_step_prev(spinbox);
+    }
+
+    if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+        if (key == LV_KEY_ESC)
+        {
+            // lv_obj_clean(lv_scr_act());
+            // drawMainMenu();
+        }
+    }
+}
 
 static void drawValueModifier()
 {
@@ -223,114 +121,12 @@ static void drawValueModifier()
     lv_scr_load(screen);
 }
 
-static void btn_event_handler(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    lv_obj_t *obj = lv_event_get_target(e);
-
-    auto drawFct = reinterpret_cast<void (*)(void)>(lv_event_get_user_data(e));
-
-    if ((code == LV_EVENT_SHORT_CLICKED) && (drawFct != NULL))
-    {
-        lv_obj_clean(lv_scr_act());
-        drawFct();
-    }
-
-    if (code == LV_EVENT_KEY)
-    {
-        uint32_t key = lv_event_get_key(e);
-
-        if (key == LV_KEY_ESC)
-        {
-            LV_LOG_USER("Button received ESC");
-            lv_obj_clean(lv_scr_act());
-            drawMainMenu();
-        }
-    }
-}
-
-static void swth_event_handler(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    lv_obj_t *obj = lv_event_get_target(e);
-    if (code == LV_EVENT_VALUE_CHANGED)
-    {
-        LV_LOG_USER("State: %s\n", lv_obj_has_state(obj, LV_STATE_CHECKED) ? "On" : "Off");
-    }
-    else if (code == LV_EVENT_KEY)
-    {
-        uint32_t key = lv_event_get_key(e);
-
-        if (key == LV_KEY_ESC)
-        {
-            LV_LOG_USER("Switch received ESC");
-            lv_obj_clean(lv_scr_act());
-            drawMainMenu();
-        }
-    }
-}
-
-static void btn_spinbox_inc_event_cb(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
-    {
-        // lv_spinbox_increment(spinbox);
-    }
-
-    if (code == LV_EVENT_KEY)
-    {
-        uint32_t key = lv_event_get_key(e);
-        if (key == LV_KEY_ESC)
-        {
-            lv_obj_clean(lv_scr_act());
-            drawMainMenu();
-        }
-    }
-}
-
-static void btn_spinbox_dec_event_cb(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
-    {
-        // lv_spinbox_decrement(spinbox);
-    }
-
-    if (code == LV_EVENT_KEY)
-    {
-        uint32_t key = lv_event_get_key(e);
-        if (key == LV_KEY_ESC)
-        {
-            lv_obj_clean(lv_scr_act());
-            drawMainMenu();
-        }
-    }
-}
-
-static void btn_spinbox_step_event_cb(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
-    {
-        lv_spinbox_step_prev(spinbox);
-    }
-
-    if (code == LV_EVENT_KEY)
-    {
-        uint32_t key = lv_event_get_key(e);
-        if (key == LV_KEY_ESC)
-        {
-            lv_obj_clean(lv_scr_act());
-            drawMainMenu();
-        }
-    }
-}
-
 void my_focus_cb(lv_group_t *group)
 {
     lv_obj_t *focusedObject = lv_group_get_focused(group);
 }
+
+bool TestBool1, TestBool2;
 
 /// @brief build basic menu structure
 void menu::initialize()
@@ -341,8 +137,25 @@ void menu::initialize()
     lv_indev_set_group(my_indev, group);
     lv_group_set_focus_cb(group, my_focus_cb);
 
-    drawMainMenu();
-    // drawValueModifier();
+    // drawMainMenu();
+    static auto screen = HMI::ScreenMenu{};
+    static auto screenBtn1 = HMI::ScreenMenu{};
+    static auto screenBtn2 = HMI::ScreenMenu{};
+    static auto screenBtn3 = HMI::ScreenMenu{};
+
+    static auto ListButton1 = HMI::MenuItemButton{"ListButton1 Text", &screenBtn1};
+    static auto ListButton2 = HMI::MenuItemButton{"ListButton2 Text", &screenBtn2};
+    static auto ListButton3 = HMI::MenuItemButton{"ListButton2 Text", &screenBtn3};
+    static auto ListSwitch1 = HMI::MenuItemSwitch{"ListSwitch1 Text", &TestBool1};
+    static auto ListSwitch2 = HMI::MenuItemSwitch{"ListSwitch2 Text", &TestBool2};
+
+    screen.addItem(&ListButton1);
+    screen.addItem(&ListButton2);
+    screen.addItem(&ListSwitch1);
+    screen.addItem(&ListSwitch2);
+    screen.addItem(&ListButton3);
+
+    screen.draw();
 }
 
 /// @brief called cyclical for debug reasons
@@ -370,6 +183,8 @@ void menu::cyclic()
     default:
         break;
     }
+
+    LV_LOG_USER("Bools: %u %u", TestBool1, TestBool2);
 }
 
 #endif
