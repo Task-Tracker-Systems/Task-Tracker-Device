@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classmenu.xhtml" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" id="node1" href="$structHMI_1_1IMenuItem.xhtml" title=" " alt="" coords="5,55,120,80"/>
+<area shape="rect" id="node2" href="$structHMI_1_1MenuItemButton.xhtml" title=" " alt="" coords="169,5,318,31"/>
+<area shape="rect" id="node3" href="$structHMI_1_1MenuItemSwitch.xhtml" title=" " alt="" coords="168,55,319,80"/>
+<area shape="rect" id="node4" href="$structHMI_1_1MenuItemValue.xhtml" title=" " alt="" coords="171,104,315,129"/>
 </map>

@@ -1,12 +1,17 @@
 var searchData=
 [
-  ['b0_0',['b0',['../namespacenote.xhtml#a36fa3f03940236aadaa6dfb3b4241791',1,'note']]],
-  ['b1_1',['b1',['../namespacenote.xhtml#a8d3acc3e3f3ed1d86c699a6ab64950f5',1,'note']]],
-  ['b2_2',['b2',['../namespacenote.xhtml#a48881eb8428416c9b4f583b745ed78bb',1,'note']]],
-  ['b3_3',['b3',['../namespacenote.xhtml#a7ef1058b106d6d4b18a262bfd920bd57',1,'note']]],
-  ['b4_4',['b4',['../namespacenote.xhtml#afdb6259892d8cd0f2bad7f5ab676a4dc',1,'note']]],
-  ['b5_5',['b5',['../namespacenote.xhtml#a9c41d46609094680a567b83b863ace1b',1,'note']]],
-  ['b6_6',['b6',['../namespacenote.xhtml#a7a98e96cf71bef80ea82621397599d7c',1,'note']]],
-  ['b7_7',['b7',['../namespacenote.xhtml#a609230081bc03f5a6a22f113925f131d',1,'note']]],
-  ['back_8',['back',['../namespaceboard_1_1button_1_1pin.xhtml#a67a320a257ddd60db54a1f08f0cfb8c8',1,'board::button::pin']]]
+  ['a1_0',['a1',['../namespacenote.xhtml#a43e16c04e45557b89f9ee09c12165c54',1,'note']]],
+  ['a2_1',['a2',['../namespacenote.xhtml#aaf39d6dbf1a0c06013b6e2ddae2c7e6c',1,'note']]],
+  ['a3_2',['a3',['../namespacenote.xhtml#a140934289cf82df1eeebe22817582f49',1,'note']]],
+  ['a4_3',['a4',['../namespacenote.xhtml#a70de6e39edf31bfe0660a38025554fac',1,'note']]],
+  ['a5_4',['a5',['../namespacenote.xhtml#a856a7cabd7700a855966d307a328d396',1,'note']]],
+  ['a6_5',['a6',['../namespacenote.xhtml#a7908e15aee357f4c333934adbad799b4',1,'note']]],
+  ['a7_6',['a7',['../namespacenote.xhtml#a589257150b2dec4774a514f2a55cb00a',1,'note']]],
+  ['as1_7',['as1',['../namespacenote.xhtml#a4270dbc8083790d4920c3230f12d0878',1,'note']]],
+  ['as2_8',['as2',['../namespacenote.xhtml#a98d7e8ce52208bc463bff371308a8299',1,'note']]],
+  ['as3_9',['as3',['../namespacenote.xhtml#ae1060e02f67b2249bb17b957ec5415ce',1,'note']]],
+  ['as4_10',['as4',['../namespacenote.xhtml#acde4c1b2d3a57ef54420164115f386b1',1,'note']]],
+  ['as5_11',['as5',['../namespacenote.xhtml#a10652fef50867e9bafc7e18b86eb9e52',1,'note']]],
+  ['as6_12',['as6',['../namespacenote.xhtml#a531ef10428436cb75ab3ae671f17c40b',1,'note']]],
+  ['as7_13',['as7',['../namespacenote.xhtml#a7516d494fbc136e65ce1dae977ad9c3b',1,'note']]]
 ];

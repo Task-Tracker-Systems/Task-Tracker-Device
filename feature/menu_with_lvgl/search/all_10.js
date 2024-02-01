@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['readline_0',['readLine',['../namespaceserial__port.xhtml#af21848272232e3474b209f5cffe5f142',1,'serial_port']]],
-  ['readme_1',['README',['../md_doc_decisions_README.xhtml',1,'(Global Namespace)'],['../md_hardware_README.xhtml',1,'(Global Namespace)'],['../md_lib_3rd_party_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_application_business_rules_README.xhtml',1,'(Global Namespace)'],['../md_lib_board_adapters_README.xhtml',1,'(Global Namespace)'],['../md_lib_enterprise_business_rules_README.xhtml',1,'(Global Namespace)']]],
-  ['readme_2emd_2',['README.md',['../hardware_2README_8md.xhtml',1,'(Global Namespace)'],['../README_8md.xhtml',1,'(Global Namespace)'],['../lib_2enterprise__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2board__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_2application__business__rules_2README_8md.xhtml',1,'(Global Namespace)'],['../lib_23rd__party__adapters_2README_8md.xhtml',1,'(Global Namespace)'],['../doc_2decisions_2README_8md.xhtml',1,'(Global Namespace)']]],
-  ['refresh_5fdisplay_3',['refresh_display',['../display_8cpp.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp'],['../display_8h.xhtml#a6fd55a287e038568d2304927ec8b2449',1,'refresh_display():&#160;display.cpp']]],
-  ['res_4',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]],
-  ['resetoutputpointers_5',['resetOutputPointers',['../classSerialOutputStreamBuffer.xhtml#a999cf28821157276e86c7b1c63c32727',1,'SerialOutputStreamBuffer']]]
+  ['pintype_0',['PinType',['../framework__config_8hpp.xhtml#a8f084eabb88c2ccfb8dd92c6361befe6',1,'framework_config.hpp']]],
+  ['pitches_2ehpp_1',['pitches.hpp',['../pitches_8hpp.xhtml',1,'']]],
+  ['programidentificationstring_2',['programIdentificationString',['../time-tracker_8ino.xhtml#a2b95c44e365489a256863888655ac8f8',1,'time-tracker.ino']]],
+  ['protocol_2ecpp_3',['Protocol.cpp',['../Protocol_8cpp.xhtml',1,'']]],
+  ['protocol_2ehpp_4',['Protocol.hpp',['../Protocol_8hpp.xhtml',1,'']]],
+  ['protocolhandler_5',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]],
+  ['ptrdouble_6',['PtrDouble',['../structHMI_1_1MenuItemValue.xhtml#a364e48a389107d4c6e44f979b44810bf',1,'HMI::MenuItemValue']]]
 ];

@@ -1,0 +1,6 @@
+<map id="HMI::IMenuItem" name="HMI::IMenuItem">
+<area shape="rect" id="node1" title=" " alt="" coords="201,5,320,104"/>
+<area shape="rect" id="node2" href="$structHMI_1_1MenuItemButton.xhtml" title=" " alt="" coords="5,174,159,317"/>
+<area shape="rect" id="node3" href="$structHMI_1_1MenuItemSwitch.xhtml" title=" " alt="" coords="183,174,338,317"/>
+<area shape="rect" id="node4" href="$structHMI_1_1MenuItemValue.xhtml" title=" " alt="" coords="363,152,511,339"/>
+</map>

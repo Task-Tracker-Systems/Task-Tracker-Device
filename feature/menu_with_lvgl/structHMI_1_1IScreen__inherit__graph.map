@@ -1,0 +1,5 @@
+<map id="HMI::IScreen" name="HMI::IScreen">
+<area shape="rect" id="node1" title=" " alt="" coords="107,5,210,104"/>
+<area shape="rect" id="node2" href="$structHMI_1_1ScreenMenu.xhtml" title=" " alt="" coords="5,152,136,251"/>
+<area shape="rect" id="node3" href="$structHMI_1_1ScreenValueModifier.xhtml" title=" " alt="" coords="160,152,336,251"/>
+</map>

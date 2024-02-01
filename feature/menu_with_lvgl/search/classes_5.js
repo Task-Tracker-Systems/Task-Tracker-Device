@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['serialoutputstreambuffer_0',['SerialOutputStreamBuffer',['../classSerialOutputStreamBuffer.xhtml',1,'']]]
+  ['protocolhandler_0',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]]
 ];

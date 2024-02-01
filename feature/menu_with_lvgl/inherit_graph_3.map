@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classProtocolHandler.xhtml" title=" " alt="" coords="5,5,120,31"/>
+<area shape="rect" id="node1" href="$structHMI_1_1IScreen.xhtml" title=" " alt="" coords="5,31,104,56"/>
+<area shape="rect" id="node2" href="$structHMI_1_1ScreenMenu.xhtml" title=" " alt="" coords="175,5,301,31"/>
+<area shape="rect" id="node3" href="$structHMI_1_1ScreenValueModifier.xhtml" title=" " alt="" coords="152,55,324,80"/>
 </map>

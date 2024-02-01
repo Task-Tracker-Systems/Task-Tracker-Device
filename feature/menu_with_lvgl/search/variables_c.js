@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['on_5foff_0',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]],
-  ['options_1',['options',['../structcommand__line__interpreter_1_1Command.xhtml#a2575f5a632e565c473fd31cbcf69e30b',1,'command_line_interpreter::Command']]]
+  ['n_0',['n',['../test__cli_8cpp.xhtml#a76f11d9a0a47b94f72c2d0e77fb32240',1,'test_cli.cpp']]]
 ];
