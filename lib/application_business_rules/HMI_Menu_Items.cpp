@@ -1,5 +1,4 @@
 #include "HMI_Menu_Items.hpp"
-#include "lvgl.h"
 #include <stack>
 
 static std::stack<const HMI::IScreen *> screenHistory;
@@ -14,14 +13,24 @@ std::string HMI::MenuItemButton::getText() const
     return this->_text;
 }
 
-HMI::MenuItemSwitch::MenuItemSwitch(std::string text, bool *varialeAddress)
-    : _text{text}, _varialeAddress{varialeAddress}
+const HMI::IScreen *HMI::MenuItemButton::getScreenOnClick() const
+{
+    return this->_screenOnClick;
+}
+
+HMI::MenuItemSwitch::MenuItemSwitch(std::string text, bool *ptrBool)
+    : _text{text}, _ptrBool{ptrBool}
 {
 }
 
 std::string HMI::MenuItemSwitch::getText() const
 {
     return this->_text;
+}
+
+bool *HMI::MenuItemSwitch::getPtrBool() const
+{
+    return this->_ptrBool;
 }
 
 void HMI::ScreenMenu::draw() const
@@ -51,9 +60,10 @@ void HMI::ScreenMenu::draw() const
         {
         case HMI::MenuItemType::BUTTON: {
             /* draw button */
+            auto btnItem = reinterpret_cast<const HMI::MenuItemButton *const>(item);
             btn = lv_btn_create(screen);
             lv_obj_set_size(btn, lv_pct(100), 12);
-            // lv_obj_add_event_cb(btn, btn_event_handler, LV_EVENT_ALL, (void *)drawSubMenu);
+            lv_obj_add_event_cb(btn, HMI::ScreenMenu::_button_cb, LV_EVENT_ALL, (void *)btnItem->getScreenOnClick());
             lv_obj_add_style(btn, &style_small_padding, 0);
             lab = lv_label_create(btn);
             lv_label_set_text(lab, item->getText().c_str());
@@ -69,6 +79,7 @@ void HMI::ScreenMenu::draw() const
         }
         case HMI::MenuItemType::SWITCH: {
             /* draw switch */
+            auto swtItem = reinterpret_cast<const HMI::MenuItemSwitch *const>(item);
             cont = lv_obj_create(screen);
             lv_obj_set_size(cont, lv_pct(100), 12);
             lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
@@ -80,8 +91,9 @@ void HMI::ScreenMenu::draw() const
             lv_obj_set_width(lab, lv_pct(70));
             lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
             swth = lv_switch_create(cont);
+            lv_obj_add_state(swth, (*swtItem->getPtrBool()) ? LV_STATE_CHECKED : 0);
             lv_obj_set_size(swth, 18, 12);
-            // lv_obj_add_event_cb(swth, swth_event_handler, LV_EVENT_ALL, NULL);
+            lv_obj_add_event_cb(swth, HMI::ScreenMenu::_switch_cb, LV_EVENT_ALL, (void *)swtItem->getPtrBool());
             lv_obj_set_align(swth, LV_ALIGN_RIGHT_MID);
             break;
         }
@@ -89,7 +101,9 @@ void HMI::ScreenMenu::draw() const
     }
 
     lv_scr_load(screen);
-    screenHistory.push(this);
+
+    if (screenHistory.top() != this)
+        screenHistory.push(this);
 }
 
 void HMI::ScreenMenu::addItem(const IMenuItem *newItem)
@@ -97,12 +111,60 @@ void HMI::ScreenMenu::addItem(const IMenuItem *newItem)
     _List.push_back(newItem);
 }
 
+void HMI::ScreenMenu::_button_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    lv_obj_t *obj = lv_event_get_target(e);
+
+    auto screen = reinterpret_cast<const HMI::IScreen *>(lv_event_get_user_data(e));
+
+    if ((code == LV_EVENT_SHORT_CLICKED) && (screen != NULL))
+    {
+        lv_obj_clean(lv_scr_act());
+        screen->draw();
+    }
+    else if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+
+        if (key == LV_KEY_ESC)
+        {
+            HMI::IScreen::exit();
+        }
+    }
+}
+
+void HMI::ScreenMenu::_switch_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    lv_obj_t *obj = lv_event_get_target(e);
+
+    auto var = reinterpret_cast<bool *>(lv_event_get_user_data(e));
+
+    if (code == LV_EVENT_VALUE_CHANGED)
+    {
+        LV_LOG_USER("State: %s\n", lv_obj_has_state(obj, LV_STATE_CHECKED) ? "On" : "Off");
+        *var = lv_obj_has_state(obj, LV_STATE_CHECKED) ? 1 : 0;
+    }
+    else if (code == LV_EVENT_KEY)
+    {
+        uint32_t key = lv_event_get_key(e);
+
+        if (key == LV_KEY_ESC)
+        {
+            HMI::IScreen::exit();
+        }
+    }
+}
+
 void HMI::IScreen::exit()
 {
+    LV_LOG_USER("exit start history has %u", screenHistory.size());
     if (screenHistory.size() <= 1)
         return;
 
     lv_obj_clean(lv_scr_act());
     screenHistory.pop();
     screenHistory.top()->draw();
+    LV_LOG_USER("exit end history has %u", screenHistory.size());
 }

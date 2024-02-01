@@ -126,7 +126,8 @@ void my_focus_cb(lv_group_t *group)
     lv_obj_t *focusedObject = lv_group_get_focused(group);
 }
 
-bool TestBool1, TestBool2;
+bool TestBool1;
+bool TestBool2 = true;
 
 /// @brief build basic menu structure
 void menu::initialize()
@@ -145,15 +146,29 @@ void menu::initialize()
 
     static auto ListButton1 = HMI::MenuItemButton{"ListButton1 Text", &screenBtn1};
     static auto ListButton2 = HMI::MenuItemButton{"ListButton2 Text", &screenBtn2};
-    static auto ListButton3 = HMI::MenuItemButton{"ListButton2 Text", &screenBtn3};
+    static auto ListButton3 = HMI::MenuItemButton{"ListButton3 Text", &screenBtn3};
     static auto ListSwitch1 = HMI::MenuItemSwitch{"ListSwitch1 Text", &TestBool1};
     static auto ListSwitch2 = HMI::MenuItemSwitch{"ListSwitch2 Text", &TestBool2};
-
     screen.addItem(&ListButton1);
     screen.addItem(&ListButton2);
     screen.addItem(&ListSwitch1);
     screen.addItem(&ListSwitch2);
     screen.addItem(&ListButton3);
+
+    static auto Sub1Button1 = HMI::MenuItemButton{"Sub1 Button1", &screenBtn1};
+    static auto Sub1Button2 = HMI::MenuItemButton{"Sub1 Button2", &screenBtn2};
+    screenBtn1.addItem(&Sub1Button1);
+    screenBtn1.addItem(&Sub1Button2);
+
+    static auto Sub2Button1 = HMI::MenuItemButton{"Sub2 Button1", &screenBtn1};
+    static auto Sub2Button2 = HMI::MenuItemButton{"Sub2 Button2", &screenBtn2};
+    screenBtn2.addItem(&Sub2Button1);
+    screenBtn2.addItem(&Sub2Button2);
+
+    static auto Sub3Button1 = HMI::MenuItemButton{"Sub3 Button1", &screenBtn1};
+    static auto Sub3Button2 = HMI::MenuItemButton{"Sub3 Button2", &screenBtn2};
+    screenBtn3.addItem(&Sub3Button1);
+    screenBtn3.addItem(&Sub3Button2);
 
     screen.draw();
 }

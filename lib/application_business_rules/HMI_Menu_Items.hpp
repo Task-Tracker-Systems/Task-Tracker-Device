@@ -1,6 +1,7 @@
 #pragma once
-#include <vector>
+#include "lvgl.h"
 #include <string>
+#include <vector>
 
 namespace HMI
 {
@@ -10,8 +11,8 @@ struct IScreen
     virtual ~IScreen() = default;
 
     virtual void draw() const = 0;
-    
-    void exit();
+
+    static void exit();
 };
 
 enum class MenuItemType
@@ -36,7 +37,12 @@ struct MenuItemButton final : public IMenuItem
     ~MenuItemButton() override = default;
 
     std::string getText() const override;
-    inline MenuItemType getType() const override { return MenuItemType::BUTTON; };
+    inline MenuItemType getType() const override
+    {
+        return MenuItemType::BUTTON;
+    };
+
+    const IScreen *getScreenOnClick() const;
 
   protected:
     const std::string _text;
@@ -45,15 +51,20 @@ struct MenuItemButton final : public IMenuItem
 
 struct MenuItemSwitch final : public IMenuItem
 {
-    MenuItemSwitch(std::string text, bool *varialeAddress);
+    MenuItemSwitch(std::string text, bool *ptrBool);
     ~MenuItemSwitch() override = default;
 
     std::string getText() const override;
-    inline MenuItemType getType() const override { return MenuItemType::SWITCH; };
+    inline MenuItemType getType() const override
+    {
+        return MenuItemType::SWITCH;
+    };
+
+    bool *getPtrBool() const;
 
   protected:
     const std::string _text;
-    bool *_varialeAddress;
+    bool *_ptrBool;
 };
 
 struct ScreenMenu final : public IScreen
@@ -62,10 +73,14 @@ struct ScreenMenu final : public IScreen
     ~ScreenMenu() override = default;
 
     void draw() const override;
+
     void addItem(const IMenuItem *newItem);
 
   private:
     MenuItemList _List;
+
+    static void _button_cb(lv_event_t *e);
+    static void _switch_cb(lv_event_t *e);
 };
 
 } // namespace HMI
