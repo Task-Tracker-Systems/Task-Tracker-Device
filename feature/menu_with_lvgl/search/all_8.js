@@ -13,7 +13,7 @@ var searchData=
   ['getptrbool_10',['getPtrBool',['../structHMI_1_1MenuItemSwitch.xhtml#ad87c85077dd9ae5d2be0e3c312d2ac2b',1,'HMI::MenuItemSwitch']]],
   ['getptrdouble_11',['getPtrDouble',['../structHMI_1_1MenuItemValue.xhtml#a53a28e68c0cdbe2701945a387dd82957',1,'HMI::MenuItemValue']]],
   ['getrecordedduration_12',['getRecordedDuration',['../classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d',1,'Task']]],
-  ['getscreenonclick_13',['getScreenOnClick',['../structHMI_1_1MenuItemButton.xhtml#ad4b4c6467abf0379f471e519f11bed54',1,'HMI::MenuItemButton']]],
+  ['getscreenonclick_13',['getScreenOnClick',['../structHMI_1_1MenuItemButton.xhtml#a6a3cf93043669e23290729871123261f',1,'HMI::MenuItemButton']]],
   ['gettext_14',['getText',['../structHMI_1_1MenuItemSwitch.xhtml#a203d2c55fd8171e6b4367cccb32bb63a',1,'HMI::MenuItemSwitch::getText()'],['../structHMI_1_1IMenuItem.xhtml#abeb66893c7e5718209d27d6f8396f07c',1,'HMI::IMenuItem::getText()'],['../structHMI_1_1MenuItemValue.xhtml#a2acc8a7e5deed67569f0c3002d66ffef',1,'HMI::MenuItemValue::getText()'],['../structHMI_1_1MenuItemButton.xhtml#a8a26726bae341794268e8682212c4c12',1,'HMI::MenuItemButton::getText()']]],
   ['gettype_15',['getType',['../structHMI_1_1MenuItemValue.xhtml#a035059b9983490e20fd23a7dbf4616e3',1,'HMI::MenuItemValue::getType()'],['../structHMI_1_1MenuItemSwitch.xhtml#a7146a57c71f28f6759b2582bfaf30b49',1,'HMI::MenuItemSwitch::getType()'],['../structHMI_1_1MenuItemButton.xhtml#a0078e582f99e848fabfd7b3894dc8807',1,'HMI::MenuItemButton::getType()'],['../structHMI_1_1IMenuItem.xhtml#a0ba38d0bb548d19c709e146bbf0016c0',1,'HMI::IMenuItem::getType()']]],
   ['gs1_16',['gs1',['../namespacenote.xhtml#a4a0532c6cfa8775dd979bdf248120040',1,'note']]],
