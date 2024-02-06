@@ -1,4 +1,5 @@
 #include "HMI_Menu_Items.hpp"
+#include <cmath>
 #include <stack>
 
 static std::stack<const HMI::IScreen *> screenHistory;
@@ -105,7 +106,7 @@ void HMI::ScreenMenu::draw() const
             lv_obj_set_width(lab, lv_pct(70));
             lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
             lab = lv_label_create(btn);
-            lv_label_set_text_fmt(lab, "%d", 120);
+            lv_label_set_text_fmt(lab, "%.*f", valItem->Decimals, *valItem->PtrDouble);
             lv_label_set_long_mode(lab, LV_LABEL_LONG_SCROLL);
             lv_obj_set_style_text_align(lab, LV_TEXT_ALIGN_RIGHT, 0);
             lv_obj_set_width(lab, lv_pct(25));
@@ -198,14 +199,12 @@ void HMI::ScreenMenu::_value_cb(lv_event_t *e)
 
 void HMI::IScreen::exit()
 {
-    LV_LOG_USER("exit start history has %u", screenHistory.size());
     if (screenHistory.size() <= 1)
         return;
 
     lv_obj_clean(lv_scr_act());
     screenHistory.pop();
     screenHistory.top()->draw();
-    LV_LOG_USER("exit end history has %u", screenHistory.size());
 }
 
 void HMI::ScreenValueModifier::draw() const
@@ -225,12 +224,12 @@ void HMI::ScreenValueModifier::draw() const
     lv_obj_add_style(screen, &style_scr, 0);
 
     spinbox = lv_spinbox_create(screen);
-    int32_t min = ((_min) * (10 ^ _decimals));
-    int32_t max = ((_max) * (10 ^ _decimals));
+    int32_t min = ((_min)*std::pow(10, _decimals));
+    int32_t max = ((_max)*std::pow(10, _decimals));
     lv_spinbox_set_range(spinbox, min, max);
-    int32_t val = ((*_ptrDouble) * (10 ^ _decimals));
+    int32_t val = ((*_ptrDouble) * std::pow(10, _decimals));
     lv_spinbox_set_value(spinbox, val);
-    lv_spinbox_set_digit_format(spinbox, (7 - _decimals), _decimals);
+    lv_spinbox_set_digit_format(spinbox, 7, (7 - _decimals));
     lv_obj_set_width(spinbox, lv_pct(55));
     lv_obj_add_style(spinbox, &style_scr, 0);
     lv_obj_center(spinbox);
@@ -266,6 +265,9 @@ void HMI::ScreenValueModifier::draw() const
     lv_obj_set_align(lab, LV_ALIGN_CENTER);
 
     lv_scr_load(screen);
+
+    if (screenHistory.top() != this)
+        screenHistory.push(this);
 }
 
 void HMI::ScreenValueModifier::set(double *ptrDouble, uint8_t decimals, double min, double max)
@@ -284,8 +286,7 @@ void HMI::ScreenValueModifier::_button_inc_cb(lv_event_t *e)
 
     if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
     {
-        static uint32_t key = LV_KEY_ESC;
-        lv_event_send(spinbox, LV_EVENT_KEY, &key);
+        lv_spinbox_increment(spinbox);
     }
     else if (code == LV_EVENT_KEY)
     {
@@ -306,8 +307,7 @@ void HMI::ScreenValueModifier::_button_dec_cb(lv_event_t *e)
 
     if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
     {
-        static uint32_t key = LV_KEY_ESC;
-        lv_event_send(spinbox, LV_EVENT_KEY, &key);
+        lv_spinbox_decrement(spinbox);
     }
     else if (code == LV_EVENT_KEY)
     {
@@ -328,8 +328,9 @@ void HMI::ScreenValueModifier::_button_step_cb(lv_event_t *e)
 
     if (code == LV_EVENT_SHORT_CLICKED || code == LV_EVENT_LONG_PRESSED_REPEAT)
     {
-        static uint32_t key = LV_KEY_ESC;
-        lv_event_send(spinbox, LV_EVENT_KEY, &key);
+        uint32_t step = lv_spinbox_get_step(spinbox);
+        step = (step > 100000) ? 1 : (step * 10);
+        lv_spinbox_set_step(spinbox, step);
     }
     else if (code == LV_EVENT_KEY)
     {

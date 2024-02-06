@@ -72,7 +72,7 @@ void my_focus_cb(lv_group_t *group)
 
 bool TestBool1;
 bool TestBool2 = true;
-double TestDouble = 1.23;
+double TestDouble = 800.23;
 
 /// @brief build basic menu structure
 void menu::initialize()
@@ -90,7 +90,7 @@ void menu::initialize()
     static auto screenBtn3 = HMI::ScreenMenu{};
 
     static auto ListButton1 = HMI::MenuItemButton{"ListButton1 Text", &screenBtn1};
-    static auto ListValue = HMI::MenuItemValue("ListValue", &TestDouble, 2, 1.4, 0.9);
+    static auto ListValue = HMI::MenuItemValue("ListValue", &TestDouble, 2, 0.9, 1001.4);
     static auto ListButton2 = HMI::MenuItemButton{"ListButton2 Text", &screenBtn2};
     static auto ListButton3 = HMI::MenuItemButton{"ListButton3 Text", &screenBtn3};
     static auto ListSwitch1 = HMI::MenuItemSwitch{"ListSwitch1 Text", &TestBool1};
