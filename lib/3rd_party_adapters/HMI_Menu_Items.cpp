@@ -1,3 +1,5 @@
+#ifdef LV_CONF_INCLUDE_SIMPLE //use this buildflag to check if we actually include LVGL or not
+
 #include "HMI_Menu_Items.hpp"
 #include <cmath>
 #include <stack>
@@ -356,3 +358,5 @@ double *HMI::MenuItemValue::getPtrDouble() const
 {
     return PtrDouble;
 }
+
+#endif
