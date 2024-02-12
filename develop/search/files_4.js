@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['license_2emd_0',['LICENSE.md',['../LICENSE_8md.xhtml',1,'']]],
-  ['lv_5fconf_2eh_1',['lv_conf.h',['../lv__conf_8h.xhtml',1,'']]]
+  ['framework_5fadapter_2ecpp_0',['framework_adapter.cpp',['../framework__adapter_8cpp.xhtml',1,'']]]
 ];

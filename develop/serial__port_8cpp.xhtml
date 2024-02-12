@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Task Tracker: lib/3rd_party_adapters/serial_port.cpp File Reference</title>
+<title>Task Tracker: lib/3rd_party_adapters/Arduino/serial_port.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml">lib</a></li><li class="navelem"><a class="el" href="dir_e75212beacfa7863df067e044f07f232.xhtml">3rd_party_adapters</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml">lib</a></li><li class="navelem"><a class="el" href="dir_e75212beacfa7863df067e044f07f232.xhtml">3rd_party_adapters</a></li><li class="navelem"><a class="el" href="dir_e5c908e09902ac05aca8138811a01df8.xhtml">Arduino</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -87,15 +87,15 @@ $(function() {
   <div class="headertitle"><div class="title">serial_port.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="serial__port_8hpp_source.xhtml">serial_port.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="SerialOutputStreamBuffer_8hpp_source.xhtml">SerialOutputStreamBuffer.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="SerialOutputStreamBuffer_8hpp_source.xhtml">SerialOutputStreamBuffer.hpp</a>&quot;</code><br />
 <code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;<a class="el" href="serial__port_8hpp_source.xhtml">serial_interface/serial_port.hpp</a>&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for serial_port.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8cpp__incl.svg" width="740" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="serial__port_8cpp__incl.svg" width="750" height="286"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -123,6 +123,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:aa30e390073821514dec7342d80560088"><td class="memItemLeft" align="right" valign="top">static SerialOutputStreamBuffer::char_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial__port_8cpp.xhtml#aa30e390073821514dec7342d80560088">serial_output_buffer</a> [255]</td></tr>
+<tr class="separator:aa30e390073821514dec7342d80560088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1aaf773e01e8d96e340eefd979e7846"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSerialOutputStreamBuffer.xhtml">SerialOutputStreamBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial__port_8cpp.xhtml#aa1aaf773e01e8d96e340eefd979e7846">serialOutputStreamBuffer</a> (std::begin(<a class="el" href="serial__port_8cpp.xhtml#aa30e390073821514dec7342d80560088">serial_output_buffer</a>), std::end(<a class="el" href="serial__port_8cpp.xhtml#aa30e390073821514dec7342d80560088">serial_output_buffer</a>))</td></tr>
+<tr class="separator:aa1aaf773e01e8d96e340eefd979e7846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a700733f0a5af11553211f38cd48218"><td class="memItemLeft" align="right" valign="top">static StringHandler&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a3a700733f0a5af11553211f38cd48218">serial_port::incomingStringHandler</a></td></tr>
+<tr class="separator:a3a700733f0a5af11553211f38cd48218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93c3f7f8728a750d9fa97277cb10378f"><td class="memItemLeft" align="right" valign="top">std::basic_ostream&lt; CharType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceserial__port.xhtml#a93c3f7f8728a750d9fa97277cb10378f">serial_port::cout</a> = serialOutputStream</td></tr>
 <tr class="memdesc:a93c3f7f8728a750d9fa97277cb10378f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output stream for characters to serial port.  <a href="namespaceserial__port.xhtml#a93c3f7f8728a750d9fa97277cb10378f">More...</a><br /></td></tr>
 <tr class="separator:a93c3f7f8728a750d9fa97277cb10378f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,10 +151,69 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aa30e390073821514dec7342d80560088" name="aa30e390073821514dec7342d80560088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa30e390073821514dec7342d80560088">&#9670;&#160;</a></span>serial_output_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialOutputStreamBuffer::char_type serial_output_buffer[255]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1aaf773e01e8d96e340eefd979e7846" name="aa1aaf773e01e8d96e340eefd979e7846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1aaf773e01e8d96e340eefd979e7846">&#9670;&#160;</a></span>serialOutputStreamBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::basic_ostream&lt; SerialOutputStreamBuffer::char_type &gt; serialOutputStream &amp; serialOutputStreamBuffer </td>
+          <td>(</td>
+          <td class="paramtype">std::begin(<a class="el" href="serial__port_8cpp.xhtml#aa30e390073821514dec7342d80560088">serial_output_buffer</a>)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::end(<a class="el" href="serial__port_8cpp.xhtml#aa30e390073821514dec7342d80560088">serial_output_buffer</a>)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 17:35:53 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Feb 12 2024 21:55:50 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

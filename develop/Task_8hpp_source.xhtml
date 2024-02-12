@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Task Tracker: lib/tasks/Task.hpp Source File</title>
+<title>Task Tracker: lib/application_business_rules/tasks/Task.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml">lib</a></li><li class="navelem"><a class="el" href="dir_39f7659512e965af922d437530a62078.xhtml">tasks</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.xhtml">lib</a></li><li class="navelem"><a class="el" href="dir_6dbb42d2342d9d7292a192bc1d024acc.xhtml">application_business_rules</a></li><li class="navelem"><a class="el" href="dir_dab382b21b73aae3d74d7668eeeacf78.xhtml">tasks</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -96,20 +96,20 @@ $(function() {
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">   31</a></span>    <span class="keyword">typedef</span> std::chrono::seconds <a class="code hl_typedef" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a>;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">   40</a></span>    <span class="keyword">typedef</span> std::wstring <a class="code hl_typedef" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classTask.xhtml">Task</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;newLabel, <span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a> elapsedTime = Duration::zero());</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">   40</a></span>    <span class="keyword">typedef</span> std::string <a class="code hl_typedef" href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">String</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classTask.xhtml">Task</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">String</a> &amp;newLabel, <span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a> elapsedTime = Duration::zero());</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed">start</a>();</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTask.xhtml#aba5eb3d6c2a034aa0e319383fbec68c4">stop</a>();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;<a class="code hl_function" href="classTask.xhtml#ada97787ea9e1d67d6708eb6c306629dc">getLabel</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTask.xhtml#ac503952d3049aede0a5427faea94ceb1">setLabel</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> &amp;label);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">String</a> &amp;<a class="code hl_function" href="classTask.xhtml#ada97787ea9e1d67d6708eb6c306629dc">getLabel</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTask.xhtml#ac503952d3049aede0a5427faea94ceb1">setLabel</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">String</a> &amp;label);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_typedef" href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Duration</a> <a class="code hl_function" href="classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d">getRecordedDuration</a>();</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTask.xhtml#ad6abe9097628c64d57347c1657e518c8">isRunning</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_typedef" href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">String</a> label;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_typedef" href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">String</a> label;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">enum class</span> State</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        IDLE,</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>} <span class="comment">// namespace device</span></div>
 <div class="ttc" id="aTask_8hpp_xhtml_afa2efb6d57531344abcae953e6ec4ce1"><div class="ttname"><a href="Task_8hpp.xhtml#afa2efb6d57531344abcae953e6ec4ce1">TaskId</a></div><div class="ttdeci">unsigned int TaskId</div><div class="ttdoc">Task ID.</div><div class="ttdef"><b>Definition:</b> Task.hpp:12</div></div>
 <div class="ttc" id="aclassTask_xhtml"><div class="ttname"><a href="classTask.xhtml">Task</a></div><div class="ttdoc">Manages a task.</div><div class="ttdef"><b>Definition:</b> Task.hpp:22</div></div>
-<div class="ttc" id="aclassTask_xhtml_a3115c5f5b6c8bca2d57c410bdc5b871a"><div class="ttname"><a href="classTask.xhtml#a3115c5f5b6c8bca2d57c410bdc5b871a">Task::String</a></div><div class="ttdeci">std::wstring String</div><div class="ttdoc">String type used for labels of the task.</div><div class="ttdef"><b>Definition:</b> Task.hpp:40</div></div>
+<div class="ttc" id="aclassTask_xhtml_a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6"><div class="ttname"><a href="classTask.xhtml#a0ffb7bfbd3ea9bb396e4fb03c1eeb9f6">Task::String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">String type used for labels of the task.</div><div class="ttdef"><b>Definition:</b> Task.hpp:40</div></div>
 <div class="ttc" id="aclassTask_xhtml_a35c5ec0d50d2a92028a008721d132d5d"><div class="ttname"><a href="classTask.xhtml#a35c5ec0d50d2a92028a008721d132d5d">Task::getRecordedDuration</a></div><div class="ttdeci">Duration getRecordedDuration()</div><div class="ttdoc">Gets the recorded duration.</div><div class="ttdef"><b>Definition:</b> Task.cpp:40</div></div>
 <div class="ttc" id="aclassTask_xhtml_a5d6a1d3c6cd5b587d2414737fab9f3ed"><div class="ttname"><a href="classTask.xhtml#a5d6a1d3c6cd5b587d2414737fab9f3ed">Task::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Starts/continues capturing duration.</div><div class="ttdef"><b>Definition:</b> Task.cpp:14</div></div>
 <div class="ttc" id="aclassTask_xhtml_ab58c86df7691c4efc868fb4dc56d0fe0"><div class="ttname"><a href="classTask.xhtml#ab58c86df7691c4efc868fb4dc56d0fe0">Task::Duration</a></div><div class="ttdeci">std::chrono::seconds Duration</div><div class="ttdoc">Type used to record durations.</div><div class="ttdef"><b>Definition:</b> Task.hpp:31</div></div>
@@ -142,7 +142,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 17:35:53 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Feb 12 2024 21:55:50 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

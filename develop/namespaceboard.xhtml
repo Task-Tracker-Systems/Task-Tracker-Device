@@ -77,7 +77,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">board Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -92,11 +95,202 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceboard_1_1led"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard_1_1led.xhtml">led</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af091862f70321f1b4fd67a4f4751ef0c"><td class="memItemLeft" align="right" valign="top">typedef std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">PinType</a></td></tr>
+<tr class="memdesc:af091862f70321f1b4fd67a4f4751ef0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type expected by HAL for accessing pins.  <a href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">More...</a><br /></td></tr>
+<tr class="separator:af091862f70321f1b4fd67a4f4751ef0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a7139efa9eaf6f44f1e5d74e46aa31f34"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34">StatusIndicatorId</a> { <a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34a55eff31254f439de1c3c0de3ec724253">TASK1</a>
+, <a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34a15a19df144b36c58cbf3f2d758318f66">TASK2</a>
+, <a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34a9a054b42b3c595e6f94186dce31f62d4">TASK3</a>
+, <a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34afc33cdee60eeadfb04539253c1abfd84">TASK4</a>
+ }</td></tr>
+<tr class="separator:a7139efa9eaf6f44f1e5d74e46aa31f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:adddb50b3d6bb4c6803d7e05b68f2ce4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDisplay.xhtml">IDisplay</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#adddb50b3d6bb4c6803d7e05b68f2ce4c">getDisplay</a> ()</td></tr>
+<tr class="separator:adddb50b3d6bb4c6803d7e05b68f2ce4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b99237eb4ddb891ace213be9cd40bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a5b99237eb4ddb891ace213be9cd40bfb">setup</a> ()</td></tr>
+<tr class="separator:a5b99237eb4ddb891ace213be9cd40bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af761c14d2fbd04a7d86a6cad113d6702"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#af761c14d2fbd04a7d86a6cad113d6702">playTone</a> (const unsigned int frequency, const std::chrono::milliseconds <a class="el" href="Protocol_8cpp.xhtml#a59bc70cd98ed5c6ceb5dd452caa54ac3">duration</a>)</td></tr>
+<tr class="separator:af761c14d2fbd04a7d86a6cad113d6702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a184034284ef8e16496b6b8e4b5c9f678"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIKeypad.xhtml">IKeypad</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a184034284ef8e16496b6b8e4b5c9f678">getKeypad</a> ()</td></tr>
+<tr class="separator:a184034284ef8e16496b6b8e4b5c9f678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5898e6d262ab4dc0be1e8b3a24a3790c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classIStatusIndicator.xhtml">IStatusIndicator</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a5898e6d262ab4dc0be1e8b3a24a3790c">getStatusIndicators</a> ()</td></tr>
+<tr class="separator:a5898e6d262ab4dc0be1e8b3a24a3790c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fabd6cbed01587f38990f68d6bc1e44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboard.xhtml#a2fabd6cbed01587f38990f68d6bc1e44">setup_sound</a> ()</td></tr>
+<tr class="separator:a2fabd6cbed01587f38990f68d6bc1e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="af091862f70321f1b4fd67a4f4751ef0c" name="af091862f70321f1b4fd67a4f4751ef0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af091862f70321f1b4fd67a4f4751ef0c">&#9670;&#160;</a></span>PinType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::uint8_t <a class="el" href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">board::PinType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type expected by HAL for accessing pins. </p>
+<p >This depends on the used framework. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a7139efa9eaf6f44f1e5d74e46aa31f34" name="a7139efa9eaf6f44f1e5d74e46aa31f34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7139efa9eaf6f44f1e5d74e46aa31f34">&#9670;&#160;</a></span>StatusIndicatorId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="namespaceboard.xhtml#a7139efa9eaf6f44f1e5d74e46aa31f34">board::StatusIndicatorId</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7139efa9eaf6f44f1e5d74e46aa31f34a55eff31254f439de1c3c0de3ec724253" name="a7139efa9eaf6f44f1e5d74e46aa31f34a55eff31254f439de1c3c0de3ec724253"></a>TASK1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7139efa9eaf6f44f1e5d74e46aa31f34a15a19df144b36c58cbf3f2d758318f66" name="a7139efa9eaf6f44f1e5d74e46aa31f34a15a19df144b36c58cbf3f2d758318f66"></a>TASK2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7139efa9eaf6f44f1e5d74e46aa31f34a9a054b42b3c595e6f94186dce31f62d4" name="a7139efa9eaf6f44f1e5d74e46aa31f34a9a054b42b3c595e6f94186dce31f62d4"></a>TASK3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7139efa9eaf6f44f1e5d74e46aa31f34afc33cdee60eeadfb04539253c1abfd84" name="a7139efa9eaf6f44f1e5d74e46aa31f34afc33cdee60eeadfb04539253c1abfd84"></a>TASK4&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="adddb50b3d6bb4c6803d7e05b68f2ce4c" name="adddb50b3d6bb4c6803d7e05b68f2ce4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adddb50b3d6bb4c6803d7e05b68f2ce4c">&#9670;&#160;</a></span>getDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDisplay.xhtml">IDisplay</a> &amp; board::getDisplay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a184034284ef8e16496b6b8e4b5c9f678" name="a184034284ef8e16496b6b8e4b5c9f678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a184034284ef8e16496b6b8e4b5c9f678">&#9670;&#160;</a></span>getKeypad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIKeypad.xhtml">IKeypad</a> &amp; board::getKeypad </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5898e6d262ab4dc0be1e8b3a24a3790c" name="a5898e6d262ab4dc0be1e8b3a24a3790c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5898e6d262ab4dc0be1e8b3a24a3790c">&#9670;&#160;</a></span>getStatusIndicators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classIStatusIndicator.xhtml">IStatusIndicator</a> * &gt; board::getStatusIndicators </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af761c14d2fbd04a7d86a6cad113d6702" name="af761c14d2fbd04a7d86a6cad113d6702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af761c14d2fbd04a7d86a6cad113d6702">&#9670;&#160;</a></span>playTone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void board::playTone </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>frequency</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::chrono::milliseconds&#160;</td>
+          <td class="paramname"><em>duration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b99237eb4ddb891ace213be9cd40bfb" name="a5b99237eb4ddb891ace213be9cd40bfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b99237eb4ddb891ace213be9cd40bfb">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void board::setup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fabd6cbed01587f38990f68d6bc1e44" name="a2fabd6cbed01587f38990f68d6bc1e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fabd6cbed01587f38990f68d6bc1e44">&#9670;&#160;</a></span>setup_sound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void board::setup_sound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 17:35:53 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Feb 12 2024 21:55:51 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

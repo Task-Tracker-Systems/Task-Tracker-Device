@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['protocolhandler_0',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]]
+  ['foodata_0',['FooData',['../structFooData.xhtml',1,'']]],
+  ['functionpointergenerator_1',['FunctionPointerGenerator',['../structFunctionPointerGenerator.xhtml',1,'']]]
 ];
