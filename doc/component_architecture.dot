@@ -13,11 +13,24 @@ digraph component_architecture {
         subgraph cluster_app {
             label = "application business rules";
             URL = "\ref application_business_rules";
+            app[shape=point style=invis];
         
             output_boundaries [label="«interface»\n output boundaries"]
             use_cases [label="use case interactors"]
             input_boundaries [label="«interface»\n input boundaries"]
             data_interface [label="«interface»\n data gateway"]
+        }
+    }
+    
+    {
+        // package 'utilities'
+        node [fillcolor="6", style="filled"];
+        
+        subgraph cluster_util {
+            label = "utilities";
+            URL = "\ref utilities";
+            helpers;
+            n2 [label="May be used by anything.\n Has no dependencies.", shape="note"]
         }
     }
     
@@ -40,18 +53,11 @@ digraph component_architecture {
             label = "frameworks and libraries";
             style="bold,dashed";
             thirdparty[shape=point style=invis];
+            n1 [label="Not part of\nthe project.", shape="note"]
            
             sdk [label="software development kit"]
             libraries;
         }
-    }
-    
-    subgraph clusterX_margin
-    {
-        style=invis
-        margin="20.0,0.0"
-        n1 [label="Not part of\nthe project.", shape="note"]
-        n1 -> thirdparty [lhead="cluster_thirdparty"];
     }
   
     {
@@ -72,6 +78,7 @@ digraph component_architecture {
         subgraph cluster_board {
             label = "board adapters";
             URL = "\ref board_adapters";
+            board[shape=point style=invis];
         
             // controllers, presenters, views;
             library_interfaces [label="«interface»\n library interfaces"]
@@ -93,6 +100,12 @@ digraph component_architecture {
             
             libraries -> sdk;
             liberaries_adapters -> libraries;
+            
+            entities -> helpers [style=invis];
+            thirdparty -> helpers [style=invis];
+            app -> helpers [style=invis];
+            board -> helpers [style=invis];
+            liberaries_adapters -> helpers [style=invis];
         }
         {
             // realizations

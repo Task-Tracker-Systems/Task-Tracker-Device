@@ -3,7 +3,7 @@
  * Provides named objects for the pins provided by the board.
  */
 #pragma once
-#include "framework_config.hpp"
+#include "board_types.hpp"
 
 namespace board
 {

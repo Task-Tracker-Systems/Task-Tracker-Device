@@ -1,7 +1,7 @@
-#include "serial_port.hpp"
 #include "SerialOutputStreamBuffer.hpp"
 #include <Arduino.h>
 #include <iterator>
+#include <serial_interface/serial_port.hpp>
 #include <type_traits>
 
 static SerialOutputStreamBuffer::char_type serial_output_buffer[255];

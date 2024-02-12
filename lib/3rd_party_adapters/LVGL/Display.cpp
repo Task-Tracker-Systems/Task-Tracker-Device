@@ -1,22 +1,11 @@
-
-#include "board_pins.hpp"
+#include "Display.hpp"
 #include <Adafruit_SSD1306.h>
-#include <Arduino.h>
-#include <Wire.h>
-#include <lvgl.h>
-
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 64 // OLED display height, in pixels
-
-// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, board::i2c_1::pin::res);
-
-static lv_disp_draw_buf_t draw_buf;
-static lv_color_t buf[SCREEN_WIDTH * 16];
+#include <cassert>
 
 #if LV_USE_LOG != 0
+#include <Arduino.h>
 /* Serial debugging */
-void lvgl_log_to_serial(const char *buf)
+static void lvgl_log_to_serial(const char *buf)
 {
     Serial.printf(buf);
     Serial.flush();
@@ -24,8 +13,10 @@ void lvgl_log_to_serial(const char *buf)
 #endif
 
 /* Display flushing */
-void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p)
+static void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p)
 {
+    const auto displayAdapter = reinterpret_cast<Display *>(disp_drv->user_data);
+    auto &display = displayAdapter->display;
     uint32_t width = (area->x2 - area->x1 + 1);
     uint32_t height = (area->y2 - area->y1 + 1);
 
@@ -41,21 +32,16 @@ void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_col
     lv_disp_flush_ready(disp_drv);
 }
 
-void setup_display()
+Display::Display(const Configuration &configuration, TwoWire &i2c)
+    : display(configuration.screen_width, configuration.screen_height, &i2c),
+      buf(std::make_unique<lv_color_t[]>(configuration.screen_width * 16))
 {
 #if LV_USE_LOG != 0
     lv_log_register_print_cb(lvgl_log_to_serial); /* register print function for debugging */
 #endif
-
-    delay(100); // maybe this delay can be replaced by using a reset signal for the display (requires hardware modifications)
-    Wire.begin(board::i2c_1::pin::sda, board::i2c_1::pin::scl);
-    // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3D))
-    {
-        Serial.println("SSD1306 allocation failed");
-        for (;;)
-            ; // Don't proceed, loop forever
-    }
+    const std::uint8_t switchVcc = configuration.generateDisplayVoltageInternally ? SSD1306_SWITCHCAPVCC : SSD1306_EXTERNALVCC;
+    const bool allocationSuccessful = display.begin(switchVcc, configuration.display_i2c_address);
+    assert(allocationSuccessful);
 
     // Show initial display buffer contents on the screen --
     // the library initializes this with an Adafruit splash screen.
@@ -70,16 +56,18 @@ void setup_display()
     display.display();
 
     // Initialize lvgl library
+    static lv_disp_draw_buf_t draw_buf;
     lv_init();
-    lv_disp_draw_buf_init(&draw_buf, buf, NULL, SCREEN_WIDTH * 16);
+    lv_disp_draw_buf_init(&draw_buf, buf.get(), NULL, configuration.screen_width * 16);
 
     // Initialize the display driver for lvgl
     static lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
-    disp_drv.hor_res = SCREEN_WIDTH;
-    disp_drv.ver_res = SCREEN_HEIGHT;
+    disp_drv.hor_res = configuration.screen_width;
+    disp_drv.ver_res = configuration.screen_height;
     disp_drv.flush_cb = flushSSD1306Adafruit;
     disp_drv.draw_buf = &draw_buf;
+    disp_drv.user_data = this;
 
     // Register display driver to lvgl
     lv_disp_drv_register(&disp_drv);
@@ -94,7 +82,7 @@ void setup_display()
     lv_timer_handler();
 }
 
-void refresh_display()
+void Display::refresh()
 {
     lv_timer_handler();
 }
