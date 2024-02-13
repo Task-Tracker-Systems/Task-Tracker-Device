@@ -18,9 +18,11 @@ class Display : public IDisplay
     };
     Display(const Configuration &configuration, TwoWire &i2c);
     virtual void refresh() override;
+    virtual void drawMenu(const MenuItemList* menuList) override;
 
     Adafruit_SSD1306 display;
 
   private:
     const std::unique_ptr<lv_color_t[]> buf;
+    lv_indev_t *inputDevice;
 };
