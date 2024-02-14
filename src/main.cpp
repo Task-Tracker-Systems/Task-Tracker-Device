@@ -1,108 +1,47 @@
-#include "main.hpp"
-#include "board_pins.hpp"
-#include "display.h"
-#include "pitches.hpp"
-#include "serial_port.hpp"
-#include <Arduino.h>
-#include <Protocol.hpp>
-#include <cstdint>
-
 /**
- * Events are the beginning of a pressed button.
- * 
- * @returns 1-8 or 0 in case of no event
+ * \file
  */
-static std::uint8_t getEvent()
-{
-    constexpr PinType inputPins[] = {
-        board::button::pin::task1,
-        board::button::pin::task2,
-        board::button::pin::task3,
-        board::button::pin::task4,
-        board::button::pin::up,
-        board::button::pin::down,
-        board::button::pin::enter,
-        board::button::pin::back,
-    };
-    static PinType oldValue = 0U;
-    PinType newValue = 0U;
-    std::uint8_t result = 0U;
 
-    std::uint8_t candidateEvent = 1;
-    for (const auto pin : inputPins)
-    {
-        if (digitalRead(pin) == LOW) // buttons are active low
-        {
-            newValue = candidateEvent;
-        }
-        candidateEvent++;
-    }
+#include <chrono>
+#include <serial_interface/Protocol.hpp>
+#include <serial_interface/serial_port.hpp>
+#include <tasks/Task.hpp>
+#include <thread>
+#include <user_interaction/Menu.hpp>
+#include <user_interaction/Presenter.hpp>
+#include <user_interaction/ProcessHmiInputs.hpp>
+#include <user_interaction/display_factory_interface.hpp>
+#include <user_interaction/keypad_factory_interface.hpp>
+#include <user_interaction/statusindicators_factory_interface.hpp>
 
-    if (newValue != 0 && oldValue == 0)
-    {
-        result = newValue;
-    }
-    oldValue = newValue;
-    return result;
-}
-
-namespace main
-{
-void setup(char const *programIdentificationString)
+void setup()
 {
     serial_port::initialize();
-    pinMode(board::button::pin::up, INPUT_PULLUP);
-    pinMode(board::button::pin::down, INPUT_PULLUP);
-    pinMode(board::button::pin::enter, INPUT_PULLUP);
-    pinMode(board::button::pin::back, INPUT_PULLUP);
-    pinMode(board::button::pin::task1, INPUT_PULLUP);
-    pinMode(board::button::pin::task2, INPUT_PULLUP);
-    pinMode(board::button::pin::task3, INPUT_PULLUP);
-    pinMode(board::button::pin::task4, INPUT_PULLUP);
-    pinMode(board::led::pin::task1, OUTPUT);
-    pinMode(board::led::pin::task2, OUTPUT);
-    pinMode(board::led::pin::task3, OUTPUT);
-    pinMode(board::led::pin::task4, OUTPUT);
-    pinMode(board::buzzer::pin::on_off, OUTPUT);
-    setup_display();
     serial_port::cout << "\x1b[20h"; // Tell the terminal to use CR/LF for newlines instead of just CR.
+    static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
     serial_port::cout << std::endl
                       << " begin program '" << programIdentificationString << std::endl;
     serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
         ProtocolHandler::execute(commandLine.c_str());
     });
 }
+
 void loop()
 {
-    constexpr unsigned long loopDurationMs = 250;
-    const auto event = getEvent();
-    constexpr PinType outputPins[] = {
-        board::led::pin::task1,
-        board::led::pin::task2,
-        board::led::pin::task3,
-        board::led::pin::task4,
-    };
-    if (event)
+    static Menu singleMenu(board::getDisplay());
+    static Presenter presenter(singleMenu, board::getStatusIndicators());
+    static ProcessHmiInputs processHmiInputs(presenter, board::getKeypad());
+
+    for (auto task : device::tasks)
     {
-        Serial.printf("Process event '%u'.\n", event);
-        constexpr std::uint16_t notes[] = {note::c3, note::d3, note::e3, note::f3, note::g3, note::a3, note::b3, note::c4};
-        tone(board::buzzer::pin::on_off, notes[event - 1], loopDurationMs);
-        if (event < sizeof(outputPins) / sizeof(outputPins[0]) + 1)
-        {
-            constexpr int minBrightness = 0;
-            analogWrite(outputPins[event - 1], minBrightness);
-        }
+        serial_port::cout << task.second.getLabel() << " : " << std::boolalpha << task.second.isRunning()
+                          << std::noboolalpha << "   with " << task.second.getRecordedDuration().count() << " s" << std::endl;
     }
-    else
-    {
-        for (const auto pin : outputPins)
-        {
-            constexpr int maxBrightness = 255;
-            constexpr int brightness = maxBrightness * 25 / 100.0;
-            analogWrite(pin, brightness);
-        }
-    }
-    delay(loopDurationMs);
-    refresh_display(); // Animate bitmaps
+    serial_port::cout << "_\r" << std::endl;
+
+    std::this_thread::yield();
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(1s);
+
+    presenter.loop();
 }
-} // namespace main

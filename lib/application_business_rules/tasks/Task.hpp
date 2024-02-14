@@ -37,7 +37,7 @@ class Task
      * Must be able to hold special non-ANSI characters.
      * \endinternal
      */
-    typedef std::wstring String;
+    typedef std::string String;
     Task(const String &newLabel, const Duration elapsedTime = Duration::zero());
 
     /**
