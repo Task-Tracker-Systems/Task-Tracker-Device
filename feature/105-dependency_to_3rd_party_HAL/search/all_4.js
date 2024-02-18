@@ -27,7 +27,7 @@ var searchData=
   ['dr001_20represent_20software_20architecture_20in_20directory_20structure_24',['DR001 Represent Software Architecture in Directory Structure',['../dr_001.xhtml',1,'']]],
   ['dr002_20root_20directory_20for_20the_20package_27s_20source_20files_25',['DR002 Root Directory for the Package&apos;s source files',['../dr_002.xhtml',1,'']]],
   ['dr003_20test_20granularity_20and_20stubbing_20challenges_26',['DR003 Test Granularity and Stubbing Challenges',['../dr_003.xhtml',1,'']]],
-  ['dr004_20direct_20usage_20of_20hardware_20abstraction_20layer_27',['DR004 Direct usage of Hardware Abstraction Layer',['../md_doc_decisions_dr_004.xhtml',1,'']]],
+  ['dr004_20direct_20usage_20of_20hardware_20abstraction_20layer_27',['DR004 Direct Usage of Hardware Abstraction Layer',['../md_doc_decisions_dr_004.xhtml',1,'']]],
   ['ds1_28',['ds1',['../namespacenote.xhtml#a8aad924f1ca4d46b938a7a7c41f4d0ed',1,'note']]],
   ['ds2_29',['ds2',['../namespacenote.xhtml#a8c93973c1c1a71a6092195013a8262f9',1,'note']]],
   ['ds3_30',['ds3',['../namespacenote.xhtml#a8173ef1023b3b51d0f850d37246c31f5',1,'note']]],
