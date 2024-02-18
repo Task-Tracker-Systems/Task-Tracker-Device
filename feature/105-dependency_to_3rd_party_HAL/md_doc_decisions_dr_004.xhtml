@@ -96,7 +96,7 @@ Option 1a)</h3>
 <ul>
 <li>define one or several interfaces inside the <a class="el" href="board_adapters.xhtml">board adapters package</a> (header files)</li>
 <li>implement those as adapters inside the <a class="el" href="third_party_adapters.xhtml">3rd party adapters package</a> (source files)</li>
-<li>define interfaces for the factories (see <a class="el" href="md_doc_software_architecture.xhtml#dependency_injection">dependency injection</a> inside the <a class="el" href="board_adapters.xhtml">board adapters package</a> (header files)</li>
+<li>define interfaces for the factories (see <a class="el" href="md_doc_software_architecture.xhtml#dependency_injection">dependency injection</a>) inside the <a class="el" href="board_adapters.xhtml">board adapters package</a> (header files)</li>
 <li>implement those factories inside the <a class="el" href="third_party_adapters.xhtml">3rd party adapters package</a> (source files)</li>
 </ul>
 <p >This is the usual way dependency injection and therefore the <a class="el" href="md_doc_software_architecture.xhtml#interpretation_dependency_rule">dependency rule</a> is implemented.</p>
@@ -118,19 +118,84 @@ Option 1c)</h3>
 Option 2</h2>
 <p >Change the current guidelines such that the direct dependency to 3rd party HALs is allowed within hardware related packages (which is currently only the <a class="el" href="board_adapters.xhtml">board adapters package</a>).</p>
 <p >This approach eliminates the requirement to define 3rd party adapters to the HAL.</p>
-<p >In order to be able to test code depending on the <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>, the 3rd party interface needs to be stubbed. For vanilla <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>, stubbing the proprietary interface can be greatly simplified by using <a href="https://platformio.org/lib/show/1689/ArduinoFake" title="ArduinoFake in PlaftormIO&apos;s registry">ArduinoFake</a>. We use an <a href="https://github.com/espressif/arduino-esp32/">implementation of the Arduino Core API (ACA) specific for ESP32s by Espressif</a> which extends the <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>. Following the approach of this option, to directly use <a href="https://github.com/arduino/ArduinoCore-API">ACA</a> and <a href="https://platformio.org/lib/show/1689/ArduinoFake" title="ArduinoFake in PlaftormIO&apos;s registry">ArduinoFake</a> for testing, we would need to deal with the extensions separately. The following variants of this option, specifies different methods to cope with the extensions.</p>
+<p >In order to be able to test code depending on the <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>, the 3rd party interface needs to be stubbed. <em>For vanilla <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>, stubbing the proprietary interface can be greatly simplified by using <a href="https://platformio.org/lib/show/1689/ArduinoFake" title="ArduinoFake in PlaftormIO&apos;s registry">ArduinoFake</a>.</em> We use an <a href="https://github.com/espressif/arduino-esp32/">implementation of the Arduino Core API (ACA) specific for ESP32s by Espressif</a> which extends the <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>. Following the approach of this option, to directly use <a href="https://github.com/arduino/ArduinoCore-API">ACA</a> and <a href="https://platformio.org/lib/show/1689/ArduinoFake" title="ArduinoFake in PlaftormIO&apos;s registry">ArduinoFake</a> for testing, we would need to deal with the extensions separately. The following variants of this option, specifies different methods to cope with the extensions.</p>
 <h3><a class="anchor" id="autotoc_md38"></a>
 Option 2a)</h3>
 <p >Instead of directly using a modified Arduino interface (for example for a specific <code>class</code>), we use an adapter. The adapters would be integrated just as for option 1. But compared to option 1 this only needs to be done for those smallest indivisible interfaces which are not compatible to the vanilla <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>.</p>
 <h3><a class="anchor" id="autotoc_md39"></a>
 Option 2b)</h3>
 <p >At those places in the source code where extensions are used, we introduce conditionally compiled sections. One section uses the modified version of the <a href="https://github.com/arduino/ArduinoCore-API">ACA</a>, necessary for the productive code. The alternative section is instead used when compiling for native tests. It uses the vanilla <a href="https://github.com/arduino/ArduinoCore-API">ACA</a> which can be simply stubbed using <a href="https://platformio.org/lib/show/1689/ArduinoFake" title="ArduinoFake in PlaftormIO&apos;s registry">ArduinoFake</a>.</p>
-<p >The selection of conditionally compiled sections is done using <code>constexpr if</code>, where possible. Else the C preprocessor (CPP) is used for conditional inclusion (<code>#if</code>, ...). </p>
+<p >The selection of conditionally compiled sections is done using <code>constexpr if</code>, where possible. Else the C preprocessor (CPP) is used for conditional inclusion (<code>#if</code>, ...).</p>
+<h1><a class="anchor" id="autotoc_md40"></a>
+Comparison of Options</h1>
+<h2><a class="anchor" id="autotoc_md41"></a>
+Comparing variants Option 1a), b) and c)</h2>
+<p >Assuming that we do define interfaces for one or several HALs, we should not follow the structure of the currently used one just out of convenience (what option 1c) suggests). Because that would possibly complicate to write adapters for different HAL implementations. And allowing variants is one of the purposes of the adapters.</p>
+<p >Instead we would design the interfaces such that they fit the usage. In general an object oriented approach is sensible to represent the different components which are available through HALs. Also an object oriented approach is the most straightforward to implement dependency inversion.</p>
+<p >This from those variants, <b>option 1a)</b> would be the best.</p>
+<h2><a class="anchor" id="autotoc_md42"></a>
+Comparing Options 1a), 2a) and 2b)</h2>
+<ul>
+<li><b>Option 1a)</b>: Implement and use adapters for the complete 3rd party HAL(s)<ul>
+<li>Pros:<ul>
+<li>Clean separation of concerns, dependency inversion and injection.</li>
+<li>Fits to the overall design to use dependency inversion in order to fulfill the <a class="el" href="md_doc_software_architecture.xhtml#interpretation_dependency_rule">dependency rule</a>.</li>
+<li>Using a different implementation of our - to be defined - HAL interface would not require to modify the users of our HAL interface. Instead only a different adapter - implementing our HAL interface - would be required.<a class="el" href="md_doc_decisions_dr_004.xhtml#dr004_1">¹</a></li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>This approach requires to write adapters for all HAL interfaces to 3rd party libraries. This is difficult and may result in boilerplate code. Note, that this would mean to write adapters to a HAL implementation, which is an adapter (to proprietary peripheral drivers) in itself.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b>Option 2a)</b>: Use adapters for extensions to vanilla ACA<ul>
+<li>Pros:<ul>
+<li>Compared to option 1a), only a fraction of the adapters would need to be written.</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>Our board adapters would have a high degree of dependency to the ACA. The <em>Single Responsibility Principle</em> is violated<a class="el" href="md_doc_decisions_dr_004.xhtml#dr004_2">²</a> as the board adapters would not only depend on the board and its hardware. But also on an interface of a 3rd party HAL.</li>
+<li>To deal with the extensions made compared to vanilla ACA, some adapters need to be written.</li>
+<li>Adapting a variation from the ACA in one member function of a class requires to create an interface containing all used member functions of that class. Even if those other member functions are used without alterations. This introduces <em>boilerplate code</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b>Option 2b)</b>: Use alternative sections within source files<ul>
+<li>Pros:<ul>
+<li>Reduces the need for additional code to a minimum. No adapters need to be written to use the HAL.</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>Our board adapters would have a high degree of dependency to the ACA. The <em>Single Responsibility Principle</em> is violated<a class="el" href="md_doc_decisions_dr_004.xhtml#dr004_2">²</a> even further (compared to option 2a)) by depending on the vanilla ACA which is required for testing on the native build environment only. Changes to the test infrastructure should not necessitate changes in the source file containing productive code.</li>
+<li>In general conditionally compiled sections of code reduces its readability.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd><a class="anchor" id="dr004_1"></a>¹: Although, <em>in practice</em> our HAL interface may not be suitable to accommodate the new HAL implementation (see <a href="https://en.wikipedia.org/w/index.php%3Ftitle%3DRule_of_three_%28computer_programming%29%26oldid%3D1173684754">Rule of Three</a>). Thus we would have to adjust our HAL interface and the code using it accordingly. In other words: It is difficult to design an HAL interface such that we would actually benefit when changing the HAL implementation to a different 3rd party library. Thus this advantage may not be relevant for that case. <br  />
+ Also - in case the HAL implementation is changed - it may be less effort to adjust all the uses of the new HAL interface than to write adapters for the changed 3rd party library.</dd>
+<dd>
+<a class="anchor" id="dr004_2"></a>²: The source file (of a non-adapter) would depend on a 3rd party interface. Changes to that 3rd party interface may necessitate changes to the source file even though the requirements to that source files remain the same.</dd></dl>
+<h2><a class="anchor" id="autotoc_md43"></a>
+Summary &amp; Decision</h2>
+<p >Writing adapters adds additional effort, potentially boilerplate code and the advantage is dubious.</p>
+<p >After careful consideration, we've decided on:</p>
+<blockquote class="doxtable">
+<p >&zwj;<b>Option 2:</b> Allow direct dependencies from hardware related code to 3rd party HAL interfaces. </p>
+</blockquote>
+<p>And more specifically for testing on native environments, use:</p>
+<blockquote class="doxtable">
+<p >&zwj;<b>Option 2b):</b> Where the ACA is used it is allowed to add small conditionally compiled sections for tests in order to cope with deviations of the ACA used in productive code from the vanilla ACA. </p>
+</blockquote>
+<p>The latter relaxation is in order to facilitate the use of <a href="https://platformio.org/lib/show/1689/ArduinoFake" title="ArduinoFake in PlaftormIO&apos;s registry">ArduinoFake</a> to stub the HAL's interface. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 17 2024 15:44:48 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Feb 18 2024 18:41:45 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
