@@ -11,18 +11,22 @@
 #include <nlohmann/json.hpp>
 #include "helper.hpp"
 
-#include "protocolVersionObject.hpp"
+#include "ProtocolVersionObject.hpp"
 
 namespace tasktrackersystems {
-    void from_json(const json & j, protocolVersionObject & x);
-    void to_json(json & j, const protocolVersionObject & x);
+    void from_json(const json & j, ProtocolVersionObject & x);
+    void to_json(json & j, const ProtocolVersionObject & x);
 
-    inline void from_json(const json & j, protocolVersionObject& x) {
-        x.set_version(j.at("version").get<std::string>());
+    inline void from_json(const json & j, ProtocolVersionObject& x) {
+        x.major = j.at("major").get<int64_t>();
+        x.minor = j.at("minor").get<int64_t>();
+        x.patch = j.at("patch").get<int64_t>();
     }
 
-    inline void to_json(json & j, const protocolVersionObject & x) {
+    inline void to_json(json & j, const ProtocolVersionObject & x) {
         j = json::object();
-        j["version"] = x.get_version();
+        j["major"] = x.major;
+        j["minor"] = x.minor;
+        j["patch"] = x.patch;
     }
 }
