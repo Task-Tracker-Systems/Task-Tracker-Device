@@ -1,29 +1,15 @@
-//  To parse this JSON data, first install
-//
-//      json.hpp  https://github.com/nlohmann/json
-//
-//  Then include this file, and then do
-//
-//     ProtocolVersionObject.hpp data = nlohmann::json::parse(jsonString);
-
 #pragma once
+#include <cstdint>
 
-#include <nlohmann/json.hpp>
-#include "helper.hpp"
-
-namespace tasktrackersystems {
-    /**
-     * Protocol Version Object
-     */
-
-    using nlohmann::json;
-
-    /**
-     * Protocol Version Object
-     */
-    struct ProtocolVersionObject {
-        int64_t major;
-        int64_t minor;
-        int64_t patch;
-    };
-}
+namespace task_tracker_systems
+{
+/**
+ * Protocol Version Object
+ */
+struct ProtocolVersionObject
+{
+    std::uint8_t major;
+    std::uint8_t minor;
+    std::uint16_t patch;
+};
+} // namespace task_tracker_systems
