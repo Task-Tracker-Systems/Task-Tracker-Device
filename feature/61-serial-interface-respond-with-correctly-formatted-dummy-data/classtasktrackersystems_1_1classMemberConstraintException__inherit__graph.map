@@ -1,9 +1,0 @@
-<map id="tasktrackersystems::classMemberConstraintException" name="tasktrackersystems::classMemberConstraintException">
-<area shape="rect" id="node1" title=" " alt="" coords="391,93,631,163"/>
-<area shape="rect" id="node3" href="$classtasktrackersystems_1_1invalidPatternException.xhtml" title=" " alt="" coords="5,211,188,280"/>
-<area shape="rect" id="node4" href="$classtasktrackersystems_1_1valueTooHighException.xhtml" title=" " alt="" coords="212,211,395,280"/>
-<area shape="rect" id="node5" href="$classtasktrackersystems_1_1valueTooLongException.xhtml" title=" " alt="" coords="419,211,604,280"/>
-<area shape="rect" id="node6" href="$classtasktrackersystems_1_1valueTooLowException.xhtml" title=" " alt="" coords="629,211,810,280"/>
-<area shape="rect" id="node7" href="$classtasktrackersystems_1_1valueTooShortException.xhtml" title=" " alt="" coords="834,211,1021,280"/>
-<area shape="rect" id="node2" title=" " alt="" coords="448,5,575,45"/>
-</map>

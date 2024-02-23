@@ -1,10 +1,6 @@
 <map id="lib/enterprise_business_rules/serial_protocol/Generators.hpp" name="lib/enterprise_business_rules/serial_protocol/Generators.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="104,5,259,60"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,255,136,280"/>
-<area shape="rect" id="node3" href="$helper_8hpp.xhtml" title=" " alt="" coords="250,181,331,207"/>
-<area shape="rect" id="node8" href="$protocolVersionObject_8hpp.xhtml" title=" " alt="" coords="94,108,269,133"/>
-<area shape="rect" id="node4" title=" " alt="" coords="160,255,227,280"/>
-<area shape="rect" id="node5" title=" " alt="" coords="251,255,330,280"/>
-<area shape="rect" id="node6" title=" " alt="" coords="355,255,408,280"/>
-<area shape="rect" id="node7" title=" " alt="" coords="432,255,501,280"/>
+<area shape="rect" id="node2" href="$ProtocolVersionObject_8hpp.xhtml" title=" " alt="" coords="5,108,181,133"/>
+<area shape="rect" id="node4" title=" " alt="" coords="205,108,336,133"/>
+<area shape="rect" id="node3" title=" " alt="" coords="63,181,124,207"/>
 </map>
