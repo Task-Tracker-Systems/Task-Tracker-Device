@@ -8,25 +8,18 @@ namespace cli = command_line_interpreter;
 // --------------------------
 // --- define commands ------
 // --------------------------
-#include <serial_protocol/Generators.hpp>
+#include "JsonGenerator.hpp"
+#include <serial_protocol/ProtocolVersionObject.hpp>
 #include <string>
 
 using namespace task_tracker_systems;
 
 constexpr int defaultJsonIndent = 4;
 
-template <class T>
-static void sendAsJson(const T &object)
-{
-    nlohmann::json jsonObject;
-    task_tracker_systems::to_json(jsonObject, object);
-    serial_port::cout << jsonObject.dump(defaultJsonIndent) std::endl;
-}
-
 // command for into
 static const auto info = []() {
-    constexpr ProtocolVersionObject version{.major = 0, .minor = 1, .patch = 0};
-    sendAsJson(version);
+    constexpr ProtocolVersionObject version = {.major = 0, .minor = 1, .patch = 0};
+    serial_port::cout << toJsonString(version) << std::endl;
 };
 static const auto infoCmd = cli::makeCommand("info", std::function(info));
 
