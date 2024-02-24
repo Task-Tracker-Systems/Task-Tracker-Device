@@ -8,7 +8,27 @@ namespace cli = command_line_interpreter;
 // --------------------------
 // --- define commands ------
 // --------------------------
+#include <serial_protocol/Generators.hpp>
 #include <string>
+
+using namespace task_tracker_systems;
+
+constexpr int defaultJsonIndent = 4;
+
+template <class T>
+static void sendAsJson(const T &object)
+{
+    nlohmann::json jsonObject;
+    task_tracker_systems::to_json(jsonObject, object);
+    serial_port::cout << jsonObject.dump(defaultJsonIndent) std::endl;
+}
+
+// command for into
+static const auto info = []() {
+    constexpr ProtocolVersionObject version{.major = 0, .minor = 1, .patch = 0};
+    sendAsJson(version);
+};
+static const auto infoCmd = cli::makeCommand("info", std::function(info));
 
 // command for list
 static const auto list = []() { serial_port::cout << "this is a list: a, b, c, ..." << std::endl; };
@@ -23,7 +43,7 @@ static const cli::Option<std::basic_string<ProtocolHandler::CharType>> label = {
 static const cli::Option<int> duration = {.labels = {"--duration"}, .defaultValue = 0};
 static const auto editCmd = cli::makeCommand("edit", std::function(edit), std::make_tuple(&id, &label, &duration));
 
-static const std::array<const cli::BaseCommand<char> *, 2> commands = {&listCmd, &editCmd};
+static const std::array<const cli::BaseCommand<char> *, 3> commands = {&listCmd, &editCmd, &infoCmd};
 
 bool ProtocolHandler::execute(const CharType *const commandLine)
 {

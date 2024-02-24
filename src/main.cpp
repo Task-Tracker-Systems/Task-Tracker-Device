@@ -5,7 +5,6 @@
 #include <chrono>
 #include <serial_interface/Protocol.hpp>
 #include <serial_interface/serial_port.hpp>
-#include <serial_protocol/Generators.hpp>
 #include <tasks/Task.hpp>
 #include <thread>
 #include <user_interaction/Menu.hpp>
@@ -25,11 +24,6 @@ void setup()
     serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
         ProtocolHandler::execute(commandLine.c_str());
     });
-
-    constexpr task_tracker_systems::ProtocolVersionObject version{.major = 0, .minor = 1, .patch = 0};
-    nlohmann::json jsonObject;
-    task_tracker_systems::to_json(jsonObject, version);
-    serial_port::cout << "Version: '" << jsonObject.dump(4) << "'" << std::endl;
 }
 
 void loop()
