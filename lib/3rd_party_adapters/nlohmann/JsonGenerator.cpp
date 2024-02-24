@@ -1,5 +1,6 @@
 #include <nlohmann/json.hpp>
 #include <serial_interface/JsonGenerator.hpp>
+#include <serial_protocol/DeletedTaskObject.hpp>
 #include <serial_protocol/ProtocolVersionObject.hpp>
 #include <serial_protocol/TaskObject.hpp>
 
@@ -22,5 +23,13 @@ std::string toJsonString<task_tracker_systems::TaskObject>(const task_tracker_sy
     jsonObject["duration"] = object.duration;
     jsonObject["id"] = object.id;
     jsonObject["label"] = object.label;
+    return jsonObject.dump(defaultJsonIndent);
+}
+
+template <>
+std::string toJsonString<task_tracker_systems::DeletedTaskObject>(const task_tracker_systems::DeletedTaskObject &object)
+{
+    auto jsonObject = nlohmann::json::object();
+    jsonObject["id"] = object.id;
     return jsonObject.dump(defaultJsonIndent);
 }
