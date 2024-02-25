@@ -119,3 +119,8 @@ void Keypad::setCallback(std::function<void(KeyId)> callbackFunction)
 {
     callBack = callbackFunction;
 }
+
+bool Keypad::isKeyPressed(const KeyId keyInquiry)
+{
+    return false; //TODO
+}
