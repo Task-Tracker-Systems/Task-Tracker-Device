@@ -1,9 +1,12 @@
 #include "Menu.hpp"
 #include "MenuItem.hpp"
+#include "LVGL/KeyInputs.hpp"
 
-Menu::Menu(IDisplay &displayToUse)
+Menu::Menu(IDisplay &displayToUse, IKeypad &keypad)
     : display(displayToUse)
 {
+    RegisterKeyInputs(&keypad);
+
     static auto mainMenu = MenuItemList();
     static auto subMenu1 = MenuItemList();
     static auto subMenu2 = MenuItemList();
