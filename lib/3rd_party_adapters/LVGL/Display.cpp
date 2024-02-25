@@ -79,14 +79,6 @@ Display::Display(const Configuration &configuration, TwoWire &i2c)
     lv_theme_t *mono_theme = lv_theme_mono_init(0, false, &lv_font_unscii_8);
     lv_disp_set_theme(0, mono_theme);
 
-    // Register at least one display before you register any input devices
-    static lv_indev_drv_t indev_drv;
-    lv_indev_drv_init(&indev_drv);
-    indev_drv.type = LV_INDEV_TYPE_ENCODER;
-    indev_drv.read_cb = NULL;
-    // Register the driver in LVGL and save the created input device object
-    inputDevice = lv_indev_drv_register(&indev_drv);
-
     // create first text in lvgl
     lv_obj_t *label = lv_label_create(lv_scr_act());
     lv_label_set_text(label, "LVGL is up");
