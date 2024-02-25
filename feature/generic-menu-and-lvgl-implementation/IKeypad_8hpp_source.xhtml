@@ -94,18 +94,20 @@ $(function() {
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classIKeypad.xhtml#ae59591c00a28ca320ad95349cedea62b">   16</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIKeypad.xhtml#ae59591c00a28ca320ad95349cedea62b">setCallback</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="IKeypad_8hpp.xhtml#ae2fde3285f2c5c5ca51dcbbca7dfe513">HmiHandler</a> callbackFunction) = 0;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classIKeypad.xhtml#a9be9488e31637076450145fde2272c42">   17</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classIKeypad.xhtml#a9be9488e31637076450145fde2272c42">~IKeypad</a>(){};</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classIKeypad.xhtml#adaf913232976026af1ea73ea60a835f2">   17</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classIKeypad.xhtml#adaf913232976026af1ea73ea60a835f2">isKeyPressed</a>(<a class="code hl_enumeration" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a> keyInquiry) = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classIKeypad.xhtml#a9be9488e31637076450145fde2272c42">   18</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classIKeypad.xhtml#a9be9488e31637076450145fde2272c42">~IKeypad</a>(){};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
 <div class="ttc" id="aIKeypad_8hpp_xhtml_ae2fde3285f2c5c5ca51dcbbca7dfe513"><div class="ttname"><a href="IKeypad_8hpp.xhtml#ae2fde3285f2c5c5ca51dcbbca7dfe513">HmiHandler</a></div><div class="ttdeci">std::function&lt; void(KeyId)&gt; HmiHandler</div><div class="ttdef"><b>Definition:</b> IKeypad.hpp:6</div></div>
 <div class="ttc" id="aKeyIds_8hpp_xhtml"><div class="ttname"><a href="KeyIds_8hpp.xhtml">KeyIds.hpp</a></div></div>
 <div class="ttc" id="aKeyIds_8hpp_xhtml_a251d5d8935f1af4cb86e18f962d9d33d"><div class="ttname"><a href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a></div><div class="ttdeci">KeyId</div><div class="ttdef"><b>Definition:</b> KeyIds.hpp:5</div></div>
 <div class="ttc" id="aclassIKeypad_xhtml"><div class="ttname"><a href="classIKeypad.xhtml">IKeypad</a></div><div class="ttdoc">Interface to an human input device.</div><div class="ttdef"><b>Definition:</b> IKeypad.hpp:14</div></div>
-<div class="ttc" id="aclassIKeypad_xhtml_a9be9488e31637076450145fde2272c42"><div class="ttname"><a href="classIKeypad.xhtml#a9be9488e31637076450145fde2272c42">IKeypad::~IKeypad</a></div><div class="ttdeci">virtual ~IKeypad()</div><div class="ttdef"><b>Definition:</b> IKeypad.hpp:17</div></div>
+<div class="ttc" id="aclassIKeypad_xhtml_a9be9488e31637076450145fde2272c42"><div class="ttname"><a href="classIKeypad.xhtml#a9be9488e31637076450145fde2272c42">IKeypad::~IKeypad</a></div><div class="ttdeci">virtual ~IKeypad()</div><div class="ttdef"><b>Definition:</b> IKeypad.hpp:18</div></div>
+<div class="ttc" id="aclassIKeypad_xhtml_adaf913232976026af1ea73ea60a835f2"><div class="ttname"><a href="classIKeypad.xhtml#adaf913232976026af1ea73ea60a835f2">IKeypad::isKeyPressed</a></div><div class="ttdeci">virtual bool isKeyPressed(KeyId keyInquiry)=0</div></div>
 <div class="ttc" id="aclassIKeypad_xhtml_ae59591c00a28ca320ad95349cedea62b"><div class="ttname"><a href="classIKeypad.xhtml#ae59591c00a28ca320ad95349cedea62b">IKeypad::setCallback</a></div><div class="ttdeci">virtual void setCallback(const HmiHandler callbackFunction)=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 14 2024 00:36:36 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sun Feb 25 2024 16:55:04 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
