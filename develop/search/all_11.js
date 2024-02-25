@@ -24,7 +24,7 @@ var searchData=
   ['setup_21',['setUp',['../test__cli_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_cli.cpp'],['../test__hmi_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_hmi.cpp'],['../test__string__helpers_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;test_string_helpers.cpp'],['../task_8cpp.xhtml#a63326a1b70b6e3f070e51687798e02de',1,'setUp():&#160;task.cpp']]],
   ['setup_22',['setup',['../main_8cpp.xhtml#a4fc01d736fe50cf5b977f755b675f11d',1,'main.cpp']]],
   ['setup_5fsound_23',['setup_sound',['../namespaceboard.xhtml#a2fabd6cbed01587f38990f68d6bc1e44',1,'board']]],
-  ['software_20architecture_24',['Software Architecture',['../md_doc_software_architecture.xhtml',1,'']]],
+  ['software_20architecture_24',['Software Architecture',['../software_architecture.xhtml',1,'']]],
   ['software_2darchitecture_2emd_25',['software-architecture.md',['../software-architecture_8md.xhtml',1,'']]],
   ['sound_5foutput_2ecpp_26',['sound_output.cpp',['../sound__output_8cpp.xhtml',1,'']]],
   ['sound_5foutput_2ehpp_27',['sound_output.hpp',['../sound__output_8hpp.xhtml',1,'']]],

@@ -16,7 +16,7 @@ var searchData=
   ['basecommand_13',['BaseCommand',['../structcommand__line__interpreter_1_1BaseCommand.xhtml#a5408441a60a0535b20d902591e70f9a5',1,'command_line_interpreter::BaseCommand::BaseCommand()'],['../structcommand__line__interpreter_1_1BaseCommand.xhtml',1,'command_line_interpreter::BaseCommand&lt; CharType &gt;']]],
   ['bibliography_14',['Bibliography',['../citelist.xhtml',1,'']]],
   ['board_15',['board',['../namespaceboard.xhtml',1,'']]],
-  ['board_20adapters_16',['Board Adapters',['../board_adapters.xhtml',1,'md_doc_software_architecture']]],
+  ['board_20adapters_16',['Board Adapters',['../board_adapters.xhtml',1,'software_architecture']]],
   ['board_2ecpp_17',['board.cpp',['../board_8cpp.xhtml',1,'']]],
   ['board_5finterface_2ehpp_18',['board_interface.hpp',['../board__interface_8hpp.xhtml',1,'']]],
   ['board_5fpins_2ehpp_19',['board_pins.hpp',['../board__pins_8hpp.xhtml',1,'']]],
