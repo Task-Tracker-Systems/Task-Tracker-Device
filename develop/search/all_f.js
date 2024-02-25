@@ -11,5 +11,7 @@ var searchData=
   ['processhmiinputs_2ehpp_8',['ProcessHmiInputs.hpp',['../ProcessHmiInputs_8hpp.xhtml',1,'']]],
   ['protocol_2ecpp_9',['Protocol.cpp',['../Protocol_8cpp.xhtml',1,'']]],
   ['protocol_2ehpp_10',['Protocol.hpp',['../Protocol_8hpp.xhtml',1,'']]],
-  ['protocolhandler_11',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]]
+  ['protocolhandler_11',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]],
+  ['proxy_20header_12',['Proxy header',['../proxy_header.xhtml',1,'']]],
+  ['proxy_5fheader_2emd_13',['proxy_header.md',['../proxy__header_8md.xhtml',1,'']]]
 ];
