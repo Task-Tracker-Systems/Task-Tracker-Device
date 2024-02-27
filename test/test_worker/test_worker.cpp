@@ -11,8 +11,11 @@ void tearDown(void)
 
 void test_run_worker()
 {
-    Worker w;
+    bool flag = false;
+    const auto work = [&flag]() { flag = true; };
+    Worker w(work);
     w.wait_until_finished();
+    TEST_ASSERT_TRUE(flag);
 }
 
 int main()
