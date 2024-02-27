@@ -9,5 +9,5 @@ class Worker
     void wait_until_finished() const;
 
   private:
-    std::thread thread;
+    mutable std::thread thread;
 };
