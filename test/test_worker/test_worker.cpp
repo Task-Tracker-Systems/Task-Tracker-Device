@@ -1,4 +1,5 @@
 #include <Worker.hpp>
+#include <atomic>
 #include <chrono>
 #include <unity.h>
 
@@ -35,10 +36,23 @@ void test_check_if_running()
     TEST_ASSERT_FALSE(w.isRunning());
 }
 
+void test_abort()
+{
+    std::atomic<bool> flag = false;
+    const auto work = [&]() { flag = true; };
+    Worker w(work, 1s);
+    TEST_ASSERT_TRUE(w.isRunning());
+    w.cancel();
+    w.wait_until_finished();
+    TEST_ASSERT_FALSE(w.isRunning());
+    TEST_ASSERT_FALSE(flag);
+}
+
 int main()
 {
     UNITY_BEGIN();
     RUN_TEST(test_run_worker);
     RUN_TEST(test_check_if_running);
+    RUN_TEST(test_abort);
     return UNITY_END();
 }

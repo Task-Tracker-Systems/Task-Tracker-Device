@@ -1,11 +1,5 @@
 #include "Worker.hpp"
 
-Worker::Worker(std::function<void(void)> work)
-    : running(true),
-      thread([&, work]() {work(); running=false; })
-{
-}
-
 void Worker::wait_until_finished() const
 {
     if (thread.joinable())
@@ -16,5 +10,13 @@ void Worker::wait_until_finished() const
 
 bool Worker::isRunning() const
 {
+    std::lock_guard lock(stateMutex);
     return running;
+}
+
+void Worker::cancel()
+{
+    std::lock_guard lock(stateMutex);
+    running = false;
+    stopCondition.notify_all();
 }
