@@ -35,3 +35,5 @@ jobs:
       run: platformio test --verbose --environment test_native_string_helpers
     - name: Run tests on the native platform for HMI layer
       run: platformio test --verbose --environment test_native_hmi
+    - name: Run tests on the native platform for Worker
+      run: platformio test --verbose --environment test_worker
