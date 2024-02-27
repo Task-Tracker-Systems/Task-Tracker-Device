@@ -85,6 +85,7 @@ var menudata={children:[
 {text:"r",url:"functions.xhtml#index_r"},
 {text:"s",url:"functions.xhtml#index_s"},
 {text:"t",url:"functions.xhtml#index_t"},
+{text:"w",url:"functions.xhtml#index_w"},
 {text:"~",url:"functions.xhtml#index__7E"}]},
 {text:"Functions",url:"functions_func.xhtml",children:[
 {text:"b",url:"functions_func.xhtml#index_b"},
@@ -101,6 +102,7 @@ var menudata={children:[
 {text:"r",url:"functions_func.xhtml#index_r"},
 {text:"s",url:"functions_func.xhtml#index_s"},
 {text:"t",url:"functions_func.xhtml#index_t"},
+{text:"w",url:"functions_func.xhtml#index_w"},
 {text:"~",url:"functions_func.xhtml#index__7E"}]},
 {text:"Variables",url:"functions_vars.xhtml"},
 {text:"Typedefs",url:"functions_type.xhtml"}]}]},
