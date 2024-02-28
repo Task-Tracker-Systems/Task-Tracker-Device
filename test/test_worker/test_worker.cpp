@@ -21,7 +21,7 @@ void test_run_worker()
         flag = true;
     };
     Worker w(work);
-    w.wait_until_finished();
+    w.waitUntilFinished();
     TEST_ASSERT_TRUE(flag);
 }
 
@@ -32,7 +32,7 @@ void test_check_if_running()
     };
     Worker w(work);
     TEST_ASSERT_TRUE(w.isRunning());
-    w.wait_until_finished();
+    w.waitUntilFinished();
     TEST_ASSERT_FALSE(w.isRunning());
 }
 
@@ -43,7 +43,7 @@ void test_abort()
     Worker w(work, 1s);
     TEST_ASSERT_TRUE(w.isRunning());
     w.cancelStartupDelay();
-    w.wait_until_finished();
+    w.waitUntilFinished();
     TEST_ASSERT_FALSE(w.isRunning());
     TEST_ASSERT_FALSE(flag);
 }

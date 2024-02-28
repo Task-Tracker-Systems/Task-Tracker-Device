@@ -9,9 +9,9 @@ class Worker
 {
   public:
     template <class Rep, class Period>
-    Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startDelay);
+    Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
     explicit Worker(std::function<void(void)> &&work);
-    void wait_until_finished() const;
+    void waitUntilFinished() const;
     bool isRunning() const;
     void cancelStartupDelay();
 
@@ -23,11 +23,11 @@ class Worker
 };
 
 template <class Rep, class Period>
-Worker::Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startDelay)
+Worker::Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
     : running(true),
       thread([&, work]() {
           std::unique_lock lock(stateMutex);
-          if (!stopCondition.wait_for(lock, startDelay, [&]() { return !running; }))
+          if (!stopCondition.wait_for(lock, startupDelay, [&]() { return !running; }))
           {
               work();
           }

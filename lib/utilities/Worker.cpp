@@ -1,6 +1,6 @@
 #include "Worker.hpp"
 
-void Worker::wait_until_finished() const
+void Worker::waitUntilFinished() const
 {
     if (thread.joinable())
     {
