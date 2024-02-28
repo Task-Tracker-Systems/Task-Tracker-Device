@@ -1,4 +1,5 @@
 #pragma once
+#include <chrono>
 #include <condition_variable>
 #include <functional>
 #include <mutex>
@@ -8,10 +9,11 @@ class Worker
 {
   public:
     template <class Rep, class Period>
-    explicit Worker(std::function<void(void)> work, const std::chrono::duration<Rep, Period> &startDelay = 0);
+    Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startDelay);
+    explicit Worker(std::function<void(void)> work);
     void wait_until_finished() const;
     bool isRunning() const;
-    void cancel();
+    void cancelStartupDelay();
 
   private:
     bool running;
@@ -21,7 +23,7 @@ class Worker
 };
 
 template <class Rep, class Period>
-Worker::Worker(std::function<void(void)> work, const std::chrono::duration<Rep, Period> &startDelay)
+Worker::Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startDelay)
     : running(true),
       thread([&, work]() {
           std::unique_lock lock(stateMutex);

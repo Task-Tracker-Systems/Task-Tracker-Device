@@ -14,7 +14,12 @@ bool Worker::isRunning() const
     return running;
 }
 
-void Worker::cancel()
+Worker::Worker(std::function<void(void)> &&work)
+    : Worker(work, std::chrono::milliseconds(0))
+{
+}
+
+void Worker::cancelStartupDelay()
 {
     std::lock_guard lock(stateMutex);
     running = false;

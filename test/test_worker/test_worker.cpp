@@ -42,7 +42,7 @@ void test_abort()
     const auto work = [&]() { flag = true; };
     Worker w(work, 1s);
     TEST_ASSERT_TRUE(w.isRunning());
-    w.cancel();
+    w.cancelStartupDelay();
     w.wait_until_finished();
     TEST_ASSERT_FALSE(w.isRunning());
     TEST_ASSERT_FALSE(flag);
