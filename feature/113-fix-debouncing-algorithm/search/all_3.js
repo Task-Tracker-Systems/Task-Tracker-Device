@@ -9,7 +9,7 @@ var searchData=
   ['c7_6',['c7',['../namespacenote.xhtml#a290147175d8f797c68f24f8fc2037e28',1,'note']]],
   ['c8_7',['c8',['../namespacenote.xhtml#afce38462497c0a3cb1e95a8bdf31c6b0',1,'note']]],
   ['callback_8',['callBack',['../Keypad_8cpp.xhtml#a999a31f7ad73eeda3e9c381b1caa7484',1,'Keypad.cpp']]],
-  ['cancel_9',['cancel',['../classWorker.xhtml#ab7e18d51d300e249173d9abdf972e396',1,'Worker']]],
+  ['cancelstartupdelay_9',['cancelStartupDelay',['../classWorker.xhtml#a7429993de7550f0e911f5b0d623981a2',1,'Worker']]],
   ['chart_10',['CharT',['../structcommand__line__interpreter_1_1BaseCommand.xhtml#aa7f576d619c08023f11ec1b9d28dfeda',1,'command_line_interpreter::BaseCommand::CharT()'],['../structcommand__line__interpreter_1_1Command.xhtml#a0552f6029d6be21b17a5dfdf19e56e8e',1,'command_line_interpreter::Command::CharT()'],['../structcommand__line__interpreter_1_1Option.xhtml#a781b86871f6516c547bde462f538ce2b',1,'command_line_interpreter::Option::CharT()']]],
   ['chartype_11',['CharType',['../classProtocolHandler.xhtml#a32cc1b3b5f896e72a81a0a9722823df5',1,'ProtocolHandler::CharType()'],['../namespaceserial__port.xhtml#a765887628af12493cbc5a2a5476efe3e',1,'serial_port::CharType()']]],
   ['code_5fof_5fconduct_2emd_12',['CODE_OF_CONDUCT.md',['../CODE__OF__CONDUCT_8md.xhtml',1,'']]],

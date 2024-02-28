@@ -87,30 +87,60 @@ $(function() {
 <div class="dynheader">
 Collaboration diagram for Worker:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classWorker__coll__graph.svg" width="158" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classWorker__coll__graph.svg" width="164" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa280ff2e80b4c61f620ebf4f31e8cd67"><td class="memTemplParams" colspan="2">template&lt;class Rep , class Period &gt; </td></tr>
-<tr class="memitem:aa280ff2e80b4c61f620ebf4f31e8cd67"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#aa280ff2e80b4c61f620ebf4f31e8cd67">Worker</a> (std::function&lt; void(void)&gt; work, const std::chrono::duration&lt; Rep, Period &gt; &amp;startDelay=0)</td></tr>
-<tr class="separator:aa280ff2e80b4c61f620ebf4f31e8cd67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93bbf0586506bb96ad55e2c659148219"><td class="memTemplParams" colspan="2">template&lt;class Rep , class Period &gt; </td></tr>
+<tr class="memitem:a93bbf0586506bb96ad55e2c659148219"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a93bbf0586506bb96ad55e2c659148219">Worker</a> (std::function&lt; void(void)&gt; &amp;&amp;work, const std::chrono::duration&lt; Rep, Period &gt; &amp;startDelay)</td></tr>
+<tr class="separator:a93bbf0586506bb96ad55e2c659148219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67b80ca8c1b3f41536f7dfff941ea53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#aa67b80ca8c1b3f41536f7dfff941ea53">Worker</a> (std::function&lt; void(void)&gt; &amp;&amp;work)</td></tr>
+<tr class="separator:aa67b80ca8c1b3f41536f7dfff941ea53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af58d439606b067b81a2217439ccd68ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#af58d439606b067b81a2217439ccd68ba">wait_until_finished</a> () const</td></tr>
 <tr class="separator:af58d439606b067b81a2217439ccd68ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2478ad5444136be352562d83f0f168de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a2478ad5444136be352562d83f0f168de">isRunning</a> () const</td></tr>
 <tr class="separator:a2478ad5444136be352562d83f0f168de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7e18d51d300e249173d9abdf972e396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#ab7e18d51d300e249173d9abdf972e396">cancel</a> ()</td></tr>
-<tr class="separator:ab7e18d51d300e249173d9abdf972e396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7429993de7550f0e911f5b0d623981a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a7429993de7550f0e911f5b0d623981a2">cancelStartupDelay</a> ()</td></tr>
+<tr class="separator:a7429993de7550f0e911f5b0d623981a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa280ff2e80b4c61f620ebf4f31e8cd67" name="aa280ff2e80b4c61f620ebf4f31e8cd67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa280ff2e80b4c61f620ebf4f31e8cd67">&#9670;&#160;</a></span>Worker()</h2>
+<a id="a93bbf0586506bb96ad55e2c659148219" name="a93bbf0586506bb96ad55e2c659148219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93bbf0586506bb96ad55e2c659148219">&#9670;&#160;</a></span>Worker() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Rep , class Period &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Worker::Worker </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(void)&gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>work</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::chrono::duration&lt; Rep, Period &gt; &amp;&#160;</td>
+          <td class="paramname"><em>startDelay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa67b80ca8c1b3f41536f7dfff941ea53" name="aa67b80ca8c1b3f41536f7dfff941ea53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67b80ca8c1b3f41536f7dfff941ea53">&#9670;&#160;</a></span>Worker() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -118,19 +148,9 @@ template&lt;class Rep , class Period &gt; </div>
         <tr>
           <td class="memname">Worker::Worker </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; void(void)&gt;&#160;</td>
-          <td class="paramname"><em>work</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">std::function&lt; void(void)&gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>work</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::chrono::duration&lt; Rep, Period &gt; &amp;&#160;</td>
-          <td class="paramname"><em>startDelay</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -143,14 +163,14 @@ template&lt;class Rep , class Period &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab7e18d51d300e249173d9abdf972e396" name="ab7e18d51d300e249173d9abdf972e396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7e18d51d300e249173d9abdf972e396">&#9670;&#160;</a></span>cancel()</h2>
+<a id="a7429993de7550f0e911f5b0d623981a2" name="a7429993de7550f0e911f5b0d623981a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7429993de7550f0e911f5b0d623981a2">&#9670;&#160;</a></span>cancelStartupDelay()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Worker::cancel </td>
+          <td class="memname">void Worker::cancelStartupDelay </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -201,7 +221,7 @@ template&lt;class Rep , class Period &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 27 2024 21:07:18 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Wed Feb 28 2024 05:56:16 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
