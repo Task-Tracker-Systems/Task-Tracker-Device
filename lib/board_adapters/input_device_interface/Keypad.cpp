@@ -1,31 +1,63 @@
 #include "Keypad.hpp"
 #include <Arduino-wrapper.h>
+#include <Worker.hpp>
+#include <algorithm>
 #include <array>
 #include <board_pins.hpp>
+#include <chrono>
 #include <cstddef>
+#include <iterator>
 #include <thread>
 #include <type_traits>
 #include <utility>
 
 static HmiHandler callBack;
 
-template <KeyId SELECTION>
+/**
+ * Maps HMI buttons to events.
+ */
+static constexpr std::pair<board::PinType, KeyId> selectionForPins[] = {
+    {board::button::pin::task1, KeyId::TASK1},
+    {board::button::pin::task2, KeyId::TASK2},
+    {board::button::pin::task3, KeyId::TASK3},
+    {board::button::pin::task4, KeyId::TASK4},
+    {board::button::pin::up, KeyId::LEFT},
+    {board::button::pin::down, KeyId::RIGHT},
+    {board::button::pin::enter, KeyId::ENTER},
+    {board::button::pin::back, KeyId::BACK},
+};
+
+template <board::PinType PIN>
+static void reactOnPinChange()
+{
+    const bool isPressed = digitalRead(PIN) == LOW;
+    if (isPressed)
+    {
+        const auto candidateKeyId = std::find_if(std::cbegin(selectionForPins), std::cend(selectionForPins), [](const auto pair) {
+            return pair.first == PIN;
+        });
+        const bool foundKeyId = candidateKeyId != std::cend(selectionForPins);
+        assert(foundKeyId);
+        if (foundKeyId)
+        {
+            callBack(candidateKeyId->second);
+        }
+    }
+}
+
+template <board::PinType PIN>
 static void isr()
 {
-    static std::thread *p_callbackThread = nullptr;
-    const auto now = millis(); /* warning: `now()` from <chrono>/libc can not be used in ISRs */
-    static std::remove_const_t<decltype(now)> lastCall;
-    constexpr decltype(lastCall) debouncePeriod = 200; /* milliseconds */
-    if (now - lastCall > debouncePeriod)
+    using namespace std::chrono_literals;
+    constexpr auto createDebouncedCallback = []() { return Worker(reactOnPinChange<PIN>, 200ms); };
+    static Worker debouncedCallback = createDebouncedCallback();
+
+    if (debouncedCallback.isRunning())
     {
-        lastCall = now;
-        if (p_callbackThread)
-        {
-            p_callbackThread->join();
-            delete p_callbackThread;
-        }
-        p_callbackThread = new std::thread(callBack, SELECTION);
+        debouncedCallback.cancelStartupDelay();
+        debouncedCallback.waitUntilFinished();
     }
+    debouncedCallback = createDebouncedCallback();
 }
 
 /**
@@ -64,7 +96,7 @@ struct FunctionPointerGenerator
     template <T (&VALUES)[N], std::size_t... Is>
     constexpr static std::array<void (*)(), N> createIsrPointers([[maybe_unused]] const std::index_sequence<Is...> indices)
     {
-        return {isr<VALUES[Is].second>...};
+        return {isr<VALUES[Is].first>...};
     }
 };
 
@@ -85,20 +117,6 @@ static constexpr FunctionPointerGenerator<T, N> createFPG([[maybe_unused]] T (&a
     return FunctionPointerGenerator<T, N>();
 }
 
-/**
- * Maps HMI buttons to events.
- */
-static constexpr std::pair<board::PinType, KeyId> selectionForPins[] = {
-    {board::button::pin::task1, KeyId::TASK1},
-    {board::button::pin::task2, KeyId::TASK2},
-    {board::button::pin::task3, KeyId::TASK3},
-    {board::button::pin::task4, KeyId::TASK4},
-    {board::button::pin::up, KeyId::LEFT},
-    {board::button::pin::down, KeyId::RIGHT},
-    {board::button::pin::enter, KeyId::ENTER},
-    {board::button::pin::back, KeyId::BACK},
-};
-
 Keypad::Keypad()
 {
     // input pins
@@ -110,7 +128,7 @@ Keypad::Keypad()
         attachInterrupt(
             digitalPinToInterrupt(selectionForPin.first),
             functionPointers.at(index),
-            FALLING);
+            CHANGE);
         index++;
     }
 }

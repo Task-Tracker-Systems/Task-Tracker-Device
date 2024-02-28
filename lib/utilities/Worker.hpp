@@ -12,7 +12,7 @@ class Worker
     Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
     explicit Worker(std::function<void(void)> &&work);
     void waitUntilFinished() const;
-    bool isRunning() const;
+    bool isRunning() const; // TODO change to "is waiting" or similar
     void cancelStartupDelay();
 
   private:
