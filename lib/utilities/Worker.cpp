@@ -15,7 +15,7 @@ bool Worker::isRunning() const
 }
 
 Worker::Worker(std::function<void(void)> &&work)
-    : Worker(work, std::chrono::milliseconds(0))
+    : Worker(std::move(work), std::chrono::milliseconds(0))
 {
 }
 

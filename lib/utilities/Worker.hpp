@@ -10,7 +10,7 @@ class Worker
   public:
     template <class Rep, class Period>
     Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startDelay);
-    explicit Worker(std::function<void(void)> work);
+    explicit Worker(std::function<void(void)> &&work);
     void wait_until_finished() const;
     bool isRunning() const;
     void cancelStartupDelay();
@@ -31,7 +31,6 @@ Worker::Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep
           {
               work();
           }
-          lock.lock();
           running = false;
       })
 {
