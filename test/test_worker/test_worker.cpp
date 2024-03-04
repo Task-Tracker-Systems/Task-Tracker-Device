@@ -21,7 +21,7 @@ void test_run_worker()
         flag = true;
     };
     Worker w(work);
-    w.waitUntilFinished();
+    w.joinIfJoinable();
     TEST_ASSERT_TRUE(flag);
 }
 
@@ -32,7 +32,7 @@ void test_check_if_running()
     };
     Worker w(work);
     TEST_ASSERT_TRUE(w.isRunning());
-    w.waitUntilFinished();
+    w.joinIfJoinable();
     TEST_ASSERT_FALSE(w.isRunning());
 }
 
@@ -42,8 +42,8 @@ void test_abort()
     const auto work = [&]() { flag = true; };
     Worker w(work, 1s);
     TEST_ASSERT_TRUE(w.isRunning());
-    w.cancelStartupDelay();
-    w.waitUntilFinished();
+    w.cancelStartup();
+    w.joinIfJoinable();
     TEST_ASSERT_FALSE(w.isRunning());
     TEST_ASSERT_FALSE(flag);
 }

@@ -52,11 +52,6 @@ static void isr()
     constexpr auto createDebouncedCallback = []() { return Worker(reactOnPinChange<PIN>, 200ms); };
     static Worker debouncedCallback = createDebouncedCallback();
 
-    if (debouncedCallback.isRunning())
-    {
-        debouncedCallback.cancelStartupDelay();
-        debouncedCallback.waitUntilFinished();
-    }
     debouncedCallback = createDebouncedCallback();
 }
 
