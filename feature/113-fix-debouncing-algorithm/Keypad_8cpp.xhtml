@@ -89,16 +89,20 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Keypad_8hpp_source.xhtml">Keypad.hpp</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="Arduino-wrapper_8h_source.xhtml">Arduino-wrapper.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Worker_8hpp_source.xhtml">Worker.hpp</a>&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
 <code>#include &lt;<a class="el" href="board__pins_8hpp_source.xhtml">board_pins.hpp</a>&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Keypad.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Keypad_8cpp__incl.svg" width="887" height="359"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Keypad_8cpp__incl.svg" width="1246" height="359"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -110,7 +114,10 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2db3ce89b570d4dd8a5e32692092e570"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a> SELECTION&gt; </td></tr>
+<tr class="memitem:a4b7c5df41e3e605d8530163c58738edd"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">board::PinType</a> PIN&gt; </td></tr>
+<tr class="memitem:a4b7c5df41e3e605d8530163c58738edd"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Keypad_8cpp.xhtml#a4b7c5df41e3e605d8530163c58738edd">reactOnPinChange</a> ()</td></tr>
+<tr class="separator:a4b7c5df41e3e605d8530163c58738edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db3ce89b570d4dd8a5e32692092e570"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">board::PinType</a> PIN&gt; </td></tr>
 <tr class="memitem:a2db3ce89b570d4dd8a5e32692092e570"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Keypad_8cpp.xhtml#a2db3ce89b570d4dd8a5e32692092e570">isr</a> ()</td></tr>
 <tr class="separator:a2db3ce89b570d4dd8a5e32692092e570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd40bd4f3e9f436de59a7b40ea1b426e"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
@@ -178,13 +185,40 @@ template&lt;class T , std::size_t N&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33d">KeyId</a> SELECTION&gt; </div>
+template&lt;<a class="el" href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">board::PinType</a> PIN&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">static void isr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b7c5df41e3e605d8530163c58738edd" name="a4b7c5df41e3e605d8530163c58738edd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7c5df41e3e605d8530163c58738edd">&#9670;&#160;</a></span>reactOnPinChange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c">board::PinType</a> PIN&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void reactOnPinChange </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -275,7 +309,7 @@ template&lt;<a class="el" href="KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 28 2024 06:14:42 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Mar 4 2024 16:07:07 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

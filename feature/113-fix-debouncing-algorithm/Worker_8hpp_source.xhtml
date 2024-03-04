@@ -94,41 +94,47 @@ $(function() {
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Rep, <span class="keyword">class</span> Period&gt;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="classWorker.xhtml">Worker</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; &amp;&amp;work, <span class="keyword">const</span> std::chrono::duration&lt;Rep, Period&gt; &amp;startDelay);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="classWorker.xhtml">Worker</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; &amp;&amp;work, <span class="keyword">const</span> std::chrono::duration&lt;Rep, Period&gt; &amp;startupDelay);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classWorker.xhtml">Worker</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; &amp;&amp;work);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWorker.xhtml#af58d439606b067b81a2217439ccd68ba">wait_until_finished</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWorker.xhtml#a81fa2cfe5cd86d04703b86b0ccd7cd98">joinIfJoinable</a>();</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classWorker.xhtml#a2478ad5444136be352562d83f0f168de">isRunning</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWorker.xhtml#a7429993de7550f0e911f5b0d623981a2">cancelStartupDelay</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> running;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">mutable</span> std::mutex stateMutex;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::condition_variable stopCondition;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">mutable</span> std::thread thread;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Rep, <span class="keyword">class</span> Period&gt;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classWorker.xhtml#a93bbf0586506bb96ad55e2c659148219">   26</a></span><a class="code hl_function" href="classWorker.xhtml#a93bbf0586506bb96ad55e2c659148219">Worker::Worker</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; &amp;&amp;work, <span class="keyword">const</span> std::chrono::duration&lt;Rep, Period&gt; &amp;startDelay)</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    : running(true),</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      thread([&amp;, work]() {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>          std::unique_lock lock(stateMutex);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>          <span class="keywordflow">if</span> (!stopCondition.wait_for(lock, startDelay, [&amp;]() { return !running; }))</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>          {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>              work();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>          }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>          running = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      })</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWorker.xhtml#a4f8991b95ee43aac074718c27abe416e">cancelStartup</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="classWorker.xhtml">Worker</a> &amp;<a class="code hl_function" href="classWorker.xhtml#a8c2bf7f6d7db6b09ddd89542accca597">operator=</a>(<a class="code hl_class" href="classWorker.xhtml">Worker</a> &amp;&amp;);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="classWorker.xhtml#aa8e4543ef1e93fd9d884269ba30c5bfe">~Worker</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> running;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::unique_ptr&lt;std::mutex&gt; stateMutex;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::unique_ptr&lt;std::condition_variable&gt; stopCondition;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::thread thread;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Rep, <span class="keyword">class</span> Period&gt;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classWorker.xhtml#ae0f0981dff41b49de16cbcc995b7faef">   28</a></span><a class="code hl_function" href="classWorker.xhtml#ae0f0981dff41b49de16cbcc995b7faef">Worker::Worker</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt; &amp;&amp;work, <span class="keyword">const</span> std::chrono::duration&lt;Rep, Period&gt; &amp;startupDelay)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    : running(true),</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      stateMutex(std::make_unique&lt;std::mutex&gt;()),</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      stopCondition(std::make_unique&lt;std::condition_variable&gt;()),</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      thread([&amp;, work]() {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>          std::unique_lock lock(*stateMutex);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>          <span class="keywordflow">if</span> (!stopCondition-&gt;wait_for(lock, startupDelay, [&amp;]() { return !running; }))</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>          {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>              work();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>          }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>          running = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      })</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
 <div class="ttc" id="aclassWorker_xhtml"><div class="ttname"><a href="classWorker.xhtml">Worker</a></div><div class="ttdef"><b>Definition:</b> Worker.hpp:9</div></div>
 <div class="ttc" id="aclassWorker_xhtml_a2478ad5444136be352562d83f0f168de"><div class="ttname"><a href="classWorker.xhtml#a2478ad5444136be352562d83f0f168de">Worker::isRunning</a></div><div class="ttdeci">bool isRunning() const</div><div class="ttdef"><b>Definition:</b> Worker.cpp:11</div></div>
-<div class="ttc" id="aclassWorker_xhtml_a7429993de7550f0e911f5b0d623981a2"><div class="ttname"><a href="classWorker.xhtml#a7429993de7550f0e911f5b0d623981a2">Worker::cancelStartupDelay</a></div><div class="ttdeci">void cancelStartupDelay()</div><div class="ttdef"><b>Definition:</b> Worker.cpp:22</div></div>
-<div class="ttc" id="aclassWorker_xhtml_a93bbf0586506bb96ad55e2c659148219"><div class="ttname"><a href="classWorker.xhtml#a93bbf0586506bb96ad55e2c659148219">Worker::Worker</a></div><div class="ttdeci">Worker(std::function&lt; void(void)&gt; &amp;&amp;work, const std::chrono::duration&lt; Rep, Period &gt; &amp;startDelay)</div><div class="ttdef"><b>Definition:</b> Worker.hpp:26</div></div>
-<div class="ttc" id="aclassWorker_xhtml_af58d439606b067b81a2217439ccd68ba"><div class="ttname"><a href="classWorker.xhtml#af58d439606b067b81a2217439ccd68ba">Worker::wait_until_finished</a></div><div class="ttdeci">void wait_until_finished() const</div><div class="ttdef"><b>Definition:</b> Worker.cpp:3</div></div>
+<div class="ttc" id="aclassWorker_xhtml_a4f8991b95ee43aac074718c27abe416e"><div class="ttname"><a href="classWorker.xhtml#a4f8991b95ee43aac074718c27abe416e">Worker::cancelStartup</a></div><div class="ttdeci">void cancelStartup()</div><div class="ttdef"><b>Definition:</b> Worker.cpp:22</div></div>
+<div class="ttc" id="aclassWorker_xhtml_a81fa2cfe5cd86d04703b86b0ccd7cd98"><div class="ttname"><a href="classWorker.xhtml#a81fa2cfe5cd86d04703b86b0ccd7cd98">Worker::joinIfJoinable</a></div><div class="ttdeci">void joinIfJoinable()</div><div class="ttdef"><b>Definition:</b> Worker.cpp:3</div></div>
+<div class="ttc" id="aclassWorker_xhtml_a8c2bf7f6d7db6b09ddd89542accca597"><div class="ttname"><a href="classWorker.xhtml#a8c2bf7f6d7db6b09ddd89542accca597">Worker::operator=</a></div><div class="ttdeci">Worker &amp; operator=(Worker &amp;&amp;)</div><div class="ttdef"><b>Definition:</b> Worker.cpp:29</div></div>
+<div class="ttc" id="aclassWorker_xhtml_aa8e4543ef1e93fd9d884269ba30c5bfe"><div class="ttname"><a href="classWorker.xhtml#aa8e4543ef1e93fd9d884269ba30c5bfe">Worker::~Worker</a></div><div class="ttdeci">~Worker()</div><div class="ttdef"><b>Definition:</b> Worker.cpp:48</div></div>
+<div class="ttc" id="aclassWorker_xhtml_ae0f0981dff41b49de16cbcc995b7faef"><div class="ttname"><a href="classWorker.xhtml#ae0f0981dff41b49de16cbcc995b7faef">Worker::Worker</a></div><div class="ttdeci">Worker(std::function&lt; void(void)&gt; &amp;&amp;work, const std::chrono::duration&lt; Rep, Period &gt; &amp;startupDelay)</div><div class="ttdef"><b>Definition:</b> Worker.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 28 2024 06:14:42 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Mon Mar 4 2024 16:07:07 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>

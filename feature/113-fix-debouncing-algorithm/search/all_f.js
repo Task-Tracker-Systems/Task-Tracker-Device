@@ -1,17 +1,10 @@
 var searchData=
 [
-  ['pintype_0',['PinType',['../namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c',1,'board']]],
-  ['pitches_2ehpp_1',['pitches.hpp',['../pitches_8hpp.xhtml',1,'']]],
-  ['playtone_2',['playTone',['../namespaceboard.xhtml#af761c14d2fbd04a7d86a6cad113d6702',1,'board']]],
-  ['presenter_3',['Presenter',['../classPresenter.xhtml',1,'Presenter'],['../classPresenter.xhtml#ae6f27b258228dc16383dc6d1a434f90c',1,'Presenter::Presenter()']]],
-  ['presenter_2ecpp_4',['Presenter.cpp',['../Presenter_8cpp.xhtml',1,'']]],
-  ['presenter_2ehpp_5',['Presenter.hpp',['../Presenter_8hpp.xhtml',1,'']]],
-  ['processhmiinputs_6',['ProcessHmiInputs',['../classProcessHmiInputs.xhtml',1,'ProcessHmiInputs'],['../classProcessHmiInputs.xhtml#a5c9706b192f428a88b606472e22d6e5a',1,'ProcessHmiInputs::ProcessHmiInputs()']]],
-  ['processhmiinputs_2ecpp_7',['ProcessHmiInputs.cpp',['../ProcessHmiInputs_8cpp.xhtml',1,'']]],
-  ['processhmiinputs_2ehpp_8',['ProcessHmiInputs.hpp',['../ProcessHmiInputs_8hpp.xhtml',1,'']]],
-  ['protocol_2ecpp_9',['Protocol.cpp',['../Protocol_8cpp.xhtml',1,'']]],
-  ['protocol_2ehpp_10',['Protocol.hpp',['../Protocol_8hpp.xhtml',1,'']]],
-  ['protocolhandler_11',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]],
-  ['proxy_20header_12',['Proxy header',['../proxy_header.xhtml',1,'']]],
-  ['proxy_5fheader_2emd_13',['proxy_header.md',['../proxy__header_8md.xhtml',1,'']]]
+  ['off_0',['off',['../classIStatusIndicator.xhtml#a150f6857605407d025561a8c7d9df0f6',1,'IStatusIndicator::off()'],['../classLedStatusIndicator.xhtml#a33209ed4e39c67eb2ad79afa25258a48',1,'LedStatusIndicator::off()']]],
+  ['on_1',['on',['../classIStatusIndicator.xhtml#a68a6cc81336ab59dfc2a36b35bc2d96b',1,'IStatusIndicator::on()'],['../classLedStatusIndicator.xhtml#ad15eef220492ac65603b95137f9c5dac',1,'LedStatusIndicator::on()']]],
+  ['on_5foff_2',['on_off',['../namespaceboard_1_1buzzer_1_1pin.xhtml#acac9918339cd85718884aa7e0463402e',1,'board::buzzer::pin']]],
+  ['operator_3c_3c_3',['operator&lt;&lt;',['../serial__port_8hpp.xhtml#a75694147f57e39239699e0288d9c81ad',1,'operator&lt;&lt;(std::basic_ostream&lt; CharType &gt; &amp;os, const std::array&lt; bool, BITS &gt; &amp;bitArray):&#160;serial_port.hpp'],['../KeyIds_8cpp.xhtml#ae45f271a18515671253e6a78b09636bc',1,'operator&lt;&lt;(std::ostream &amp;os, const KeyId id):&#160;KeyIds.cpp'],['../KeyIds_8hpp.xhtml#ae45f271a18515671253e6a78b09636bc',1,'operator&lt;&lt;(std::ostream &amp;os, const KeyId id):&#160;KeyIds.cpp']]],
+  ['operator_3d_4',['operator=',['../classWorker.xhtml#a8c2bf7f6d7db6b09ddd89542accca597',1,'Worker']]],
+  ['option_5',['Option',['../structcommand__line__interpreter_1_1Option.xhtml',1,'command_line_interpreter']]],
+  ['options_6',['options',['../structcommand__line__interpreter_1_1Command.xhtml#a2575f5a632e565c473fd31cbcf69e30b',1,'command_line_interpreter::Command']]]
 ];
