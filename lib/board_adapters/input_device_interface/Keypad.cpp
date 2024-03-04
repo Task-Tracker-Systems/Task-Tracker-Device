@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <board_pins.hpp>
+#include <cassert>
 #include <chrono>
 #include <cstddef>
 #include <iterator>
