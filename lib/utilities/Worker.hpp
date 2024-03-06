@@ -2,6 +2,7 @@
 #include <chrono>
 #include <condition_variable>
 #include <functional>
+#include <memory>
 #include <mutex>
 #include <thread>
 
@@ -9,33 +10,31 @@ class Worker
 {
   public:
     template <class Rep, class Period>
-    Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
-    explicit Worker(std::function<void(void)> &&work);
-    void joinIfJoinable();
-    bool isRunning() const;
+    static std::shared_ptr<Worker> spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
+    static std::shared_ptr<Worker> spawnNew(std::function<void(void)> &&work);
     void cancelStartup();
-    Worker &operator=(Worker &&);
-    ~Worker();
 
   private:
-    bool running;
-    std::unique_ptr<std::mutex> stateMutex;
-    std::unique_ptr<std::condition_variable> stopCondition;
-    std::thread thread;
+    bool abortFlag;
+    std::mutex abortMutex;
+    std::condition_variable abortCondition;
+    Worker();
 };
 
 template <class Rep, class Period>
-Worker::Worker(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
-    : running(true),
-      stateMutex(std::make_unique<std::mutex>()),
-      stopCondition(std::make_unique<std::condition_variable>()),
-      thread([&, work]() {
-          std::unique_lock lock(*stateMutex);
-          if (!stopCondition->wait_for(lock, startupDelay, [&]() { return !running; }))
-          {
-              work();
-          }
-          running = false;
-      })
+std::shared_ptr<Worker> Worker::spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
 {
+    std::shared_ptr<Worker> worker = std::make_shared<Worker>();
+    std::thread workerThread(
+        [](std::shared_ptr<Worker> container) // if the container goes out of scope it may call the desctructor
+        {
+            std::unique_lock lock(container->abortMutex);
+            if (container->abortCondition.wait_for(lock, startupDelay, [&]() { return !container->abortFlag; }))
+            {
+                work();
+            }
+        },
+        worker);
+    workerThread.detach();
+    return worker;
 }
