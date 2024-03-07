@@ -24,7 +24,7 @@ class Worker
 template <class Rep, class Period>
 std::shared_ptr<Worker> Worker::spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
 {
-    std::shared_ptr<Worker> worker = std::shared_ptr<Worker>(new Worker());
+    const auto worker = std::shared_ptr<Worker>(new Worker());
     std::thread workerThread(
         [](std::shared_ptr<Worker> container /* if the container goes out of scope it may call the desctructor */,
            std::function<void(void)> work,
