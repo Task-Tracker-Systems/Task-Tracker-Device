@@ -18,7 +18,7 @@ class Worker
     bool abortFlag;
     std::mutex abortMutex;
     std::condition_variable abortCondition;
-    Worker();
+    Worker() = default;
 };
 
 template <class Rep, class Period>
