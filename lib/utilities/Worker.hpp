@@ -30,7 +30,7 @@ std::shared_ptr<Worker> Worker::spawnNew(std::function<void(void)> &&work, const
            std::function<void(void)> work,
            const std::chrono::duration<Rep, Period> startupDelay) {
             std::unique_lock lock(container->abortMutex);
-            if (container->abortCondition.wait_for(lock, startupDelay, [&]() { return !container->abortFlag; }))
+            if (!container->abortCondition.wait_for(lock, startupDelay, [&]() { return container->abortFlag; }))
             {
                 work();
             }
