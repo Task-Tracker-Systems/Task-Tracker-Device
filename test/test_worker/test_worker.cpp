@@ -15,36 +15,24 @@ void tearDown(void)
 
 void test_run_worker()
 {
-    bool flag = false;
+    std::atomic<bool> flag = false;
     const auto work = [&flag]() {
-        std::this_thread::sleep_for(1s);
         flag = true;
     };
-    Worker w(work);
-    w.joinIfJoinable();
+    const auto worker = Worker::spawnNew(work);
+    std::this_thread::sleep_for(15ms);
     TEST_ASSERT_TRUE(flag);
-}
-
-void test_check_if_running()
-{
-    const auto work = []() {
-        std::this_thread::sleep_for(1s);
-    };
-    Worker w(work);
-    TEST_ASSERT_TRUE(w.isRunning());
-    w.joinIfJoinable();
-    TEST_ASSERT_FALSE(w.isRunning());
 }
 
 void test_abort()
 {
     std::atomic<bool> flag = false;
-    const auto work = [&]() { flag = true; };
-    Worker w(work, 1s);
-    TEST_ASSERT_TRUE(w.isRunning());
-    w.cancelStartup();
-    w.joinIfJoinable();
-    TEST_ASSERT_FALSE(w.isRunning());
+    const auto work = [&flag]() {
+        flag = true;
+    };
+    const auto worker = Worker::spawnNew(work, 100ms);
+    std::this_thread::sleep_for(20ms);
+    worker->cancelStartup();
     TEST_ASSERT_FALSE(flag);
 }
 
@@ -52,7 +40,6 @@ int main()
 {
     UNITY_BEGIN();
     RUN_TEST(test_run_worker);
-    RUN_TEST(test_check_if_running);
     RUN_TEST(test_abort);
     return UNITY_END();
 }
