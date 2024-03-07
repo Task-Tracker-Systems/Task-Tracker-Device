@@ -50,10 +50,11 @@ template <board::PinType PIN>
 static void isr()
 {
     using namespace std::chrono_literals;
-    constexpr auto createDebouncedCallback = []() { return Worker(reactOnPinChange<PIN>, 200ms); };
-    static Worker debouncedCallback = createDebouncedCallback();
+    constexpr auto createDebouncedCallback = []() { return Worker::spawnNew(reactOnPinChange<PIN>, 200ms); };
+    static std::shared_ptr<Worker> debouncedCallbackThread = createDebouncedCallback();
 
-    debouncedCallback = createDebouncedCallback();
+    debouncedCallbackThread->cancelStartup();
+    debouncedCallbackThread = createDebouncedCallback();
 }
 
 /**

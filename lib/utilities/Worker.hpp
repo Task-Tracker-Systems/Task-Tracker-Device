@@ -26,15 +26,18 @@ std::shared_ptr<Worker> Worker::spawnNew(std::function<void(void)> &&work, const
 {
     std::shared_ptr<Worker> worker = std::make_shared<Worker>();
     std::thread workerThread(
-        [](std::shared_ptr<Worker> container) // if the container goes out of scope it may call the desctructor
-        {
+        [](std::shared_ptr<Worker> container /* if the container goes out of scope it may call the desctructor */,
+           std::function<void(void)> work,
+           const std::chrono::duration<Rep, Period> startupDelay) {
             std::unique_lock lock(container->abortMutex);
             if (container->abortCondition.wait_for(lock, startupDelay, [&]() { return !container->abortFlag; }))
             {
                 work();
             }
         },
-        worker);
+        worker,
+        work,
+        startupDelay);
     workerThread.detach();
     return worker;
 }
