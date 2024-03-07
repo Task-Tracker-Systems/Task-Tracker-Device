@@ -12,7 +12,7 @@ var searchData=
   ['inv_9',['inv',['../test__cli_8cpp.xhtml#af5af026df8d4dc7081782b369358f87b',1,'test_cli.cpp']]],
   ['iskeypressed_10',['isKeyPressed',['../classIKeypad.xhtml#adaf913232976026af1ea73ea60a835f2',1,'IKeypad::isKeyPressed()'],['../classKeypad.xhtml#ab6629bedefe7bf95ee5e444e50f08c56',1,'Keypad::isKeyPressed()']]],
   ['isr_11',['isr',['../Keypad_8cpp.xhtml#a2db3ce89b570d4dd8a5e32692092e570',1,'Keypad.cpp']]],
-  ['isrunning_12',['isRunning',['../classWorker.xhtml#a2478ad5444136be352562d83f0f168de',1,'Worker::isRunning()'],['../classTask.xhtml#ad6abe9097628c64d57347c1657e518c8',1,'Task::isRunning()']]],
+  ['isrunning_12',['isRunning',['../classTask.xhtml#ad6abe9097628c64d57347c1657e518c8',1,'Task']]],
   ['istatusindicator_13',['IStatusIndicator',['../classIStatusIndicator.xhtml',1,'']]],
   ['istatusindicator_2ehpp_14',['IStatusIndicator.hpp',['../IStatusIndicator_8hpp.xhtml',1,'']]]
 ];
