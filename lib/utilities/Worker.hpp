@@ -14,6 +14,16 @@ class Worker
     static std::shared_ptr<Worker> spawnNew(std::function<void(void)> &&work);
     void cancelStartup();
 
+    template <class Rep, class Period>
+    static void restart(std::shared_ptr<Worker> &worker, std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
+    {
+        if (worker)
+        {
+            worker->cancelStartup();
+        }
+        worker = spawnNew(std::move(work), startupDelay);
+    }
+
   private:
     bool abortFlag;
     std::mutex abortMutex;

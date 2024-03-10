@@ -8,6 +8,7 @@
 #include <chrono>
 #include <cstddef>
 #include <iterator>
+#include <memory>
 #include <thread>
 #include <type_traits>
 #include <utility>
@@ -46,15 +47,24 @@ static void reactOnPinChange()
     }
 }
 
+template <board::PinType N>
+struct WorkerPool
+{
+    static std::shared_ptr<Worker> worker;
+};
+
+template <board::PinType N>
+std::shared_ptr<Worker> WorkerPool<N>::worker;
+
 template <board::PinType PIN>
 static void isr()
 {
-    using namespace std::chrono_literals;
-    constexpr auto createDebouncedCallback = []() { return Worker::spawnNew(reactOnPinChange<PIN>, 200ms); };
-    static std::shared_ptr<Worker> debouncedCallbackThread = createDebouncedCallback();
-
-    debouncedCallbackThread->cancelStartup();
-    debouncedCallbackThread = createDebouncedCallback();
+    // worker must be managed in a thread separate to the ISR to avoid deadlocks
+    std::thread workerManagement([]() { Worker::restart(
+                                            WorkerPool<PIN>::worker,
+                                            reactOnPinChange<PIN>,
+                                            std::chrono::milliseconds(200)); });
+    workerManagement.detach();
 }
 
 /**
