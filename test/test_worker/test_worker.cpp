@@ -19,7 +19,8 @@ void test_run_worker()
     const auto work = [&flag]() {
         flag = true;
     };
-    const auto worker = Worker::spawnNew(work);
+    Worker worker;
+    worker.spawnNew(work, 0ms);
     std::this_thread::sleep_for(15ms);
     TEST_ASSERT_TRUE(flag);
 }
@@ -30,8 +31,8 @@ void test_run_worker2()
     const auto work = [&flag]() {
         flag = true;
     };
-    std::shared_ptr<Worker> worker;
-    Worker::restart(worker, work, 10ms);
+    Worker worker;
+    worker.restart(worker, work, 10ms);
     std::this_thread::sleep_for(20ms);
     TEST_ASSERT_TRUE(flag);
 }
@@ -42,9 +43,10 @@ void test_abort()
     const auto work = [&flag]() {
         flag = true;
     };
-    const auto worker = Worker::spawnNew(work, 100ms);
+    Worker worker;
+    worker.spawnNew(work, 100ms);
     std::this_thread::sleep_for(20ms);
-    worker->cancelStartup();
+    worker.cancelStartup();
     std::this_thread::sleep_for(100ms);
     TEST_ASSERT_FALSE(flag);
 }
@@ -56,10 +58,10 @@ void test_abort2()
         flag = true;
     };
 
-    std::shared_ptr<Worker> worker;
-    Worker::restart(worker, work, 100ms);
+    Worker worker;
+    worker.restart(worker, work, 100ms);
     std::this_thread::sleep_for(20ms);
-    Worker::restart(
+    worker.restart(
         worker, []() {}, 20ms);
     std::this_thread::sleep_for(140ms);
     TEST_ASSERT_FALSE(flag);
