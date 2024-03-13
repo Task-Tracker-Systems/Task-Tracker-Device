@@ -2,7 +2,6 @@
 #include <chrono>
 #include <condition_variable>
 #include <functional>
-#include <memory>
 #include <mutex>
 #include <thread>
 
@@ -10,44 +9,35 @@ class Worker
 {
   public:
     template <class Rep, class Period>
-    static std::shared_ptr<Worker> spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
-    static std::shared_ptr<Worker> spawnNew(std::function<void(void)> &&work);
+    void spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
     void cancelStartup();
 
     template <class Rep, class Period>
-    static void restart(std::shared_ptr<Worker> &worker, std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
+    static void restart(Worker &worker, std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
     {
-        if (worker)
-        {
-            worker->cancelStartup();
-        }
-        worker = spawnNew(std::move(work), startupDelay);
+        worker.cancelStartup();
+        worker.spawnNew(std::move(work), startupDelay);
     }
 
   private:
     bool abortFlag;
     std::mutex abortMutex;
     std::condition_variable abortCondition;
-    Worker() = default;
 };
 
 template <class Rep, class Period>
-std::shared_ptr<Worker> Worker::spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
+void Worker::spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
 {
-    const auto worker = std::shared_ptr<Worker>(new Worker());
     std::thread workerThread(
-        [](std::shared_ptr<Worker> container /* if the container goes out of scope it may call the desctructor */,
-           std::function<void(void)> work,
-           const std::chrono::duration<Rep, Period> startupDelay) {
-            std::unique_lock lock(container->abortMutex);
-            if (!container->abortCondition.wait_for(lock, startupDelay, [&]() { return container->abortFlag; }))
+        [this](std::function<void(void)> work,
+               const std::chrono::duration<Rep, Period> startupDelay) {
+            std::unique_lock lock(abortMutex);
+            if (!abortCondition.wait_for(lock, startupDelay, [&]() { return abortFlag; }))
             {
                 work();
             }
         },
-        worker,
         work,
         startupDelay);
     workerThread.detach();
-    return worker;
 }
