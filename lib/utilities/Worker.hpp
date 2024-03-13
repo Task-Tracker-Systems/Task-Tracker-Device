@@ -13,10 +13,10 @@ class Worker
     void cancelStartup();
 
     template <class Rep, class Period>
-    static void restart(Worker &worker, std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
+    void restart(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
     {
-        worker.cancelStartup();
-        worker.spawnNew(std::move(work), startupDelay);
+        cancelStartup();
+        spawnNew(std::move(work), startupDelay);
     }
 
   private:

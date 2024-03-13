@@ -52,10 +52,9 @@ static void isr()
 {
     static Worker delayedStarter;
     // worker must be managed in a thread separate to the ISR to avoid deadlocks
-    std::thread workerManagement([]() { Worker::restart(
-                                            delayedStarter,
-                                            reactOnPinChange<PIN>,
-                                            std::chrono::milliseconds(200)); });
+    std::thread workerManagement([&delayedStarter]() { delayedStarter.restart(
+                                                           reactOnPinChange<PIN>,
+                                                           std::chrono::milliseconds(200)); });
     workerManagement.detach();
 }
 

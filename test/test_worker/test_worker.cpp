@@ -32,7 +32,7 @@ void test_run_worker2()
         flag = true;
     };
     Worker worker;
-    worker.restart(worker, work, 10ms);
+    worker.restart(work, 10ms);
     std::this_thread::sleep_for(20ms);
     TEST_ASSERT_TRUE(flag);
 }
@@ -59,10 +59,9 @@ void test_abort2()
     };
 
     Worker worker;
-    worker.restart(worker, work, 100ms);
+    worker.restart(work, 100ms);
     std::this_thread::sleep_for(20ms);
-    worker.restart(
-        worker, []() {}, 20ms);
+    worker.restart([]() {}, 20ms);
     std::this_thread::sleep_for(140ms);
     TEST_ASSERT_FALSE(flag);
 }
