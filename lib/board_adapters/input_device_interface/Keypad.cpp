@@ -50,12 +50,18 @@ static void reactOnPinChange()
 template <board::PinType PIN>
 static void isr()
 {
+    static std::atomic_flag lock = ATOMIC_FLAG_INIT;
+    while (lock.test_and_set(std::memory_order_acquire)) // acquire lock
+    {
+        std::this_thread::yield(); // spin
+    }
     static Worker delayedStarter;
     // worker must be managed in a thread separate to the ISR to avoid deadlocks
     std::thread workerManagement([]() { delayedStarter.restart(
                                             reactOnPinChange<PIN>,
                                             std::chrono::milliseconds(200)); });
     workerManagement.detach();
+    lock.clear(std::memory_order_release); // release lock
 }
 
 /**
