@@ -13,13 +13,19 @@ void tearDown(void)
 {
 }
 
+/**
+ * - when to pass the arguments to the methods of Worker as T, T& or T&&?
+ * - worker must have static storage duration?
+ * 
+ */
+
+Worker worker;
 void test_run_worker()
 {
     std::atomic<bool> flag = false;
     const auto work = [&flag]() {
         flag = true;
     };
-    Worker worker;
     worker.spawnNew(work, 0ms);
     std::this_thread::sleep_for(15ms);
     TEST_ASSERT_TRUE(flag);
@@ -69,6 +75,7 @@ void test_abort2()
 int main()
 {
     UNITY_BEGIN();
+    RUN_TEST(test_run_worker);
     RUN_TEST(test_run_worker);
     RUN_TEST(test_run_worker2);
     RUN_TEST(test_abort);

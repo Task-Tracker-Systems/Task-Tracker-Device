@@ -4,19 +4,20 @@
 #include <functional>
 #include <mutex>
 #include <thread>
+#include <utility>
 
 class Worker
 {
   public:
-    template <class Rep, class Period>
-    void spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay);
+    template <class Function, class Rep, class Period>
+    void spawnNew(Function work, const std::chrono::duration<Rep, Period> &startupDelay);
     void cancelStartup();
 
-    template <class Rep, class Period>
-    void restart(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
+    template <class Function, class Rep, class Period>
+    void restart(Function work, const std::chrono::duration<Rep, Period> &startupDelay)
     {
         cancelStartup();
-        spawnNew(std::move(work), startupDelay);
+        spawnNew(std::forward<Function>(work), startupDelay);
     }
 
   private:
@@ -25,17 +26,19 @@ class Worker
     std::condition_variable abortCondition;
 };
 
-template <class Rep, class Period>
-void Worker::spawnNew(std::function<void(void)> &&work, const std::chrono::duration<Rep, Period> &startupDelay)
+template <class Function, class Rep, class Period>
+void Worker::spawnNew(Function work, const std::chrono::duration<Rep, Period> &startupDelay)
 {
     std::thread workerThread(
-        [this](std::function<void(void)> work,
-               const std::chrono::duration<Rep, Period> startupDelay) {
+        [this](auto work,
+               const auto &startupDelay) {
             std::unique_lock lock(abortMutex);
             if (!abortCondition.wait_for(lock, startupDelay, [&]() { return abortFlag; }))
             {
                 work();
             }
+
+            // Problem: here lock is released, this accesses abortMutex and that may be gone
         },
         work,
         startupDelay);
