@@ -4,43 +4,62 @@
 #include <functional>
 #include <mutex>
 #include <thread>
-#include <utility>
 
 class Worker
 {
   public:
-    template <class Function, class Rep, class Period>
-    void spawnNew(Function work, const std::chrono::duration<Rep, Period> &startupDelay);
-    void cancelStartup();
+    void finish()
+    {
+        if (delayedWorkerThread.joinable())
+        {
+            delayedWorkerThread.join();
+        }
+    }
+
+    void cancelStartup()
+    {
+        if (delayedWorkerThread.joinable())
+        {
+            {
+                std::unique_lock lock(abortMutex);
+                abortFlag = true;
+            }
+            abortCondition.notify_all();
+            delayedWorkerThread.join();
+        }
+    }
 
     template <class Function, class Rep, class Period>
-    void restart(Function work, const std::chrono::duration<Rep, Period> &startupDelay)
+    void restart(Function &&work, const std::chrono::duration<Rep, Period> &startupDelay)
     {
         cancelStartup();
-        spawnNew(std::forward<Function>(work), startupDelay);
+
+        {
+            std::unique_lock lock(abortMutex);
+            abortFlag = false;
+        }
+
+        delayedWorkerThread = std::thread(
+            [this](auto work,
+                   const auto startupDelay) {
+                std::unique_lock lock(abortMutex);
+                if (!abortCondition.wait_for(lock, startupDelay, [&]() { return abortFlag; }))
+                {
+                    work();
+                }
+            },
+            work,
+            startupDelay);
+    }
+
+    ~Worker()
+    {
+        cancelStartup();
     }
 
   private:
     bool abortFlag;
     std::mutex abortMutex;
     std::condition_variable abortCondition;
+    std::thread delayedWorkerThread;
 };
-
-template <class Function, class Rep, class Period>
-void Worker::spawnNew(Function work, const std::chrono::duration<Rep, Period> &startupDelay)
-{
-    std::thread workerThread(
-        [this](auto work,
-               const auto &startupDelay) {
-            std::unique_lock lock(abortMutex);
-            if (!abortCondition.wait_for(lock, startupDelay, [&]() { return abortFlag; }))
-            {
-                work();
-            }
-
-            // Problem: here lock is released, this accesses abortMutex and that may be gone
-        },
-        work,
-        startupDelay);
-    workerThread.detach();
-}
