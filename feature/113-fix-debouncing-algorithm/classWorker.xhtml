@@ -78,7 +78,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classWorker-members.xhtml">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Worker Class Reference</div></div>
 </div><!--header-->
@@ -88,32 +87,57 @@ $(function() {
 <div class="dynheader">
 Collaboration diagram for Worker:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classWorker__coll__graph.svg" width="138" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classWorker__coll__graph.svg" width="132" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a5db5a02764ceef9379bddc4d879efe39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a5db5a02764ceef9379bddc4d879efe39">finish</a> ()</td></tr>
+<tr class="separator:a5db5a02764ceef9379bddc4d879efe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f8991b95ee43aac074718c27abe416e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a4f8991b95ee43aac074718c27abe416e">cancelStartup</a> ()</td></tr>
 <tr class="separator:a4f8991b95ee43aac074718c27abe416e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a216197d53a7ba5ef5bba535d1e1c8454"><td class="memTemplParams" colspan="2">template&lt;class Rep , class Period &gt; </td></tr>
-<tr class="memitem:a216197d53a7ba5ef5bba535d1e1c8454"><td class="memTemplItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classWorker.xhtml">Worker</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a216197d53a7ba5ef5bba535d1e1c8454">spawnNew</a> (std::function&lt; void(void)&gt; &amp;&amp;work, const std::chrono::duration&lt; Rep, Period &gt; &amp;startupDelay)</td></tr>
-<tr class="separator:a216197d53a7ba5ef5bba535d1e1c8454"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5307243102d63df0ee325f436ac71d32"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classWorker.xhtml">Worker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a5307243102d63df0ee325f436ac71d32">spawnNew</a> (std::function&lt; void(void)&gt; &amp;&amp;work)</td></tr>
-<tr class="separator:a5307243102d63df0ee325f436ac71d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e8a536d736842daae15ba7daef3cfa4"><td class="memTemplParams" colspan="2">template&lt;class Rep , class Period &gt; </td></tr>
-<tr class="memitem:a1e8a536d736842daae15ba7daef3cfa4"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a1e8a536d736842daae15ba7daef3cfa4">restart</a> (std::shared_ptr&lt; <a class="el" href="classWorker.xhtml">Worker</a> &gt; &amp;worker, std::function&lt; void(void)&gt; &amp;&amp;work, const std::chrono::duration&lt; Rep, Period &gt; &amp;startupDelay)</td></tr>
-<tr class="separator:a1e8a536d736842daae15ba7daef3cfa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6299387cc1dcbffff4998018967466eb"><td class="memTemplParams" colspan="2">template&lt;class Function , class Rep , class Period &gt; </td></tr>
+<tr class="memitem:a6299387cc1dcbffff4998018967466eb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#a6299387cc1dcbffff4998018967466eb">restart</a> (Function &amp;&amp;<a class="el" href="test__worker_8cpp.xhtml#a5f300fa4caedb050255e137b5e276b84">work</a>, const std::chrono::duration&lt; Rep, Period &gt; &amp;startupDelay)</td></tr>
+<tr class="separator:a6299387cc1dcbffff4998018967466eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e4543ef1e93fd9d884269ba30c5bfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorker.xhtml#aa8e4543ef1e93fd9d884269ba30c5bfe">~Worker</a> ()</td></tr>
+<tr class="separator:aa8e4543ef1e93fd9d884269ba30c5bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa8e4543ef1e93fd9d884269ba30c5bfe" name="aa8e4543ef1e93fd9d884269ba30c5bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e4543ef1e93fd9d884269ba30c5bfe">&#9670;&#160;</a></span>~Worker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Worker::~Worker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4f8991b95ee43aac074718c27abe416e" name="a4f8991b95ee43aac074718c27abe416e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f8991b95ee43aac074718c27abe416e">&#9670;&#160;</a></span>cancelStartup()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Worker::cancelStartup </td>
@@ -122,31 +146,55 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1e8a536d736842daae15ba7daef3cfa4" name="a1e8a536d736842daae15ba7daef3cfa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e8a536d736842daae15ba7daef3cfa4">&#9670;&#160;</a></span>restart()</h2>
+<a id="a5db5a02764ceef9379bddc4d879efe39" name="a5db5a02764ceef9379bddc4d879efe39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db5a02764ceef9379bddc4d879efe39">&#9670;&#160;</a></span>finish()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Rep , class Period &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Worker::restart </td>
+          <td class="memname">void Worker::finish </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classWorker.xhtml">Worker</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>worker</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(void)&gt; &amp;&amp;&#160;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6299387cc1dcbffff4998018967466eb" name="a6299387cc1dcbffff4998018967466eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6299387cc1dcbffff4998018967466eb">&#9670;&#160;</a></span>restart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Function , class Rep , class Period &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Worker::restart </td>
+          <td>(</td>
+          <td class="paramtype">Function &amp;&amp;&#160;</td>
           <td class="paramname"><em>work</em>, </td>
         </tr>
         <tr>
@@ -163,85 +211,20 @@ template&lt;class Rep , class Period &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5307243102d63df0ee325f436ac71d32" name="a5307243102d63df0ee325f436ac71d32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5307243102d63df0ee325f436ac71d32">&#9670;&#160;</a></span>spawnNew() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="classWorker.xhtml">Worker</a> &gt; Worker::spawnNew </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void(void)&gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>work</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a216197d53a7ba5ef5bba535d1e1c8454" name="a216197d53a7ba5ef5bba535d1e1c8454"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a216197d53a7ba5ef5bba535d1e1c8454">&#9670;&#160;</a></span>spawnNew() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Rep , class Period &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="classWorker.xhtml">Worker</a> &gt; Worker::spawnNew </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void(void)&gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>work</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::chrono::duration&lt; Rep, Period &gt; &amp;&#160;</td>
-          <td class="paramname"><em>startupDelay</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>lib/utilities/<a class="el" href="Worker_8hpp_source.xhtml">Worker.hpp</a></li>
-<li>lib/utilities/<a class="el" href="Worker_8cpp.xhtml">Worker.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 10 2024 17:01:20 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Generated on Sat Mar 16 2024 21:40:12 for Task Tracker by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
 </small></address>
 </body>
 </html>
