@@ -14,11 +14,12 @@ var searchData=
   ['test_5fdo_5fwork_5fonce_5fafter_5fdelay_11',['test_do_work_once_after_delay',['../test__worker_8cpp.xhtml#a4ef82b5d60db54f6573c77e9dc4825ed',1,'test_worker.cpp']]],
   ['test_5fget_5flabel_12',['test_get_label',['../task_8cpp.xhtml#a7af579ba1b72f5a4634c9df196aa5c8f',1,'task.cpp']]],
   ['test_5foverallinterpreter_13',['test_overallInterpreter',['../test__cli_8cpp.xhtml#a57e7695ac5a94bad8a7bb9c0e2a04414',1,'test_cli.cpp']]],
-  ['test_5ftask_5fmanager_14',['test_task_manager',['../task_8cpp.xhtml#affcbe78f66ce2b85d27e8aef9831d2a6',1,'task.cpp']]],
-  ['test_5ftime_5felapses_15',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
-  ['test_5ftokenizestring1_16',['test_tokenizeString1',['../test__string__helpers_8cpp.xhtml#a471a182a9bfe06e2193fad2f9c51baf9',1,'test_string_helpers.cpp']]],
-  ['test_5ftokenizestringendingquote_17',['test_tokenizeStringEndingQuote',['../test__string__helpers_8cpp.xhtml#a2c60b6469ba935ac73412310762b7649',1,'test_string_helpers.cpp']]],
-  ['to_5funderlying_18',['to_underlying',['../type__traits_8hpp.xhtml#a6d47bf9f710fac771fbbd29bc5205bf7',1,'type_traits.hpp']]],
-  ['tokenizequoted_19',['tokenizeQuoted',['../string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'string_helpers.hpp']]],
-  ['two_20',['two',['../test__cli_8cpp.xhtml#a5d8fae903c0fe6a0978e2252252ae859',1,'test_cli.cpp']]]
+  ['test_5frestart_5fburst_14',['test_restart_burst',['../test__worker_8cpp.xhtml#a5345a26b012c69be630983dc9e807bb7',1,'test_worker.cpp']]],
+  ['test_5ftask_5fmanager_15',['test_task_manager',['../task_8cpp.xhtml#affcbe78f66ce2b85d27e8aef9831d2a6',1,'task.cpp']]],
+  ['test_5ftime_5felapses_16',['test_time_elapses',['../task_8cpp.xhtml#a05fa3149832f15b7c8a9e3a590796b12',1,'task.cpp']]],
+  ['test_5ftokenizestring1_17',['test_tokenizeString1',['../test__string__helpers_8cpp.xhtml#a471a182a9bfe06e2193fad2f9c51baf9',1,'test_string_helpers.cpp']]],
+  ['test_5ftokenizestringendingquote_18',['test_tokenizeStringEndingQuote',['../test__string__helpers_8cpp.xhtml#a2c60b6469ba935ac73412310762b7649',1,'test_string_helpers.cpp']]],
+  ['to_5funderlying_19',['to_underlying',['../type__traits_8hpp.xhtml#a6d47bf9f710fac771fbbd29bc5205bf7',1,'type_traits.hpp']]],
+  ['tokenizequoted_20',['tokenizeQuoted',['../string__helpers_8hpp.xhtml#a2b46ef4e90ce4e0ab9dc22bf43851874',1,'string_helpers.hpp']]],
+  ['two_21',['two',['../test__cli_8cpp.xhtml#a5d8fae903c0fe6a0978e2252252ae859',1,'test_cli.cpp']]]
 ];
