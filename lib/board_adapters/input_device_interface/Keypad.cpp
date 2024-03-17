@@ -48,7 +48,7 @@ static void reactOnPinChange()
 }
 
 template <board::PinType PIN>
-static void isr()
+static void ARDUINO_ISR_ATTR isr()
 {
     /*
      * It is not possible to have a `static Worker` (not pointer-Type) within the ISR.
