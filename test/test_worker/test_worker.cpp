@@ -77,8 +77,8 @@ void test_restart_burst()
 {
     Worker worker;
     auto furtherRestarts = 10;
-    auto concurrentRestart = [&worker](const auto &self, const auto more) {
-        std::thread t(&Worker::restart, &worker, work, T_eps);
+    auto concurrentRestart = [&worker](const auto &self, const auto more) -> void {
+        std::thread t([&] { worker.restart(work, T_eps); });
         if (more > 0)
         {
             self(self, more - 1);
@@ -86,9 +86,11 @@ void test_restart_burst()
         t.join();
     };
 
-    auto recursionHelper = [&concurrentRestart](const auto furtherRestarts) {
+    auto recursionHelper = [&concurrentRestart](const auto furtherRestarts) -> void {
         concurrentRestart(concurrentRestart, furtherRestarts);
     };
+
+    recursionHelper(furtherRestarts);
 
     worker.finish();
     TEST_ASSERT_TRUE(workCompleted);
