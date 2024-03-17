@@ -1,31 +1,88 @@
 #include "Keypad.hpp"
 #include <Arduino-wrapper.h>
+#include <Worker.hpp>
+#include <algorithm>
 #include <array>
 #include <board_pins.hpp>
+#include <cassert>
+#include <chrono>
 #include <cstddef>
+#include <iterator>
+#include <memory>
 #include <thread>
 #include <type_traits>
 #include <utility>
 
 static HmiHandler callBack;
 
-template <KeyId SELECTION>
-static void isr()
+/**
+ * Maps HMI buttons to events.
+ */
+static constexpr std::pair<board::PinType, KeyId> selectionForPins[] = {
+    {board::button::pin::task1, KeyId::TASK1},
+    {board::button::pin::task2, KeyId::TASK2},
+    {board::button::pin::task3, KeyId::TASK3},
+    {board::button::pin::task4, KeyId::TASK4},
+    {board::button::pin::up, KeyId::LEFT},
+    {board::button::pin::down, KeyId::RIGHT},
+    {board::button::pin::enter, KeyId::ENTER},
+    {board::button::pin::back, KeyId::BACK},
+};
+
+template <board::PinType PIN>
+static void reactOnPinChange()
 {
-    static std::thread *p_callbackThread = nullptr;
-    const auto now = millis(); /* warning: `now()` from <chrono>/libc can not be used in ISRs */
-    static std::remove_const_t<decltype(now)> lastCall;
-    constexpr decltype(lastCall) debouncePeriod = 200; /* milliseconds */
-    if (now - lastCall > debouncePeriod)
+    const bool isPressed = digitalRead(PIN) == LOW;
+    if (isPressed)
     {
-        lastCall = now;
-        if (p_callbackThread)
+        const auto candidateKeyId = std::find_if(std::cbegin(selectionForPins), std::cend(selectionForPins), [](const auto pair) {
+            return pair.first == PIN;
+        });
+        const bool foundKeyId = candidateKeyId != std::cend(selectionForPins);
+        assert(foundKeyId);
+        if (foundKeyId)
         {
-            p_callbackThread->join();
-            delete p_callbackThread;
+            callBack(candidateKeyId->second);
         }
-        p_callbackThread = new std::thread(callBack, SELECTION);
     }
+}
+
+template <board::PinType PIN>
+static void ARDUINO_ISR_ATTR isr()
+{
+    /*
+     * It is not possible to have a `static Worker` (not pointer-Type) within the ISR.
+     * The constructor of Worker will call std::thread::thread() which tries to acquire a lock which will fail.
+     * It is possible to create a new Worker outside of the declaration of the static local variable.
+     */
+    static Worker *delayedStarter = nullptr;
+
+    {
+        /*
+         * START CRITICAL SECTION
+         * 
+         * Prevent concurrent Worker creation.
+         */
+        static std::atomic_flag criticalSectionOccupied = ATOMIC_FLAG_INIT;
+        while (criticalSectionOccupied.test_and_set(std::memory_order_acquire)) // lock section
+        {
+            std::this_thread::yield(); // spin
+        }
+        if (!delayedStarter)
+        {
+            delayedStarter = new Worker();
+        }
+        /*
+         * END CRITICAL SECTION
+         */
+        criticalSectionOccupied.clear(std::memory_order_release); // unlock section
+    }
+
+    // worker must be managed in a thread separate to the ISR to avoid deadlocks
+    std::thread workerManagement([]() { delayedStarter->restart(
+                                            reactOnPinChange<PIN>,
+                                            std::chrono::milliseconds(200)); });
+    workerManagement.detach();
 }
 
 /**
@@ -64,7 +121,7 @@ struct FunctionPointerGenerator
     template <T (&VALUES)[N], std::size_t... Is>
     constexpr static std::array<void (*)(), N> createIsrPointers([[maybe_unused]] const std::index_sequence<Is...> indices)
     {
-        return {isr<VALUES[Is].second>...};
+        return {isr<VALUES[Is].first>...};
     }
 };
 
@@ -85,20 +142,6 @@ static constexpr FunctionPointerGenerator<T, N> createFPG([[maybe_unused]] T (&a
     return FunctionPointerGenerator<T, N>();
 }
 
-/**
- * Maps HMI buttons to events.
- */
-static constexpr std::pair<board::PinType, KeyId> selectionForPins[] = {
-    {board::button::pin::task1, KeyId::TASK1},
-    {board::button::pin::task2, KeyId::TASK2},
-    {board::button::pin::task3, KeyId::TASK3},
-    {board::button::pin::task4, KeyId::TASK4},
-    {board::button::pin::up, KeyId::LEFT},
-    {board::button::pin::down, KeyId::RIGHT},
-    {board::button::pin::enter, KeyId::ENTER},
-    {board::button::pin::back, KeyId::BACK},
-};
-
 Keypad::Keypad()
 {
     // input pins
@@ -110,7 +153,7 @@ Keypad::Keypad()
         attachInterrupt(
             digitalPinToInterrupt(selectionForPin.first),
             functionPointers.at(index),
-            FALLING);
+            CHANGE);
         index++;
     }
 }
