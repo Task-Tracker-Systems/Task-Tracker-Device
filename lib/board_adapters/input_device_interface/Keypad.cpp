@@ -50,22 +50,39 @@ static void reactOnPinChange()
 template <board::PinType PIN>
 static void isr()
 {
-    static std::atomic_flag lock = ATOMIC_FLAG_INIT;
-    while (lock.test_and_set(std::memory_order_acquire)) // acquire lock
-    {
-        std::this_thread::yield(); // spin
-    }
+    /*
+     * It is not possible to have a `static Worker` (not pointer-Type) within the ISR.
+     * The constructor of Worker will call std::thread::thread() which tries to acquire a lock which will fail.
+     * It is possible to create a new Worker outside of the declaration of the static local variable.
+     */
     static Worker *delayedStarter = nullptr;
-    if (!delayedStarter)
+
     {
-        delayedStarter = new Worker();
+        /*
+         * START CRITICAL SECTION
+         * 
+         * Prevent concurrent Worker creation.
+         */
+        static std::atomic_flag criticalSectionOccupied = ATOMIC_FLAG_INIT;
+        while (criticalSectionOccupied.test_and_set(std::memory_order_acquire)) // lock section
+        {
+            std::this_thread::yield(); // spin
+        }
+        if (!delayedStarter)
+        {
+            delayedStarter = new Worker();
+        }
+        /*
+         * END CRITICAL SECTION
+         */
+        criticalSectionOccupied.clear(std::memory_order_release); // unlock section
     }
+
     // worker must be managed in a thread separate to the ISR to avoid deadlocks
     std::thread workerManagement([]() { delayedStarter->restart(
                                             reactOnPinChange<PIN>,
                                             std::chrono::milliseconds(200)); });
     workerManagement.detach();
-    lock.clear(std::memory_order_release); // release lock
 }
 
 /**
