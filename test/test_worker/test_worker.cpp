@@ -73,6 +73,23 @@ void test_continuous_abort()
     TEST_ASSERT_TRUE(workCompleted);
 }
 
+void test_restart_burst()
+{
+    Worker worker;
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.restart(work, T_eps);
+    worker.finish();
+    TEST_ASSERT_TRUE(workCompleted);
+}
+
 int main()
 {
     UNITY_BEGIN();
@@ -82,6 +99,6 @@ int main()
     RUN_TEST(test_abort);
     RUN_TEST(test_abort_and_run);
     RUN_TEST(test_continuous_abort);
-    RUN_TEST(test_abort);
+    RUN_TEST(test_restart_burst);
     return UNITY_END();
 }
