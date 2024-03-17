@@ -55,9 +55,13 @@ static void isr()
     {
         std::this_thread::yield(); // spin
     }
-    static Worker delayedStarter;
+    static Worker *delayedStarter = nullptr;
+    if (!delayedStarter)
+    {
+        delayedStarter = new Worker();
+    }
     // worker must be managed in a thread separate to the ISR to avoid deadlocks
-    std::thread workerManagement([]() { delayedStarter.restart(
+    std::thread workerManagement([]() { delayedStarter->restart(
                                             reactOnPinChange<PIN>,
                                             std::chrono::milliseconds(200)); });
     workerManagement.detach();
