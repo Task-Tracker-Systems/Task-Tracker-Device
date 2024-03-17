@@ -76,21 +76,13 @@ void test_continuous_abort()
 void test_restart_burst()
 {
     Worker worker;
-    auto furtherRestarts = 10;
-    auto concurrentRestart = [&worker](const auto &self, const auto more) -> void {
-        std::thread t([&] { worker.restart(work, T_eps); });
-        if (more > 0)
-        {
-            self(self, more - 1);
-        }
-        t.join();
-    };
 
-    auto recursionHelper = [&concurrentRestart](const auto furtherRestarts) -> void {
-        concurrentRestart(concurrentRestart, furtherRestarts);
-    };
-
-    recursionHelper(furtherRestarts);
+    std::vector<std::thread> threads;
+    for (auto numberOfThreadsToCreate = 10; numberOfThreadsToCreate > 0; --numberOfThreadsToCreate)
+    {
+        threads.emplace_back([&] { worker.restart(work, T_eps); });
+    }
+    std::for_each(std::begin(threads), std::end(threads), std::mem_fn(&std::thread::join));
 
     worker.finish();
     TEST_ASSERT_TRUE(workCompleted);
