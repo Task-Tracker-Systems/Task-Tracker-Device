@@ -10,6 +10,7 @@ class Worker
   public:
     void finish()
     {
+        std::unique_lock _(workerThreadControlMutex);
         if (delayedWorkerThread.joinable())
         {
             delayedWorkerThread.join();
@@ -18,13 +19,14 @@ class Worker
 
     void cancelStartup()
     {
+        std::unique_lock _(workerThreadControlMutex);
         if (delayedWorkerThread.joinable())
         {
             {
                 std::unique_lock lock(abortMutex);
                 abortFlag = true;
             }
-            abortCondition.notify_all();
+            abortSignalling.notify_all();
             delayedWorkerThread.join();
         }
     }
@@ -32,6 +34,7 @@ class Worker
     template <class Function, class Rep, class Period>
     void restart(Function &&work, const std::chrono::duration<Rep, Period> &startupDelay)
     {
+        std::unique_lock _(workerThreadControlMutex);
         cancelStartup();
 
         {
@@ -43,7 +46,7 @@ class Worker
             [this](auto work,
                    const auto startupDelay) {
                 std::unique_lock lock(abortMutex);
-                if (!abortCondition.wait_for(lock, startupDelay, [&]() { return abortFlag; }))
+                if (!abortSignalling.wait_for(lock, startupDelay, [&]() { return abortFlag; }))
                 {
                     work();
                 }
@@ -58,8 +61,9 @@ class Worker
     }
 
   private:
-    bool abortFlag;
-    std::mutex abortMutex;
-    std::condition_variable abortCondition;
-    std::thread delayedWorkerThread;
+    bool abortFlag;                                //!< condition for aborting the work
+    std::mutex abortMutex;                         //!< used to signal the abort condition to worker thread
+    std::recursive_mutex workerThreadControlMutex; //!< used to protect concurrent thread ending/starting
+    std::condition_variable abortSignalling;       //!< signals that it may be time to abort
+    std::thread delayedWorkerThread;               //!< performs the startup delay and work
 };
