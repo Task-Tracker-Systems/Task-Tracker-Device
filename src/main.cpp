@@ -72,11 +72,16 @@ bool exists(String path) {
   return yes;
 }
 
+static void rebootFs() {
+  FFat.end();
+  FFat.begin();
+}
+
 // Callback invoked when WRITE10 command is completed (status received and
 // accepted by host). used to flush any pending cache.
 void msc_flush_cb(void) {
   // sync with flash
-  flash.syncBlocks();
+  rebootFs();
 
   // clear file system's cache to force refresh
   fatfs.cacheClear();
@@ -138,9 +143,7 @@ void setup() {
     printf("Error with FAT partition");
     return;
   }
-  DBG_SERIAL.print("Flash size: ");
-  DBG_SERIAL.print(flash.size() / 1024);
-  DBG_SERIAL.println(" KB");
+  HWSerial.printf("Flash has a size of %u bytes\n", FFat.totalBytes());
 
   USB.onEvent(usbEventCallback);
   MSC.vendorID("ESP32");      // max 8 chars
@@ -157,8 +160,7 @@ void setup() {
   MSC.mediaPresent(true);
 
   // Set disk size, block size should be 512 regardless of spi flash page size
-  usb_msc.setCapacity(flash.size() / 512, 512);
-  MSC.begin(DISK_SECTOR_COUNT, DISK_SECTOR_SIZE);
+  MSC.begin(FFat.totalBytes() / DISK_SECTOR_SIZE, DISK_SECTOR_SIZE);
   USBSerial.begin();
   USB.begin();
 }
