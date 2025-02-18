@@ -97,6 +97,7 @@ void setup() {
     HWSerial.println("FatFS konnte nicht gestartet werden!");
     return;
   }
+  HWSerial.println("FatFS erfolgreich gemountet.");
 
   fatPartition = check_ffat_partition(FFAT_PARTITION_LABEL);
   if (!fatPartition) {
