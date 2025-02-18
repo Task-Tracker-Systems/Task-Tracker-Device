@@ -28,19 +28,27 @@ static const uint16_t DISC_SECTORS_PER_TABLE =
 
 static const esp_partition_t *fatPartition = nullptr;
 
+// Callback invoked when received WRITE10 command.
+// Process data in buffer to disk's storage and
+// return number of written bytes (must be multiple of block size)
 static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer,
                        uint32_t bufsize) {
   HWSerial.printf("MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset,
                   bufsize);
-  esp_partition_write(fatPartition, offset, buffer, bufsize);
+  esp_partition_write(fatPartition, offset, buffer,
+                      bufsize); // TODO handle error codes
   return bufsize;
 }
 
+// Callback invoked when received READ10 command.
+// Copy disk's data to buffer (up to bufsize) and
+// return number of copied bytes (must be multiple of block size)
 static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer,
                       uint32_t bufsize) {
   HWSerial.printf("MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset,
                   bufsize);
-  esp_partition_read(fatPartition, offset, buffer, bufsize);
+  esp_partition_read(fatPartition, offset, buffer,
+                     bufsize); // TODO handle error codes
   return bufsize;
 }
 
@@ -51,6 +59,32 @@ static bool onStartStop(uint8_t power_condition, bool start, bool load_eject) {
 }
 
 static std::atomic_bool fs_changed{false};
+
+static void refreshMassStorage(void) { fs_changed = true; }
+
+bool exists(String path) {
+  bool yes = false;
+  File32 file = fatfs.open(path, O_READ);
+  if (file && !file.isDirectory()) {
+    yes = true;
+  }
+  file.close();
+  return yes;
+}
+
+// Callback invoked when WRITE10 command is completed (status received and
+// accepted by host). used to flush any pending cache.
+void msc_flush_cb(void) {
+  // sync with flash
+  flash.syncBlocks();
+
+  // clear file system's cache to force refresh
+  fatfs.cacheClear();
+
+#ifdef LED_BUILTIN
+  digitalWrite(LED_BUILTIN, LOW);
+#endif
+}
 
 // Invoked when received Test Unit Ready command.
 // return true allowing host to read/write this LUN e.g SD card inserted
@@ -94,7 +128,7 @@ void setup() {
 
   if (!FFat.begin(
           true)) { // `true` = Formatieren falls kein Dateisystem vorhanden
-    HWSerial.println("FatFS konnte nicht gestartet werden!");
+    HWSerial.println("Failed to init files system, flash may not be formatted");
     return;
   }
   HWSerial.println("FatFS erfolgreich gemountet.");
@@ -104,6 +138,9 @@ void setup() {
     printf("Error with FAT partition");
     return;
   }
+  DBG_SERIAL.print("Flash size: ");
+  DBG_SERIAL.print(flash.size() / 1024);
+  DBG_SERIAL.println(" KB");
 
   USB.onEvent(usbEventCallback);
   MSC.vendorID("ESP32");      // max 8 chars
@@ -112,7 +149,15 @@ void setup() {
   MSC.onStartStop(onStartStop);
   MSC.onRead(onRead);
   MSC.onWrite(onWrite);
+  // Set callback
+  usb_msc.setReadWriteCallback(msc_read_cb, msc_write_cb, msc_flush_cb);
+  // MSC is ready for read/write
+  fs_changed = false;
+  usb_msc.setReadyCallback(0, msc_ready_callback);
   MSC.mediaPresent(true);
+
+  // Set disk size, block size should be 512 regardless of spi flash page size
+  usb_msc.setCapacity(flash.size() / 512, 512);
   MSC.begin(DISK_SECTOR_COUNT, DISK_SECTOR_SIZE);
   USBSerial.begin();
   USB.begin();
