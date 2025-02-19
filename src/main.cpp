@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <FFat.h>
-#include <atomic>
 #include <esp_partition.h>
 #if ARDUINO_USB_MODE
 #warning This sketch should be used when USB is in OTG mode
@@ -58,9 +57,7 @@ static bool onStartStop(uint8_t power_condition, bool start, bool load_eject) {
   return true;
 }
 
-static std::atomic_bool fs_changed{false};
-
-static void refreshMassStorage(void) { fs_changed = true; }
+static void refreshMassStorage(void) { MSC.mediaPresent(false); }
 
 bool exists(String path) {
   bool yes = false;
@@ -79,7 +76,8 @@ static void rebootFs() {
 
 // Callback invoked when WRITE10 command is completed (status received and
 // accepted by host). used to flush any pending cache.
-void msc_flush_cb(void) {
+void tud_msc_write10_complete_cb(void) {
+  MSC.mediaPresent(true);
   // sync with flash
   rebootFs();
 
@@ -89,14 +87,6 @@ void msc_flush_cb(void) {
 #ifdef LED_BUILTIN
   digitalWrite(LED_BUILTIN, LOW);
 #endif
-}
-
-// Invoked when received Test Unit Ready command.
-// return true allowing host to read/write this LUN e.g SD card inserted
-bool msc_ready_callback(void) {
-  // if fs has changed, mark unit as not ready temporarily to force PC to flush
-  // cache
-  return !fs_changed.exchange(false);
 }
 
 static void usbEventCallback(void *arg, esp_event_base_t event_base,
@@ -155,8 +145,6 @@ void setup() {
   // Set callback
   usb_msc.setReadWriteCallback(msc_read_cb, msc_write_cb, msc_flush_cb);
   // MSC is ready for read/write
-  fs_changed = false;
-  usb_msc.setReadyCallback(0, msc_ready_callback);
   MSC.mediaPresent(true);
 
   // Set disk size, block size should be 512 regardless of spi flash page size
