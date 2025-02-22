@@ -9,10 +9,8 @@ void loop() {}
 #include <USB.h>
 #include <USBMSC.h>
 #include <esp_err.h>
-#include <filesystem>
 
-static const std::filesystem::path ffat_base_path =
-    std::filesystem::path().append(FFAT_PARTITION_LABEL);
+static const char *const FFAT_BASE_PATH = "/" FFAT_PARTITION_LABEL;
 
 #if ARDUINO_USB_CDC_ON_BOOT
 #define HWSerial Serial0
@@ -110,7 +108,7 @@ static void usbEventCallback(void *arg, esp_event_base_t event_base,
     case ARDUINO_USB_STOPPED_EVENT:
       HWSerial.println("USB UNPLUGGED");
       switchToApplicationMode();
-      listFiles(ffat_base_path.c_str());
+      listFiles(FFAT_BASE_PATH);
       break;
     case ARDUINO_USB_SUSPEND_EVENT:
       HWSerial.printf("USB SUSPENDED: remote_wakeup_en: %u\n",
