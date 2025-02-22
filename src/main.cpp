@@ -6,8 +6,13 @@
 void setup() {}
 void loop() {}
 #else
-#include "USB.h"
-#include "USBMSC.h"
+#include <USB.h>
+#include <USBMSC.h>
+#include <esp_err.h>
+#include <filesystem>
+
+static const std::filesystem::path ffat_base_path =
+    std::filesystem::path().append(FFAT_PARTITION_LABEL);
 
 #if ARDUINO_USB_CDC_ON_BOOT
 #define HWSerial Serial0
@@ -34,8 +39,9 @@ static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer,
                        uint32_t bufsize) {
   HWSerial.printf("MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset,
                   bufsize);
-  esp_partition_write(fatPartition, offset, buffer,
-                      bufsize); // TODO handle error codes
+  // erase must be called before write
+  ESP_ERROR_CHECK(esp_partition_erase_range(fatPartition, offset, bufsize));
+  ESP_ERROR_CHECK(esp_partition_write(fatPartition, offset, buffer, bufsize));
   return bufsize;
 }
 
@@ -46,8 +52,7 @@ static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer,
                       uint32_t bufsize) {
   HWSerial.printf("MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset,
                   bufsize);
-  esp_partition_read(fatPartition, offset, buffer,
-                     bufsize); // TODO handle error codes
+  ESP_ERROR_CHECK(esp_partition_read(fatPartition, offset, buffer, bufsize));
   return bufsize;
 }
 
@@ -57,36 +62,40 @@ static bool onStartStop(uint8_t power_condition, bool start, bool load_eject) {
   return true;
 }
 
-static void refreshMassStorage(void) { MSC.mediaPresent(false); }
-
-bool exists(String path) {
-  bool yes = false;
-  File32 file = fatfs.open(path, O_READ);
-  if (file && !file.isDirectory()) {
-    yes = true;
+/**
+ * Lists files and directories at path.
+ */
+static void listFiles(const char *const dirname) {
+  Serial.printf("Directory: '%s'\n", dirname);
+  File root = FFat.open(dirname);
+  if (!root || !root.isDirectory()) {
+    HWSerial.printf("Error: '%s' is not a directory!\n", dirname);
+    return;
   }
-  file.close();
-  return yes;
+
+  File file = root.openNextFile();
+  while (file) {
+    HWSerial.printf("  %s (%s, %d Bytes)\n", file.name(),
+                    file.isDirectory() ? "d" : "f", file.size());
+    file = root.openNextFile();
+  }
 }
 
-static void rebootFs() {
-  FFat.end();
-  FFat.begin();
+/**
+ * Switch from USB MSC to application mode (file system).
+ */
+static void switchToApplicationMode() {
+  FFat.end(); // invalidate cache
+  MSC.mediaPresent(false);
+  FFat.begin(); // update data
 }
 
-// Callback invoked when WRITE10 command is completed (status received and
-// accepted by host). used to flush any pending cache.
-void tud_msc_write10_complete_cb(void) {
+/**
+ * Switch from application mode (file system) to USB MSC.
+ */
+static void switchToUSBMode() {
+  FFat.end(); // flush and unmount
   MSC.mediaPresent(true);
-  // sync with flash
-  rebootFs();
-
-  // clear file system's cache to force refresh
-  fatfs.cacheClear();
-
-#ifdef LED_BUILTIN
-  digitalWrite(LED_BUILTIN, LOW);
-#endif
 }
 
 static void usbEventCallback(void *arg, esp_event_base_t event_base,
@@ -96,9 +105,12 @@ static void usbEventCallback(void *arg, esp_event_base_t event_base,
     switch (event_id) {
     case ARDUINO_USB_STARTED_EVENT:
       HWSerial.println("USB PLUGGED");
+      switchToUSBMode();
       break;
     case ARDUINO_USB_STOPPED_EVENT:
       HWSerial.println("USB UNPLUGGED");
+      switchToApplicationMode();
+      listFiles(ffat_base_path.c_str());
       break;
     case ARDUINO_USB_SUSPEND_EVENT:
       HWSerial.printf("USB SUSPENDED: remote_wakeup_en: %u\n",
@@ -140,10 +152,9 @@ void setup() {
   MSC.productID("USB_MSC");   // max 16 chars
   MSC.productRevision("1.0"); // max 4 chars
   MSC.onStartStop(onStartStop);
+  // Set callback
   MSC.onRead(onRead);
   MSC.onWrite(onWrite);
-  // Set callback
-  usb_msc.setReadWriteCallback(msc_read_cb, msc_write_cb, msc_flush_cb);
   // MSC is ready for read/write
   MSC.mediaPresent(true);
 
