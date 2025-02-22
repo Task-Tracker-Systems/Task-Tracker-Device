@@ -35,9 +35,11 @@ static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer,
                        uint32_t bufsize) {
   HWSerial.printf("MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset,
                   bufsize);
+  uint32_t byteOffset = lba * DISK_SECTOR_SIZE + offset;
   // erase must be called before write
-  ESP_ERROR_CHECK(esp_partition_erase_range(fatPartition, offset, bufsize));
-  ESP_ERROR_CHECK(esp_partition_write(fatPartition, offset, buffer, bufsize));
+  ESP_ERROR_CHECK(esp_partition_erase_range(fatPartition, byteOffset, bufsize));
+  ESP_ERROR_CHECK(
+      esp_partition_write(fatPartition, byteOffset, buffer, bufsize));
   return bufsize;
 }
 
@@ -48,7 +50,9 @@ static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer,
                       uint32_t bufsize) {
   HWSerial.printf("MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset,
                   bufsize);
-  ESP_ERROR_CHECK(esp_partition_read(fatPartition, offset, buffer, bufsize));
+  uint32_t byteOffset = lba * DISK_SECTOR_SIZE + offset;
+  ESP_ERROR_CHECK(
+      esp_partition_read(fatPartition, byteOffset, buffer, bufsize));
   return bufsize;
 }
 
