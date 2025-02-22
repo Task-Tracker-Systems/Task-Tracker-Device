@@ -10,8 +10,6 @@ void loop() {}
 #include <USBMSC.h>
 #include <esp_err.h>
 
-static const char *const FFAT_BASE_PATH = "/" FFAT_PARTITION_LABEL;
-
 #if ARDUINO_USB_CDC_ON_BOOT
 #define HWSerial Serial0
 #define USBSerial Serial
@@ -64,7 +62,7 @@ static bool onStartStop(uint8_t power_condition, bool start, bool load_eject) {
  * Lists files and directories at path.
  */
 static void listFiles(const char *const dirname) {
-  Serial.printf("Directory: '%s'\n", dirname);
+  HWSerial.printf("Directory: '%s'\n", dirname);
   File root = FFat.open(dirname);
   if (!root || !root.isDirectory()) {
     HWSerial.printf("Error: '%s' is not a directory!\n", dirname);
@@ -96,19 +94,32 @@ static void switchToUSBMode() {
   MSC.mediaPresent(true);
 }
 
+static void usb_stopped_cb(void *const pvParameters) {
+  switchToApplicationMode();
+  listFiles("/");
+  vTaskDelete(nullptr);
+}
+
+static void usb_started_cb(void *const pvParameters) {
+  switchToUSBMode();
+  vTaskDelete(nullptr);
+}
+
 static void usbEventCallback(void *arg, esp_event_base_t event_base,
                              int32_t event_id, void *event_data) {
   if (event_base == ARDUINO_USB_EVENTS) {
     arduino_usb_event_data_t *data = (arduino_usb_event_data_t *)event_data;
+    static int32_t old_event_id = ARDUINO_USB_ANY_EVENT;
+    if (old_event_id == event_id)
+      return;
     switch (event_id) {
     case ARDUINO_USB_STARTED_EVENT:
       HWSerial.println("USB PLUGGED");
-      switchToUSBMode();
+      xTaskCreate(usb_started_cb, "USB_Started_CB", 4096, nullptr, 5, nullptr);
       break;
     case ARDUINO_USB_STOPPED_EVENT:
       HWSerial.println("USB UNPLUGGED");
-      switchToApplicationMode();
-      listFiles(FFAT_BASE_PATH);
+      xTaskCreate(usb_stopped_cb, "USB_Stopped_CB", 4096, nullptr, 5, nullptr);
       break;
     case ARDUINO_USB_SUSPEND_EVENT:
       HWSerial.printf("USB SUSPENDED: remote_wakeup_en: %u\n",
@@ -121,6 +132,7 @@ static void usbEventCallback(void *arg, esp_event_base_t event_base,
     default:
       break;
     }
+    old_event_id = event_id;
   }
 }
 
@@ -164,5 +176,10 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  static uint32_t lastTrigger = 0;
+  if (millis() - lastTrigger > 1000) {
+    HWSerial.print(".");
+    lastTrigger = millis();
+  }
 }
 #endif /* ARDUINO_USB_MODE */
