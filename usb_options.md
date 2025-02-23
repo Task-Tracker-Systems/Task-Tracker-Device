@@ -1,5 +1,7 @@
 # Overview of Build Options for ESP32-S3
 
+See also [documentation on USB options](https://docs.espressif.com/projects/arduino-esp32/en/latest/guides/tools_menu.html#usb-options).
+
 ## 1. USB Mode (`ARDUINO_USB_MODE`)
 
 | Value | Label |

@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <FFat.h>
 #include <esp_partition.h>
-#if ARDUINO_USB_MODE
+#if ARDUINO_USB_MODE == 1
 #warning This sketch should be used when USB is in OTG mode
 void setup() {}
 void loop() {}
@@ -10,7 +10,7 @@ void loop() {}
 #include <USBMSC.h>
 #include <esp_err.h>
 
-#if ARDUINO_USB_CDC_ON_BOOT
+#if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
 #define USBSerial Serial
 #else
