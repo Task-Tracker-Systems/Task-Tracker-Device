@@ -85,8 +85,8 @@ static void listFiles(const char *const dirname) {
  * Switch from USB MSC to application mode (file system).
  */
 static void switchToApplicationMode() {
-  FFat.end(); // invalidate cache
   MSC.mediaPresent(false);
+  FFat.end();   // invalidate cache
   FFat.begin(); // update data
 }
 
