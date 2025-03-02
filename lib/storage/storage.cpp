@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #include "storage.hpp"
 #include <FFat.h>
 #include <USB.h>
@@ -6,15 +8,6 @@
 #include <esp32-hal-log.h>
 #include <esp_partition.h>
 #include <string>
-
-#if ARDUINO_USB_CDC_ON_BOOT == 1
-#define HWSerial Serial0
-#define USBSerial Serial
-#else
-#define HWSerial Serial
-#include <USBCDC.h>
-USBCDC USBSerial;
-#endif
 
 #if defined(ARDUINO_USB_MODE)
 static_assert(ARDUINO_USB_MODE == 0, "USB must be in OTG mode");
@@ -110,7 +103,7 @@ std::size_t Storage::size()
 
 bool Storage::begin(const bool formatFsOnFail, const char *const partitionLabel)
 {
-    ESP_LOGI(TAG, "Starting storage...");
+    ESP_LOGD(TAG, "Starting storage...");
     partition = check_ffat_partition(partitionLabel);
 
     if (!partition)
@@ -129,6 +122,7 @@ bool Storage::begin(const bool formatFsOnFail, const char *const partitionLabel)
     }
     ESP_LOGI(TAG, "Storage has a size of %u bytes.", size());
     ESP_LOGI(TAG, "Storage mounted at '%s'.", basePath.c_str());
+    fileSystemIsReady = true;
 
     // setup USB Mass Storage Class
     usbMsc.vendorID("TTS");        // max 8 chars
@@ -138,14 +132,11 @@ bool Storage::begin(const bool formatFsOnFail, const char *const partitionLabel)
     // Set callback
     usbMsc.onRead(usbMsc_onRead);
     usbMsc.onWrite(usbMsc_onWrite);
-    // usbMsc is ready for read/write
-    usbMsc.mediaPresent(true);
-    if (!usbMsc.begin(FFat.totalBytes() / blockSize, blockSize))
+    if (!usbMsc.begin(size() / blockSize, blockSize))
     {
         ESP_LOGE(TAG, "USB MSC initialization failed!");
         return false;
     }
-    fileSystemIsReady = true;
 
     // subscribe to USB events
     USB.onEvent(ARDUINO_USB_STARTED_EVENT, callbackUsbStarted);

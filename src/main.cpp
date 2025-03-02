@@ -22,12 +22,12 @@ struct TestStorage : Storage
      */
     static void listFiles(const char *const dirname)
     {
-        // auto FFat = getFileSystem();
+        auto FFat = getFileSystem();
         HWSerial.printf("Directory: '%s'\n", dirname);
         File root = FFat.open(dirname);
         if (!root || !root.isDirectory())
         {
-            ESP_LOGE(TAG, "'%s' is not a directory!\n", dirname);
+            ESP_LOGE(TAG, "'%s' is not a directory!", dirname);
             root.close();
             return;
         }
@@ -36,10 +36,12 @@ struct TestStorage : Storage
         while (file)
         {
             HWSerial.printf("  %s (%s, %d Bytes)\n", file.name(), file.isDirectory() ? "d" : "f", file.size());
+            file.close();
             file = root.openNextFile();
         }
         file.close();
         root.close();
+        HWSerial.println("end of directory");
     }
 };
 
