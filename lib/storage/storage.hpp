@@ -4,13 +4,12 @@
 #include <USBMSC.h>
 #include <cstddef>
 #include <esp_event_base.h>
-#include <esp_partition.h>
 #include <string>
 
 class Storage
 {
   public:
-    static void begin(bool formatFsOnFail = false, const char *partitionLabel = FFAT_PARTITION_LABEL);
+    static bool begin(bool formatFsOnFail = false, const char *partitionLabel = FFAT_PARTITION_LABEL);
     static void end();
     static bool isFileSystemReady();
     static std::size_t size();

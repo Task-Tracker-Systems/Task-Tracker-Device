@@ -1,4 +1,6 @@
 #include <Arduino.h>
+#include <esp32-hal-log.h>
+#include <iostream>
 #include <storage.hpp>
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
@@ -10,6 +12,8 @@
 USBCDC USBSerial;
 #endif
 
+static const char *const TAG = "MAIN";
+
 struct TestStorage : Storage
 {
 
@@ -18,12 +22,13 @@ struct TestStorage : Storage
      */
     static void listFiles(const char *const dirname)
     {
-        auto FFat = getFileSystem();
+        // auto FFat = getFileSystem();
         HWSerial.printf("Directory: '%s'\n", dirname);
         File root = FFat.open(dirname);
         if (!root || !root.isDirectory())
         {
-            HWSerial.printf("Error: '%s' is not a directory!\n", dirname);
+            ESP_LOGE(TAG, "'%s' is not a directory!\n", dirname);
+            root.close();
             return;
         }
 
@@ -33,15 +38,24 @@ struct TestStorage : Storage
             HWSerial.printf("  %s (%s, %d Bytes)\n", file.name(), file.isDirectory() ? "d" : "f", file.size());
             file = root.openNextFile();
         }
+        file.close();
+        root.close();
     }
 };
 
 void setup()
 {
-    ESP_LOGE("tag", "hello"), HWSerial.begin(115200);
+    HWSerial.begin(115200);
     HWSerial.setDebugOutput(true);
-    Storage::begin();
-
+    delay(300); // in order to give the serial monitor time to start
+    HWSerial.println("START HWSerial");
+    ESP_LOGE(TAG, "Example error");
+    ESP_LOGW(TAG, "Example warning");
+    ESP_LOGI(TAG, "Example info");
+    ESP_LOGD(TAG, "Example debug");
+    ESP_LOGV(TAG, "Example verbose");
+    std::cout << "Hello" << std::endl;
+    Storage::begin(true);
     USBSerial.begin();
 }
 
