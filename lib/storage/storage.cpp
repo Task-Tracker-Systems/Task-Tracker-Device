@@ -145,8 +145,6 @@ const esp_partition_t *check_ffat_partition(const char *label); // defined in FF
 
 void Storage::begin()
 {
-    HWSerial.begin(115200);
-    HWSerial.setDebugOutput(true);
 
     if (!FFat.begin(true))
     { // `true` = Formatieren falls kein Dateisystem vorhanden
@@ -176,6 +174,5 @@ void Storage::begin()
 
     // Set disk size, block size should be 512 regardless of spi flash page size
     MSC.begin(FFat.totalBytes() / DISK_SECTOR_SIZE, DISK_SECTOR_SIZE);
-    USBSerial.begin();
     USB.begin();
 }
