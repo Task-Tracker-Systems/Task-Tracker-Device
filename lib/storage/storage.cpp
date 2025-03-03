@@ -16,7 +16,7 @@ static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
 #define HWSerial Serial
 #endif
 
-USBMSC MSC;
+static USBMSC MSC;
 
 static const uint32_t DISK_SECTOR_COUNT = 2 * 8;  // 8KB is the smallest size that windows allow to mount
 static const uint16_t DISK_SECTOR_SIZE = 512;     // Should be 512
