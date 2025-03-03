@@ -10,6 +10,7 @@ static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
 #include <cstdint>
 #include <esp_err.h>
 #include <esp_partition.h>
+#include <iostream>
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
@@ -22,13 +23,14 @@ static USBMSC MSC;
 static constexpr std::uint16_t blockSize = 512; // Should be 512
 
 static const esp_partition_t *partition = nullptr;
+static const char *const TAG = "STORAGE";
 
 // Callback invoked when received WRITE10 command.
 // Process data in buffer to disk's storage and
 // return number of written bytes (must be multiple of block size)
 static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t bufsize)
 {
-    HWSerial.printf("MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
+    ESP_LOGV(TAG, "MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
     uint32_t byteOffset = lba * blockSize + offset;
     // erase must be called before write
     ESP_ERROR_CHECK(esp_partition_erase_range(partition, byteOffset, bufsize));
@@ -41,7 +43,7 @@ static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t 
 // return number of copied bytes (must be multiple of block size)
 static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufsize)
 {
-    HWSerial.printf("MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
+    ESP_LOGV(TAG, "MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
     uint32_t byteOffset = lba * blockSize + offset;
     ESP_ERROR_CHECK(esp_partition_read(partition, byteOffset, buffer, bufsize));
     return bufsize;
@@ -49,7 +51,7 @@ static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufs
 
 static bool onStartStop(uint8_t power_condition, bool start, bool load_eject)
 {
-    HWSerial.printf("MSC START/STOP: power: %u, start: %u, eject: %u\n", power_condition, start, load_eject);
+    ESP_LOGV(TAG, "MSC START/STOP: power: %u, start: %u, eject: %u\n", power_condition, start, load_eject);
     return true;
 }
 
@@ -58,18 +60,19 @@ static bool onStartStop(uint8_t power_condition, bool start, bool load_eject)
  */
 static void listFiles(const char *const dirname)
 {
-    HWSerial.printf("Directory: '%s'\n", dirname);
+    std::cout << "Directory: '" << dirname << "'" << std::endl;
     File root = FFat.open(dirname);
     if (!root || !root.isDirectory())
     {
-        HWSerial.printf("Error: '%s' is not a directory!\n", dirname);
+        ESP_LOGE(TAG, "Error: '%s' is not a directory!\n", dirname);
         return;
     }
 
     File file = root.openNextFile();
     while (file)
     {
-        HWSerial.printf("  %s (%s, %d Bytes)\n", file.name(), file.isDirectory() ? "d" : "f", file.size());
+        std::cout << "\t" << file.name() << " (" << (file.isDirectory() ? "d" : "f") << ", " << file.size() << " Bytes)"
+                  << std::endl;
         file = root.openNextFile();
     }
 }
@@ -129,18 +132,18 @@ void Storage::begin()
 
     if (!FFat.begin(true))
     { // `true` = Formatieren falls kein Dateisystem vorhanden
-        HWSerial.println("Failed to init files system, flash may not be formatted");
+        ESP_LOGE(TAG, "Failed to init files system, flash may not be formatted");
         return;
     }
-    HWSerial.println("FatFS erfolgreich gemountet.");
+    ESP_LOGI(TAG, "FatFS erfolgreich gemountet.");
 
     partition = check_ffat_partition(FFAT_PARTITION_LABEL);
     if (!partition)
     {
-        printf("Error with FAT partition");
+        ESP_LOGE(TAG, "Error with FAT partition");
         return;
     }
-    HWSerial.printf("Flash has a size of %u bytes\n", FFat.totalBytes());
+    ESP_LOGI(TAG, "Flash has a size of %u bytes\n", FFat.totalBytes());
 
     USB.onEvent(ARDUINO_USB_STARTED_EVENT, usbStartedCallback);
     USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbStoppedCallback);
