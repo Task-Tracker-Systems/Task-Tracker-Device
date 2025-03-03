@@ -106,36 +106,20 @@ static void usb_started_cb(void *const pvParameters)
     vTaskDelete(nullptr);
 }
 
-static void usbEventCallback(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
+static bool usbIsRunning = false;
+static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
 {
-    if (event_base == ARDUINO_USB_EVENTS)
+    if (!usbIsRunning)
     {
-        arduino_usb_event_data_t *data = (arduino_usb_event_data_t *)event_data;
-        static int32_t old_event_id = ARDUINO_USB_ANY_EVENT;
-        if (old_event_id == event_id)
-            return;
-        switch (event_id)
-        {
-        case ARDUINO_USB_STARTED_EVENT:
-            HWSerial.println("USB PLUGGED");
-            xTaskCreate(usb_started_cb, "USB_Started_CB", 4096, nullptr, 5, nullptr);
-            break;
-        case ARDUINO_USB_STOPPED_EVENT:
-            HWSerial.println("USB UNPLUGGED");
-            xTaskCreate(usb_stopped_cb, "USB_Stopped_CB", 4096, nullptr, 5, nullptr);
-            break;
-        case ARDUINO_USB_SUSPEND_EVENT:
-            HWSerial.printf("USB SUSPENDED: remote_wakeup_en: %u\n", data->suspend.remote_wakeup_en);
-            break;
-        case ARDUINO_USB_RESUME_EVENT:
-            HWSerial.println("USB RESUMED");
-            break;
-
-        default:
-            break;
-        }
-        old_event_id = event_id;
+        return;
     }
+    usbIsRunning = false;
+    xTaskCreate(usb_stopped_cb, "USB_Stopped_CB", 4096, nullptr, 5, nullptr);
+}
+static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
+{
+    usbIsRunning = true;
+    xTaskCreate(usb_started_cb, "USB_Started_CB", 4096, nullptr, 5, nullptr);
 }
 
 const esp_partition_t *check_ffat_partition(const char *label); // defined in FFat.cpp
@@ -158,7 +142,8 @@ void Storage::begin()
     }
     HWSerial.printf("Flash has a size of %u bytes\n", FFat.totalBytes());
 
-    USB.onEvent(usbEventCallback);
+    USB.onEvent(ARDUINO_USB_STARTED_EVENT, usbStartedCallback);
+    USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbStoppedCallback);
     MSC.vendorID("ESP32");      // max 8 chars
     MSC.productID("USB_MSC");   // max 16 chars
     MSC.productRevision("1.0"); // max 4 chars
