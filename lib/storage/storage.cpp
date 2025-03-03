@@ -21,7 +21,7 @@ static USBMSC MSC;
 
 static constexpr std::uint16_t blockSize = 512; // Should be 512
 
-static const esp_partition_t *fatPartition = nullptr;
+static const esp_partition_t *partition = nullptr;
 
 // Callback invoked when received WRITE10 command.
 // Process data in buffer to disk's storage and
@@ -31,8 +31,8 @@ static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t 
     HWSerial.printf("MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
     uint32_t byteOffset = lba * blockSize + offset;
     // erase must be called before write
-    ESP_ERROR_CHECK(esp_partition_erase_range(fatPartition, byteOffset, bufsize));
-    ESP_ERROR_CHECK(esp_partition_write(fatPartition, byteOffset, buffer, bufsize));
+    ESP_ERROR_CHECK(esp_partition_erase_range(partition, byteOffset, bufsize));
+    ESP_ERROR_CHECK(esp_partition_write(partition, byteOffset, buffer, bufsize));
     return bufsize;
 }
 
@@ -43,7 +43,7 @@ static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufs
 {
     HWSerial.printf("MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
     uint32_t byteOffset = lba * blockSize + offset;
-    ESP_ERROR_CHECK(esp_partition_read(fatPartition, byteOffset, buffer, bufsize));
+    ESP_ERROR_CHECK(esp_partition_read(partition, byteOffset, buffer, bufsize));
     return bufsize;
 }
 
@@ -134,8 +134,8 @@ void Storage::begin()
     }
     HWSerial.println("FatFS erfolgreich gemountet.");
 
-    fatPartition = check_ffat_partition(FFAT_PARTITION_LABEL);
-    if (!fatPartition)
+    partition = check_ffat_partition(FFAT_PARTITION_LABEL);
+    if (!partition)
     {
         printf("Error with FAT partition");
         return;
