@@ -158,6 +158,12 @@ void Storage::begin()
     MSC.mediaPresent(true);
 
     // Set disk size, block size should be 512 regardless of spi flash page size
-    MSC.begin(FFat.totalBytes() / blockSize, blockSize);
-    USB.begin();
+    if (!MSC.begin(FFat.totalBytes() / blockSize, blockSize))
+    {
+        ESP_LOGE(TAG, "starting USB MSC failed");
+    }
+    if (!USB.begin())
+    {
+        ESP_LOGE(TAG, "starting USB failed");
+    }
 }
