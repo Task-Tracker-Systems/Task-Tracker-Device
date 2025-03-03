@@ -7,6 +7,7 @@ static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
 #include <FFat.h>
 #include <USB.h>
 #include <USBMSC.h>
+#include <cstdint>
 #include <esp_err.h>
 #include <esp_partition.h>
 
@@ -18,9 +19,7 @@ static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
 
 static USBMSC MSC;
 
-static const uint32_t DISK_SECTOR_COUNT = 2 * 8;  // 8KB is the smallest size that windows allow to mount
-static const uint16_t DISK_SECTOR_SIZE = 512;     // Should be 512
-static const uint16_t DISC_SECTORS_PER_TABLE = 1; // each table sector can fit 170KB (340 sectors)
+static constexpr std::uint16_t blockSize = 512; // Should be 512
 
 static const esp_partition_t *fatPartition = nullptr;
 
@@ -30,7 +29,7 @@ static const esp_partition_t *fatPartition = nullptr;
 static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t bufsize)
 {
     HWSerial.printf("MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
-    uint32_t byteOffset = lba * DISK_SECTOR_SIZE + offset;
+    uint32_t byteOffset = lba * blockSize + offset;
     // erase must be called before write
     ESP_ERROR_CHECK(esp_partition_erase_range(fatPartition, byteOffset, bufsize));
     ESP_ERROR_CHECK(esp_partition_write(fatPartition, byteOffset, buffer, bufsize));
@@ -43,7 +42,7 @@ static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t 
 static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufsize)
 {
     HWSerial.printf("MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
-    uint32_t byteOffset = lba * DISK_SECTOR_SIZE + offset;
+    uint32_t byteOffset = lba * blockSize + offset;
     ESP_ERROR_CHECK(esp_partition_read(fatPartition, byteOffset, buffer, bufsize));
     return bufsize;
 }
@@ -171,6 +170,6 @@ void Storage::begin()
     MSC.mediaPresent(true);
 
     // Set disk size, block size should be 512 regardless of spi flash page size
-    MSC.begin(FFat.totalBytes() / DISK_SECTOR_SIZE, DISK_SECTOR_SIZE);
+    MSC.begin(FFat.totalBytes() / blockSize, blockSize);
     USB.begin();
 }
