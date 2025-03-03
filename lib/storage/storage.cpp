@@ -12,10 +12,8 @@ static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
-#define USBSerial Serial
 #else
 #define HWSerial Serial
-USBCDC USBSerial;
 #endif
 
 USBMSC MSC;
