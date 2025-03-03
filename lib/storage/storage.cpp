@@ -73,8 +73,11 @@ static void listFiles(const char *const dirname)
     {
         std::cout << "\t" << file.name() << " (" << (file.isDirectory() ? "d" : "f") << ", " << file.size() << " Bytes)"
                   << std::endl;
+        file.close();
         file = root.openNextFile();
     }
+    file.close();
+    root.close();
 }
 
 /**
