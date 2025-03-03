@@ -2,4 +2,5 @@
 
 struct Storage
 {
+  static void begin();
 };
