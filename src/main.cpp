@@ -20,13 +20,13 @@ static const char *const TAG = "MAIN";
 void setup()
 {
     HWSerial.begin(115200);
+    delay(200); // wait for the serial monitor to be ready
     HWSerial.setDebugOutput(true);
     ESP_LOGV(TAG, "verbose");
     ESP_LOGD(TAG, "debug");
     ESP_LOGI(TAG, "info");
     ESP_LOGW(TAG, "warning");
     ESP_LOGE(TAG, "error");
-    delay(200); // wait for the serial monitor to be ready
     std::cout << "Started program" << std::endl;
     Storage::begin();
 }
