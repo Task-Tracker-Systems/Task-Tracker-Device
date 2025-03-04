@@ -99,19 +99,6 @@ static void switchToUSBMode()
     MSC.mediaPresent(true);
 }
 
-static void usb_stopped_cb(void *const pvParameters)
-{
-    switchToApplicationMode();
-    listFiles("/");
-    vTaskDelete(nullptr);
-}
-
-static void usb_started_cb(void *const pvParameters)
-{
-    switchToUSBMode();
-    vTaskDelete(nullptr);
-}
-
 static bool usbIsRunning = false;
 static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
 {
@@ -120,12 +107,14 @@ static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
         return;
     }
     usbIsRunning = false;
-    xTaskCreate(usb_stopped_cb, "USB_Stopped_CB", 4096, nullptr, 5, nullptr);
+    switchToApplicationMode();
+    listFiles("/");
 }
+
 static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
 {
     usbIsRunning = true;
-    xTaskCreate(usb_started_cb, "USB_Started_CB", 4096, nullptr, 5, nullptr);
+    switchToUSBMode();
 }
 
 const esp_partition_t *check_ffat_partition(const char *label); // defined in FFat.cpp
