@@ -7,10 +7,13 @@ static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
 #include <FFat.h>
 #include <USB.h>
 #include <USBMSC.h>
+#include <atomic>
+#include <condition_variable>
 #include <cstdint>
 #include <esp_err.h>
 #include <esp_partition.h>
 #include <iostream>
+#include <mutex>
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
@@ -24,6 +27,30 @@ static constexpr std::uint16_t blockSize = 512; // Should be 512
 
 static const esp_partition_t *partition = nullptr;
 static const char *const TAG = "STORAGE";
+
+static class ReadyCondition
+{
+  public:
+    void setReady(const bool new_state)
+    {
+        ready = new_state;
+        conditionVariable.notify_all();
+    }
+    bool isReady() const
+    {
+        return ready;
+    }
+    void wait_unitl_ready() const
+    {
+        std::mutex cv_m;
+        std::unique_lock<std::mutex> lock(cv_m);
+        conditionVariable.wait(lock, [this] { return isReady(); });
+    }
+
+  private:
+    mutable std::condition_variable conditionVariable;
+    std::atomic<bool> ready;
+} fileSystemState;
 
 // Callback invoked when received WRITE10 command.
 // Process data in buffer to disk's storage and
@@ -86,8 +113,9 @@ static void listFiles(const char *const dirname)
 static void switchToApplicationMode()
 {
     MSC.mediaPresent(false);
-    FFat.end();   // invalidate cache
-    FFat.begin(); // update data
+    FFat.end();                    // invalidate cache
+    ESP_ERROR_CHECK(FFat.begin()); // update data
+    fileSystemState.setReady(true);
 }
 
 /**
@@ -96,6 +124,7 @@ static void switchToApplicationMode()
 static void switchToUSBMode()
 {
     FFat.end(); // flush and unmount
+    fileSystemState.setReady(false);
     MSC.mediaPresent(true);
 }
 
@@ -108,7 +137,6 @@ static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
     }
     usbIsRunning = false;
     switchToApplicationMode();
-    listFiles("/");
 }
 
 static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
@@ -158,4 +186,10 @@ void Storage::begin()
     {
         ESP_LOGE(TAG, "starting USB failed");
     }
+}
+
+void Storage::waitForFileSystem()
+{
+    fileSystemState.wait_unitl_ready();
+    listFiles("/");
 }

@@ -2,5 +2,6 @@
 
 struct Storage
 {
-  static void begin();
+    static void begin();
+    static void waitForFileSystem();
 };
