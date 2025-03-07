@@ -1,27 +1,25 @@
-#include "storage.hpp"
-
 #include <Arduino.h>
-#if defined(ARDUINO_USB_MODE)
-static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
-#endif
+
+#include "storage.hpp"
 #include <FFat.h>
 #include <USB.h>
 #include <USBMSC.h>
 #include <atomic>
 #include <condition_variable>
 #include <cstdint>
+#include <esp32-hal-log.h>
 #include <esp_err.h>
 #include <esp_partition.h>
 #include <iostream>
 #include <mutex>
 
-#if ARDUINO_USB_CDC_ON_BOOT == 1
-#define HWSerial Serial0
-#else
-#define HWSerial Serial
+#if defined(ARDUINO_USB_MODE)
+static_assert(ARDUINO_USB_MODE == 0, "USB must be in OTG mode");
 #endif
 
-static USBMSC MSC;
+const esp_partition_t *check_ffat_partition(const char *label); // defined in FFat.cpp
+
+static USBMSC usbMsc;
 
 static constexpr std::uint16_t blockSize = 512; // Should be 512
 
@@ -52,34 +50,50 @@ static class ReadyCondition
     std::atomic<bool> ready;
 } fileSystemState;
 
-// Callback invoked when received WRITE10 command.
-// Process data in buffer to disk's storage and
-// return number of written bytes (must be multiple of block size)
-static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t bufsize)
+/**
+ * Callback invoked when received WRITE10 command.
+ *
+ * Process data in buffer to disk's storage.
+ *
+ * @param lba logical block address
+ * @returns the number of written bytes (must be multiple of block size)
+ */
+static std::int32_t usbMsc_onWrite(const std::uint32_t lba, const std::uint32_t offset, std::uint8_t *const buffer,
+                                   const uint32_t bufsize)
 {
     ESP_LOGV(TAG, "MSC WRITE: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
-    uint32_t byteOffset = lba * blockSize + offset;
-    // erase must be called before write
-    ESP_ERROR_CHECK(esp_partition_erase_range(partition, byteOffset, bufsize));
+    const std::uint32_t byteOffset = lba * blockSize + offset;
+    ESP_ERROR_CHECK(esp_partition_erase_range(partition, byteOffset, bufsize)); // erase must be called before write
     ESP_ERROR_CHECK(esp_partition_write(partition, byteOffset, buffer, bufsize));
     return bufsize;
 }
 
-// Callback invoked when received READ10 command.
-// Copy disk's data to buffer (up to bufsize) and
-// return number of copied bytes (must be multiple of block size)
-static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufsize)
+/**
+ * Callback invoked when received READ10 command.
+ *
+ * Copy disk's data to buffer (up to bufsize).
+ *
+ * @param lba logical block address
+ * @returns the number of copied bytes (must be multiple of block size)
+ */
+static std::int32_t usbMsc_onRead(const std::uint32_t lba, const std::uint32_t offset, void *const buffer,
+                                  const std::uint32_t bufsize)
 {
     ESP_LOGV(TAG, "MSC READ: lba: %u, offset: %u, bufsize: %u\n", lba, offset, bufsize);
-    uint32_t byteOffset = lba * blockSize + offset;
+    const std::uint32_t byteOffset = lba * blockSize + offset;
     ESP_ERROR_CHECK(esp_partition_read(partition, byteOffset, buffer, bufsize));
     return bufsize;
 }
 
-static bool onStartStop(uint8_t power_condition, bool start, bool load_eject)
+static bool usbMsc_onStartStop(const std::uint8_t power_condition, const bool start, const bool load_eject)
 {
     ESP_LOGV(TAG, "MSC START/STOP: power: %u, start: %u, eject: %u\n", power_condition, start, load_eject);
     return true;
+}
+
+std::size_t Storage::size()
+{
+    return FFat.totalBytes();
 }
 
 /**
@@ -112,7 +126,7 @@ static void listFiles(const char *const dirname)
  */
 static void switchToApplicationMode()
 {
-    MSC.mediaPresent(false);
+    usbMsc.mediaPresent(false);
     FFat.end();                    // invalidate cache
     ESP_ERROR_CHECK(FFat.begin()); // update data
     fileSystemState.setReady(true);
@@ -125,7 +139,7 @@ static void switchToUSBMode()
 {
     FFat.end(); // flush and unmount
     fileSystemState.setReady(false);
-    MSC.mediaPresent(true);
+    usbMsc.mediaPresent(true);
 }
 
 static void usb_stopped_cb(void *const pvParameters)
@@ -157,13 +171,11 @@ static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
     xTaskCreate(usb_started_cb, "USB_Started_CB", 4096, nullptr, 5, nullptr);
 }
 
-const esp_partition_t *check_ffat_partition(const char *label); // defined in FFat.cpp
-
 void Storage::begin()
 {
 
     if (!FFat.begin(true))
-    { // `true` = Formatieren falls kein Dateisystem vorhanden
+    {
         ESP_LOGE(TAG, "Failed to init files system, flash may not be formatted");
         return;
     }
@@ -179,18 +191,18 @@ void Storage::begin()
 
     USB.onEvent(ARDUINO_USB_STARTED_EVENT, usbStartedCallback);
     USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbStoppedCallback);
-    MSC.vendorID("ESP32");      // max 8 chars
-    MSC.productID("USB_MSC");   // max 16 chars
-    MSC.productRevision("1.0"); // max 4 chars
-    MSC.onStartStop(onStartStop);
+    usbMsc.vendorID("ESP32");      // max 8 chars
+    usbMsc.productID("USB_MSC");   // max 16 chars
+    usbMsc.productRevision("1.0"); // max 4 chars
+    usbMsc.onStartStop(usbMsc_onStartStop);
     // Set callback
-    MSC.onRead(onRead);
-    MSC.onWrite(onWrite);
+    usbMsc.onRead(usbMsc_onRead);
+    usbMsc.onWrite(usbMsc_onWrite);
     // MSC is ready for read/write
-    MSC.mediaPresent(true);
+    usbMsc.mediaPresent(true);
 
     // Set disk size, block size should be 512 regardless of spi flash page size
-    if (!MSC.begin(FFat.totalBytes() / blockSize, blockSize))
+    if (!usbMsc.begin(FFat.totalBytes() / blockSize, blockSize))
     {
         ESP_LOGE(TAG, "starting USB MSC failed");
     }
@@ -198,6 +210,13 @@ void Storage::begin()
     {
         ESP_LOGE(TAG, "starting USB failed");
     }
+}
+
+void Storage::end()
+{
+    usbMsc.end();
+    usbIsRunning = false;
+    FFat.end();
 }
 
 void Storage::waitForFileSystem()

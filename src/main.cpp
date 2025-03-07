@@ -1,9 +1,4 @@
 #include <Arduino.h>
-#if defined(ARDUINO_USB_MODE)
-static_assert(ARDUINO_USB_MODE == 0, "must be used when USB is in OTG mode");
-#endif
-#include <USB.h>
-#include <USBMSC.h>
 #include <esp32-hal-log.h>
 #include <esp_err.h>
 #include <iostream>
@@ -20,14 +15,14 @@ static const char *const TAG = "MAIN";
 void setup()
 {
     HWSerial.begin(115200);
-    delay(200); // wait for the serial monitor to be ready
     HWSerial.setDebugOutput(true);
-    ESP_LOGV(TAG, "verbose");
-    ESP_LOGD(TAG, "debug");
-    ESP_LOGI(TAG, "info");
-    ESP_LOGW(TAG, "warning");
-    ESP_LOGE(TAG, "error");
+    delay(300); // in order to give the serial monitor time to start
     std::cout << "Started program" << std::endl;
+    ESP_LOGE(TAG, "Example error");
+    ESP_LOGW(TAG, "Example warning");
+    ESP_LOGI(TAG, "Example info");
+    ESP_LOGD(TAG, "Example debug");
+    ESP_LOGV(TAG, "Example verbose");
     Storage::begin();
 }
 
