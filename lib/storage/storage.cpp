@@ -86,8 +86,8 @@ static void listFiles(const char *const dirname)
 static void switchToApplicationMode()
 {
     MSC.mediaPresent(false);
-    FFat.end();   // invalidate cache
-    FFat.begin(); // update data
+    FFat.end();                    // invalidate cache
+    ESP_ERROR_CHECK(FFat.begin()); // update data
 }
 
 /**
