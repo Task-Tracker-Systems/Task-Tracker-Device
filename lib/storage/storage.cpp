@@ -12,6 +12,7 @@
 #include <esp_partition.h>
 #include <iostream>
 #include <mutex>
+#include <thread>
 
 #if defined(ARDUINO_USB_MODE)
 static_assert(ARDUINO_USB_MODE == 0, "USB must be in OTG mode");
@@ -25,6 +26,42 @@ static constexpr std::uint16_t blockSize = 512; // Should be 512
 
 static const esp_partition_t *partition = nullptr;
 static const char *const TAG = "STORAGE";
+
+class FileSystemSwitcher
+{
+  public:
+    typedef decltype(FFat) FileSystem;
+    std::shared_ptr<FileSystem> getFileSystem_locking()
+    {
+        std::unique_lock fs_state_lock{fileSystemState_mutex};
+        if (!fileSystemIsActive)
+        {
+            stateChanged.wait(fs_state_lock, [this]() { return fileSystemIsActive; });
+        }
+        fs_state_lock.release();
+        return {&FFat, [this](FileSystem *) { fileSystemState_mutex.unlock(); }};
+    }
+    void requestState(const bool fileSystemActive)
+    {
+        requestFileSystemActive = fileSystemActive;
+        stateChangeRequested.notify_all();
+    }
+
+  protected:
+    bool isFileSystemActive() const
+    {
+        return fileSystemIsActive;
+    }
+    void refreshState();
+
+  private:
+    std::condition_variable stateChangeRequested;
+    std::condition_variable stateChanged;
+    std::atomic<bool> requestFileSystemActive;
+    std::thread stateMachine;
+    std::mutex fileSystemState_mutex; //!< used to lock the actual state
+    bool fileSystemIsActive;          //!< describes the current state
+};
 
 class ReadyCondition
 {
