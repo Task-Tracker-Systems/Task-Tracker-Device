@@ -27,11 +27,41 @@ static constexpr std::uint16_t blockSize = 512; // Should be 512
 static const esp_partition_t *partition = nullptr;
 static const char *const TAG = "STORAGE";
 
+/**
+ * Lists files and directories at path.
+ */
+static void listFiles(const char *const dirname)
+{
+    std::cout << "Directory: '" << dirname << "'" << std::endl;
+    File root = FFat.open(dirname);
+    if (!root || !root.isDirectory())
+    {
+        ESP_LOGE(TAG, "Error: '%s' is not a directory!\n", dirname);
+        return;
+    }
+
+    File file = root.openNextFile();
+    while (file)
+    {
+        std::cout << "\t" << file.name() << " (" << (file.isDirectory() ? "d" : "f") << ", " << file.size() << " Bytes)"
+                  << std::endl;
+        file.close();
+        file = root.openNextFile();
+    }
+    file.close();
+    root.close();
+}
+
 class FileSystemSwitcher
 {
   public:
-    typedef decltype(FFat) FileSystem;
-    std::shared_ptr<FileSystem> getFileSystem_locking()
+    void begin(const bool fsIsActive)
+    {
+        fileSystemIsActive = fsIsActive;
+        stateMachine = std::thread(&FileSystemSwitcher::processStateRequests, this);
+    }
+
+    std::shared_ptr<fs::FS> getFileSystem_locking()
     {
         std::unique_lock fs_state_lock{fileSystemState_mutex};
         if (!fileSystemIsActive)
@@ -39,7 +69,7 @@ class FileSystemSwitcher
             stateChanged.wait(fs_state_lock, [this]() { return fileSystemIsActive; });
         }
         fs_state_lock.release();
-        return {&FFat, [this](FileSystem *) { fileSystemState_mutex.unlock(); }};
+        return {&FFat, [this](fs::FS *) { fileSystemState_mutex.unlock(); }};
     }
     void requestState(const bool fileSystemActive)
     {
@@ -52,7 +82,27 @@ class FileSystemSwitcher
     {
         return fileSystemIsActive;
     }
-    void refreshState();
+    void processStateRequests()
+    {
+        while (true)
+        {
+            std::unique_lock fs_state_lock{fileSystemState_mutex};
+            stateChangeRequested.wait(fs_state_lock,
+                                      [this]() { return requestFileSystemActive != fileSystemIsActive; });
+            if (fileSystemIsActive = requestFileSystemActive)
+            {
+                usbMsc.mediaPresent(false);
+                FFat.end();           // invalidate cache
+                assert(FFat.begin()); // update data
+                listFiles("/");
+            }
+            else
+            {
+                FFat.end(); // flush and unmount
+                usbMsc.mediaPresent(true);
+            }
+        }
+    }
 
   private:
     std::condition_variable stateChangeRequested;
@@ -63,31 +113,7 @@ class FileSystemSwitcher
     bool fileSystemIsActive;          //!< describes the current state
 };
 
-class ReadyCondition
-{
-  public:
-    void setReady(const bool new_state)
-    {
-        ready = new_state;
-        conditionVariable.notify_all();
-    }
-    bool isReady() const
-    {
-        return ready;
-    }
-    void wait_unitl_ready() const
-    {
-        std::mutex cv_m;
-        std::unique_lock<std::mutex> lock(cv_m);
-        conditionVariable.wait(lock, [this] { return isReady(); });
-    }
-
-  private:
-    mutable std::condition_variable conditionVariable;
-    std::atomic<bool> ready;
-};
-
-static ReadyCondition fileSystemState;
+static FileSystemSwitcher fileSystemSwitcher;
 
 /**
  * Callback invoked when received WRITE10 command.
@@ -135,66 +161,7 @@ std::size_t Storage::size()
     return FFat.totalBytes();
 }
 
-/**
- * Lists files and directories at path.
- */
-static void listFiles(const char *const dirname)
-{
-    std::cout << "Directory: '" << dirname << "'" << std::endl;
-    File root = FFat.open(dirname);
-    if (!root || !root.isDirectory())
-    {
-        ESP_LOGE(TAG, "Error: '%s' is not a directory!\n", dirname);
-        return;
-    }
-
-    File file = root.openNextFile();
-    while (file)
-    {
-        std::cout << "\t" << file.name() << " (" << (file.isDirectory() ? "d" : "f") << ", " << file.size() << " Bytes)"
-                  << std::endl;
-        file.close();
-        file = root.openNextFile();
-    }
-    file.close();
-    root.close();
-}
-
-/**
- * Switch from USB MSC to application mode (file system).
- */
-static void switchToApplicationMode()
-{
-    usbMsc.mediaPresent(false);
-    FFat.end();           // invalidate cache
-    assert(FFat.begin()); // update data
-    fileSystemState.setReady(true);
-}
-
-/**
- * Switch from application mode (file system) to USB MSC.
- */
-static void switchToUSBMode()
-{
-    FFat.end(); // flush and unmount
-    fileSystemState.setReady(false);
-    usbMsc.mediaPresent(true);
-}
-
-static void usb_stopped_cb(void *const pvParameters)
-{
-    switchToApplicationMode();
-    listFiles("/");
-    vTaskDelete(nullptr);
-}
-
-static void usb_started_cb(void *const pvParameters)
-{
-    switchToUSBMode();
-    vTaskDelete(nullptr);
-}
-
-static bool usbIsRunning = false;
+static std::atomic<bool> usbIsRunning = false;
 static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
 {
     if (!usbIsRunning)
@@ -202,12 +169,12 @@ static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
         return;
     }
     usbIsRunning = false;
-    xTaskCreate(usb_stopped_cb, "USB_Stopped_CB", 4096, nullptr, 5, nullptr);
+    fileSystemSwitcher.requestState(true);
 }
 static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
 {
     usbIsRunning = true;
-    xTaskCreate(usb_started_cb, "USB_Started_CB", 4096, nullptr, 5, nullptr);
+    fileSystemSwitcher.requestState(false);
 }
 
 void Storage::begin()
@@ -228,17 +195,18 @@ void Storage::begin()
     }
     ESP_LOGI(TAG, "Flash has a size of %u bytes\n", FFat.totalBytes());
 
-    USB.onEvent(ARDUINO_USB_STARTED_EVENT, usbStartedCallback);
-    USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbStoppedCallback);
+    fileSystemSwitcher.begin(true); // define state before callbacks are activated
+
     usbMsc.vendorID("ESP32");      // max 8 chars
     usbMsc.productID("USB_MSC");   // max 16 chars
     usbMsc.productRevision("1.0"); // max 4 chars
     usbMsc.onStartStop(usbMsc_onStartStop);
+    usbMsc.mediaPresent(false);
     // Set callback
     usbMsc.onRead(usbMsc_onRead);
     usbMsc.onWrite(usbMsc_onWrite);
-    // MSC is ready for read/write
-    usbMsc.mediaPresent(true);
+    USB.onEvent(ARDUINO_USB_STARTED_EVENT, usbStartedCallback);
+    USB.onEvent(ARDUINO_USB_STOPPED_EVENT, usbStoppedCallback);
 
     // Set disk size, block size should be 512 regardless of spi flash page size
     if (!usbMsc.begin(FFat.totalBytes() / blockSize, blockSize))
@@ -256,10 +224,4 @@ void Storage::end()
     usbMsc.end();
     usbIsRunning = false;
     FFat.end();
-}
-
-void Storage::waitForFileSystem()
-{
-    fileSystemState.wait_unitl_ready();
-    listFiles("/");
 }
