@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <FS.h>
 #include <chrono>
 #include <esp32-hal-log.h>
 #include <esp_err.h>
@@ -16,6 +17,31 @@ using namespace std::chrono_literals;
 
 static const char *const TAG = "MAIN";
 
+/**
+ * Lists files and directories at path.
+ */
+static void listFiles(const char *const dirname, const std::shared_ptr<fs::FS> fs)
+{
+    std::cout << "Directory: '" << dirname << "'" << std::endl;
+    File root = fs->open(dirname);
+    if (!root || !root.isDirectory())
+    {
+        ESP_LOGE(TAG, "Error: '%s' is not a directory!\n", dirname);
+        return;
+    }
+
+    File file = root.openNextFile();
+    while (file)
+    {
+        std::cout << "\t" << file.name() << " (" << (file.isDirectory() ? "d" : "f") << ", " << file.size() << " Bytes)"
+                  << std::endl;
+        file.close();
+        file = root.openNextFile();
+    }
+    file.close();
+    root.close();
+}
+
 void setup()
 {
     HWSerial.begin(115200);
@@ -32,6 +58,6 @@ void setup()
 
 void loop()
 {
-    Storage::test();
+    listFiles("/", Storage::getFileSystem_locking());
     std::this_thread::sleep_for(3s);
 }

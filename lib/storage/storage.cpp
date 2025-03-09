@@ -27,98 +27,54 @@ static constexpr std::uint16_t blockSize = 512; // Should be 512
 static const esp_partition_t *partition = nullptr;
 static const char *const TAG = "STORAGE";
 
-/**
- * Lists files and directories at path.
- */
-static void listFiles(const char *const dirname, const std::shared_ptr<fs::FS> fs)
-{
-    std::cout << "Directory: '" << dirname << "'" << std::endl;
-    File root = fs->open(dirname);
-    if (!root || !root.isDirectory())
-    {
-        ESP_LOGE(TAG, "Error: '%s' is not a directory!\n", dirname);
-        return;
-    }
+static std::condition_variable stateChangeRequested;
+static std::condition_variable stateChanged;
+static std::atomic<bool> requestFileSystemActive;
+static std::thread stateMachine;
+static std::mutex fileSystemState_mutex; //!< used to lock the actual state
+static bool fileSystemIsActive;          //!< describes the current state
 
-    File file = root.openNextFile();
-    while (file)
+std::shared_ptr<fs::FS> Storage::getFileSystem_locking()
+{
+    std::unique_lock fs_state_lock{fileSystemState_mutex};
+    if (!fileSystemIsActive)
     {
-        std::cout << "\t" << file.name() << " (" << (file.isDirectory() ? "d" : "f") << ", " << file.size() << " Bytes)"
-                  << std::endl;
-        file.close();
-        file = root.openNextFile();
+        stateChanged.wait(fs_state_lock, []() { return fileSystemIsActive; });
     }
-    file.close();
-    root.close();
+    fs_state_lock.release();
+    return {&FFat, [](fs::FS *) { fileSystemState_mutex.unlock(); }};
 }
 
-class FileSystemSwitcher
+static void requestState(const bool fileSystemActive)
 {
-  public:
-    void begin(const bool fsIsActive)
-    {
-        fileSystemIsActive = fsIsActive;
-        requestFileSystemActive = fsIsActive;
-        stateMachine = std::thread(&FileSystemSwitcher::processStateRequests, this);
-    }
+    requestFileSystemActive = fileSystemActive;
+    ESP_LOGD(TAG, "request new state: %s", fileSystemActive ? "true" : "false");
+    stateChangeRequested.notify_all();
+}
 
-    std::shared_ptr<fs::FS> getFileSystem_locking()
+static void processStateRequests()
+{
+    while (true)
     {
         std::unique_lock fs_state_lock{fileSystemState_mutex};
-        if (!fileSystemIsActive)
+        ESP_LOGD(TAG, "waiting for state change request");
+        stateChangeRequested.wait(fs_state_lock, []() { return requestFileSystemActive != fileSystemIsActive; });
+        if (fileSystemIsActive = requestFileSystemActive)
         {
-            stateChanged.wait(fs_state_lock, [this]() { return fileSystemIsActive; });
+            ESP_LOGI(TAG, "mount FS");
+            usbMsc.mediaPresent(false);
+            FFat.end();           // invalidate cache
+            assert(FFat.begin()); // update data
         }
-        fs_state_lock.release();
-        return {&FFat, [this](fs::FS *) { fileSystemState_mutex.unlock(); }};
-    }
-    void requestState(const bool fileSystemActive)
-    {
-        requestFileSystemActive = fileSystemActive;
-        ESP_LOGD(TAG, "request new state: %s", fileSystemActive ? "true" : "false");
-        stateChangeRequested.notify_all();
-    }
-
-  protected:
-    bool isFileSystemActive() const
-    {
-        return fileSystemIsActive;
-    }
-    void processStateRequests()
-    {
-        while (true)
+        else
         {
-            std::unique_lock fs_state_lock{fileSystemState_mutex};
-            ESP_LOGD(TAG, "waiting for state change request");
-            stateChangeRequested.wait(fs_state_lock,
-                                      [this]() { return requestFileSystemActive != fileSystemIsActive; });
-            if (fileSystemIsActive = requestFileSystemActive)
-            {
-                ESP_LOGD(TAG, "mount FS");
-                usbMsc.mediaPresent(false);
-                FFat.end();           // invalidate cache
-                assert(FFat.begin()); // update data
-            }
-            else
-            {
-                ESP_LOGD(TAG, "unmount FS");
-                FFat.end(); // flush and unmount
-                usbMsc.mediaPresent(true);
-            }
-            stateChanged.notify_all();
+            ESP_LOGI(TAG, "unmount FS");
+            FFat.end(); // flush and unmount
+            usbMsc.mediaPresent(true);
         }
+        stateChanged.notify_all();
     }
-
-  private:
-    std::condition_variable stateChangeRequested;
-    std::condition_variable stateChanged;
-    std::atomic<bool> requestFileSystemActive;
-    std::thread stateMachine;
-    std::mutex fileSystemState_mutex; //!< used to lock the actual state
-    bool fileSystemIsActive;          //!< describes the current state
-};
-
-static FileSystemSwitcher fileSystemSwitcher;
+}
 
 /**
  * Callback invoked when received WRITE10 command.
@@ -174,12 +130,12 @@ static void usbStoppedCallback(void *, esp_event_base_t, int32_t, void *)
         return;
     }
     usbIsRunning = false;
-    fileSystemSwitcher.requestState(true);
+    requestState(true);
 }
 static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
 {
     usbIsRunning = true;
-    fileSystemSwitcher.requestState(false);
+    requestState(false);
 }
 
 void Storage::begin()
@@ -190,7 +146,7 @@ void Storage::begin()
         ESP_LOGE(TAG, "Failed to init files system, flash may not be formatted");
         return;
     }
-    ESP_LOGI(TAG, "FatFS erfolgreich gemountet.");
+    ESP_LOGI(TAG, "file system initialized");
 
     partition = check_ffat_partition(FFAT_PARTITION_LABEL);
     if (!partition)
@@ -200,7 +156,10 @@ void Storage::begin()
     }
     ESP_LOGI(TAG, "Flash has a size of %u bytes\n", FFat.totalBytes());
 
-    fileSystemSwitcher.begin(true); // define state before callbacks are activated
+    // define state before callbacks are activated
+    fileSystemIsActive = true;
+    requestFileSystemActive = true;
+    stateMachine = std::thread(processStateRequests);
 
     usbMsc.vendorID("ESP32");      // max 8 chars
     usbMsc.productID("USB_MSC");   // max 16 chars
@@ -229,10 +188,4 @@ void Storage::end()
     usbMsc.end();
     usbIsRunning = false;
     FFat.end();
-}
-
-void Storage::test()
-{
-    auto fs_p = fileSystemSwitcher.getFileSystem_locking();
-    listFiles("/", fs_p);
 }
