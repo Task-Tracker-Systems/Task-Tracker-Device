@@ -26,7 +26,7 @@ static constexpr std::uint16_t blockSize = 512; // Should be 512
 static const esp_partition_t *partition = nullptr;
 static const char *const TAG = "STORAGE";
 
-static class ReadyCondition
+class ReadyCondition
 {
   public:
     void setReady(const bool new_state)
@@ -48,7 +48,9 @@ static class ReadyCondition
   private:
     mutable std::condition_variable conditionVariable;
     std::atomic<bool> ready;
-} fileSystemState;
+};
+
+static ReadyCondition fileSystemState;
 
 /**
  * Callback invoked when received WRITE10 command.
@@ -127,7 +129,7 @@ static void listFiles(const char *const dirname)
 static void switchToApplicationMode()
 {
     usbMsc.mediaPresent(false);
-    FFat.end();                    // invalidate cache
+    FFat.end();           // invalidate cache
     assert(FFat.begin()); // update data
     fileSystemState.setReady(true);
 }
