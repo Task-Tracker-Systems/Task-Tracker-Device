@@ -128,7 +128,7 @@ static void switchToApplicationMode()
 {
     usbMsc.mediaPresent(false);
     FFat.end();                    // invalidate cache
-    ESP_ERROR_CHECK(FFat.begin()); // update data
+    assert(FFat.begin()); // update data
     fileSystemState.setReady(true);
 }
 
