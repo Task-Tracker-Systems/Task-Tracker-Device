@@ -1,8 +1,12 @@
 #include <Arduino.h>
+#include <chrono>
 #include <esp32-hal-log.h>
 #include <esp_err.h>
 #include <iostream>
 #include <storage.hpp>
+#include <thread>
+
+using namespace std::chrono_literals;
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
@@ -16,7 +20,7 @@ void setup()
 {
     HWSerial.begin(115200);
     HWSerial.setDebugOutput(true);
-    delay(300); // in order to give the serial monitor time to start
+    delay(3000); // in order to give the serial monitor time to start
     std::cout << "Started program" << std::endl;
     ESP_LOGE(TAG, "Example error");
     ESP_LOGW(TAG, "Example warning");
@@ -28,11 +32,6 @@ void setup()
 
 void loop()
 {
-    // put your main code here, to run repeatedly:
-    static uint32_t lastTrigger = 0;
-    if (millis() - lastTrigger > 1000)
-    {
-        std::cout << "." << std::flush;
-        lastTrigger = millis();
-    }
+    Storage::test();
+    std::this_thread::sleep_for(3s);
 }

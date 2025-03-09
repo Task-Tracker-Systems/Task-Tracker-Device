@@ -30,10 +30,10 @@ static const char *const TAG = "STORAGE";
 /**
  * Lists files and directories at path.
  */
-static void listFiles(const char *const dirname)
+static void listFiles(const char *const dirname, const std::shared_ptr<fs::FS> fs)
 {
     std::cout << "Directory: '" << dirname << "'" << std::endl;
-    File root = FFat.open(dirname);
+    File root = fs->open(dirname);
     if (!root || !root.isDirectory())
     {
         ESP_LOGE(TAG, "Error: '%s' is not a directory!\n", dirname);
@@ -75,6 +75,7 @@ class FileSystemSwitcher
     void requestState(const bool fileSystemActive)
     {
         requestFileSystemActive = fileSystemActive;
+        ESP_LOGD(TAG, "request new state: %s", fileSystemActive ? "true" : "false");
         stateChangeRequested.notify_all();
     }
 
@@ -88,6 +89,7 @@ class FileSystemSwitcher
         while (true)
         {
             std::unique_lock fs_state_lock{fileSystemState_mutex};
+            ESP_LOGD(TAG, "waiting for state change request");
             stateChangeRequested.wait(fs_state_lock,
                                       [this]() { return requestFileSystemActive != fileSystemIsActive; });
             if (fileSystemIsActive = requestFileSystemActive)
@@ -96,7 +98,6 @@ class FileSystemSwitcher
                 usbMsc.mediaPresent(false);
                 FFat.end();           // invalidate cache
                 assert(FFat.begin()); // update data
-                listFiles("/");
             }
             else
             {
@@ -104,6 +105,7 @@ class FileSystemSwitcher
                 FFat.end(); // flush and unmount
                 usbMsc.mediaPresent(true);
             }
+            stateChanged.notify_all();
         }
     }
 
@@ -227,4 +229,10 @@ void Storage::end()
     usbMsc.end();
     usbIsRunning = false;
     FFat.end();
+}
+
+void Storage::test()
+{
+    auto fs_p = fileSystemSwitcher.getFileSystem_locking();
+    listFiles("/", fs_p);
 }
