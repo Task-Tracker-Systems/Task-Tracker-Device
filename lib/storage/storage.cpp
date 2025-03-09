@@ -58,6 +58,7 @@ class FileSystemSwitcher
     void begin(const bool fsIsActive)
     {
         fileSystemIsActive = fsIsActive;
+        requestFileSystemActive = fsIsActive;
         stateMachine = std::thread(&FileSystemSwitcher::processStateRequests, this);
     }
 
@@ -91,6 +92,7 @@ class FileSystemSwitcher
                                       [this]() { return requestFileSystemActive != fileSystemIsActive; });
             if (fileSystemIsActive = requestFileSystemActive)
             {
+                ESP_LOGD(TAG, "mount FS");
                 usbMsc.mediaPresent(false);
                 FFat.end();           // invalidate cache
                 assert(FFat.begin()); // update data
@@ -98,6 +100,7 @@ class FileSystemSwitcher
             }
             else
             {
+                ESP_LOGD(TAG, "unmount FS");
                 FFat.end(); // flush and unmount
                 usbMsc.mediaPresent(true);
             }
