@@ -1,0 +1,118 @@
+@startuml inline_umlgraph_1.svg
+title debouncing by post-event filtering: not too short
+caption debouncing normal pulse
+hide time-axis
+scale 1 as 250 pixels
+binary "digital input" as D
+binary "debounced signal" as B
+
+@0
+D is low
+note top of B : debounced
+B is low
+@+1
+D is {low,high}
+note bottom of D : button pressed
+D@+0 <-> @+0.8 : bouncing
+D -> B : rising edge detected
+highlight +0 to +1 : state changes ignored
+B is high
+@+0.8
+D is high
+@+0.5
+D is {low,high}
+note bottom of D : button released
+D -> B : falling edge detected
+D@+0 <-> @+0.8 : bouncing
+highlight +0 to +1 : state changes ignored
+B is low
+@+0.8
+D is low
+@enduml
+@startuml inline_umlgraph_2.svg
+title debouncing by post-event filtering: too short
+caption too short pulse leads to wrong state
+hide time-axis
+scale 1 as 250 pixels
+binary "digital input" as D
+binary "debounced signal" as B
+
+@0
+D is low
+note top of B : debounced
+B is low
+@+1
+D is {low,high}
+D@+0 <-> @+0.9 : bouncing
+D -> B : rising edge detected
+highlight +0 to +1 : state changes ignored
+B is high
+@+0.9
+D is low
+D -> B : state change ignored
+@enduml
+@startuml inline_umlgraph_3.svg
+title debouncing based on delay: not too short
+caption debouncing normal pulse
+hide time-axis
+scale 1 as 250 pixels
+binary "digital input" as D
+binary "debouncer waiting" as W
+binary "debounced signal" as B
+
+@0
+D is low
+note top of B : debounced
+B is low
+@+1
+D is {low,high}
+W is high
+note bottom of D : button pressed
+D@+0 <-> @+0.8 : bouncing
+@+0.8
+W@+0 <-> @+0.1 : delay
+D is high
+@+0.1
+W is low
+W -> D : read state
+W -> B : rising edge detected
+B is high
+@+0.5
+note bottom of D : button released
+D is {low,high}
+W is high
+D@+0 <-> @+0.8 : bouncing
+@+0.8
+D is low
+W@+0 <-> @+0.1 : delay
+@+0.1
+W is low
+W -> D : read state
+W -> B : falling edge detected
+B is low
+@enduml
+@startuml inline_umlgraph_4.svg
+title debouncing based on delay: too short
+caption too short pulse will be completely ignored
+hide time-axis
+scale 1 as 250 pixels
+binary "digital input" as D
+binary "debouncer waiting" as W
+binary "debounced signal" as B
+
+@0
+D is low
+note top of B : debounced
+B is low
+@+1
+D is {low,high}
+W is high
+D@+0 <-> @+0.9 : bouncing
+@+0.9
+D is low
+W@+0 <-> @+0.1 : delay
+@+0.1
+W -> D : read state
+W is low
+note top of B : state has not been adopted
+@enduml

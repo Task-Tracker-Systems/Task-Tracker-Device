@@ -1,4 +1,32 @@
 var searchData=
 [
-  ['utilities_603',['Utilities',['../utilities.xhtml',1,'software_architecture']]]
+  ['package_20s_20source_20files_0',['DR002 Root Directory for the Package&apos;s source files',['../dr_002.xhtml',1,'']]],
+  ['party_20adapters_1',['3rd Party Adapters',['../third_party_adapters.xhtml',1,'software_architecture']]],
+  ['patch_2',['patch',['../structtask__tracker__systems_1_1ProtocolVersionObject.xhtml#ad5973f442945fd4423824518ea21794e',1,'task_tracker_systems::ProtocolVersionObject']]],
+  ['permanent_20ban_3',['4. Permanent Ban',['../md_Task-Tracker-Device_2CODE__OF__CONDUCT.xhtml#autotoc_md10',1,'']]],
+  ['pintype_4',['PinType',['../namespaceboard.xhtml#af091862f70321f1b4fd67a4f4751ef0c',1,'board']]],
+  ['pitches_2ehpp_5',['pitches.hpp',['../pitches_8hpp.xhtml',1,'']]],
+  ['platformio_6',['Backtrace interpreter for PlatformIO',['../index.xhtml#autotoc_md64',1,'']]],
+  ['platformio_20configuration_7',['PlatformIO configuration',['../md_Task-Tracker-Device_2CONTRIBUTING.xhtml#autotoc_md22',1,'']]],
+  ['playtone_8',['playTone',['../namespaceboard.xhtml#af761c14d2fbd04a7d86a6cad113d6702',1,'board']]],
+  ['pledge_9',['Our Pledge',['../md_Task-Tracker-Device_2CODE__OF__CONDUCT.xhtml#autotoc_md1',1,'']]],
+  ['plug_20in_20architecture_10',['Implementing a Plug-in Architecture',['../software_architecture.xhtml#plugin_architecture',1,'']]],
+  ['port_20with_20the_20simulator_11',['Using serial port with the simulator',['../index.xhtml#autotoc_md61',1,'']]],
+  ['post_20change_20delay_12',['Post-change delay',['../debouncing_approaches.xhtml#autotoc_md24',1,'']]],
+  ['pre_20change_20delay_13',['Pre-change delay',['../debouncing_approaches.xhtml#autotoc_md25',1,'']]],
+  ['presenter_14',['presenter',['../classPresenter.xhtml#ae6f27b258228dc16383dc6d1a434f90c',1,'Presenter::Presenter()'],['../classPresenter.xhtml',1,'Presenter']]],
+  ['presenter_2ecpp_15',['Presenter.cpp',['../Presenter_8cpp.xhtml',1,'']]],
+  ['presenter_2ehpp_16',['Presenter.hpp',['../Presenter_8hpp.xhtml',1,'']]],
+  ['priority_17',['Debouncer task priority',['../group__debouncer__priority.xhtml',1,'']]],
+  ['processhmiinputs_18',['processhmiinputs',['../classProcessHmiInputs.xhtml#a70f76a68682037d5ed4d5c861b126604',1,'ProcessHmiInputs::ProcessHmiInputs()'],['../classProcessHmiInputs.xhtml',1,'ProcessHmiInputs']]],
+  ['processhmiinputs_2ecpp_19',['ProcessHmiInputs.cpp',['../ProcessHmiInputs_8cpp.xhtml',1,'']]],
+  ['processhmiinputs_2ehpp_20',['ProcessHmiInputs.hpp',['../ProcessHmiInputs_8hpp.xhtml',1,'']]],
+  ['protocol_2ecpp_21',['Protocol.cpp',['../Protocol_8cpp.xhtml',1,'']]],
+  ['protocol_2ehpp_22',['Protocol.hpp',['../Protocol_8hpp.xhtml',1,'']]],
+  ['protocolhandler_23',['ProtocolHandler',['../classProtocolHandler.xhtml',1,'']]],
+  ['protocolversionobject_24',['ProtocolVersionObject',['../structtask__tracker__systems_1_1ProtocolVersionObject.xhtml',1,'task_tracker_systems']]],
+  ['protocolversionobject_2ehpp_25',['ProtocolVersionObject.hpp',['../ProtocolVersionObject_8hpp.xhtml',1,'']]],
+  ['proxy_20header_26',['Proxy header',['../proxy_header.xhtml',1,'']]],
+  ['proxy_5fheader_2emd_27',['proxy_header.md',['../proxy__header_8md.xhtml',1,'']]],
+  ['pull_20requests_28',['Pull requests',['../md_Task-Tracker-Device_2CONTRIBUTING.xhtml#autotoc_md17',1,'']]]
 ];

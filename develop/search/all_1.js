@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['_5fdecimals_1',['_decimals',['../structMenuItemValue.xhtml#a12b7e0f70203eca2b40311b2b7124330',1,'MenuItemValue']]],
-  ['_5fmax_2',['_max',['../structMenuItemValue.xhtml#a445042c65b39b091b9f461adba71f4d5',1,'MenuItemValue']]],
-  ['_5fmenuitem_3',['_menuItem',['../classScreenValueModifier.xhtml#af04dac10827889bf1956d34c58e61168',1,'ScreenValueModifier']]],
-  ['_5fmin_4',['_min',['../structMenuItemValue.xhtml#a6c395ad12fdfbd77a896e920d335eb4d',1,'MenuItemValue']]],
-  ['_5fptrbool_5',['_ptrBool',['../structMenuItemSwitch.xhtml#a6d5a95413f8e0415ee9e49608bbe4dab',1,'MenuItemSwitch']]],
-  ['_5fptrdouble_6',['_ptrDouble',['../structMenuItemValue.xhtml#ad3b2bcf2d04c894ceacd8c05cd8b9c4a',1,'MenuItemValue']]],
-  ['_5fspinbox_7',['_spinbox',['../classScreenValueModifier.xhtml#ab05a05a8d8a96528d36b1c046e6f514d',1,'ScreenValueModifier']]],
-  ['_5fsubmenulist_8',['_subMenuList',['../classMenuItemSubmenu.xhtml#a32147630e276bdf17e9caf035c376eb7',1,'MenuItemSubmenu']]],
-  ['_5ftext_9',['_text',['../classMenuItemSubmenu.xhtml#a21ffe1fe1d8d81a2d4034d5e293ec1fb',1,'MenuItemSubmenu::_text()'],['../structMenuItemSwitch.xhtml#a308ebc48fa569010121b3da2176e0cdb',1,'MenuItemSwitch::_text()'],['../structMenuItemValue.xhtml#ae9b9c1c019ef795bb5c8381527e2eb7b',1,'MenuItemValue::_text()']]]
+  ['1_0',['Option 1',['../md_Task-Tracker-Device_2doc_2decisions_2dr-004.xhtml#autotoc_md37',1,'']]],
+  ['1_20correction_1',['1. Correction',['../md_Task-Tracker-Device_2CODE__OF__CONDUCT.xhtml#autotoc_md7',1,'']]],
+  ['1_3a_20filter_20source_20files_2',['Option 1: Filter source files',['../dr_003.xhtml#dr_003_o1',1,'']]],
+  ['1a_3',['Option 1a)',['../md_Task-Tracker-Device_2doc_2decisions_2dr-004.xhtml#autotoc_md38',1,'']]],
+  ['1a_202a_20and_202b_4',['Comparing Options 1a), 2a), and 2b)',['../md_Task-Tracker-Device_2doc_2decisions_2dr-004.xhtml#autotoc_md46',1,'']]],
+  ['1a_20b_20and_20c_5',['Comparing variants Option 1a), b), and c)',['../md_Task-Tracker-Device_2doc_2decisions_2dr-004.xhtml#autotoc_md45',1,'']]],
+  ['1b_6',['Option 1b)',['../md_Task-Tracker-Device_2doc_2decisions_2dr-004.xhtml#autotoc_md39',1,'']]],
+  ['1c_7',['Option 1c)',['../md_Task-Tracker-Device_2doc_2decisions_2dr-004.xhtml#autotoc_md40',1,'']]]
 ];

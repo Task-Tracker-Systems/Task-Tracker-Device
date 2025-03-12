@@ -1,5 +1,7 @@
 <map id="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/LVGL/GuiEngine.hpp" name="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/LVGL/GuiEngine.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="105,5,277,61"/>
-<area shape="rect" id="node2" href="$GuiEngine_8cpp.xhtml" title="Connects LVGL callbacks to display driver and input device." alt="" coords="5,117,177,173"/>
-<area shape="rect" id="node3" href="$guiEngine__factory__interface_8cpp.xhtml" title=" " alt="" coords="202,109,381,180"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="105,5,277,60"/>
+<area shape="rect" id="Node000002" href="$GuiEngine_8cpp.xhtml" title="Connects LVGL callbacks to display driver and input device." alt="" coords="5,115,177,170"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,72,118,117,114,113,156,69"/>
+<area shape="rect" id="Node000003" href="$guiEngine__factory__interface_8cpp.xhtml" title=" " alt="" coords="202,108,381,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,69,262,106,258,110,223,72"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/MenuItem.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/MenuItem.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="34,5,217,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,124,72,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="96,124,155,151"/>
-<area shape="rect" id="node4" title=" " alt="" coords="179,124,242,151"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,217,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,123,72,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,77,61,114,57,111,92,73"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,123,155,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,75,128,109,123,109,123,75"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="179,123,242,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,73,193,110,189,114,154,77"/>
 </map>

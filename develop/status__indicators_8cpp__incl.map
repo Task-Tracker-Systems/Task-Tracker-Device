@@ -1,8 +1,13 @@
 <map id="Task&#45;Tracker&#45;Device/lib/board_adapters/status_indicators/status_indicators.cpp" name="Task&#45;Tracker&#45;Device/lib/board_adapters/status_indicators/status_indicators.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="141,5,323,76"/>
-<area shape="rect" id="node2" href="$status__indicators_8hpp.xhtml" title=" " alt="" coords="78,124,239,151"/>
-<area shape="rect" id="node6" title=" " alt="" coords="263,124,347,151"/>
-<area shape="rect" id="node3" href="$board__types_8hpp.xhtml" title=" " alt="" coords="5,206,136,233"/>
-<area shape="rect" id="node5" href="$IStatusIndicator_8hpp.xhtml" title=" " alt="" coords="160,199,336,240"/>
-<area shape="rect" id="node4" title=" " alt="" coords="37,288,104,315"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="141,5,323,75"/>
+<area shape="rect" id="Node000002" href="$status__indicators_8hpp.xhtml" title=" " alt="" coords="78,123,239,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,76,178,113,174,110,203,73"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="263,123,347,148"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="261,73,290,110,286,113,256,76"/>
+<area shape="rect" id="Node000003" href="$board__types_8hpp.xhtml" title=" " alt="" coords="5,203,136,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="147,150,95,196,92,192,144,146"/>
+<area shape="rect" id="Node000005" href="$IStatusIndicator_8hpp.xhtml" title=" " alt="" coords="160,196,336,236"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="174,146,218,185,215,189,170,150"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="37,284,104,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="73,229,73,270,68,270,68,229"/>
 </map>

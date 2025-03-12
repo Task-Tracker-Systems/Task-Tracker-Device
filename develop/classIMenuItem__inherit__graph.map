@@ -1,6 +1,9 @@
 <map id="IMenuItem" name="IMenuItem">
-<area shape="rect" id="node1" title="interface for all menu items" alt="" coords="234,5,362,127"/>
-<area shape="rect" id="node2" href="$classMenuItemSubmenu.xhtml" title="menu item to call a submenu" alt="" coords="5,219,191,369"/>
-<area shape="rect" id="node3" href="$structMenuItemSwitch.xhtml" title="menu item to show and change boolean variables" alt="" coords="215,219,381,369"/>
-<area shape="rect" id="node4" href="$structMenuItemValue.xhtml" title="menu item to show double variables and call a modification screen" alt="" coords="406,175,566,413"/>
+<area shape="rect" id="Node000001" title="interface for all menu items" alt="" coords="226,5,346,131"/>
+<area shape="rect" id="Node000002" href="$classMenuItemSubmenu.xhtml" title="menu item to call a submenu" alt="" coords="5,239,183,404"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,143,196,180,152,240,148,237,192,177,222,140"/>
+<area shape="rect" id="Node000003" href="$structMenuItemSwitch.xhtml" title="menu item to show and change boolean variables" alt="" coords="207,239,365,404"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="289,145,289,238,283,238,283,145"/>
+<area shape="rect" id="Node000004" href="$structMenuItemValue.xhtml" title="menu item to show double variables and call a modification screen" alt="" coords="390,179,542,464"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="351,140,380,177,392,194,388,197,376,180,347,143"/>
 </map>

@@ -1,7 +1,11 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/board_interface.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/board_interface.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="307,5,489,76"/>
-<area shape="rect" id="node2" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,124,188,195"/>
-<area shape="rect" id="node3" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="212,124,395,195"/>
-<area shape="rect" id="node4" href="$board_8cpp.xhtml" title=" " alt="" coords="419,131,569,187"/>
-<area shape="rect" id="node5" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="594,124,773,195"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="307,5,489,75"/>
+<area shape="rect" id="Node000002" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,123,188,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,82,186,125,184,120,296,77"/>
+<area shape="rect" id="Node000003" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="212,123,395,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="364,87,333,124,329,121,359,84"/>
+<area shape="rect" id="Node000004" href="$board_8cpp.xhtml" title=" " alt="" coords="419,130,569,185"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="437,84,474,128,470,131,433,87"/>
+<area shape="rect" id="Node000005" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="594,123,773,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="495,77,601,120,599,125,493,82"/>
 </map>

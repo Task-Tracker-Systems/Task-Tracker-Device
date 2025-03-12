@@ -1,7 +1,12 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/Menu.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/Menu.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="212,5,395,76"/>
-<area shape="rect" id="node2" href="$Menu_8cpp.xhtml" title=" " alt="" coords="5,124,188,195"/>
-<area shape="rect" id="node3" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="212,124,395,195"/>
-<area shape="rect" id="node5" href="$main_8cpp.xhtml" title=" " alt="" coords="357,257,508,299"/>
-<area shape="rect" id="node4" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="151,243,333,313"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="212,5,395,75"/>
+<area shape="rect" id="Node000002" href="$Menu_8cpp.xhtml" title=" " alt="" coords="5,123,188,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,84,158,125,156,120,230,79"/>
+<area shape="rect" id="Node000003" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="212,123,395,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="306,89,306,122,301,122,301,89"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.xhtml" title=" " alt="" coords="357,255,508,295"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="374,81,393,100,410,121,425,156,433,193,436,254,431,254,428,193,420,158,405,124,389,103,370,85"/>
+<area shape="rect" id="Node000004" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="151,240,333,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,206,262,241,258,239,277,203"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="353,199,413,253,410,257,350,203"/>
 </map>

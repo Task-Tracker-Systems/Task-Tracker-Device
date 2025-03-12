@@ -1,4 +1,5 @@
 <map id="IStatusIndicator" name="IStatusIndicator">
-<area shape="rect" id="node1" title="Interface to an indicator capable to visualize a state." alt="" coords="9,5,169,112"/>
-<area shape="rect" id="node2" href="$classLedStatusIndicator.xhtml" title=" " alt="" coords="5,160,173,267"/>
+<area shape="rect" id="Node000001" title="Interface to an indicator capable to visualize a state." alt="" coords="9,5,161,111"/>
+<area shape="rect" id="Node000002" href="$classLedStatusIndicator.xhtml" title=" " alt="" coords="5,159,165,264"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,124,88,158,83,158,83,124"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/statusindicators_factory_interface.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/statusindicators_factory_interface.hpp">
-<area shape="rect" id="node1" title="Dependency injection for the keypad." alt="" coords="147,5,330,91"/>
-<area shape="rect" id="node2" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,139,251,209"/>
-<area shape="rect" id="node3" href="$main_8cpp.xhtml" title=" " alt="" coords="275,153,426,195"/>
+<area shape="rect" id="Node000001" title="Dependency injection for the keypad." alt="" coords="147,5,330,89"/>
+<area shape="rect" id="Node000002" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,137,251,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,101,160,139,156,136,190,98"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.xhtml" title=" " alt="" coords="275,152,426,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="287,98,335,150,331,154,284,102"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="task_tracker_systems::ProtocolVersionObject" name="task_tracker_systems::ProtocolVersionObject">
-<area shape="rect" id="node1" title="Protocol Version Object." alt="" coords="5,160,179,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="8,5,83,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="107,5,173,83"/>
+<area shape="rect" id="Node000001" title="Protocol Version Object." alt="" coords="5,148,171,228"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="16,5,75,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="46,71,47,97,52,123,55,132,50,134,47,125,42,97,40,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="99,5,165,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,72,107,133,102,131,120,70"/>
 </map>

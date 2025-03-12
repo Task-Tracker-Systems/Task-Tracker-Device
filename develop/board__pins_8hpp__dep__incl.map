@@ -1,11 +1,19 @@
 <map id="Task&#45;Tracker&#45;Device/lib/board_adapters/board_pins.hpp" name="Task&#45;Tracker&#45;Device/lib/board_adapters/board_pins.hpp">
-<area shape="rect" id="node1" title="Provides named objects for the pins provided by the board." alt="" coords="798,5,949,61"/>
-<area shape="rect" id="node2" href="$framework__adapter_8cpp.xhtml" title=" " alt="" coords="5,117,240,173"/>
-<area shape="rect" id="node3" href="$guiEngine__factory__interface_8cpp.xhtml" title=" " alt="" coords="264,109,443,180"/>
-<area shape="rect" id="node4" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="467,109,642,180"/>
-<area shape="rect" id="node5" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="667,109,845,180"/>
-<area shape="rect" id="node6" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="869,109,1115,180"/>
-<area shape="rect" id="node7" href="$test__dummies_8cpp.xhtml" title=" " alt="" coords="1139,124,1343,165"/>
-<area shape="rect" id="node8" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="1368,117,1539,173"/>
-<area shape="rect" id="node9" href="$test__keyState_8cpp.xhtml" title=" " alt="" coords="1563,117,1736,173"/>
+<area shape="rect" id="Node000001" title="Provides named objects for the pins provided by the board." alt="" coords="798,5,949,60"/>
+<area shape="rect" id="Node000002" href="$framework__adapter_8cpp.xhtml" title=" " alt="" coords="5,115,240,170"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="784,43,543,68,398,87,252,111,218,118,217,113,252,105,397,81,543,62,784,38"/>
+<area shape="rect" id="Node000003" href="$guiEngine__factory__interface_8cpp.xhtml" title=" " alt="" coords="264,108,443,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="785,49,630,74,455,111,444,114,443,108,454,105,629,68,784,43"/>
+<area shape="rect" id="Node000004" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="467,108,642,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="786,66,643,114,641,109,784,61"/>
+<area shape="rect" id="Node000005" href="$sound__output_8cpp.xhtml" title=" " alt="" coords="667,108,845,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="836,72,794,110,791,106,833,68"/>
+<area shape="rect" id="Node000006" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="869,108,1115,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="914,68,957,106,953,110,911,72"/>
+<area shape="rect" id="Node000007" href="$test__dummies_8cpp.xhtml" title=" " alt="" coords="1139,123,1343,163"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="962,57,1178,120,1176,125,961,62"/>
+<area shape="rect" id="Node000008" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="1368,115,1539,170"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="963,40,1145,64,1252,83,1357,105,1383,113,1381,118,1355,111,1251,88,1145,70,962,45"/>
+<area shape="rect" id="Node000009" href="$test__keyState_8cpp.xhtml" title=" " alt="" coords="1563,115,1736,170"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="962,35,1080,42,1228,55,1390,76,1551,105,1579,113,1577,118,1550,111,1389,81,1227,61,1080,48,962,40"/>
 </map>

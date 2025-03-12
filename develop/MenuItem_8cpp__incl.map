@@ -1,7 +1,11 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/MenuItem.cpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/MenuItem.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="34,5,217,76"/>
-<area shape="rect" id="node2" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="67,124,183,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,199,72,225"/>
-<area shape="rect" id="node4" title=" " alt="" coords="96,199,155,225"/>
-<area shape="rect" id="node5" title=" " alt="" coords="179,199,242,225"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,217,75"/>
+<area shape="rect" id="Node000002" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="67,123,183,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,75,128,109,123,109,123,75"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,196,72,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,150,65,189,62,185,110,146"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,196,155,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="128,148,128,182,123,182,123,148"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,196,242,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="141,146,188,185,185,189,137,150"/>
 </map>

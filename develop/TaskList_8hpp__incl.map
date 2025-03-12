@@ -1,7 +1,11 @@
 <map id="Task&#45;Tracker&#45;Device/lib/enterprise_business_rules/serial_protocol/TaskList.hpp" name="Task&#45;Tracker&#45;Device/lib/enterprise_business_rules/serial_protocol/TaskList.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="51,5,227,76"/>
-<area shape="rect" id="node2" href="$TaskObject_8hpp.xhtml" title=" " alt="" coords="21,124,142,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="166,124,229,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,199,72,225"/>
-<area shape="rect" id="node4" title=" " alt="" coords="96,199,155,225"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="51,5,227,75"/>
+<area shape="rect" id="Node000002" href="$TaskObject_8hpp.xhtml" title=" " alt="" coords="21,123,142,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,76,98,112,93,109,116,73"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="166,123,229,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="162,73,185,109,180,112,158,76"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,196,72,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,150,55,186,50,183,72,147"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,196,155,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="91,147,113,183,109,186,86,150"/>
 </map>

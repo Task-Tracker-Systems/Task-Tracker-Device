@@ -1,16 +1,62 @@
 <map id="Task&#45;Tracker&#45;Device/lib" name="Task&#45;Tracker&#45;Device/lib">
-<area shape="rect" id="node2" href="dir_60c2c4d274c08a1458706f202c2ac02e.xhtml" title="3rd_party_adapters" alt="" coords="81,63,229,111"/>
-<area shape="rect" id="node3" href="dir_cc4eb8107cf563e196ee7789b7c073d2.xhtml" title="application_business_rules" alt="" coords="75,255,272,303"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000005_000006.xhtml" title="7" alt="" coords="179,229,188,244"/>
-<area shape="rect" id="node4" href="dir_49a5f6ab04696b445f2adbc130c9ef44.xhtml" title="board_adapters" alt="" coords="37,159,160,207"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000005_000007.xhtml" title="3" alt="" coords="124,140,134,155"/>
-<area shape="rect" id="node5" href="dir_e70fd5d37674c687c1056755f18dec05.xhtml" title="enterprise_business_rules" alt="" coords="134,351,325,399"/>
-<area shape="rect" id="edge7-headlabel" href="dir_000005_000008.xhtml" title="4" alt="" coords="267,335,276,349"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000006_000008.xhtml" title="4" alt="" coords="209,323,218,338"/>
-<area shape="rect" id="node6" href="dir_77250fbdc01bb7367d479e08fa573657.xhtml" title="utilities" alt="" coords="37,351,109,399"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000006_000009.xhtml" title="3" alt="" coords="112,337,121,352"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000007_000006.xhtml" title="6" alt="" coords="146,228,155,242"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000007_000009.xhtml" title="2" alt="" coords="67,323,76,338"/>
-<area shape="rect" id="clust2" href="dir_bb6849ea4d307d3e6f07c34bd3d0693d.xhtml" alt="" coords="27,52,336,409"/>
-<area shape="rect" id="clust1" href="dir_7a0d9093671d12905beda7b1ed8f0dec.xhtml" title="Task&#45;Tracker&#45;Device" alt="" coords="16,16,347,420"/>
+<area shape="rect" id="node3" href="dir_caf2c0c105311d2ab92f604f9634cd65.xhtml" title="Arduino" alt="" coords="751,73,823,99"/>
+<area shape="rect" id="node8" href="dir_05b5e851ac9e59efa54369b7cbb1f529.xhtml" title="serial_interface" alt="" coords="743,308,865,333"/>
+<area shape="poly" id="edge1" href="dir_000002_000014.xhtml" alt="" coords="801,97,843,142,864,174,880,208,887,237,880,264,863,286,842,303,839,299,859,283,875,262,881,237,875,210,859,176,838,146,798,101"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000002_000014.xhtml" title="1" alt="" coords="844,298,854,313"/>
+<area shape="poly" id="edge2" href="dir_000002_000003.xhtml" alt="" coords="767,101,739,112,685,123,639,129,559,129,479,128,432,131,378,139,350,145,349,140,377,133,432,125,479,122,559,124,639,124,684,118,738,107,765,96"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000002_000003.xhtml" title="1" alt="" coords="352,142,361,157"/>
+<area shape="rect" id="node4" href="dir_a268bc7b3a14a9993daf0eb877b6358e.xhtml" title="FreeRTOS" alt="" coords="563,73,647,99"/>
+<area shape="rect" id="node12" href="dir_b192ae19673eac2db9bfabf62a1b64b1.xhtml" title="input_device_interface" alt="" coords="48,147,219,172"/>
+<area shape="poly" id="edge3" href="dir_000007_000010.xhtml" alt="" coords="585,101,558,112,509,123,467,129,395,131,323,130,231,139,191,146,190,141,230,133,323,125,395,126,467,123,508,118,557,107,583,96"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000007_000010.xhtml" title="1" alt="" coords="193,143,202,158"/>
+<area shape="rect" id="node5" href="dir_8806b862e08e9224669fd98ac43f6aa4.xhtml" title="LVGL" alt="" coords="671,73,726,99"/>
+<area shape="rect" id="node10" href="dir_fca5679270aca10c608379ce2e021563.xhtml" title="user_interaction" alt="" coords="555,227,682,253"/>
+<area shape="poly" id="edge5" href="dir_000012_000027.xhtml" alt="" coords="695,100,633,216,629,214,690,97"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000012_000027.xhtml" title="4" alt="" coords="636,208,645,222"/>
+<area shape="poly" id="edge4" href="dir_000012_000003.xhtml" alt="" coords="683,101,661,112,619,123,583,129,520,131,457,130,378,139,350,145,349,140,377,133,457,124,520,125,582,123,618,118,659,107,681,96"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000012_000003.xhtml" title="1" alt="" coords="352,142,361,157"/>
+<area shape="rect" id="node6" href="dir_bf17d512c758a4805b63156929ae8d1e.xhtml" title="nlohmann" alt="" coords="847,73,934,99"/>
+<area shape="poly" id="edge6" href="dir_000013_000014.xhtml" alt="" coords="896,98,903,129,907,172,904,219,898,243,889,265,870,287,847,304,844,300,867,283,884,262,893,241,899,218,902,172,897,130,891,99"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000013_000014.xhtml" title="1" alt="" coords="849,300,858,314"/>
+<area shape="rect" id="node9" href="dir_a152533725ee893b28a6891613a99b53.xhtml" title="tasks" alt="" coords="775,389,833,414"/>
+<area shape="poly" id="edge8" href="dir_000013_000020.xhtml" alt="" coords="899,98,912,135,921,193,920,240,907,284,880,335,858,361,834,382,830,378,854,357,875,332,902,282,915,239,915,193,907,137,894,100"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000013_000020.xhtml" title="1" alt="" coords="836,377,845,392"/>
+<area shape="rect" id="node16" href="dir_44baa27a523fa4f04ece63bb413c025f.xhtml" title="serial_protocol" alt="" coords="897,389,1015,414"/>
+<area shape="poly" id="edge7" href="dir_000013_000015.xhtml" alt="" coords="915,97,936,113,953,135,965,166,973,200,978,267,973,329,965,376,959,375,968,328,972,267,968,201,960,168,948,137,932,116,912,101"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000013_000015.xhtml" title="4" alt="" coords="967,365,976,380"/>
+<area shape="poly" id="edge11" href="dir_000014_000020.xhtml" alt="" coords="807,334,807,375,801,375,801,334"/>
+<area shape="rect" id="edge11-headlabel" href="dir_000014_000020.xhtml" title="1" alt="" coords="808,363,817,378"/>
+<area shape="poly" id="edge9" href="dir_000014_000015.xhtml" alt="" coords="828,331,923,380,920,385,825,336"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000014_000015.xhtml" title="4" alt="" coords="917,365,926,380"/>
+<area shape="rect" id="node17" href="dir_77250fbdc01bb7367d479e08fa573657.xhtml" title="Package Utilities." alt="" coords="462,389,533,414"/>
+<area shape="poly" id="edge10" href="dir_000014_000028.xhtml" alt="" coords="743,335,540,373,523,383,520,378,538,368,742,330"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000014_000028.xhtml" title="1" alt="" coords="525,377,534,392"/>
+<area shape="poly" id="edge12" href="dir_000027_000014.xhtml" alt="" coords="647,250,766,300,764,305,645,255"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000027_000014.xhtml" title="1" alt="" coords="759,286,768,300"/>
+<area shape="poly" id="edge14" href="dir_000027_000020.xhtml" alt="" coords="634,251,772,369,782,377,779,381,769,373,630,255"/>
+<area shape="rect" id="edge14-headlabel" href="dir_000027_000020.xhtml" title="1" alt="" coords="778,363,788,378"/>
+<area shape="poly" id="edge13" href="dir_000027_000028.xhtml" alt="" coords="612,254,517,379,512,376,608,251"/>
+<area shape="rect" id="edge13-headlabel" href="dir_000027_000028.xhtml" title="2" alt="" coords="519,372,529,386"/>
+<area shape="poly" id="edge16" href="dir_000003_000027.xhtml" alt="" coords="366,168,449,184,539,207,579,220,578,225,538,212,448,190,365,173"/>
+<area shape="rect" id="edge16-headlabel" href="dir_000003_000027.xhtml" title="6" alt="" coords="572,206,582,220"/>
+<area shape="rect" id="node13" href="dir_d10a16c9edae2d9519314512b0d44a07.xhtml" title="sound_output_interface" alt="" coords="297,227,471,253"/>
+<area shape="poly" id="edge15" href="dir_000003_000016.xhtml" alt="" coords="318,170,364,215,360,219,314,174"/>
+<area shape="rect" id="edge15-headlabel" href="dir_000003_000016.xhtml" title="1" alt="" coords="360,201,370,216"/>
+<area shape="poly" id="edge18" href="dir_000010_000027.xhtml" alt="" coords="219,168,539,207,581,220,579,225,538,212,218,173"/>
+<area shape="rect" id="edge18-headlabel" href="dir_000010_000027.xhtml" title="2" alt="" coords="574,206,583,220"/>
+<area shape="poly" id="edge17" href="dir_000010_000028.xhtml" alt="" coords="219,169,388,191,484,207,498,226,508,248,515,294,513,339,507,376,501,375,508,338,510,294,503,249,494,229,481,212,387,196,218,174"/>
+<area shape="rect" id="edge17-headlabel" href="dir_000010_000028.xhtml" title="1" alt="" coords="509,366,518,380"/>
+<area shape="poly" id="edge20" href="dir_000016_000027.xhtml" alt="" coords="472,237,541,237,541,243,472,243"/>
+<area shape="rect" id="edge20-headlabel" href="dir_000016_000027.xhtml" title="1" alt="" coords="532,224,541,239"/>
+<area shape="poly" id="edge19" href="dir_000016_000028.xhtml" alt="" coords="394,251,483,375,479,379,390,254"/>
+<area shape="rect" id="edge19-headlabel" href="dir_000016_000028.xhtml" title="1" alt="" coords="481,361,490,376"/>
+<area shape="rect" id="node14" href="dir_979be6e6248a7f790cc0bd4fb58a98d4.xhtml" title="status_indicators" alt="" coords="389,147,523,172"/>
+<area shape="poly" id="edge21" href="dir_000018_000027.xhtml" alt="" coords="481,170,584,219,582,224,479,174"/>
+<area shape="rect" id="edge21-headlabel" href="dir_000018_000027.xhtml" title="2" alt="" coords="578,205,587,219"/>
+<area shape="rect" id="clust3" href="dir_60c2c4d274c08a1458706f202c2ac02e.xhtml" title="Package 3rd Party Adapters." alt="" coords="552,63,1116,109"/>
+<area shape="rect" id="clust4" href="dir_cc4eb8107cf563e196ee7789b7c073d2.xhtml" title="Package Application Business Rules." alt="" coords="544,209,876,425"/>
+<area shape="rect" id="clust5" href="dir_49a5f6ab04696b445f2adbc130c9ef44.xhtml" title="Package Board Adapters." alt="" coords="37,136,533,263"/>
+<area shape="rect" id="clust6" href="dir_e70fd5d37674c687c1056755f18dec05.xhtml" title="Package Enterprise Business Rules." alt="" coords="887,371,1203,432"/>
+<area shape="rect" id="clust2" href="dir_bb6849ea4d307d3e6f07c34bd3d0693d.xhtml" alt="" coords="27,52,1213,443"/>
+<area shape="rect" id="clust1" href="dir_7a0d9093671d12905beda7b1ed8f0dec.xhtml" title="Task&#45;Tracker&#45;Device" alt="" coords="16,16,1224,453"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="GuiEngine::Configuration" name="GuiEngine::Configuration">
-<area shape="rect" id="node1" title=" " alt="" coords="35,175,218,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="191,5,241,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="35,163,210,228"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="30,71,29,105,32,122,38,137,47,150,43,153,34,140,27,123,24,105,25,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="191,5,233,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,72,201,106,185,140,177,152,172,149,180,137,196,104,205,70"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/Presenter.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/Presenter.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="100,5,283,76"/>
-<area shape="rect" id="node2" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,124,188,195"/>
-<area shape="rect" id="node3" href="$main_8cpp.xhtml" title=" " alt="" coords="212,139,363,180"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="100,5,283,75"/>
+<area shape="rect" id="Node000002" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,123,188,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,87,126,124,122,121,153,84"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.xhtml" title=" " alt="" coords="212,137,363,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,84,273,135,269,138,227,88"/>
 </map>

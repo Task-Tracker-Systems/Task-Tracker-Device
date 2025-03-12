@@ -1,30 +1,69 @@
 <map id="Task&#45;Tracker&#45;Device/test/hmi/test_hmi/test_hmi.cpp" name="Task&#45;Tracker&#45;Device/test/hmi/test_hmi/test_hmi.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="1070,5,1241,61"/>
-<area shape="rect" id="node2" href="$test__dummies_8hpp.xhtml" title=" " alt="" coords="185,117,339,143"/>
-<area shape="rect" id="node4" title=" " alt="" coords="19,288,86,315"/>
-<area shape="rect" id="node7" href="$Arduino-wrapper_8h.xhtml" title="Circumvents problematic processor macros defined by Arduino framework." alt="" coords="1243,117,1385,143"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1409,117,1494,143"/>
-<area shape="rect" id="node10" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="39,117,160,143"/>
-<area shape="rect" id="node11" title=" " alt="" coords="498,206,565,233"/>
-<area shape="rect" id="node12" href="$debouncedIsr_8hpp.xhtml" title=" " alt="" coords="363,109,534,151"/>
-<area shape="rect" id="node13" title=" " alt="" coords="1519,117,1560,143"/>
-<area shape="rect" id="node14" title=" " alt="" coords="1584,117,1655,143"/>
-<area shape="rect" id="node15" href="$serial__port_8hpp.xhtml" title=" " alt="" coords="753,109,915,151"/>
-<area shape="rect" id="node20" href="$Task_8hpp.xhtml" title=" " alt="" coords="559,117,677,143"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1679,117,1743,143"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1768,117,1833,143"/>
-<area shape="rect" id="node23" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="951,206,1162,233"/>
-<area shape="rect" id="node25" href="$IPresenter_8hpp.xhtml" title=" " alt="" coords="1857,117,2081,143"/>
-<area shape="rect" id="node27" href="$ProcessHmiInputs_8hpp.xhtml" title=" " alt="" coords="1186,199,1367,240"/>
-<area shape="rect" id="node28" href="$keypad__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="939,109,1118,151"/>
-<area shape="rect" id="node3" href="$board__types_8hpp.xhtml" title=" " alt="" coords="38,206,169,233"/>
-<area shape="rect" id="node5" title=" " alt="" coords="492,288,579,315"/>
-<area shape="rect" id="node6" title=" " alt="" coords="423,206,474,233"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1392,206,1476,233"/>
-<area shape="rect" id="node16" title=" " alt="" coords="821,206,877,233"/>
-<area shape="rect" id="node17" title=" " alt="" coords="722,206,797,233"/>
-<area shape="rect" id="node18" title=" " alt="" coords="947,363,1023,389"/>
-<area shape="rect" id="node19" title=" " alt="" coords="589,206,647,233"/>
-<area shape="rect" id="node24" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="1010,288,1103,315"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1933,206,2004,233"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1070,5,1240,60"/>
+<area shape="rect" id="Node000002" href="$test__dummies_8hpp.xhtml" title=" " alt="" coords="184,115,339,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1070,41,753,65,553,85,351,111,325,115,324,110,351,105,552,79,752,59,1069,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="19,284,86,309"/>
+<area shape="poly" id="edge12_Node000001_Node000004" title=" " alt="" coords="1070,39,803,48,465,64,168,85,71,97,41,104,27,110,16,128,10,148,8,169,11,192,24,235,41,271,36,273,19,237,6,193,3,169,4,147,11,125,24,106,40,98,70,92,167,79,464,58,803,43,1069,34"/>
+<area shape="rect" id="Node000007" href="$Arduino-wrapper_8h.xhtml" title="Circumvents problematic processor macros defined by Arduino framework." alt="" coords="1243,115,1384,141"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1201,58,1283,106,1281,111,1198,62"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1408,115,1494,141"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1241,57,1397,105,1406,108,1404,113,1395,111,1240,62"/>
+<area shape="rect" id="Node000010" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="38,115,160,141"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1070,38,903,44,680,56,427,77,173,111,152,115,151,110,172,105,427,72,680,50,903,38,1070,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="498,203,564,229"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1070,40,997,47,913,60,826,80,741,110,726,119,715,129,690,150,572,200,570,196,687,146,712,125,723,115,739,106,824,75,912,55,996,42,1069,35"/>
+<area shape="rect" id="Node000012" href="$debouncedIsr_8hpp.xhtml" title=" " alt="" coords="363,108,534,148"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1070,45,838,71,547,111,547,105,838,66,1069,40"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1518,115,1560,141"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="1241,42,1368,65,1438,83,1507,105,1509,107,1508,112,1505,111,1437,88,1367,71,1240,47"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1584,115,1654,141"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="1241,42,1396,66,1484,84,1572,105,1580,108,1579,113,1570,111,1483,89,1395,71,1240,47"/>
+<area shape="rect" id="Node000015" href="$serial__port_8hpp.xhtml" title=" " alt="" coords="752,108,915,148"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="1070,61,913,107,911,102,1069,56"/>
+<area shape="rect" id="Node000020" href="$Task_8hpp.xhtml" title=" " alt="" coords="558,115,677,141"/>
+<area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="1070,49,897,75,697,111,677,115,676,110,696,105,896,70,1069,43"/>
+<area shape="rect" id="Node000021" title=" " alt="" coords="1679,115,1743,141"/>
+<area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="1241,37,1437,59,1552,79,1666,105,1674,108,1673,113,1665,111,1551,84,1436,65,1240,43"/>
+<area shape="rect" id="Node000022" title=" " alt="" coords="1768,115,1833,141"/>
+<area shape="poly" id="edge29_Node000001_Node000022" title=" " alt="" coords="1241,35,1346,42,1475,55,1616,75,1756,105,1764,108,1762,113,1754,111,1615,81,1474,60,1345,47,1241,40"/>
+<area shape="rect" id="Node000023" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="951,203,1162,229"/>
+<area shape="poly" id="edge30_Node000001_Node000023" title=" " alt="" coords="1156,60,1149,104,1132,149,1111,176,1087,197,1084,193,1107,172,1127,147,1144,102,1151,60"/>
+<area shape="rect" id="Node000025" href="$IPresenter_8hpp.xhtml" title=" " alt="" coords="1856,115,2080,141"/>
+<area shape="poly" id="edge34_Node000001_Node000025" title=" " alt="" coords="1241,39,1510,67,1845,105,1883,111,1883,116,1844,111,1510,72,1240,45"/>
+<area shape="rect" id="Node000027" href="$ProcessHmiInputs_8hpp.xhtml" title=" " alt="" coords="1186,196,1367,236"/>
+<area shape="poly" id="edge36_Node000001_Node000027" title=" " alt="" coords="1175,59,1233,147,1258,183,1253,186,1229,149,1170,62"/>
+<area shape="rect" id="Node000028" href="$keypad__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="939,108,1118,148"/>
+<area shape="poly" id="edge38_Node000001_Node000028" title=" " alt="" coords="1121,62,1067,102,1064,97,1118,58"/>
+<area shape="rect" id="Node000003" href="$board__types_8hpp.xhtml" title=" " alt="" coords="38,203,168,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,143,138,199,135,194,239,138"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="492,284,578,309"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="276,139,329,183,402,234,447,258,492,277,490,281,445,262,399,238,326,187,273,143"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="423,203,474,229"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="288,138,412,195,410,200,286,143"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="98,230,69,274,65,271,93,227"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1392,203,1476,229"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1331,139,1408,193,1404,197,1328,143"/>
+<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="102,141,104,189,99,190,97,141"/>
+<area shape="poly" id="edge15_Node000012_Node000005" title=" " alt="" coords="434,150,422,169,411,191,407,213,413,235,426,250,442,263,480,280,477,285,439,267,422,254,409,237,402,214,406,189,417,166,430,147"/>
+<area shape="poly" id="edge14_Node000012_Node000011" title=" " alt="" coords="469,146,512,191,508,195,465,150"/>
+<area shape="poly" id="edge20_Node000015_Node000005" title=" " alt="" coords="796,150,711,198,686,218,660,238,577,281,575,276,658,234,683,214,708,194,793,146"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="820,203,876,229"/>
+<area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="840,148,847,189,841,190,834,149"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="722,203,796,229"/>
+<area shape="poly" id="edge21_Node000015_Node000017" title=" " alt="" coords="819,150,780,195,776,191,815,147"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="946,357,1022,383"/>
+<area shape="poly" id="edge22_Node000015_Node000018" title=" " alt="" coords="853,147,890,194,939,275,975,343,970,346,935,278,886,198,849,150"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="588,203,647,229"/>
+<area shape="poly" id="edge23_Node000015_Node000019" title=" " alt="" coords="787,151,660,201,658,196,785,146"/>
+<area shape="poly" id="edge26_Node000020_Node000006" title=" " alt="" coords="596,143,484,199,482,195,594,138"/>
+<area shape="poly" id="edge25_Node000020_Node000011" title=" " alt="" coords="608,143,555,195,551,191,604,139"/>
+<area shape="poly" id="edge27_Node000020_Node000019" title=" " alt="" coords="620,141,620,189,615,189,615,141"/>
+<area shape="poly" id="edge33_Node000023_Node000005" title=" " alt="" coords="981,231,592,290,591,284,980,226"/>
+<area shape="rect" id="Node000024" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="1010,284,1103,309"/>
+<area shape="poly" id="edge31_Node000023_Node000024" title=" " alt="" coords="1059,229,1059,270,1054,270,1054,229"/>
+<area shape="poly" id="edge32_Node000024_Node000018" title=" " alt="" coords="1046,312,1008,350,1004,346,1043,308"/>
+<area shape="rect" id="Node000026" title=" " alt="" coords="1933,203,2004,229"/>
+<area shape="poly" id="edge35_Node000025_Node000026" title=" " alt="" coords="1971,141,1971,189,1966,189,1966,141"/>
+<area shape="poly" id="edge37_Node000027_Node000024" title=" " alt="" coords="1224,239,1103,282,1101,277,1223,234"/>
+<area shape="poly" id="edge39_Node000028_Node000023" title=" " alt="" coords="1037,147,1051,189,1046,191,1032,149"/>
 </map>

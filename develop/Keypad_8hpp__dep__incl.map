@@ -1,6 +1,9 @@
 <map id="Task&#45;Tracker&#45;Device/lib/board_adapters/input_device_interface/Keypad.hpp" name="Task&#45;Tracker&#45;Device/lib/board_adapters/input_device_interface/Keypad.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="227,5,401,76"/>
-<area shape="rect" id="node2" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="5,124,180,195"/>
-<area shape="rect" id="node3" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="205,124,423,195"/>
-<area shape="rect" id="node4" href="$test__keyState_8cpp.xhtml" title=" " alt="" coords="447,131,621,187"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="227,5,401,75"/>
+<area shape="rect" id="Node000002" href="$Keypad_8cpp.xhtml" title=" " alt="" coords="5,123,180,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,83,159,125,156,120,236,79"/>
+<area shape="rect" id="Node000003" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="205,123,423,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="317,89,317,122,311,122,311,89"/>
+<area shape="rect" id="Node000004" href="$test__keyState_8cpp.xhtml" title=" " alt="" coords="447,130,621,185"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="392,79,485,128,483,132,389,83"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classIScreen.xhtml" title="Interface class for Screen objects." alt="" coords="5,31,76,57"/>
-<area shape="rect" id="node2" href="$classScreenMenu.xhtml" title="Screen for menu navigation it receives a list of menu items for it&#39;s topology." alt="" coords="150,5,253,32"/>
-<area shape="rect" id="node3" href="$classScreenValueModifier.xhtml" title="Screen for value modification." alt="" coords="124,56,279,83"/>
+<area shape="rect" id="Node000000" href="$classIScreen.xhtml" title="Interface class for Screen objects." alt="" coords="5,31,76,56"/>
+<area shape="rect" id="Node000001" href="$classScreenMenu.xhtml" title="Screen for menu navigation it receives a list of menu items for it&#39;s topology." alt="" coords="150,5,253,31"/>
+<area shape="poly" id="edge8_Node000000_Node000001" title=" " alt="" coords="89,33,149,23,150,29,90,38"/>
+<area shape="rect" id="Node000002" href="$classScreenValueModifier.xhtml" title="Screen for value modification." alt="" coords="124,55,279,80"/>
+<area shape="poly" id="edge9_Node000000_Node000002" title=" " alt="" coords="90,48,124,53,123,58,89,53"/>
 </map>

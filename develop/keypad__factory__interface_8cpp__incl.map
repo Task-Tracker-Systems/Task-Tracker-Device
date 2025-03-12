@@ -1,9 +1,16 @@
 <map id="Task&#45;Tracker&#45;Device/lib/board_adapters/input_device_interface/keypad_factory_interface.cpp" name="Task&#45;Tracker&#45;Device/lib/board_adapters/input_device_interface/keypad_factory_interface.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="27,5,245,76"/>
-<area shape="rect" id="node2" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="5,131,104,158"/>
-<area shape="rect" id="node7" href="$keypad__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="128,124,307,165"/>
-<area shape="rect" id="node3" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="31,213,241,240"/>
-<area shape="rect" id="node4" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="32,288,125,315"/>
-<area shape="rect" id="node6" title=" " alt="" coords="150,288,237,315"/>
-<area shape="rect" id="node5" title=" " alt="" coords="41,363,117,389"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="27,5,245,75"/>
+<area shape="rect" id="Node000002" href="$Keypad_8hpp.xhtml" title=" " alt="" coords="5,130,104,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,77,75,121,71,117,106,74"/>
+<area shape="rect" id="Node000007" href="$keypad__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="128,123,307,163"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="166,74,195,110,191,113,161,77"/>
+<area shape="rect" id="Node000003" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="31,211,241,236"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,154,116,199,112,203,65,157"/>
+<area shape="rect" id="Node000004" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="32,284,125,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="129,238,99,275,95,271,124,235"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="150,284,237,309"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="148,235,177,271,173,275,143,238"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="41,357,117,383"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="81,310,81,344,76,344,76,310"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="199,165,160,203,156,199,196,161"/>
 </map>

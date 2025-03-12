@@ -1,9 +1,15 @@
 <map id="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/LVGL/Screen.hpp" name="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/LVGL/Screen.hpp">
-<area shape="rect" id="node1" title="Converts menu items to LVGL." alt="" coords="41,5,213,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,109,64,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="88,109,165,136"/>
-<area shape="rect" id="node4" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="190,109,415,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="183,184,249,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="273,184,332,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="357,184,419,211"/>
+<area shape="rect" id="Node000001" title="Converts menu items to LVGL." alt="" coords="41,5,213,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,64,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,62,59,100,55,96,97,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="88,108,165,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,60,129,94,124,94,124,60"/>
+<area shape="rect" id="Node000004" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="190,108,415,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,58,268,100,266,104,179,62"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="183,181,249,207"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="290,135,242,175,239,170,287,131"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="273,181,332,207"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="305,134,305,168,300,168,300,134"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="357,181,419,207"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="318,131,365,170,362,175,315,135"/>
 </map>

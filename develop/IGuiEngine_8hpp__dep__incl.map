@@ -1,12 +1,24 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/IGuiEngine.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/IGuiEngine.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="273,5,456,76"/>
-<area shape="rect" id="node2" href="$GuiEngine_8hpp.xhtml" title=" " alt="" coords="51,131,223,187"/>
-<area shape="rect" id="node5" href="$guiEngine__factory__interface_8hpp.xhtml" title="Dependency injection for the guiEngine." alt="" coords="247,124,483,195"/>
-<area shape="rect" id="node7" href="$Menu_8hpp.xhtml" title=" " alt="" coords="507,124,689,195"/>
-<area shape="rect" id="node3" href="$GuiEngine_8cpp.xhtml" title="Connects LVGL callbacks to display driver and input device." alt="" coords="5,250,177,306"/>
-<area shape="rect" id="node4" href="$guiEngine__factory__interface_8cpp.xhtml" title=" " alt="" coords="202,243,381,313"/>
-<area shape="rect" id="node6" href="$main_8cpp.xhtml" title=" " alt="" coords="393,376,544,417"/>
-<area shape="rect" id="node8" href="$Menu_8cpp.xhtml" title=" " alt="" coords="507,243,689,313"/>
-<area shape="rect" id="node9" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="713,243,896,313"/>
-<area shape="rect" id="node10" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="713,361,896,432"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="273,5,456,75"/>
+<area shape="rect" id="Node000002" href="$GuiEngine_8hpp.xhtml" title=" " alt="" coords="51,130,223,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="287,83,190,132,187,128,285,79"/>
+<area shape="rect" id="Node000005" href="$Menu_8hpp.xhtml" title=" " alt="" coords="507,123,689,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="446,78,531,120,529,125,444,83"/>
+<area shape="rect" id="Node000010" href="$guiEngine__factory__interface_8hpp.xhtml" title="Dependency injection for the guiEngine." alt="" coords="247,123,483,192"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="367,89,367,122,362,122,362,89"/>
+<area shape="rect" id="Node000003" href="$GuiEngine_8cpp.xhtml" title="Connects LVGL callbacks to display driver and input device." alt="" coords="5,247,177,302"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,198,104,248,99,246,119,196"/>
+<area shape="rect" id="Node000004" href="$guiEngine__factory__interface_8cpp.xhtml" title=" " alt="" coords="202,240,381,309"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="184,190,247,237,244,242,181,195"/>
+<area shape="rect" id="Node000006" href="$Menu_8cpp.xhtml" title=" " alt="" coords="713,240,896,309"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="671,196,746,237,743,242,669,201"/>
+<area shape="rect" id="Node000007" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="507,240,689,309"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="601,206,601,240,595,240,595,206"/>
+<area shape="rect" id="Node000009" href="$main_8cpp.xhtml" title=" " alt="" coords="368,372,519,412"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="534,202,514,221,496,242,477,275,463,311,449,373,443,371,458,310,472,273,492,238,510,217,531,198"/>
+<area shape="rect" id="Node000008" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="543,357,725,427"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="615,322,626,356,621,358,610,324"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="544,320,470,374,467,370,540,315"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="338,205,315,241,311,238,333,203"/>
+<area shape="poly" id="edge12_Node000010_Node000009" title=" " alt="" coords="383,204,395,239,440,371,434,372,390,241,378,206"/>
 </map>

@@ -1,8 +1,13 @@
 <map id="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/Arduino/framework_adapter.cpp" name="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/Arduino/framework_adapter.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="57,5,291,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,109,89,136"/>
-<area shape="rect" id="node3" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="113,109,235,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="259,109,351,136"/>
-<area shape="rect" id="node4" href="$board__types_8hpp.xhtml" title=" " alt="" coords="109,184,239,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="141,259,207,285"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="57,5,291,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,89,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,62,77,102,74,98,134,58"/>
+<area shape="rect" id="Node000003" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="113,108,235,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,60,177,94,171,94,171,60"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="259,108,351,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="215,58,277,98,274,103,212,62"/>
+<area shape="rect" id="Node000004" href="$board__types_8hpp.xhtml" title=" " alt="" coords="109,181,239,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,134,177,168,171,168,171,134"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="141,255,207,280"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="177,207,177,241,171,241,171,207"/>
 </map>

@@ -1,13 +1,23 @@
 <map id="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/Arduino/serial_port.cpp" name="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/Arduino/serial_port.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="166,5,342,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,117,89,143"/>
-<area shape="rect" id="node3" title=" " alt="" coords="114,117,194,143"/>
-<area shape="rect" id="node4" title=" " alt="" coords="219,117,289,143"/>
-<area shape="rect" id="node5" href="$serial__port_8hpp.xhtml" title=" " alt="" coords="314,109,477,151"/>
-<area shape="rect" id="node11" title=" " alt="" coords="501,117,593,143"/>
-<area shape="rect" id="node6" title=" " alt="" coords="166,199,222,225"/>
-<area shape="rect" id="node7" title=" " alt="" coords="247,199,333,225"/>
-<area shape="rect" id="node8" title=" " alt="" coords="358,199,433,225"/>
-<area shape="rect" id="node9" title=" " alt="" coords="457,199,533,225"/>
-<area shape="rect" id="node10" title=" " alt="" coords="558,199,617,225"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="166,5,342,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,89,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,62,86,112,84,107,195,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="114,115,194,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,62,179,108,175,104,224,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="219,115,289,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="257,60,257,101,251,101,251,60"/>
+<area shape="rect" id="Node000005" href="$serial__port_8hpp.xhtml" title=" " alt="" coords="314,108,477,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="295,58,357,98,354,103,292,62"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="501,115,593,141"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="338,58,489,105,499,109,498,114,488,111,336,63"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="166,196,222,221"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="348,151,236,194,234,189,346,146"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="247,196,333,221"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="371,150,318,190,315,185,368,146"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="358,196,433,221"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="398,148,398,182,393,182,393,148"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="457,196,533,221"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="421,146,471,185,468,189,418,150"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="558,196,617,221"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="442,146,548,188,546,193,440,150"/>
 </map>

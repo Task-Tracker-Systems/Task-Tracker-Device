@@ -1,5 +1,7 @@
 <map id="Task&#45;Tracker&#45;Device/lib/enterprise_business_rules/serial_protocol/DeletedTaskObject.hpp" name="Task&#45;Tracker&#45;Device/lib/enterprise_business_rules/serial_protocol/DeletedTaskObject.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="135,5,311,76"/>
-<area shape="rect" id="node2" href="$JsonGenerator_8cpp.xhtml" title=" " alt="" coords="5,131,219,187"/>
-<area shape="rect" id="node3" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="243,124,426,195"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="135,5,311,75"/>
+<area shape="rect" id="Node000002" href="$JsonGenerator_8cpp.xhtml" title=" " alt="" coords="5,130,219,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,87,139,132,135,128,179,83"/>
+<area shape="rect" id="Node000003" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="243,123,426,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,83,304,121,300,124,263,87"/>
 </map>

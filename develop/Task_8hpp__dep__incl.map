@@ -1,10 +1,17 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/tasks/Task.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/tasks/Task.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="657,5,839,61"/>
-<area shape="rect" id="node2" href="$JsonGenerator_8cpp.xhtml" title=" " alt="" coords="5,117,219,173"/>
-<area shape="rect" id="node3" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="243,109,426,180"/>
-<area shape="rect" id="node4" href="$Task_8cpp.xhtml" title=" " alt="" coords="450,117,633,173"/>
-<area shape="rect" id="node5" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="657,109,839,180"/>
-<area shape="rect" id="node6" href="$main_8cpp.xhtml" title=" " alt="" coords="863,124,1014,165"/>
-<area shape="rect" id="node7" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="1039,117,1209,173"/>
-<area shape="rect" id="node8" href="$task_8cpp.xhtml" title=" " alt="" coords="1233,124,1415,165"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="657,5,839,60"/>
+<area shape="rect" id="Node000002" href="$JsonGenerator_8cpp.xhtml" title=" " alt="" coords="5,115,219,170"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="643,48,451,72,231,111,200,118,199,113,230,105,450,67,642,42"/>
+<area shape="rect" id="Node000003" href="$Protocol_8cpp.xhtml" title=" " alt="" coords="243,108,426,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="644,59,438,111,427,114,426,109,437,105,643,54"/>
+<area shape="rect" id="Node000004" href="$Task_8cpp.xhtml" title=" " alt="" coords="450,115,633,170"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="687,69,593,118,590,113,684,64"/>
+<area shape="rect" id="Node000005" href="$ProcessHmiInputs_8cpp.xhtml" title=" " alt="" coords="657,108,839,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="751,74,751,108,745,108,745,74"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.xhtml" title=" " alt="" coords="863,123,1014,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="808,65,906,120,904,125,805,69"/>
+<area shape="rect" id="Node000007" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="1039,115,1209,170"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="853,57,1027,105,1051,113,1049,118,1026,111,852,62"/>
+<area shape="rect" id="Node000008" href="$task_8cpp.xhtml" title=" " alt="" coords="1233,123,1415,163"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="853,43,1027,67,1125,85,1222,105,1272,120,1271,125,1221,111,1124,90,1026,73,852,48"/>
 </map>

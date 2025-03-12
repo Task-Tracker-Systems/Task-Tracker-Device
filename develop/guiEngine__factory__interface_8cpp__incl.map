@@ -1,20 +1,40 @@
 <map id="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/LVGL/guiEngine_factory_interface.cpp" name="Task&#45;Tracker&#45;Device/lib/3rd_party_adapters/LVGL/guiEngine_factory_interface.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="369,5,548,76"/>
-<area shape="rect" id="node2" href="$GuiEngine_8hpp.xhtml" title=" " alt="" coords="156,131,272,158"/>
-<area shape="rect" id="node15" title=" " alt="" coords="672,131,756,158"/>
-<area shape="rect" id="node16" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="307,131,428,158"/>
-<area shape="rect" id="node18" href="$guiEngine__factory__interface_8hpp.xhtml" title="Dependency injection for the guiEngine." alt="" coords="453,124,648,165"/>
-<area shape="rect" id="node3" title=" " alt="" coords="127,213,278,240"/>
-<area shape="rect" id="node4" title=" " alt="" coords="273,363,340,389"/>
-<area shape="rect" id="node5" title=" " alt="" coords="302,213,361,240"/>
-<area shape="rect" id="node6" title=" " alt="" coords="25,213,102,240"/>
-<area shape="rect" id="node7" href="$IGuiEngine_8hpp.xhtml" title=" " alt="" coords="436,213,665,240"/>
-<area shape="rect" id="node8" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="396,288,512,315"/>
-<area shape="rect" id="node11" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="537,288,748,315"/>
-<area shape="rect" id="node9" title=" " alt="" coords="481,363,540,389"/>
-<area shape="rect" id="node10" title=" " alt="" coords="394,363,456,389"/>
-<area shape="rect" id="node12" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="580,363,673,389"/>
-<area shape="rect" id="node14" title=" " alt="" coords="698,363,784,389"/>
-<area shape="rect" id="node13" title=" " alt="" coords="588,437,664,464"/>
-<area shape="rect" id="node17" href="$board__types_8hpp.xhtml" title=" " alt="" coords="241,288,372,315"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="369,5,548,75"/>
+<area shape="rect" id="Node000002" href="$GuiEngine_8hpp.xhtml" title=" " alt="" coords="156,130,272,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,77,256,127,254,122,376,72"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="672,130,756,155"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="545,72,674,123,672,128,543,77"/>
+<area shape="rect" id="Node000016" href="$board__pins_8hpp.xhtml" title="Provides named objects for the pins provided by the board." alt="" coords="307,130,428,155"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="430,77,389,121,385,118,426,73"/>
+<area shape="rect" id="Node000018" href="$guiEngine__factory__interface_8hpp.xhtml" title="Dependency injection for the guiEngine." alt="" coords="453,123,648,163"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="491,73,525,110,521,114,488,77"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="127,211,278,236"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,156,209,198,204,197,210,155"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="273,357,340,383"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="157,151,99,161,45,177,25,188,12,201,8,216,15,235,39,264,67,288,99,308,132,325,201,348,260,360,259,366,200,353,130,330,96,313,64,292,35,267,11,237,3,216,8,198,22,184,43,172,98,155,156,146"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="302,211,361,236"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="233,153,304,201,301,205,230,158"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="25,211,102,236"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="193,158,99,207,97,202,191,153"/>
+<area shape="rect" id="Node000007" href="$IGuiEngine_8hpp.xhtml" title=" " alt="" coords="436,211,665,236"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="264,153,295,160,489,205,487,210,294,165,262,158"/>
+<area shape="rect" id="Node000008" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="396,284,512,309"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="537,238,483,278,480,273,533,234"/>
+<area shape="rect" id="Node000011" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="537,284,748,309"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="567,234,618,273,615,278,564,238"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="432,312,344,354,342,349,429,307"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="481,357,540,383"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="466,308,495,345,491,348,462,311"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="394,357,456,383"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="452,311,437,346,433,344,447,309"/>
+<area shape="rect" id="Node000012" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="580,357,673,383"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="642,310,634,345,629,344,637,309"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="698,357,784,383"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="660,307,716,347,712,351,657,312"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="588,431,664,456"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="629,383,629,417,624,417,624,383"/>
+<area shape="rect" id="Node000017" href="$board__types_8hpp.xhtml" title=" " alt="" coords="241,284,372,309"/>
+<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="374,155,382,192,381,215,375,237,360,260,340,278,336,274,356,257,371,235,376,214,376,193,369,156"/>
+<area shape="poly" id="edge18_Node000017_Node000004" title=" " alt="" coords="309,310,309,344,304,344,304,310"/>
+<area shape="poly" id="edge20_Node000018_Node000007" title=" " alt="" coords="553,163,553,197,548,197,548,163"/>
 </map>

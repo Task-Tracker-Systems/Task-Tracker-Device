@@ -1,12 +1,22 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/Menu.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/Menu.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="173,5,355,76"/>
-<area shape="rect" id="node2" href="$IGuiEngine_8hpp.xhtml" title=" " alt="" coords="156,124,276,151"/>
-<area shape="rect" id="node7" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="208,199,419,225"/>
-<area shape="rect" id="node3" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="67,199,183,225"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,273,72,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="96,273,155,300"/>
-<area shape="rect" id="node6" title=" " alt="" coords="179,273,242,300"/>
-<area shape="rect" id="node8" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="267,273,360,300"/>
-<area shape="rect" id="node10" title=" " alt="" coords="385,273,471,300"/>
-<area shape="rect" id="node9" title=" " alt="" coords="275,348,351,375"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="173,5,355,75"/>
+<area shape="rect" id="Node000002" href="$IGuiEngine_8hpp.xhtml" title=" " alt="" coords="156,123,276,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,76,231,112,226,109,244,74"/>
+<area shape="rect" id="Node000007" href="$IKeypad_8hpp.xhtml" title=" " alt="" coords="208,196,419,221"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="277,74,309,182,303,184,271,76"/>
+<area shape="rect" id="Node000003" href="$MenuItem_8hpp.xhtml" title=" " alt="" coords="67,196,183,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="203,150,153,189,149,185,200,146"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="233,146,288,185,285,190,230,150"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,269,72,295"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,223,65,263,62,258,110,219"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="96,269,155,295"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="128,222,128,256,123,256,123,222"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="179,269,242,295"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="141,219,188,258,185,263,137,223"/>
+<area shape="rect" id="Node000008" href="$KeyIds_8hpp.xhtml" title=" " alt="" coords="267,269,360,295"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="316,222,316,256,311,256,311,222"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="385,269,471,295"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="333,219,399,260,396,264,330,224"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="275,343,351,368"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="316,295,316,329,311,329,311,295"/>
 </map>

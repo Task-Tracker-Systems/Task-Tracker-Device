@@ -1,6 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classIMenuItem.xhtml" title="interface for all menu items" alt="" coords="5,56,97,83"/>
-<area shape="rect" id="node2" href="$classMenuItemSubmenu.xhtml" title="menu item to call a submenu" alt="" coords="145,5,295,32"/>
-<area shape="rect" id="node3" href="$structMenuItemSwitch.xhtml" title="menu item to show and change boolean variables" alt="" coords="155,56,285,83"/>
-<area shape="rect" id="node4" href="$structMenuItemValue.xhtml" title="menu item to show double variables and call a modification screen" alt="" coords="158,107,282,133"/>
+<area shape="rect" id="Node000000" href="$classIMenuItem.xhtml" title="interface for all menu items" alt="" coords="5,55,97,80"/>
+<area shape="rect" id="Node000001" href="$classMenuItemSubmenu.xhtml" title="menu item to call a submenu" alt="" coords="145,5,295,31"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="108,48,175,28,176,33,109,53"/>
+<area shape="rect" id="Node000002" href="$structMenuItemSwitch.xhtml" title="menu item to show and change boolean variables" alt="" coords="155,55,285,80"/>
+<area shape="poly" id="edge5_Node000000_Node000002" title=" " alt="" coords="111,65,154,65,154,70,111,70"/>
+<area shape="rect" id="Node000003" href="$structMenuItemValue.xhtml" title="menu item to show double variables and call a modification screen" alt="" coords="158,104,282,129"/>
+<area shape="poly" id="edge6_Node000000_Node000003" title=" " alt="" coords="109,81,176,101,175,106,108,87"/>
 </map>

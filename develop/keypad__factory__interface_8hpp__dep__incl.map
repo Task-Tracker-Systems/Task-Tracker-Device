@@ -1,6 +1,9 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/keypad_factory_interface.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/keypad_factory_interface.hpp">
-<area shape="rect" id="node1" title="Dependency injection for the keypad." alt="" coords="215,5,433,76"/>
-<area shape="rect" id="node2" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,124,224,195"/>
-<area shape="rect" id="node3" href="$main_8cpp.xhtml" title=" " alt="" coords="249,139,399,180"/>
-<area shape="rect" id="node4" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="424,131,595,187"/>
+<area shape="rect" id="Node000001" title="Dependency injection for the keypad." alt="" coords="215,5,433,75"/>
+<area shape="rect" id="Node000002" href="$keypad__factory__interface_8cpp.xhtml" title=" " alt="" coords="5,123,224,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,84,177,125,175,120,250,79"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.xhtml" title=" " alt="" coords="249,137,399,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="327,89,327,137,321,137,321,89"/>
+<area shape="rect" id="Node000004" href="$test__hmi_8cpp.xhtml" title=" " alt="" coords="424,130,595,185"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="391,80,469,128,466,132,388,84"/>
 </map>

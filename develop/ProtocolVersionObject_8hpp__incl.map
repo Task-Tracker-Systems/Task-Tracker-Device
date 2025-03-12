@@ -1,4 +1,5 @@
 <map id="Task&#45;Tracker&#45;Device/lib/enterprise_business_rules/serial_protocol/ProtocolVersionObject.hpp" name="Task&#45;Tracker&#45;Device/lib/enterprise_business_rules/serial_protocol/ProtocolVersionObject.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,203,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="71,124,137,151"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,203,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,123,137,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,75,107,109,101,109,101,75"/>
 </map>

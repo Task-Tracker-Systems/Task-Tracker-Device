@@ -1,4 +1,5 @@
 <map id="FooData" name="FooData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,145,81,223"/>
-<area shape="rect" id="node2" title=" " alt="" coords="13,5,73,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,73,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="13,5,65,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="42,71,42,117,37,117,37,71"/>
 </map>

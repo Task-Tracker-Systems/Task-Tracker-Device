@@ -1,10 +1,19 @@
 <map id="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/IStatusIndicator.hpp" name="Task&#45;Tracker&#45;Device/lib/application_business_rules/user_interaction/IStatusIndicator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="307,5,489,76"/>
-<area shape="rect" id="node2" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="100,131,283,202"/>
-<area shape="rect" id="node5" href="$statusindicators__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="307,124,489,209"/>
-<area shape="rect" id="node7" href="$status__indicators_8hpp.xhtml" title=" " alt="" coords="514,131,695,202"/>
-<area shape="rect" id="node3" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,257,188,328"/>
-<area shape="rect" id="node4" href="$main_8cpp.xhtml" title=" " alt="" coords="212,272,363,313"/>
-<area shape="rect" id="node6" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="387,257,633,328"/>
-<area shape="rect" id="node8" href="$status__indicators_8cpp.xhtml" title=" " alt="" coords="657,257,838,328"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="307,5,489,75"/>
+<area shape="rect" id="Node000002" href="$Presenter_8hpp.xhtml" title=" " alt="" coords="100,130,283,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,84,249,132,247,128,329,79"/>
+<area shape="rect" id="Node000005" href="$statusindicators__factory__interface_8hpp.xhtml" title="Dependency injection for the keypad." alt="" coords="307,123,489,207"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="401,88,401,123,395,123,395,88"/>
+<area shape="rect" id="Node000007" href="$status__indicators_8hpp.xhtml" title=" " alt="" coords="514,130,695,199"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="467,79,549,128,547,132,465,84"/>
+<area shape="rect" id="Node000003" href="$Presenter_8cpp.xhtml" title=" " alt="" coords="5,255,188,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,212,125,256,121,253,155,208"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.xhtml" title=" " alt="" coords="212,269,363,309"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="228,209,275,267,270,271,224,212"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="354,219,306,271,302,267,350,215"/>
+<area shape="rect" id="Node000006" href="$statusindicators__factory__interface_8cpp.xhtml" title=" " alt="" coords="387,255,633,324"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="447,215,481,253,477,256,443,219"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="573,212,538,256,534,253,568,208"/>
+<area shape="rect" id="Node000008" href="$status__indicators_8cpp.xhtml" title=" " alt="" coords="657,255,838,324"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="656,206,710,252,706,256,652,210"/>
 </map>

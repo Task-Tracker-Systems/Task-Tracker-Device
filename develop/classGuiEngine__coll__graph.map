@@ -1,5 +1,7 @@
 <map id="GuiEngine" name="GuiEngine">
-<area shape="rect" id="node1" title="lvgl version of a GuiEngine" alt="" coords="88,175,232,296"/>
-<area shape="rect" id="node2" href="$classIGuiEngine.xhtml" title="Interface to a guiEngine capable of displaying various information to a human." alt="" coords="5,5,149,112"/>
-<area shape="rect" id="node3" title=" " alt="" coords="173,20,312,97"/>
+<area shape="rect" id="Node000001" title="lvgl version of a GuiEngine" alt="" coords="84,173,220,299"/>
+<area shape="rect" id="Node000002" href="$classIGuiEngine.xhtml" title="Interface to a guiEngine capable of displaying various information to a human." alt="" coords="5,5,141,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,123,127,172,122,174,100,125"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="165,25,296,91"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,92,189,160,184,157,214,90"/>
 </map>
