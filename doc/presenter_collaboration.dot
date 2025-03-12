@@ -1,0 +1,18 @@
+digraph {
+  rankdir=BT
+
+  L [label="use cases\n (logic)"]
+
+  node [shape=rectangle]
+  
+  {
+    rank=source
+    I [label="Keypad"]
+    O [label="Presenter"]
+  } 
+  P [label="Processor"]
+
+  I -> P -> O
+  P -> L
+  L -> P [constraint=false]
+}

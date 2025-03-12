@@ -1,13 +1,23 @@
-#include <Arduino.h>
+/**
+ * \file
+ */
+
 #include <FS.h>
 #include <chrono>
 #include <esp32-hal-log.h>
 #include <esp_err.h>
 #include <iostream>
-#include <storage.hpp>
+#include <serial_interface/Protocol.hpp>
+#include <serial_interface/serial_port.hpp>
+#include <storage/storage.hpp>
+#include <tasks/Task.hpp>
 #include <thread>
-
-using namespace std::chrono_literals;
+#include <user_interaction/Menu.hpp>
+#include <user_interaction/Presenter.hpp>
+#include <user_interaction/ProcessHmiInputs.hpp>
+#include <user_interaction/guiEngine_factory_interface.hpp>
+#include <user_interaction/keypad_factory_interface.hpp>
+#include <user_interaction/statusindicators_factory_interface.hpp>
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
@@ -47,7 +57,14 @@ void setup()
     HWSerial.begin(115200);
     HWSerial.setDebugOutput(true);
     delay(3000); // in order to give the serial monitor time to start
-    std::cout << "Started program" << std::endl;
+    serial_port::initialize();
+    serial_port::cout << "\x1b[20h"; // Tell the terminal to use CR/LF for newlines instead of just CR.
+    static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
+    serial_port::cout << std::endl
+                      << " begin program '" << programIdentificationString << std::endl;
+    serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
+        ProtocolHandler::execute(commandLine.c_str());
+    });
     ESP_LOGE(TAG, "Example error");
     ESP_LOGW(TAG, "Example warning");
     ESP_LOGI(TAG, "Example info");
@@ -58,6 +75,18 @@ void setup()
 
 void loop()
 {
+    static Menu singleMenu(board::getGuiEngine(), board::getKeypad());
+    static Presenter presenter(singleMenu, board::getStatusIndicators());
+    static ProcessHmiInputs processHmiInputs(presenter, board::getKeypad());
+
+    serial_port::readAndHandleInput();
+
+    std::this_thread::yield();
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(100ms);
+
+    presenter.loop();
+
     listFiles("/", Storage::getFileSystem_locking());
     std::this_thread::sleep_for(3s);
 }

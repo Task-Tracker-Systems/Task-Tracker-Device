@@ -1,0 +1,43 @@
+name: generate and deploy documentation
+
+on:
+  workflow_run:
+    workflows: [Cleanup GitHub Pages Branch Workflow]
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install tools for generation of documentation
+      run: |
+        sudo apt-get install doxygen graphviz
+        sudo apt-get install texlive-base perl # necessary for citing bib files
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Determine Output Directory
+      id: output_dir
+      run: |
+        branch_name="${{ github.ref }}"
+        branch_name="${branch_name#refs/heads/}"
+        output_dir="./${branch_name}"
+        echo "DOC_OUTPUT_DIR=$output_dir" >> "$GITHUB_ENV"
+
+    - name: generate documentation
+      run: |
+        wget https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
+        (echo "PLANTUML_JAR_PATH = ."; cat Doxyfile) | doxygen -
+
+    - name: deploy documentation
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./doc/html
+        destination_dir: ${{ env.DOC_OUTPUT_DIR }}
+
