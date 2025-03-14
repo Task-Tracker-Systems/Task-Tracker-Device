@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 #include "storage.hpp"
 #include <FFat.h>
 #include <USB.h>
