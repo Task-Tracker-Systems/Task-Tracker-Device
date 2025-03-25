@@ -3,6 +3,7 @@
 #include <USB.h>
 #include <USBMSC.h>
 #include <atomic>
+#include <cassert>
 #include <condition_variable>
 #include <cstdint>
 #include <esp32-hal-log.h>
