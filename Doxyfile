@@ -9,6 +9,7 @@ EXTRACT_STATIC         = YES
 CITE_BIB_FILES         = doc/bibliography
 INPUT                  = .
 RECURSIVE              = YES
+EXCLUDE                = test/
 EXAMPLE_PATH           = doc/debouncing/
 IMAGE_PATH             = doc/
 USE_MDFILE_AS_MAINPAGE = ./README.md
