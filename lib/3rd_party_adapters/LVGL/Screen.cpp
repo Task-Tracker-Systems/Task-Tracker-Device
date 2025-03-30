@@ -45,6 +45,25 @@ static void showNewAndDeleteOldScreen(lv_obj_t *screen)
 }
 
 /**
+ * get a singlenton style pointer for one pixel border padding in all directions
+ */
+static lv_style_t *getSmallPaddingStyle()
+{
+    static lv_style_t style_small_padding{0};
+
+    /* only initialize the style if it was empty */
+    if (style_small_padding.prop_cnt == 0)
+    {
+        lv_style_init(&style_small_padding);
+        lv_style_set_pad_left(&style_small_padding, 1);
+        lv_style_set_pad_top(&style_small_padding, 1);
+        lv_style_set_pad_bottom(&style_small_padding, 1);
+        lv_style_set_pad_right(&style_small_padding, 1);
+    }
+
+    return &style_small_padding;
+}
+/**
  * @brief Event callback function for an item that calls another submenu
  * @note  The lvgl event user data hold a pointer to the triggered submenu item
  * 
@@ -157,17 +176,10 @@ ScreenMenu::ScreenMenu(const MenuItemList &itemList)
  */
 void ScreenMenu::draw()
 {
-    /* adjust the style so everything has a 1 px padding in all directions */
-    static lv_style_t style_small_padding;
-    lv_style_init(&style_small_padding);
-    lv_style_set_pad_left(&style_small_padding, 1);
-    lv_style_set_pad_top(&style_small_padding, 1);
-    lv_style_set_pad_bottom(&style_small_padding, 1);
-    lv_style_set_pad_right(&style_small_padding, 1);
 
     /* create the lvgl screen object and configure it's properties */
     lv_obj_t *screen = lv_obj_create(NULL);
-    lv_obj_add_style(screen, &style_small_padding, 0);
+    lv_obj_add_style(screen, getSmallPaddingStyle(), 0);
     lv_obj_set_flex_flow(screen, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_style_pad_row(screen, 2, 0);
     lv_obj_set_flex_align(screen, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER);
@@ -183,7 +195,7 @@ void ScreenMenu::draw()
             auto btnItem = reinterpret_cast<const MenuItemSubmenu *const>(item);
             auto btn = lv_btn_create(screen);
             lv_obj_set_size(btn, lv_pct(100), 12);
-            lv_obj_add_style(btn, &style_small_padding, 0);
+            lv_obj_add_style(btn, getSmallPaddingStyle(), 0);
             lv_obj_add_event_cb(btn, ScreenMenu_submenu_cb, LV_EVENT_SHORT_CLICKED, (void *)item); /* assign the submenu callback for event short clicked */
             lv_obj_add_event_cb(btn, ScreenMenu_submenu_cb, LV_EVENT_KEY, nullptr);                /* assign the submenu callback for event key press */
             auto lab = lv_label_create(btn);
@@ -203,7 +215,7 @@ void ScreenMenu::draw()
             auto swtItem = reinterpret_cast<const MenuItemSwitch *const>(item);
             auto cont = lv_obj_create(screen);
             lv_obj_set_size(cont, lv_pct(100), 12);
-            lv_obj_add_style(cont, &style_small_padding, 0);
+            lv_obj_add_style(cont, getSmallPaddingStyle(), 0);
             lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
             lv_obj_add_flag(cont, LV_OBJ_FLAG_OVERFLOW_VISIBLE);
             auto lab = lv_label_create(cont);
@@ -238,7 +250,7 @@ void ScreenMenu::draw()
             auto valItem = reinterpret_cast<const MenuItemValue *const>(item);
             auto btn = lv_btn_create(screen);
             lv_obj_set_size(btn, lv_pct(100), 12);
-            lv_obj_add_style(btn, &style_small_padding, 0);
+            lv_obj_add_style(btn, getSmallPaddingStyle(), 0);
             auto lab = lv_label_create(btn);
             lv_obj_set_width(lab, lv_pct(70));
             lv_obj_set_align(lab, LV_ALIGN_LEFT_MID);
@@ -406,23 +418,15 @@ void ScreenValueModifier::draw()
     lv_obj_t *btn;
     lv_obj_t *lab;
 
-    /* adjust the style so everything has a 1 px padding in all directions */
-    static lv_style_t style_small_padding;
-    lv_style_init(&style_small_padding);
-    lv_style_set_pad_left(&style_small_padding, 1);
-    lv_style_set_pad_top(&style_small_padding, 1);
-    lv_style_set_pad_bottom(&style_small_padding, 1);
-    lv_style_set_pad_right(&style_small_padding, 1);
-
     /* create the lvgl screen object and configure it's properties */
     lv_obj_t *screen = lv_obj_create(NULL);
-    lv_obj_add_style(screen, &style_small_padding, 0);
+    lv_obj_add_style(screen, getSmallPaddingStyle(), 0);
 
     /* draw spinbox */
     _spinbox = lv_spinbox_create(screen);
     lv_group_remove_obj(_spinbox); //remove the spinbox from being selectable by default
     lv_obj_set_width(_spinbox, lv_pct(55));
-    lv_obj_add_style(_spinbox, &style_small_padding, 0);
+    lv_obj_add_style(_spinbox, getSmallPaddingStyle(), 0);
     lv_obj_center(_spinbox);
     lv_spinbox_set_digit_format(_spinbox, 7, (7 - _menuItem->getDecimals()));
     int32_t min = ((_menuItem->getMin()) * std::pow(10, _menuItem->getDecimals()));
@@ -438,7 +442,7 @@ void ScreenValueModifier::draw()
     /* draw incrementation button */
     btn = lv_btn_create(screen);
     lv_obj_set_size(btn, h, h);
-    lv_obj_add_style(btn, &style_small_padding, 0);
+    lv_obj_add_style(btn, getSmallPaddingStyle(), 0);
     lv_obj_align_to(btn, _spinbox, LV_ALIGN_OUT_RIGHT_MID, 2, 0);
     lv_obj_add_event_cb(btn, ScreenValueModifier_inc_cb, LV_EVENT_LONG_PRESSED_REPEAT, _spinbox);
     lv_obj_add_event_cb(btn, ScreenValueModifier_inc_cb, LV_EVENT_SHORT_CLICKED, _spinbox);
@@ -450,7 +454,7 @@ void ScreenValueModifier::draw()
     /* draw decrementation button */
     btn = lv_btn_create(screen);
     lv_obj_set_size(btn, h, h);
-    lv_obj_add_style(btn, &style_small_padding, 0);
+    lv_obj_add_style(btn, getSmallPaddingStyle(), 0);
     lv_obj_align_to(btn, _spinbox, LV_ALIGN_OUT_LEFT_MID, -2, 0);
     lv_obj_add_event_cb(btn, ScreenValueModifier_dec_cb, LV_EVENT_LONG_PRESSED_REPEAT, _spinbox);
     lv_obj_add_event_cb(btn, ScreenValueModifier_dec_cb, LV_EVENT_SHORT_CLICKED, _spinbox);
@@ -462,7 +466,7 @@ void ScreenValueModifier::draw()
     /* draw step modification button */
     btn = lv_btn_create(screen);
     lv_obj_set_size(btn, 10, 10);
-    lv_obj_add_style(btn, &style_small_padding, 0);
+    lv_obj_add_style(btn, getSmallPaddingStyle(), 0);
     lv_obj_align_to(btn, _spinbox, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
     lv_obj_add_event_cb(btn, ScreenValueModifier_step_cb, LV_EVENT_LONG_PRESSED_REPEAT, _spinbox);
     lv_obj_add_event_cb(btn, ScreenValueModifier_step_cb, LV_EVENT_SHORT_CLICKED, _spinbox);
