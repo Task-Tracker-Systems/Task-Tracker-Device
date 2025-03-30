@@ -28,6 +28,23 @@ static inline void IScreen_leave()
 }
 
 /**
+ * this is the way screens are exchanged in this software
+ * 
+ * @param screen - pointer to new screen to be shown
+ */
+static void showNewAndDeleteOldScreen(lv_obj_t *screen)
+{
+    /* remember old screen object to delete it after new screnn is displayed */
+    auto lv_screenOld = lv_scr_act();
+
+    /* actually draw the new screen with lvgl */
+    lv_scr_load(screen);
+
+    /* clear the old screen object */
+    lv_obj_del(lv_screenOld);
+}
+
+/**
  * @brief Event callback function for an item that calls another submenu
  * @note  The lvgl event user data hold a pointer to the triggered submenu item
  * 
@@ -140,9 +157,6 @@ ScreenMenu::ScreenMenu(const MenuItemList &itemList)
  */
 void ScreenMenu::draw()
 {
-    /* clear the current displayed screen */
-    lv_obj_clean(lv_scr_act());
-
     /* adjust the style so everything has a 1 px padding in all directions */
     static lv_style_t style_small_padding;
     lv_style_init(&style_small_padding);
@@ -255,8 +269,7 @@ void ScreenMenu::draw()
         }
     }
 
-    /* actually draw the screen with lvgl */
-    lv_scr_load(screen);
+    showNewAndDeleteOldScreen(screen);
 }
 
 /**
@@ -393,9 +406,6 @@ void ScreenValueModifier::draw()
     lv_obj_t *btn;
     lv_obj_t *lab;
 
-    /* clear the current displayed screen */
-    lv_obj_clean(lv_scr_act());
-
     /* adjust the style so everything has a 1 px padding in all directions */
     static lv_style_t style_small_padding;
     lv_style_init(&style_small_padding);
@@ -461,6 +471,5 @@ void ScreenValueModifier::draw()
     lv_label_set_text_static(lab, "*");
     lv_obj_set_align(lab, LV_ALIGN_CENTER);
 
-    /* actually draw the screen with lvgl */
-    lv_scr_load(screen);
+    showNewAndDeleteOldScreen(screen);
 }
