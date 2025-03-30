@@ -56,7 +56,7 @@ Menu::Menu(IGuiEngine &guiEngineToUse, IKeypad &keypad)
     subMenu3.push_back(&Sub3Button2);
 
     /* draw the main menu with GuiEngine */
-    guiEngine.drawMenu(&mainMenu);
+    guiEngine.drawMenu(mainMenu);
 }
 
 /**

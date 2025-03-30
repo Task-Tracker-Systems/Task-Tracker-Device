@@ -12,5 +12,5 @@ class IGuiEngine
   public:
     virtual void registerKeyPad(IKeypad *keypad) = 0;
     virtual void refresh() = 0;
-    virtual void drawMenu(const MenuItemList *menuList) = 0;
+    virtual void drawMenu(const MenuItemList &menuList) = 0;
 };

@@ -23,7 +23,7 @@ class GuiEngine : public IGuiEngine
     GuiEngine(const Configuration &configuration, TwoWire &i2c);
     virtual void registerKeyPad(IKeypad *keypad) override;
     virtual void refresh() override;
-    virtual void drawMenu(const MenuItemList *menuList) override;
+    virtual void drawMenu(const MenuItemList &menuList) override;
 
     Adafruit_SSD1306 display;
 

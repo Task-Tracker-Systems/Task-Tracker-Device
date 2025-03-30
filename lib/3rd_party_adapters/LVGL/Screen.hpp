@@ -29,13 +29,13 @@ class IScreen
 class ScreenMenu final : public IScreen
 {
   public:
-    ScreenMenu(MenuItemList itemList);
+    ScreenMenu(const MenuItemList &itemList);
     ~ScreenMenu() override = default;
 
     void draw() override;
 
   private:
-    const MenuItemList _List;
+    const MenuItemList &_List;
 };
 
 /**

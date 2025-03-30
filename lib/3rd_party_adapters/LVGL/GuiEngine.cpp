@@ -211,8 +211,8 @@ void GuiEngine::refresh()
  * 
  * @param menuList - list of items for the menu to display
  */
-void GuiEngine::drawMenu(const MenuItemList *menuList)
+void GuiEngine::drawMenu(const MenuItemList &menuList)
 {
-    CurrentScreen = std::make_shared<ScreenMenu>(*menuList);
+    CurrentScreen = std::make_shared<ScreenMenu>(menuList);
     CurrentScreen->draw();
 }

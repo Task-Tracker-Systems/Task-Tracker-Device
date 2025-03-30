@@ -130,7 +130,7 @@ static void ScreenMenu_value_cb(lv_event_t *e)
  * 
  * @param itemList - List of items to be drawn with this menu
  */
-ScreenMenu::ScreenMenu(MenuItemList itemList)
+ScreenMenu::ScreenMenu(const MenuItemList &itemList)
     : _List{itemList}
 {
 }
