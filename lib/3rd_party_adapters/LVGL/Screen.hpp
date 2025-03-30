@@ -19,6 +19,7 @@ class IScreen
     virtual ~IScreen() = default;
 
     virtual void draw() = 0;
+    virtual void refresh() {};
 };
 
 /**
@@ -33,6 +34,7 @@ class ScreenMenu final : public IScreen
     ~ScreenMenu() override = default;
 
     void draw() override;
+    void refresh() override;
 
   private:
     const MenuItemList &_List;

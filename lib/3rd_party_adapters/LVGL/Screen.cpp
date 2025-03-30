@@ -159,6 +159,24 @@ static void ScreenMenu_value_cb(lv_event_t *e)
             IScreen_leave();
         }
     }
+    else if ((code == LV_EVENT_REFRESH) && (item != nullptr))
+    {
+        /* the second child label holds the actual value as text */
+        auto lab = lv_obj_get_child(obj, 1);
+
+        double *ptr = item->getPtrDouble();
+        if (ptr == nullptr)
+        {
+            /* if pointer to double variable is not valid, disable the switch and don't add callbacks */
+            lv_obj_add_state(obj, LV_STATE_DISABLED);
+            lv_label_set_text(lab, "NULL");
+        }
+        else
+        {
+            /* if pointer to double variable is valid, show it's value and assign callbacks */
+            lv_label_set_text_fmt(lab, "%.*f", item->getDecimals(), *item->getPtrDouble());
+        }
+    }
 }
 
 /**
@@ -275,6 +293,7 @@ void ScreenMenu::draw()
                 lv_label_set_text_fmt(lab, "%.*f", valItem->getDecimals(), *valItem->getPtrDouble());
                 lv_obj_add_event_cb(btn, ScreenMenu_value_cb, LV_EVENT_SHORT_CLICKED, (void *)item); /* assign the value callback for event short clicked */
                 lv_obj_add_event_cb(btn, ScreenMenu_value_cb, LV_EVENT_KEY, nullptr);                /* assign the value callback for event key press */
+                lv_obj_add_event_cb(btn, ScreenMenu_value_cb, LV_EVENT_REFRESH, (void *)item);
             }
             break;
         }
@@ -282,6 +301,27 @@ void ScreenMenu::draw()
     }
 
     showNewAndDeleteOldScreen(screen);
+}
+
+void ScreenMenu::refresh()
+{
+    auto screen = lv_scr_act();
+    auto cnt = 0;
+
+    /* go through all menu items and send a refresh to it */
+    for (uint16_t menuItemId = 0; menuItemId < lv_obj_get_child_cnt(screen); ++menuItemId)
+    {
+        auto menuItem = lv_obj_get_child(screen, menuItemId);
+        lv_event_send(menuItem, LV_EVENT_REFRESH, NULL);
+        ++cnt;
+        /* look in sub items as well */
+        for (uint16_t subItemId = 0; subItemId < lv_obj_get_child_cnt(menuItem); ++subItemId)
+        {
+            auto subItem = lv_obj_get_child(menuItem, subItemId);
+            lv_event_send(subItem, LV_EVENT_REFRESH, NULL);
+            ++cnt;
+        }
+    }
 }
 
 /**
