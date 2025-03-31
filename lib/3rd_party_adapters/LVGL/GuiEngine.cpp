@@ -37,6 +37,19 @@ static void flushSSD1306Adafruit(lv_disp_drv_t *disp_drv, const lv_area_t *area,
     lv_disp_flush_ready(disp_drv);
 }
 
+/**
+ * lvgl timer function to be called from lv_timer_handler()
+ * it shall refresh the data on a currently active screen 
+ * @param timer 
+ */
+static void screenRefresh(lv_timer_t *timer)
+{
+    if (CurrentScreen == nullptr)
+        return;
+
+    CurrentScreen->refresh();
+}
+
 static IKeypad *myKeypad = nullptr;
 
 /**
@@ -94,6 +107,9 @@ GuiEngine::GuiEngine(const Configuration &configuration, TwoWire &i2c)
     lv_obj_t *label = lv_label_create(lv_scr_act());
     lv_label_set_text(label, "LVGL is up");
     lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 0);
+
+    // add screen refresh timer function to refresh screen data
+    static lv_timer_t *timer = lv_timer_create(screenRefresh, 1000, nullptr);
 
     // display lvgl screen
     lv_timer_handler();
@@ -200,7 +216,6 @@ void GuiEngine::registerKeyPad(IKeypad *keypad)
  */
 void GuiEngine::refresh()
 {
-    CurrentScreen->refresh();
     lv_timer_handler();
     LV_LOG_TRACE("Adafruit display() start");
     this->display.display();
