@@ -19,7 +19,10 @@ class IScreen
     virtual ~IScreen() = default;
 
     virtual void draw() = 0;
-    virtual void refresh() {};
+    virtual void refresh()
+    {
+        return;
+    };
 };
 
 /**
