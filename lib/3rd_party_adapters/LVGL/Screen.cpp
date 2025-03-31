@@ -127,6 +127,23 @@ static void ScreenMenu_switch_cb(lv_event_t *e)
             IScreen_leave();
         }
     }
+    else if ((code == LV_EVENT_REFRESH) && (item != nullptr))
+    {
+        bool *ptr = item->getPtrBool();
+        if (ptr != nullptr)
+        {
+            /* if pointer to bool variable is valid, show it's state */
+            if (*ptr)
+            {
+                lv_obj_add_state(obj, LV_STATE_CHECKED);
+            }
+            else
+            {
+                lv_obj_clear_state(obj, LV_STATE_CHECKED);
+            }
+        }
+
+    }
 }
 
 /**
@@ -260,6 +277,7 @@ void ScreenMenu::draw()
                 lv_obj_add_state(swth, (*ptr) ? LV_STATE_CHECKED : LV_STATE_DEFAULT);
                 lv_obj_add_event_cb(swth, ScreenMenu_switch_cb, LV_EVENT_VALUE_CHANGED, (void *)item); /* assign the switch callback for event value change*/
                 lv_obj_add_event_cb(swth, ScreenMenu_switch_cb, LV_EVENT_KEY, nullptr);                /* assign the switch callback for event key press */
+                lv_obj_add_event_cb(swth, ScreenMenu_switch_cb, LV_EVENT_REFRESH, (void *)item);
             }
             break;
         }
