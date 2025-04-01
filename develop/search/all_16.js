@@ -14,7 +14,7 @@ var searchData=
   ['requests_11',['Pull requests',['../md_Task-Tracker-Device_2CONTRIBUTING.xhtml#autotoc_md17',1,'']]],
   ['res_12',['res',['../namespaceboard_1_1i2c__1_1_1pin.xhtml#a3ec143fc928f14279667dbe678bae9ca',1,'board::i2c_1::pin']]],
   ['responsibilities_13',['Enforcement Responsibilities',['../md_Task-Tracker-Device_2CODE__OF__CONDUCT.xhtml#autotoc_md3',1,'']]],
-  ['right_14',['right',['../namespaceboard_1_1button_1_1pin.xhtml#a0bf8c85e3b207be63acc293d38acba53',1,'board::button::pin::right'],['../KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33da21507b40c80068eda19865706fdc2403',1,'RIGHT:&#160;KeyIds.hpp']]],
+  ['right_14',['right',['../KeyIds_8hpp.xhtml#a251d5d8935f1af4cb86e18f962d9d33da21507b40c80068eda19865706fdc2403',1,'RIGHT:&#160;KeyIds.hpp'],['../namespaceboard_1_1button_1_1pin.xhtml#a0bf8c85e3b207be63acc293d38acba53',1,'board::button::pin::right']]],
   ['root_20directory_20for_20the_20package_20s_20source_20files_15',['DR002 Root Directory for the Package&apos;s source files',['../dr_002.xhtml',1,'']]],
   ['rule_16',['Interpretation of the Dependency Rule',['../software_architecture.xhtml#interpretation_dependency_rule',1,'']]],
   ['rules_17',['rules',['../application_business_rules.xhtml',1,'Application Business Rules'],['../enterprise_business_rules.xhtml',1,'Enterprise Business Rules']]],

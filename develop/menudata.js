@@ -45,6 +45,7 @@ var menudata={children:[
 {text:"r",url:"namespacemembers.xhtml#index_r"},
 {text:"s",url:"namespacemembers.xhtml#index_s"},
 {text:"t",url:"namespacemembers.xhtml#index_t"},
+{text:"v",url:"namespacemembers.xhtml#index_v"},
 {text:"w",url:"namespacemembers.xhtml#index_w"}]},
 {text:"Functions",url:"namespacemembers_func.xhtml"},
 {text:"Variables",url:"namespacemembers_vars.xhtml",children:[
@@ -60,7 +61,8 @@ var menudata={children:[
 {text:"o",url:"namespacemembers_vars.xhtml#index_o"},
 {text:"r",url:"namespacemembers_vars.xhtml#index_r"},
 {text:"s",url:"namespacemembers_vars.xhtml#index_s"},
-{text:"t",url:"namespacemembers_vars.xhtml#index_t"}]},
+{text:"t",url:"namespacemembers_vars.xhtml#index_t"},
+{text:"v",url:"namespacemembers_vars.xhtml#index_v"}]},
 {text:"Typedefs",url:"namespacemembers_type.xhtml"},
 {text:"Enumerations",url:"namespacemembers_enum.xhtml"}]}]},
 {text:"Classes",url:"annotated.xhtml",children:[
@@ -139,7 +141,8 @@ var menudata={children:[
 {text:"o",url:"globals_o.xhtml#index_o"},
 {text:"r",url:"globals_r.xhtml#index_r"},
 {text:"s",url:"globals_s.xhtml#index_s"},
-{text:"t",url:"globals_t.xhtml#index_t"}]},
+{text:"t",url:"globals_t.xhtml#index_t"},
+{text:"v",url:"globals_v.xhtml#index_v"}]},
 {text:"Functions",url:"globals_func.xhtml",children:[
 {text:"a",url:"globals_func.xhtml#index_a"},
 {text:"b",url:"globals_func.xhtml#index_b"},
@@ -168,7 +171,8 @@ var menudata={children:[
 {text:"m",url:"globals_vars.xhtml#index_m"},
 {text:"n",url:"globals_vars.xhtml#index_n"},
 {text:"s",url:"globals_vars.xhtml#index_s"},
-{text:"t",url:"globals_vars.xhtml#index_t"}]},
+{text:"t",url:"globals_vars.xhtml#index_t"},
+{text:"v",url:"globals_vars.xhtml#index_v"}]},
 {text:"Typedefs",url:"globals_type.xhtml"},
 {text:"Enumerations",url:"globals_enum.xhtml"},
 {text:"Macros",url:"globals_defs.xhtml",children:[
