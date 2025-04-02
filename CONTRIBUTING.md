@@ -62,6 +62,9 @@ Please document your code in Doxygen compatible syntax.
 Please format your changes using [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html).
 A style configuration file is given: [`.clang-format`](.clang-format)
 
+Unfortunately the output also depends on the clang-format version.
+The reference version to be used is the one used by the verification scripts ("CI/CD pipeline").
+
 Although the standalone tool `clang-format` may be used, we recommend to integrate the formatting using a [plugin](https://firefox-source-docs.mozilla.org/code-quality/coding-style/format_cpp_code_with_clang-format.html#editor-plugins) for the editor of your choice.
 
 #### Naming convention
