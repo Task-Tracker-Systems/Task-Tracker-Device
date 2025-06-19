@@ -18,6 +18,7 @@
 #include <user_interaction/guiEngine_factory_interface.hpp>
 #include <user_interaction/keypad_factory_interface.hpp>
 #include <user_interaction/statusindicators_factory_interface.hpp>
+#include <version.hpp>
 
 #if ARDUINO_USB_CDC_ON_BOOT == 1
 #define HWSerial Serial0
@@ -59,9 +60,9 @@ void setup()
     delay(3000); // in order to give the serial monitor time to start
     serial_port::initialize();
     serial_port::cout << "\x1b[20h"; // Tell the terminal to use CR/LF for newlines instead of just CR.
-    static constexpr const auto programIdentificationString = __FILE__ " compiled at " __DATE__ " " __TIME__;
-    serial_port::cout << std::endl
-                      << " begin program '" << programIdentificationString << std::endl;
+    serial_port::cout
+        << std::endl
+        << " begin program version '" << vcsId.value_or("unknown") << "'" << std::endl;
     serial_port::setCallbackForLineReception([](const serial_port::String &commandLine) {
         ProtocolHandler::execute(commandLine.c_str());
     });
