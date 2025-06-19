@@ -3,6 +3,7 @@
  */
 
 #include <FS.h>
+#include <cassert>
 #include <chrono>
 #include <esp32-hal-log.h>
 #include <esp_err.h>
@@ -71,7 +72,7 @@ void setup()
     ESP_LOGI(TAG, "Example info");
     ESP_LOGD(TAG, "Example debug");
     ESP_LOGV(TAG, "Example verbose");
-    Storage::begin();
+    assert(Storage::begin());
 }
 
 void loop()
@@ -88,6 +89,10 @@ void loop()
 
     presenter.loop();
 
-    listFiles("/", Storage::getFileSystem_locking());
+    const auto fileSystemHandle = Storage::getFileSystem_locking(3s);
+    if (fileSystemHandle)
+    {
+        listFiles("/", fileSystemHandle.value());
+    }
     std::this_thread::sleep_for(3s);
 }

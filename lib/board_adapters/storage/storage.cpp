@@ -32,16 +32,24 @@ static std::atomic<bool> requestFileSystemActive;
 static std::thread stateMachine;
 static std::mutex fileSystemState_mutex; //!< used to lock the actual state
 static bool fileSystemIsActive;          //!< describes the current state
+static bool storageIsInitialized = false;
 
-std::shared_ptr<fs::FS> Storage::getFileSystem_locking()
+std::optional<std::shared_ptr<fs::FS>> Storage::getFileSystem_locking(const std::chrono::milliseconds rel_time)
 {
+    if (!storageIsInitialized)
+    {
+        return std::nullopt;
+    }
     std::unique_lock fs_state_lock{fileSystemState_mutex};
     if (!fileSystemIsActive)
     {
-        stateChanged.wait(fs_state_lock, []() { return fileSystemIsActive; });
+        if (!stateChanged.wait_for(fs_state_lock, rel_time, []() { return fileSystemIsActive; }))
+        {
+            return std::nullopt;
+        }
     }
     fs_state_lock.release();
-    return {&FFat, [](fs::FS *) { fileSystemState_mutex.unlock(); }};
+    return std::shared_ptr<fs::FS>{&FFat, [](fs::FS *) { fileSystemState_mutex.unlock(); }};
 }
 
 static void requestState(const bool fileSystemActive)
@@ -116,8 +124,12 @@ static bool usbMsc_onStartStop(const std::uint8_t power_condition, const bool st
     return true;
 }
 
-std::size_t Storage::size()
+std::optional<std::size_t> Storage::size()
 {
+    if (!storageIsInitialized)
+    {
+        return std::nullopt;
+    }
     return FFat.totalBytes();
 }
 
@@ -137,13 +149,12 @@ static void usbStartedCallback(void *, esp_event_base_t, int32_t, void *)
     requestState(false);
 }
 
-void Storage::begin()
+bool Storage::begin()
 {
-
     if (!FFat.begin(true))
     {
         ESP_LOGE(TAG, "Failed to init files system, flash may not be formatted");
-        return;
+        return storageIsInitialized = false;
     }
     ESP_LOGI(TAG, "file system initialized");
 
@@ -151,7 +162,7 @@ void Storage::begin()
     if (!partition)
     {
         ESP_LOGE(TAG, "Error with FAT partition");
-        return;
+        return storageIsInitialized = false;
     }
     ESP_LOGI(TAG, "Flash has a size of %u bytes\n", FFat.totalBytes());
 
@@ -175,11 +186,14 @@ void Storage::begin()
     if (!usbMsc.begin(FFat.totalBytes() / blockSize, blockSize))
     {
         ESP_LOGE(TAG, "starting USB MSC failed");
+        return storageIsInitialized = false;
     }
     if (!USB.begin())
     {
         ESP_LOGE(TAG, "starting USB failed");
+        return storageIsInitialized = false;
     }
+    return storageIsInitialized = true;
 }
 
 void Storage::end()

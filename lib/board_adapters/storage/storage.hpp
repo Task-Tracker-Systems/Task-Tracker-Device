@@ -1,6 +1,8 @@
 #pragma once
+#include <chrono>
 #include <cstddef>
 #include <memory>
+#include <optional>
 
 namespace fs
 {
@@ -34,8 +36,9 @@ struct Storage
      * 
      * @post storage may be used afterwards
      * @warning do not call again unless end() was called after before
+     * @retval true in case initialization was successful
      */
-    static void begin();
+    static bool begin();
 
     /**
      * @brief Disengages filesystem and USB
@@ -46,15 +49,16 @@ struct Storage
      * @brief Get locking access to filesystem.
      * 
      * @pre storage must be initialized first
+     * @param maxWaiting maximum time to wait for a USB host device to release access
      * @return smart pointer, locking storage to filesystem until deleted
      */
-    static std::shared_ptr<fs::FS> getFileSystem_locking();
+    static std::optional<std::shared_ptr<fs::FS>> getFileSystem_locking(std::chrono::milliseconds maxWaiting = std::chrono::milliseconds::max());
 
     /**
      * @brief Gets the total size of memory.
      * 
      * @pre storage must be initialized first
-     * @return size in bytes
+     * @return size in bytes if storage is initialized
      */
-    static std::size_t size();
+    static std::optional<std::size_t> size();
 };
